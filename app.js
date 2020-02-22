@@ -49,6 +49,7 @@ app.use(function(err, req, res, next) {
       case 4: res.status(404).render('404/demo4');
         break;
     }
+
   }else res.render('404/error');
 });
 
