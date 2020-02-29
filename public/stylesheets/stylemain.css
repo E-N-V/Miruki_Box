@@ -1,0 +1,228 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+body{
+    background-color: #232742;
+}
+
+/*__________ header __________*/
+
+header{
+    align-items: flex-end;
+    width: 100%;
+    height: 50px;
+    background-color: #4528AC;
+}
+
+header a{
+    float: left;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+}
+
+header img{
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+header p{
+    font-size: 30px;
+    color: white;
+}
+
+header div{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+}
+header span{
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    color: white;
+}
+
+.massages{
+    width: 50px;
+    background-image: url(../../public/images/massages.svg);
+}
+
+.notifications{
+    width: 35px;
+    background-position: 30% 0;
+    background-image: url(../../public/images/notifications.svg);
+}
+
+.right{
+    padding-right: 10px;
+    margin-top: 10px;
+    float: right;
+}
+
+.avatar{
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    float: right;
+    background-image: url(../../public/images/avatar.png);
+    border: 3px solid white;
+    background-size: 150% 150%;
+    background-position: 50% 50%;
+}
+
+/*__________ ножки __________*/
+footer{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    background-color: #4528AC;
+}
+
+footer p{
+    color: white;
+}
+/*__________ сетка __________*/
+.row{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    clear: both;
+    content: '';
+    padding: 0 15px;
+}
+
+.col{
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 1px;
+}
+.col-0{ 
+    width: 0%; 
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.col-1{ width: 8.3333%; }
+.col-2{ width: 16.6666%; }
+.col-3{ width: 25%;  }
+.col-4{ width: 33.3333%; }
+.col-5{ width: 41.6666%; }
+.col-6{ width: 50%; }
+.col-7{ width: 58.3333%; }
+.col-8{ width: 66.6666%; }
+.col-9{ width: 75%; }
+.col-10{ width: 83.3333%; }
+.col-11{ width: 91.6666%; }
+.col-12{ width: 100%; }
+
+@media screen and (min-width: 576px){
+    .col-0-sm{ 
+        width: 0%; 
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-1-sm{ width: 8.3333%; }
+    .col-2-sm{ width: 16.6666%; }
+    .col-3-sm{ width: 25%;  }
+    .col-4-sm{ width: 33.3333%; }
+    .col-5-sm{ width: 41.6666%; }
+    .col-6-sm{ width: 50%; }
+    .col-7-sm{ width: 58.3333%; }
+    .col-8-sm{ width: 66.6666%; }
+    .col-9-sm{ width: 75%; }
+    .col-10-sm{ width: 83.3333%; }
+    .col-11-sm{ width: 91.6666%; }
+    .col-12-sm{ width: 100%; }
+}
+
+@media screen and (min-width: 768px){
+    .col-0-md{ 
+        width: 0%; 
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-1-md{ width: 8.3333%; }
+    .col-2-md{ width: 16.6666%; }
+    .col-3-md{ width: 25%;  }
+    .col-4-md{ width: 33.3333%; }
+    .col-5-md{ width: 41.6666%; }
+    .col-6-md{ width: 50%; }
+    .col-7-md{ width: 58.3333%; }
+    .col-8-md{ width: 66.6666%; }
+    .col-9-md{ width: 75%; }
+    .col-10-md{ width: 83.3333%; }
+    .col-11-md{ width: 91.6666%; }
+    .col-12-md{ width: 100%; }
+}
+
+@media screen and (min-width: 992px){
+    .col-0-lg{ 
+        width: 0%; 
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-1-lg{ width: 8.3333%; }
+    .col-2-lg{ width: 16.6666%; }
+    .col-3-lg{ width: 25%;  }
+    .col-4-lg{ width: 33.3333%; }
+    .col-5-lg{ width: 41.6666%; }
+    .col-6-lg{ width: 50%; }
+    .col-7-lg{ width: 58.3333%; }
+    .col-8-lg{ width: 66.6666%; }
+    .col-9-lg{ width: 75%; }
+    .col-10-lg{ width: 83.3333%; }
+    .col-11-lg{ width: 91.6666%; }
+    .col-12-lg{ width: 100%; }
+}
+
+@media screen and (min-width: 1200px){
+    .col-0-xl{ 
+        width: 0%; 
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-1-xl{ width: 8.3333%; }
+    .col-2-xl{ width: 16.6666%; }
+    .col-3-xl{ width: 25%;  }
+    .col-4-xl{ width: 33.3333%; }
+    .col-5-xl{ width: 41.6666%; }
+    .col-6-xl{ width: 50%; }
+    .col-7-xl{ width: 58.3333%; }
+    .col-8-xl{ width: 66.6666%; }
+    .col-9-xl{ width: 75%; }
+    .col-10-xl{ width: 83.3333%; }
+    .col-11-xl{ width: 91.6666%; }
+    .col-12-xl{ width: 100%; }
+}
+
+@media screen and (min-width: 1600px){
+    .col-0-xxl{ 
+        width: 0%; 
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-1-xxl{ width: 8.3333%; }
+    .col-2-xxl{ width: 16.6666%; }
+    .col-3-xxl{ width: 25%;  }
+    .col-4-xxl{ width: 33.3333%; }
+    .col-5-xxl{ width: 41.6666%; }
+    .col-6-xxl{ width: 50%; }
+    .col-7-xxl{ width: 58.3333%; }
+    .col-8-xxl{ width: 66.6666%; }
+    .col-9-xxl{ width: 75%; }
+    .col-10-xxl{ width: 83.3333%; }
+    .col-11-xxl{ width: 91.6666%; }
+    .col-12-xxl{ width: 100%; }
+}
