@@ -1,0 +1,259 @@
+/*__________ банер __________*/
+
+h1,h2,h3,h4,.mainButton{
+    text-align: center;
+    color: white;
+}
+
+h1{
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 75px;
+}
+h2{
+    font-size: 45px;
+    line-height: 50px;
+}
+
+h3{
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.mainButton{
+    margin: 0 auto;
+    margin-top: 80px;
+    display: table;
+    font-size: 25px;
+    padding: 10px 40px;
+    background-color: blueviolet;
+    box-shadow: 0 0 5px white;
+}
+
+/*__________ блок с картами __________*/
+
+.cardsBlock{
+    background-color: black;
+    margin-top: 100px;
+    width: 100%;
+    height: 300px;
+    
+}
+
+.cards::-webkit-scrollbar-track {
+      background: #f1f1f1;
+}
+
+.cards::-webkit-scrollbar {
+  width: 5px;
+}
+
+.cards::-webkit-scrollbar-track {
+  background: #000;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: #FFF;
+}
+
+.cards::-webkit-scrollbar-thumb:hover {
+  background: #CCC;
+}
+
+h4{
+    padding-top: 15px;
+    font-size: 30px;
+}
+
+.cards{
+    overflow-x: scroll;
+    display: flex;
+    justify-content: center;
+    height: 251px;
+}
+
+.card{
+    margin: 0 15px;
+    margin-top: 25px;
+    width: 250px;
+}
+
+.card img{
+    width: 60px;
+    height: 60px;
+    display: table;
+    margin: 0 auto;
+}
+
+.card h1{
+    margin: 0;
+    text-align: center;
+    font-size: 25px;
+}
+
+.card p{
+    text-align: center;
+    font-size: 15px;
+    color: white;
+}
+
+/*___________ Блок с контентом ___________*/
+
+.storySection{
+    width: 100%;
+    background-color: white;
+}
+.storySection h1{
+    color: black;
+}
+
+.storySection img{
+    margin-top: 60px;
+}
+
+.doubleLine{
+    display: flex;
+}
+
+.doubleLine p{
+    box-sizing: border-box;
+    margin:0 10px;
+    width: 50%;
+    font-size: 25px;
+}
+
+/*__________ 1 секция __________*/
+
+.section_1{
+    padding-bottom: 100px;
+}
+
+.section_1 h1{
+    padding-top: 16px;
+    text-align: right;
+}
+
+.section_1 .doubleLine{
+    padding-top: 40px;
+}
+
+.section_1 p{
+    text-align: justify;
+}
+
+.section_1 img{
+    width: 100%;
+}
+
+/* __________ 2 секция __________*/
+.section_2 img{
+    width: 100%;
+}
+
+.section_2 h1{
+    font-size: 40px;
+    text-align: right;
+}
+
+.section_2 .col{
+    display: flex;
+    align-items: flex-end;
+}
+
+.section_2 li{
+    font-size: 25px;
+}
+.textCont{
+    display: block;
+    padding-bottom: 60px;
+}
+
+/*Адаптивка*/
+@media screen and (max-width: 992px){
+    .section_1 h1{
+        font-size: 50px;
+    }
+    
+    .doubleLine p{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .section_1 h1{
+        font-size: 40px;
+    }
+    .doubleLine p{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 576px){
+
+    header p{
+        display: none;
+    }
+
+    .banner h1{
+        font-size: 50px;
+    }
+
+    .banner h2{
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .banner h3{
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .mainButton{
+        margin-top: 50px;
+        font-size: 15px;
+        padding: 10px;
+    }
+    
+    .cardsBlock{
+        margin-top: 60px;
+        display: block;
+    }
+    .cards{
+        justify-content: flex-start;
+    }
+
+    .row{
+        display: block;
+    }
+
+    .section_1 h1{
+        font-size: 30px;
+    }
+    .doubleLine p{
+        margin: 0;
+        font-size: 15px;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .section_1 img{
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    
+    .section_1{
+        padding-bottom: 10px;
+    }
+
+    .doubleLine{
+        display: block;
+    }
+
+    .cards::-webkit-scrollbar-thumb {
+        background: #000;
+      }
+      
+    .cards::-webkit-scrollbar-thumb:hover {
+        background: #000;
+      }
+}
