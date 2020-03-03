@@ -6,26 +6,26 @@
     <link rel="stylesheet" href="stylesheets/styleMain.css">
     <link rel="stylesheet" href="stylesheets/styleIndex.css">
     <script src="scripts/scriptIndex.js"></script>
-    <title>Miruki Box</title>
+    <title><%= title_page%></title>
 </head>
 <body>
     <header>
-        <a href="index.html">
+        <a href="index">
             <img src="images/ICO.svg" alt="ourLogo">
-            <p>Miruki Box</p>
+            <p><%= title_page%></p>
         </a>
         <div class="avatar">
         </div>
         <a class="right" href="404.html">
             <div class="massages">
-                <span>
+                <span id="message_count">
                     0
                 </span>
             </div>
         </a>
         <a class="right" href="404.html">
             <div class="notifications">
-                <span>
+                <span id="notification_count">
                     0
                 </span>
             </div>

@@ -42,7 +42,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   if (!dev) {
-    let rnd = Math.floor(Math.random()*(5-1)+1);
+    let rnd = Math.floor(Math.random() * ( 5 - 1 ) + 1);
     switch (rnd) {
       case 1: res.status(404).render('404/demo1');
         break;
