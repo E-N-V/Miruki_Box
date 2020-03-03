@@ -9,6 +9,11 @@ body{
     background-color: #232742;
 }
 
+/*__________ a __________*/
+
+a{
+    text-decoration: none;
+}
 /*__________ header __________*/
 
 header{
@@ -97,6 +102,7 @@ footer p{
 .row{
     box-sizing: border-box;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     clear: both;
     content: '';
