@@ -53,13 +53,13 @@ header span{
 
 .massages{
     width: 50px;
-    background-image: url(../../public/images/massages.svg);
+    background-image: url('../images/massages.svg');
 }
 
 .notifications{
     width: 35px;
     background-position: 30% 0;
-    background-image: url(../../public/images/notifications.svg);
+    background-image: url('../images/notifications.svg');
 }
 
 .right{
@@ -75,7 +75,7 @@ header span{
     width: 40px;
     height: 40px;
     float: right;
-    background-image: url(../../public/images/avatar.png);
+    background-image: url('../images/avatar.png');
     border: 3px solid white;
     background-size: 150% 150%;
     background-position: 50% 50%;

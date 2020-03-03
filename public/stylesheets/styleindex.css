@@ -66,6 +66,8 @@ h4{
 }
 
 .cards{
+    justify-content: flex-start;
+    overflow-y: hidden;
     overflow-x: scroll;
     display: flex;
     justify-content: center;
@@ -217,9 +219,6 @@ h4{
     .cardsBlock{
         margin-top: 60px;
         display: block;
-    }
-    .cards{
-        justify-content: flex-start;
     }
 
     .row{
