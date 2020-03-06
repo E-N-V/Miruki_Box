@@ -184,9 +184,13 @@ footer{
         justify-content: center ;
     }
 
-    article,footer{
+    article,footer,header{
         margin: 0px;
         padding: 0px;
+    }
+
+    footer{
+        padding-bottom: 50px;
     }
 
     nav .siteSection span{
