@@ -1,0 +1,101 @@
+
+.mainBanner{
+    background-color: #1d2b46;
+    color: white;
+}
+
+figure{
+    position: relative;
+    background-color: black;
+}
+
+figure img{
+    width:100%;
+    height: auto;
+}
+
+figure figcaption{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+figure figcaption .textBlock{
+width: 80%;
+}
+
+figure figcaption .textBlock h1{
+    color: white;
+    font-size: 60px;
+}
+figure figcaption .textBlock span{
+    color: deeppink;
+}
+
+.subText{
+    font-size: 30px;
+}
+
+figure figcaption button{
+    font-size: 20px;
+    width: 300px;
+    height: 60px;
+    margin-top: 20px;
+    color: white;
+    background-color: blueviolet;
+    border: none;
+}
+
+/*__________ блок с перечислением специальностей __________*/
+.cardsContainer{
+    background-color: black;
+    text-align: center;
+    height: 250px;
+    overflow: hidden;
+}
+
+.cardsContainer h2{
+    color: white;
+    text-align: center;
+}
+
+.cards{
+    justify-content: flex-start;
+    display: flex;
+    padding-top: 25px;
+    background-color: black;
+    color:white;
+}
+
+.cardsFlex{
+    display: inline-block;
+}
+
+@media screen and(min-width:500px){
+
+}
+
+.cards .card{
+    flex-basis: auto;
+    text-align: center;
+    width: 250px;
+    padding:0 10px;
+}
+
+.cards .card img{
+    width: 50px;
+    height: 50px;
+}
+
+.cards .card h3{
+    font-size: 25px;
+}
+
+.cards .card p{
+
+}

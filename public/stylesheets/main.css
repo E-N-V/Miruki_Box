@@ -1,0 +1,160 @@
+/* СТРУКТУРА
+отображение
+позиция
+размер
+отступы
+цвет
+декорирование
+*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*__________ header __________*/
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding-left: 50px;
+    background-color: blueviolet;
+}
+
+.siteLogo{
+    font-family: 'Pacifico', cursive;
+    display: flex;
+    float: left;
+    width: 250px;
+    height: 50px;
+}
+
+.siteLogo img{
+    width: 50px;
+    height: 50px;
+}
+
+.siteLogo span{
+    font-size: 30px;
+    color:white;
+}
+
+.userMenu{
+    display: flex;
+    float: right;
+    align-items: flex-end;
+}
+
+.usersNoteAmount{
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    color: white;
+}
+
+.massages,.notifications{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+}
+
+.massages{
+    width: 50px;
+    background-image: url('images/massages.svg');
+}
+
+.notifications{
+    width: 35px;
+    background-position: 30% 0;
+    background-image: url('images/notifications.svg');
+}
+
+.avatar{
+    margin-left: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    float: right;
+    background-image: url('images/avatar.png');
+    border: 3px solid white;
+    background-size: 150% 150%;
+    background-position: 50% 50%;
+}
+/*__________ nav __________*/
+nav{
+    z-index: 1;
+    position: fixed;
+    transition: 1s;
+    transition-timing-function: ease-in-out;
+    overflow: hidden;
+    width: 50px;
+    height: 100vh;
+    background-color: black;
+}
+
+nav:hover {
+    width: 300px;
+}
+
+nav .siteLogo{
+    width: 250px;
+    height: 50px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
+
+nav .siteLogo img{
+    width: 50px;
+    height: 50px;
+}
+
+nav .siteLogo span{
+    font-size: 30px;
+    color: deeppink;
+}
+.siteSection{
+    white-space: nowrap;
+    display: flex;
+    float: right;
+    clear: both;
+    height: 50px;
+    color: gray;
+}
+
+.siteSection .ico{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    background-color: gray;
+}
+
+.siteSection .ico .siteSection:hover{
+    background-color: deeppink;
+}
+
+.siteSection:hover {
+    color:deeppink;
+}
+/*__________ article __________*/
+article{
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    padding-left: 50px;
+    background-color: #FFF;
+}
+/*__________ footer __________*/
+footer{
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding-left: 50px;
+    background-color: blueviolet;
+}
