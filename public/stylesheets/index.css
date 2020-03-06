@@ -57,7 +57,28 @@ figure figcaption button{
     background-color: black;
     text-align: center;
     height: 250px;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x:scroll;
+}
+
+.cardsContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.cardsContainer::-webkit-scrollbar {
+width: 5px;
+}
+
+.cardsContainer::-webkit-scrollbar-track {
+background: #000;
+}
+
+.cardsContainer::-webkit-scrollbar-thumb {
+background: #FFF;
+}
+
+.cardsContainer::-webkit-scrollbar-thumb:hover {
+background: #CCC;
 }
 
 .cardsContainer h2{
@@ -95,6 +116,17 @@ figure figcaption button{
 
 .cards .card p{
 
+}
+
+
+@media screen and (max-width: 450px){
+    .cards::-webkit-scrollbar-thumb {
+        background: #000;
+      }
+      
+    .cards::-webkit-scrollbar-thumb:hover {
+        background: #000;
+      }
 }
 
 @media screen and (max-width: 890px){
