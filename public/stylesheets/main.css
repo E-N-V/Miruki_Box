@@ -28,7 +28,6 @@ header{
     font-family: 'Pacifico', cursive;
     display: flex;
     float: left;
-    width: 250px;
     height: 50px;
 }
 
@@ -87,6 +86,14 @@ header{
     background-size: 150% 150%;
     background-position: 50% 50%;
 }
+
+@media screen and (max-width: 400px){
+    
+    header .siteLogo span{
+        display: none;
+    }
+}
+
 /*__________ nav __________*/
 nav{
     z-index: 1;
@@ -142,6 +149,7 @@ nav .siteLogo span{
 .siteSection:hover {
     color:deeppink;
 }
+
 /*__________ article __________*/
 article{
     box-sizing: border-box;
@@ -157,4 +165,35 @@ footer{
     height: 50px;
     padding-left: 50px;
     background-color: blueviolet;
+}
+
+@media screen and (max-width: 450px){
+    nav{
+        position: fixed;
+        height: 50px;
+        width: 100%;
+        bottom: 0;
+    }
+
+    nav .siteLogo{
+        display: none;
+    }
+
+    nav{
+        display: flex;
+        justify-content: center ;
+    }
+
+    article,footer{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    nav .siteSection span{
+        display: none;
+    }
+
+    nav .siteSection .ico{
+        margin: 0 20px;
+    }
 }

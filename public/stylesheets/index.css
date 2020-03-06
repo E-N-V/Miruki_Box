@@ -33,6 +33,7 @@ figure figcaption .textBlock h1{
     color: white;
     font-size: 60px;
 }
+
 figure figcaption .textBlock span{
     color: deeppink;
 }
@@ -76,10 +77,6 @@ figure figcaption button{
     display: inline-block;
 }
 
-@media screen and(min-width:500px){
-
-}
-
 .cards .card{
     flex-basis: auto;
     text-align: center;
@@ -99,3 +96,50 @@ figure figcaption button{
 .cards .card p{
 
 }
+
+@media screen and (max-width: 890px){
+    figure figcaption .textBlock h1{
+        font-size: 50px;
+    }
+
+    figure figcaption .textBlock span{
+        font-size: 20px;
+    }
+    
+    figure figcaption .textBlock button{
+        margin-top: 10px;
+        font-size: 15px;
+        height: 25px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    figure figcaption .textBlock h1{
+        font-size: 30px;
+    }
+
+    figure figcaption .textBlock span, figure figcaption .textBlock .subtext {
+        font-size: 15px;
+    }
+    
+    figure figcaption .textBlock button{
+        margin-top: 10px;
+        font-size: 15px;
+        height: 25px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    
+    figure{
+        overflow: hidden;
+    }
+
+    figure img{
+        width: auto;
+        height: 250px;
+        margin-left: -50%;
+    }
+}
+
+
