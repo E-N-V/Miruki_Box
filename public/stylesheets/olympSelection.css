@@ -1,0 +1,81 @@
+section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+figure{
+    display: block;
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    background-color: dodgerblue;
+}
+
+.olympCategory{
+    display: flex;
+    clear: both;
+    height: 60px;
+    width: 100%;
+}
+
+.olympCategory img{
+    width: 50px;
+    height: 50px;
+    padding:5px;
+}
+
+.olympCategory span{
+    display: inline-block;
+    padding: 5px;
+    color: white;
+}
+
+.olympsCantainer{
+    width: 100%;
+}
+
+
+.olympsCantainer .olymp{
+    box-sizing: border-box;
+    display: flex;
+    clear: both;
+    background-color: rgba(000, 000, 000, 0.2);
+    border-color: white;
+    border-style: solid;
+    border-width: 0 2px 0 0;
+    height: 0;
+    transition: 1s;
+}
+
+.olympsCantainer .olymp span{
+    overflow-x: hidden;
+    color: white;
+    display: inline-block;
+    width: calc(100% - 95px);
+    padding: 5px;
+    border-color: white;
+    border-style: solid;
+    border-width: 0 0 0 2px;
+    /*transition: 0.5s;
+    box-sizing: border-box;
+    height: 0px;
+    padding-top: 0;
+    padding-bottom: 0;*/
+}
+/*
+figure:hover .olympsCantainer .olymp span{
+    height: 28px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+*/
+.olympsCantainer .olymp .olympDate{
+    width: 95px;
+}
+
+@media screen and (max-width: 450px){
+    figure{
+        width: 100%;
+    }
+}
