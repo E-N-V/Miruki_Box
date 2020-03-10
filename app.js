@@ -3,13 +3,13 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-var nodeAdmin = require('node-mysql-admin');
 const dev = false;
 
 //Routes
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const testRouter = require('./routes/test');
+const adminDBRouter = require('./routes/adminDBRouter');
 
 const app = express();
 
@@ -29,7 +29,7 @@ app.use('/index.html', indexRouter);
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter);
-app.use('/dbAdmin', nodeAdmin(app));
+app.use('/dbAdmin', adminDBRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

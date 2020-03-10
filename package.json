@@ -1,6 +1,6 @@
 {
-  "name": "www",
-  "version": "0.0.0",
+  "name": "miruki-box",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -10,8 +10,10 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-admin": "^1.4.3",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "node-mysql-admin": "^0.1.8"
+    "orm": "^5.0.5",
+    "pg-promise": "^10.4.4"
   }
 }
