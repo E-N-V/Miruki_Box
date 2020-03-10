@@ -28,8 +28,8 @@ app.use('/', indexRouter);
 app.use('/index.html', indexRouter);
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
-app.use('/test', testRouter);
-app.use('/dbAdmin', adminDBRouter)
+app.use('/tests', testRouter);
+app.use('/dbAdmin', adminDBRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

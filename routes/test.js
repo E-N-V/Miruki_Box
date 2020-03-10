@@ -6,11 +6,12 @@ router.get('/', function(req, res, next) {
     res.render('allTests', {
         'title': 'Тестирование'
     })
-});/*
-router.get('/create_test', function(req, res, next) {
-    res.render('testCreation', {
-        'title': 'Создание теста'
-    })
-});*/
+});
+router.get('/create', function (req,res,next) {
+    res.render('olympConstructor.ejs')
+});
+router.get('/create/fix', function (req,res,next) {
+    res.render('fixOlymp.ejs')
+});
 
 module.exports = router;

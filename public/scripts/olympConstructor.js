@@ -1,12 +1,11 @@
 function scanDoc(){
 var inputs = document.getElementsByClassName('input');
     for(let scan = 0; scan < inputs.length; scan-=-1){
-        inputs[scan].addEventListener('keyup', log)      
+        inputs[scan].addEventListener('keyup', log);
         function log(){
             var s = inputs[scan].value;
-            inputs[scan].value = inputs[scan].value 
             console.clear();
-            s == ''? false : console.log('key press! Now', s);
+            s === ''? false : console.log('key press! Now', s);
         }
     }
 }
@@ -62,7 +61,7 @@ window.onload = function lol(){
     for(let i = 0; i < questMode.length; i-=-1){
         questMode[i].onclick = () => {
             //один ответ
-            if(questMode[i].id == 'radio'){
+            if(questMode[i].id === 'radio'){
                 question[tyChort].innerHTML =`
                     <button class="goBack controls"><</button>
                     <textarea name="" id="testArea" cols="30" rows="10"></textarea>
@@ -89,7 +88,7 @@ window.onload = function lol(){
 
                 //плюсы
                 butHole()
-            }else if(questMode[i].id == 'checkbox'){
+            }else if(questMode[i].id === 'checkbox'){
                 //не один ответ
                 question[tyChort].innerHTML =`
                     <button class="goBack controls"><</button>
@@ -107,7 +106,7 @@ window.onload = function lol(){
                 scanDoc()
                 //плюсы
                 butHole();
-            }else if(questMode[i].id == 'textbox'){
+            }else if(questMode[i].id === 'textbox'){
                 //письменный ответ
                 question[tyChort].innerHTML =`
                     <button class="goBack controls"><</button>
@@ -144,7 +143,7 @@ window.onload = function lol(){
         redacAre[0].innerHTML += `
             <div class="question">
                 <h2>Выбирете тип вопроса:</h2>
-                <button class="questMode" id="radio" function=""><img src="../../public/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
+                <button class="questMode" id="radio"><img src="../../public/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
                 <button class="questMode" id="checkbox"><img src="../../public/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
                 <button class="questMode" id="textbox"><img src="../../public/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
             </div>
