@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/stylesheets/main.css">
+    <link rel="stylesheet" href="../../public/stylesheets/olympConstructor.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto+Condensed:300,300i,400,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <script src="../../public/scripts/olympConstructor.js"></script> 
+    <title>Затычка</title>
+</head>
+<body>
+    <nav>
+        <div class="siteLogo">
+            <img src="../../public/images/logover1yellow.svg" alt="">
+            <span>MirukiBox</span>
+        </div>
+        <div class="siteSection">
+            <span>Главная</span>
+            <div class="ico"></div>
+        </div>
+        <!--TODO: Добавить ссылку на гланую-->
+        <div class="siteSection">
+            <span>Олимпиады</span>
+            <div class="ico"></div>
+        </div>
+        <div class="siteSection">
+            <span>Администрирование олимпиад</span>
+            <div class="ico"></div>
+        </div>
+    </nav>
+    
+    <header>
+        <div class="siteLogo">
+            <img src="../../public/images/logover1black.svg" alt="">
+            <span>MirukiBox</span>
+        </div>
+        <div class="userMenu">
+            <div class="massages">
+                <span class="usersNoteAmount"> 0 </span>
+            </div>
+            <div class="notifications">
+                <span class="usersNoteAmount"> 0 </span>
+            </div>
+            <div class="avatar">
+            </div>
+        </div>
+    </header>
+        <article>
+            <section class="redactor">
+                <div class="redactorArea">
+                    <div class="question">
+                        <h2>Выбирете тип вопроса:</h2>
+                        <button class="questMode" id="radio" function=""><img src="../../public/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
+                        <button class="questMode" id="checkbox"><img src="../../public/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
+                        <button class="questMode" id="textbox"><img src="../../public/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+                    </div>
+                </div>
+                <div class="redactorButtons">
+                    <button id="test">Cancel</button>
+                    <button>Submit</button>
+                </div>
+            </section>
+            <section class="questContainer">
+                <div class="questions">
+                    <div class="questionsScroll"></div>
+                    <div class="questBlock" style="background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);"><span>ВОПРОС НАМБА</span><span class="JOPA">1</span></div>
+                </div>
+                <div class="questCreate"><span>+</span></div>
+            </section>
+        </article>
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,119 @@
+article{
+    background-color: black;
+    display: flex;
+}
+
+.redactor{
+    box-sizing: border-box;
+    width: calc(100% - 250px);
+    height: calc(100vh - 100px);
+    padding: 0 15px 0 0;
+}
+
+.redactor .redactorArea{
+    width: 100%;
+    height: calc(100vh - 205px);
+    background-color: white;
+}
+
+.redactor .redactorArea .questMode{
+    margin: 10px 0 0 10px;
+    display: block;
+    font-size: 25px;
+    padding: 8px 10px;
+    background: none;
+    color: lightgray;
+    border: none;
+    clear: both;
+}
+
+.redactor .redactorArea .questMode:hover{
+    display: block;
+    font-size: 25px;
+    padding: 8px 10px;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 0 0 5px 0px rgba(000,000,000,0.2);
+    color: black;
+    border: none;
+    clear: both;
+}
+
+.redactor .redactorArea button img{
+    width: 50px;
+    height: 50px;
+}
+.question{
+    padding: 20px;
+}
+
+.redactor .redactorArea .controls{
+    display: block;
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    margin: 5px 0;
+    background-color: blueviolet;
+    box-shadow: 0 0 5px 0px black;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+
+.redactor .redactorArea .answer{
+    display: flex;
+    align-items: center;
+}
+
+.redactor .redactorArea .answer span{
+    font-size: 25px;
+    margin-right: 10px;
+    width: 20px;
+}
+
+.redactor .redactorArea .answer input{
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.redactor .redactorButtons{
+    display: table;
+    float: right;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: white;
+}
+
+.redactor .redactorButtons button{
+    margin: 5px;
+    font-size: 25px;
+    padding: 8px 10px;
+    background-color: blueviolet;
+    box-shadow: 0 0 5px 0px black;
+    color: white;
+    border: none;
+}
+
+.questContainer{
+    overflow-y: scroll;
+    width: 250px;
+    height: calc(100vh - 100px);
+    background-color: white;
+}
+
+
+.questions .questBlock, .questCreate{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:90%;
+    height:100px;
+    margin: 0 auto;
+    margin-top: 5%;
+    background-color: blueviolet;
+    box-shadow: 0 0 10px 0 black;
+}
+
+.questCreate{
+    font-size: 120px;
+}
