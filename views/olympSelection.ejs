@@ -8,38 +8,30 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto+Condensed:300,300i,400,700&display=swap&subset=cyrillic" rel="stylesheet">
     <script src="scripts/olympSelection.js"></script>
     <title>Затычка</title>
+    <script src="/scripts/main.js"></script>
 </head>
 <body>
-    <nav>
+    <div id="preLoader"></div>
+    <a href="#header"><div class="blickDagger"></div></a>
+    <header id="header">
         <div class="siteLogo">
             <a href="/">
-                <img src="images/logover1yellow.svg" alt="">
+                <img src="images/logover2purple.svg" alt="">
                 <span>MirukiBox</span>
             </a>
         </div>
-        <div class="siteSection">
-            <a href="/">
-                <span>Главная</span>
-                <div class="ico"></div>
+        <nav class="nav-zatychka">
+            <a href="/olympList">
+                <span>
+                    Олимпиады
+                </span>
             </a>
-        </div>
-        <div class="siteSection">
-            <a href="/"><span>Олимпиады</span></a>
-            <div class="ico"></div>
-        </div>
-        <div class="siteSection">
-            <a href="olympList/create"><span>Администрирование олимпиад</span></a>
-            <div class="ico"></div>
-        </div>
-    </nav>
-    
-    <header>
-        <div class="siteLogo">
-            <a href="/">
-            <img src="images/logover1black.svg" alt="">
-            <span>MirukiBox</span>
+            <a href="/about">
+                <span>
+                    О нас
+                </span>
             </a>
-        </div>
+        </nav>
         <div class="userMenu">
             <div class="massages">
                 <span class="usersNoteAmount"> 0 </span>
@@ -48,6 +40,25 @@
                 <span class="usersNoteAmount"> 0 </span>
             </div>
             <div class="avatar">
+            </div>
+            <div class="nav-main" onclick="navOpen()">
+            </div>
+            <div class="nav-content">
+                <a href="/">
+                <span>
+                    Главная
+                </span>
+                </a>
+                <a href="/olympList">
+                <span>
+                    Олимпиады
+                </span>
+                </a>
+                <a href="/about">
+                <span>
+                    О нас
+                </span>
+                </a>
             </div>
         </div>
     </header>

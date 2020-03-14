@@ -9,11 +9,7 @@
 *{
     margin: 0;
     padding: 0;
-}
-
-/*__________ header __________*/
-html{
-    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
 }
 
 #preLoader{
@@ -22,6 +18,11 @@ html{
     height: 100vh;
     background-color: black;
     z-index: 2;
+}
+
+/*__________ header __________*/
+html{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header{
@@ -33,19 +34,24 @@ header{
 
 .siteLogo{
     font-family: 'Pacifico', cursive;
-    display: flex;
     float: left;
+    margin-left: 15px;
+}
+
+.siteLogo a{
+    display: flex;
     height: 50px;
 }
 
-.siteLogo img{
+.siteLogo a img{
     width: 50px;
     height: 50px;
 }
 
-.siteLogo span{
+.siteLogo a span{
     font-size: 30px;
     color:white;
+    margin-bottom: 5px
 }
 
 .userMenu{
@@ -106,8 +112,8 @@ header{
     .blickDagger{
         position: fixed;
         z-index: 1;
-        height: 5em;
-        width: 5em;
+        height: 2.5em;
+        width: 2.5em;
         bottom: 20px;
         right: 20px;
         background-color: blueviolet;
@@ -115,10 +121,12 @@ header{
     }
 
     .nav-zatychka{
+        box-sizing: border-box;
         float: left;
         height: 100%;
         display: flex;
         align-items: flex-end;
+        padding-bottom: 5px;
     }
     
     .nav-zatychka span{
@@ -126,6 +134,10 @@ header{
         padding-left: 20px;
         color: white;
         font-size: 25px;
+    }
+    
+    .nav-zatychka span:hover{
+        color: rgb(134, 134, 255);
     }
 
     .nav-main{
@@ -138,28 +150,27 @@ header{
     }
 
     .nav-content{
+        display: none;
+        flex-wrap: wrap;
         z-index:1;
         position: absolute;
+        width: 100%;
         top: 50px;
         right: 0;
         background-color: white;
     }
 
-    .nav-content .nav-section{
-        display: flex;
-    }
-    
-    .nav-content .nav-section img{
-        display: flex;
+    .nav-content a{
+        width: 100%;
     }
 
-    .nav-content .nav-section span{
+    .nav-content a span{
+        box-sizing: border-box;
+        clear: both;
         display: block;
         padding: 10px;
-        color: black;
-        margin: 0;
     }
-
+    
     @media (max-width: 610px){
         .nav-zatychka{
             display: none;

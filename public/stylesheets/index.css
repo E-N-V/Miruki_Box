@@ -114,11 +114,6 @@ background: #CCC;
     font-size: 25px;
 }
 
-.cards .card p{
-
-}
-
-
 @media screen and (max-width: 450px){
     .cards::-webkit-scrollbar-thumb {
         background: #000;

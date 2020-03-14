@@ -4,5 +4,6 @@ window.onload = () =>{
 
 function navOpen(){
     let menuButton = document.getElementsByClassName('nav-main');
-    menuButton[0].style.backgroundColor = 'red';
+    let menuContent = document.getElementsByClassName('nav-content');
+    menuContent[0].style.display = 'flex'
 }
