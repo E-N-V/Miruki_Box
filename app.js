@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const testRouter = require('./routes/test');
 const adminDBRouter = require('./routes/adminDBRouter');
+const certificateRouter = require('./routes/certificateRouter');
 
 const app = express();
 
@@ -25,11 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Middleware
 app.use('/', indexRouter);
-app.use('/index.html', indexRouter);
-app.use('/index', indexRouter);
 app.use('/users', usersRouter);
-app.use('/tests', testRouter);
+app.use('/olympList', testRouter);
 app.use('/dbAdmin', adminDBRouter);
+app.use('/certificate', certificateRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
