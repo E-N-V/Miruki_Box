@@ -112,8 +112,8 @@ header{
     .blickDagger{
         position: fixed;
         z-index: 1;
-        height: 2.5em;
-        width: 2.5em;
+        height: 4em;
+        width: 4em;
         bottom: 20px;
         right: 20px;
         background-color: blueviolet;
@@ -171,7 +171,12 @@ header{
         padding: 10px;
     }
     
-    @media (max-width: 610px){
+    @media (max-width: 640px){
+        .blickDagger{
+            height: 2.5em;
+            width: 2.5em;
+        }
+
         .nav-zatychka{
             display: none;
         }

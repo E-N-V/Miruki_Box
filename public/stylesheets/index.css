@@ -1,48 +1,35 @@
-
-.mainBanner{
-    background-color: #1d2b46;
-    color: white;
-}
-
-figure{
-    position: relative;
-    background-color: black;
-}
-
-figure img{
-    width:100%;
-    height: auto;
-}
-
-figure figcaption{
+.banner{
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: 80vh;
+    min-height: 360px;
+    background-image: url("/images/затычка.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
-figure figcaption .textBlock{
+.banner .textBlock{
 width: 80%;
 }
 
-figure figcaption .textBlock h1{
+.banner .textBlock h1{
     color: white;
     font-size: 60px;
 }
 
-figure figcaption .textBlock span{
+.banner .textBlock span{
     color: deeppink;
+    width: 100%;
 }
 
 .subText{
     font-size: 30px;
 }
 
-figure figcaption button{
+.banner button{
     font-size: 20px;
     width: 300px;
     height: 60px;
@@ -115,7 +102,21 @@ background: #CCC;
     font-size: 25px;
 }
 
-@media screen and (max-width: 450px){
+@media (max-width: 450px){
+    .banner .textBlock h1{
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .banner .textBlock span{
+        text-align: center;
+        color: deeppink;
+    }
+    
+    .subText{
+        font-size: 30px;
+    }
+
     .cards::-webkit-scrollbar-thumb {
         background: #000;
       }
@@ -123,8 +124,9 @@ background: #CCC;
     .cards::-webkit-scrollbar-thumb:hover {
         background: #000;
       }
+    
 }
-
+/*
 @media screen and (max-width: 890px){
     figure figcaption .textBlock h1{
         font-size: 50px;
@@ -169,5 +171,5 @@ background: #CCC;
         margin-left: -50%;
     }
 }
-
+*/
 
