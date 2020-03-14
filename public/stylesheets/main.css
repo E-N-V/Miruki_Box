@@ -16,11 +16,18 @@ html{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#preLoader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    z-index: 2;
+}
+
 header{
     box-sizing: border-box;
     width: 100%;
     height: 50px;
-    padding-left: 50px;
     background-color: blueviolet;
 }
 
@@ -44,7 +51,8 @@ header{
 .userMenu{
     display: flex;
     float: right;
-    align-items: flex-end;
+    align-items: center;
+    height: 100%;
 }
 
 .usersNoteAmount{
@@ -55,6 +63,7 @@ header{
 }
 
 .massages,.notifications{
+    margin-top: 10px;
     position: relative;
     width: 40px;
     height: 40px;
@@ -76,7 +85,6 @@ header{
 .avatar{
     margin-left: 5px;
     box-sizing: border-box;
-    margin-top: 5px;
     margin-right: 15px;
     width: 40px;
     height: 40px;
@@ -95,109 +103,65 @@ header{
 }
 
 /*__________ nav __________*/
-nav{
-    z-index: 1;
-    position: fixed;
-    transition: 1s;
-    transition-timing-function: ease-in-out;
-    overflow: hidden;
-    width: 50px;
-    height: 100vh;
-    background-color: black;
-}
+    .blickDagger{
+        position: fixed;
+        z-index: 1;
+        height: 5em;
+        width: 5em;
+        bottom: 20px;
+        right: 20px;
+        background-color: blueviolet;
+        border-radius: 100%;
+    }
 
-nav:hover {
-    width: 300px;
-}
+    .nav-zatychka{
+        float: left;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+    
+    nav span{
+        padding: 5px 0;
+        padding-left: 20px;
+        color: white;
+        font-size: 25px;
+    }
 
-nav .siteLogo{
-    width: 250px;
-    height: 50px;
-    margin-left: 50px;
-    margin-bottom: 10px;
-}
+    .nav-main{
+        margin-right: 15px;
+        box-sizing: border-box;
+        display: none;
+        height: 40px;
+        width: 40px;
+        border: 4px solid white;
+    }
 
-nav .siteLogo img{
-    width: 50px;
-    height: 50px;
-}
+    @media (max-width: 610px){
+        .nav-zatychka{
+            display: none;
+        }
 
-nav .siteLogo span{
-    font-size: 30px;
-    color: deeppink;
-}
-.siteSection{
-    white-space: nowrap;
-    display: flex;
-    float: right;
-    clear: both;
-    height: 50px;
-    color: gray;
-}
+        .nav-main{
+            display: block;
+        }
 
-.siteSection .ico{
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-    background-color: gray;
-}
-
-.siteSection .ico .siteSection:hover{
-    background-color: deeppink;
-}
-
-.siteSection:hover {
-    color:deeppink;
-}
-
+        .avatar{
+            margin-right: 10px;
+        }
+    }
 /*__________ article __________*/
 article{
     box-sizing: border-box;
     width: 100%;
     min-height: calc(100vh - 100px);
-    padding-left: 50px;
     background-color: #FFF;
 }
 /*__________ footer __________*/
 footer{
+    color: white;
     box-sizing: border-box;
     width: 100%;
     height: 50px;
-    padding-left: 50px;
-    background-color: blueviolet;
-}
-
-@media screen and (max-width: 450px){
-    nav{
-        position: fixed;
-        height: 50px;
-        width: 100%;
-        bottom: 0;
-    }
-
-    nav .siteLogo{
-        display: none;
-    }
-
-    nav{
-        display: flex;
-        justify-content: center ;
-    }
-
-    article,footer,header{
-        margin: 0px;
-        padding: 0px;
-    }
-
-    footer{
-        height:100px;
-    }
-
-    nav .siteSection span{
-        display: none;
-    }
-
-    nav .siteSection .ico{
-        margin: 0 20px;
-    }
+    background-color: black;
 }

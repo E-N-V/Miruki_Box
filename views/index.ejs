@@ -7,32 +7,20 @@
     <link rel="stylesheet" href="stylesheets/index.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto+Condensed:300,300i,400,700&display=swap&subset=cyrillic" rel="stylesheet"> 
     <title><%= title_page%></title>
+    <script src="/scripts/main.js"></script>
 </head>
 <body>
-    <nav>
+    <div id="preLoader"></div>
+    <a href="#header"><div class="blickDagger"></div></a>
+    <header id="header">
         <div class="siteLogo">
-            <img src="images/logover1yellow.svg" alt="">
+            <img src="images/logover2purple.svg" alt="">
             <span>MirukiBox</span>
         </div>
-        <div class="siteSection">
-            <span>Главная</span>
-            <div class="ico"></div>
-        </div>
-        <div class="siteSection">
+        <nav class="nav-zatychka">
             <span>Олимпиады</span>
-            <div class="ico"></div>
-        </div>
-        <div class="siteSection">
-            <span>Администрирование олимпиад</span>
-            <div class="ico"></div>
-        </div>
-    </nav>
-
-    <header>
-        <div class="siteLogo">
-            <img src="images/logover1black.svg" alt="">
-            <span>MirukiBox</span>
-        </div>
+            <span>О нас</span>
+        </nav>
         <div class="userMenu">
             <div class="massages">
                 <span class="usersNoteAmount"> 0 </span>
@@ -41,6 +29,9 @@
                 <span class="usersNoteAmount"> 0 </span>
             </div>
             <div class="avatar">
+            </div>
+            <div class="nav-main" onclick="navOpen()">
+
             </div>
         </div>
     </header>
@@ -87,7 +78,6 @@
         </section>
 
         <section>
-
         </section>
     </article>
 

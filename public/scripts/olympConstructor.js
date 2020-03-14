@@ -118,9 +118,9 @@ window.onload = function lol(){
             goBack[0].onclick = () =>{
                 question[tyChort].innerHTML = `
                     <h2>Выбирете тип вопроса:</h2>
-                        <button class="questMode" id="radio"><img src="../../public/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
-                        <button class="questMode" id="checkbox"><img src="../../public/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
-                       <button class="questMode" id="textbox"><img src="../../public/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+                        <button class="questMode" id="radio"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
+                        <button class="questMode" id="checkbox"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
+                       <button class="questMode" id="textbox"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
                 `;
                 lol();
             }
@@ -143,9 +143,9 @@ window.onload = function lol(){
         redacAre[0].innerHTML += `
             <div class="question">
                 <h2>Выбирете тип вопроса:</h2>
-                <button class="questMode" id="radio"><img src="../../public/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
-                <button class="questMode" id="checkbox"><img src="../../public/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
-                <button class="questMode" id="textbox"><img src="../../public/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+                <button class="questMode" id="radio"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
+                <button class="questMode" id="checkbox"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
+                <button class="questMode" id="textbox"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
             </div>
         `
         let questBlock = document.getElementsByClassName('questBlock'); 
