@@ -81,7 +81,8 @@ background: #FFF;
 background: #CCC;
 }
 
-.cardsContainer h2{
+.cards-label{
+    background-color: black;
     color: white;
     text-align: center;
 }
