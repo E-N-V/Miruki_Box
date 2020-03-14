@@ -9,7 +9,6 @@ const dev = false;
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const testRouter = require('./routes/test');
-const adminDBRouter = require('./routes/adminDBRouter');
 const certificateRouter = require('./routes/certificateRouter');
 
 const app = express();
@@ -28,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/olympList', testRouter);
-app.use('/dbAdmin', adminDBRouter);
 app.use('/certificate', certificateRouter);
 
 // catch 404 and forward to error handler
