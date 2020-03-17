@@ -66,10 +66,10 @@
 
 <article>
     <section class="redactor">
-        <div class="redactorArea">
+        <div class="redactorArea" id="redactorArea">
             <div class="question">
                 <h2>Выбирете тип вопроса:</h2>
-                <button class="questMode" id="radio"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
+                <button class="questMode" id="radio" onclick="reDraw(document.getElementById('redactorArea'))"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
                 <button class="questMode" id="checkbox"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
                 <button class="questMode" id="textbox"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
             </div>
