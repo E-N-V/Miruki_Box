@@ -65,27 +65,29 @@
     </header>
 
 <article>
-    <section class="redactor">
-        <div class="redactorArea" id="redactorArea">
-            <div class="question">
-                <h2>Выбирете тип вопроса:</h2>
-                <button class="questMode" id="radio" onclick="reDraw(document.getElementById('redactorArea'))"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
-                <button class="questMode" id="checkbox"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
-                <button class="questMode" id="textbox"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+<!--    <form action="/tests/olymp/" method="post">-->
+        <section class="redactor">
+            <div class="redactorArea" id="redactorArea">
+                <div class="question" id="question">
+                    <h2>Выбирете тип вопроса:</h2>
+                    <button class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
+                    <button class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
+                    <button class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+                </div>
             </div>
-        </div>
-        <div class="redactorButtons">
-            <button id="test">Cancel</button>
-            <button>Submit</button>
-        </div>
-    </section>
-    <section class="questContainer">
-        <div class="questions">
-            <div class="questionsScroll"></div>
-            <div class="questBlock" style="background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);"><span>ВОПРОС НАМБА</span><span class="JOPA">1</span></div>
-        </div>
-        <div class="questCreate"><span>+</span></div>
-    </section>
+            <div class="redactorButtons">
+                <button type="reset">Cancel</button>
+                <button type="submit">Submit</button>
+            </div>
+        </section>
+        <section class="questContainer">
+            <div class="questions">
+                <div class="questionsScroll"></div>
+                <div class="questBlock" style="background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);"><span>ВОПРОС НАМБА</span><span class="JOPA">1</span></div>
+            </div>
+            <div id="questCreate"><span>+</span></div>
+        </section>
+<!--    </form>-->
 </article>
 <footer id="diiv"></footer>
 </body>
