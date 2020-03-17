@@ -1,0 +1,134 @@
+body{
+    background-color: black;
+}
+
+article{
+    width:90%;
+    margin-left: 5%;
+    background-color: rgba(000, 000, 000, 0);
+}
+
+.olymp-head{
+    display: flex;
+    background-color: black;
+    color: white;
+}
+
+.olymp-head{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+}
+
+.olymp-head img{
+    width: 100px;
+}
+
+.olymp-head h1{
+    margin-left: 20px;
+    font-size: 45px;
+}
+
+.olymp-flex{
+    display: flex;
+    width: 100%;
+}
+
+.olymp-flex .olymp-body{
+    flex-grow: 4;
+}
+
+.olymp-flex .olymp-body .olymp-question{
+    padding: 10px;
+    background-color: white;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.olymp-flex .olymp-body .olymp-question h2{
+    font-size: 20px;
+}
+
+.olymp-flex .olymp-body .olymp-question h3{
+    font-size: 30px;
+}
+
+.olymp-flex .olymp-body .olymp-question img{
+    max-width: 100%;
+    max-height: 50vh;
+}
+
+.olymp-flex .olymp-body .olymp-answers{
+    box-sizing: border-box;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: white;
+}
+
+.olymp-flex .olymp-body .olymp-answers ul{
+    list-style: none;
+}
+
+.olymp-flex .olymp-body .olymp-answers ul li{
+    font-size: 25px;
+}
+
+.olymp-flex .olymp-body .olymp-answers ul li span{
+    font-weight: bold;
+}
+
+.olymp-flex .olymp-body .olymp-answers ul li input{
+    height: 25px;
+    width: 25px;
+}
+
+.olymp-flex .olymp-nav{
+    box-sizing: border-box;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 10%;
+    flex-grow: 1;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+.olymp-flex .olymp-nav span{
+    color: white;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 5px solid white;
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    background-color: blueviolet;
+    text-align: center;
+    vertical-align: middle;
+}
+
+@media (max-width: 900px){
+    .olymp-flex .olymp-nav span{
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px){
+    .olymp-flex .olymp-nav{
+        width: 15%;
+    }
+}
+
+@media (max-width: 650px){
+    .olymp-flex .olymp-nav{
+        width: 30%;
+    }
+}
+
+@media (max-width: 460px){
+    .olymp-flex .olymp-nav{
+        width: 50%;
+    }
+}
