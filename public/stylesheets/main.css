@@ -43,6 +43,10 @@
     text-decoration: none;
 }
 
+*:focus{
+    outline: none;
+}
+
 #preLoader{
     position: fixed;
     width: 100%;

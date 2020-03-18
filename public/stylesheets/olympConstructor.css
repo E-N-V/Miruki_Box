@@ -49,6 +49,7 @@ article{
 }
 
 .redactor .redactorArea .question textarea{
+    border-radius: 0;
     font-size: 20px;
     height: 120px;
     resize: none;
@@ -60,6 +61,7 @@ article{
 }
 
 .redactor .redactorArea .question .oneAnswer{
+    border-radius: 0;
     border: black solid;
     border-width: 0 0 2px 0;
     font-size: 20px;
@@ -90,6 +92,7 @@ article{
 }
 
 .redactor .redactorArea .question .answer input{
+    border-radius: 0;
     max-width: 50%;
     font-size: 25px;
     margin-right: 10px;
@@ -137,6 +140,7 @@ article{
 
 .questCreate{
     font-size: 120px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 @media (max-width:450px){
@@ -146,5 +150,34 @@ article{
 
     .redactor{
         width: calc(100% - 100px);
+    }
+
+    .redactor .redactorArea .questMode{
+        font-size: 10px;
+        color: black;
+    }
+
+    .redactor .redactorButtons button{
+        font-size: 15px;
+    }
+
+    .questions .questBlock, .questCreate{
+        box-sizing: border-box;
+        height: 80px;
+        padding: 5px;
+    }
+
+    .questCreate{
+        font-size: 40px ;
+    }
+
+    .questions .questBlock span{
+        width: 70%;
+        
+    }
+
+    .questions .questBlock .JOPA{
+        margin-left: 5px;
+        width: 20%;
     }
 }
