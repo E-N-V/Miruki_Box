@@ -6,6 +6,12 @@
 цвет
 декорирование
 */
+
+@font-face {
+    font-family: Pompadur; /* Имя шрифта */
+    src: url(fonts/pompadur.ttf); /* Путь к файлу со шрифтом */
+   }
+
 *{
     margin: 0;
     padding: 0;
