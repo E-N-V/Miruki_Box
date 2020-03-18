@@ -69,7 +69,7 @@ function AddAnswer(block, mode){
             <span>a)</span>
             <input type="text" name="" id="text" class="input">
             <div class="radio"></div>
-            <button class="controls delete" onclick="delAnswer(document.getElementsByClassName('answer')[document.getElementsByClassName('answer').length - 1])">-</button>
+            <button class="controls delete" onclick="delAnswer(document.getElementsByClassName('answer')[1])">-</button>
             `;
             block.append(div);
             break;
@@ -77,11 +77,21 @@ function AddAnswer(block, mode){
 }
 
 function delAnswer(block) {
-    block.shift(block);
+    block.remove();
 }
 
-function AddQuestion(){
-
+function AddQuestion(block){
+    block.style.display = none;
+    const div = document.createElement('div');
+    div.class = "question";
+    div.id="question";
+    div.innerHTML = `
+       <h2>Выбирете тип вопроса:</h2>
+    <button class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
+    <button class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
+    <button class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+    `;
+    document.getElementsByClassName('question')[document.getElementsByClassName('question').lenght].append(div);
 }
 
 function goBack(block) {
