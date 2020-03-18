@@ -52,6 +52,8 @@ width: 80%;
 
 /*__________ блок с перечислением специальностей __________*/
 .cardsContainer{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
     background-color: black;
     text-align: center;
     height: 250px;
@@ -80,6 +82,7 @@ background: #CCC;
 }
 
 .cards-label{
+    font-family: Roboto-bold ,Arial, Helvetica, sans-serif;
     background-color: black;
     color: white;
     text-align: center;
@@ -110,6 +113,7 @@ background: #CCC;
 }
 
 .cards .card h3{
+    letter-spacing: 2px;
     font-size: 25px;
 }
 
