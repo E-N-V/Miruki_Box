@@ -70,9 +70,9 @@
             <div class="redactorArea" id="redactorArea">
                 <div class="question" id="question">
                     <h2>Выбирете тип вопроса:</h2>
-                    <button class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
-                    <button class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
-                    <button class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+                    <button class="questMode" id="radio" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1],  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
+                    <button class="questMode" id="checkbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
+                    <button class="questMode" id="textbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
                 </div>
             </div>
             <div class="redactorButtons">
@@ -81,11 +81,11 @@
             </div>
         </section>
         <section class="questContainer">
-            <div class="questions">
+            <div class="questions" id="q">
                 <div class="questionsScroll"></div>
-                <div class="questBlock" style="background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);"><span>ВОПРОС НАМБА</span><span class="JOPA">1</span></div>
+                <div class="questBlock" style="background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);" onclick="SwitchQuestion(this)"><span>ВОПРОС НАМБА</span><span class="JOPA">1</span></div>
             </div>
-            <div id="questCreate" onclick="AddQuestion(document.getElementsByClassName('question')[document.getElementsByClassName('question').length])"><span>+</span></div>
+            <div id="questCreate" onclick="AddQuestion(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1])"><span>+</span></div>
         </section>
 <!--    </form>-->
 </article>

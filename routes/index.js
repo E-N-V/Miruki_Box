@@ -17,5 +17,10 @@ router.get('/index.*', function(req, res, next) {
     'title_page': 'Miruki Box'
   });
 });
+router.get('/about', function(req, res, next) {
+  res.render('about', {
+    'title_page': 'Miruki Box'
+  });
+});
 
 module.exports = router;

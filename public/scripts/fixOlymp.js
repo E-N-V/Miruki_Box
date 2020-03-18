@@ -81,17 +81,26 @@ function delAnswer(block) {
 }
 
 function AddQuestion(block){
-    block.style.display = none;
     const div = document.createElement('div');
-    div.class = "question";
-    div.id="question";
+    div.id = "question";
+    div.className = "question";
     div.innerHTML = `
        <h2>Выбирете тип вопроса:</h2>
     <button class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
     <button class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
     <button class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
     `;
-    document.getElementsByClassName('question')[document.getElementsByClassName('question').lenght].append(div);
+    const count = document.getElementsByClassName('questBlock').length;
+    document.getElementById('redactorArea').append(div);
+    block.style.display = "none";
+    const but = document.createElement("div");
+    but.className = "questBlock";
+    but.id = "QList_" + count;
+    but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
+    but.innerHTML = `
+    <span>ВОПРОС НАМБА</span><span class="JOPA">` + count + `</span>
+    `;
+    document.getElementById('q').append(but);
 }
 
 function goBack(block) {
@@ -103,4 +112,11 @@ function goBack(block) {
                     <button class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
                 </div>
     `;
+}
+
+function SwitchQuestion(block) {
+    const id = block.id.split('_')[1];
+    document.getElementsByClassName('')[id].style.display = "block";
+    //TODO: Доделать скрытие блоков.
+    // document.getElementsByClassName('').style.display = "none";
 }
