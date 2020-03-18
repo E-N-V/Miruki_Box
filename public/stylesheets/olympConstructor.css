@@ -6,13 +6,11 @@ article{
 .redactor{
     box-sizing: border-box;
     width: calc(100% - 250px);
-    height: calc(100vh - 100px);
     padding: 0 15px 0 0;
 }
 
 .redactor .redactorArea{
     width: 100%;
-    height: calc(100vh - 205px);
     background-color: white;
 }
 
@@ -121,7 +119,7 @@ article{
 .questContainer{
     overflow-y: scroll;
     width: 250px;
-    height: calc(100vh - 100px);
+    height: calc(100vh);
     background-color: white;
 }
 
@@ -150,11 +148,16 @@ article{
 
     .redactor{
         width: calc(100% - 100px);
+        padding: 0 5px 0 0 ;
     }
 
     .redactor .redactorArea .questMode{
         font-size: 10px;
         color: black;
+    }
+
+    .redactor .redactorButtons{
+        margin-top: 5px;
     }
 
     .redactor .redactorButtons button{
@@ -179,5 +182,30 @@ article{
     .questions .questBlock .JOPA{
         margin-left: 5px;
         width: 20%;
+    }
+
+    .redactor .redactorArea .question .answer{
+        height: 30px;
+    }
+
+    .redactor .redactorArea .question .answer span{
+        font-size: 15px;
+        margin-right:0;
+        width: 20px;
+    }
+    
+    .redactor .redactorArea .question .answer input{
+        width: 50%;
+        font-size: 15px;
+    }
+
+    .redactor .redactorArea .question .controls{
+        width: 30px;
+        height: 20px;
+        font-size: 20px;
+    }    
+
+    .oneAnswer{
+        width: 80%;
     }
 }
