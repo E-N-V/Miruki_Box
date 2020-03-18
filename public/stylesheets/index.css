@@ -1,4 +1,6 @@
 .banner{
+    font-family: Roboto ,Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,14 +32,22 @@ width: 80%;
 }
 
 .banner button{
+    font-family: Roboto ,Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
     padding: 15px;
-    border:5px solid blueviolet;
-    border-radius: 10px;
+    border:3px solid blueviolet;
+    border-radius: 6px;
     background-color: rgba(000, 000, 000, .5);
     color:blueviolet;
+}
+
+.banner button:focus{
+    outline: none;
+    border-color: white;
+    color: white;
 }
 
 /*__________ блок с перечислением специальностей __________*/

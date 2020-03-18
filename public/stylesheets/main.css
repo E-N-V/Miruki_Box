@@ -8,10 +8,35 @@
 */
 
 @font-face {
-    font-family: Pompadur; /* Имя шрифта */
-    src: url(fonts/pompadur.ttf); /* Путь к файлу со шрифтом */
+    font-family: Roboto; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf); /* Путь к файлу со шрифтом */
    }
 
+   @font-face {
+    font-family: Roboto-light; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Light.ttf); /* Путь к файлу со шрифтом */
+   }
+
+   @font-face {
+    font-family: Roboto-bold; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf); /* Путь к файлу со шрифтом */
+   }
+
+   @font-face {
+    font-family: Roboto-italic; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf); /* Путь к файлу со шрифтом */
+   }
+
+   @font-face {
+    font-family: Roboto-italic; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf); /* Путь к файлу со шрифтом */
+   }
+
+   @font-face {
+    font-family: Pacifico; /* Имя шрифта */
+    src: url(../fonts/Pacifico/Pacifico-Regular.ttf); /* Путь к файлу со шрифтом */
+   } 
+   
 *{
     margin: 0;
     padding: 0;
@@ -39,7 +64,7 @@ header{
 }
 
 .siteLogo{
-    font-family: 'Pacifico', cursive;
+    font-family: Pacifico, cursive;
     float: left;
     margin-left: 15px;
 }
