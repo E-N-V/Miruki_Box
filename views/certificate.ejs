@@ -3,9 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/main.css">
     <title>Document</title>
 </head>
 <body>
+    <!--ДРАТУТИ-->
+    <header id="header">
+        <div class="siteLogo">
+            <a href="/">
+                <img src="images/logover2purple.svg" alt="">
+                <span>MirukiBox</span>
+            </a>
+        </div>
+        <nav class="nav-zatychka">
+            <a href="/olympList">
+                <span>
+                    Олимпиады
+                </span>
+            </a>
+            <a href="/certificate">
+                <span>
+                    Сертификаты
+                </span>
+            </a>
+            <a href="/about">
+                <span>
+                    О нас
+                </span>
+            </a>
+        </nav>
+        <div class="userMenu">
+            <div class="massages">
+                <span class="usersNoteAmount"> 0 </span>
+            </div>
+            <div class="notifications">
+                <span class="usersNoteAmount"> 0 </span>
+            </div>
+            <div class="avatar">
+            </div>
+            <div class="nav-main" onclick="navOpen()">
+            </div>
+            <div class="nav-content">
+                <a href="/">
+                <span>
+                    Главная
+                </span>
+                </a>
+                <a href="/olympList">
+                <span>
+                    Олимпиады
+                </span>
+                </a>
+                <a href="/certificate">
+                    <span>
+                        Сертификаты
+                    </span>
+                    </a>
+                <a href="/about">
+                <span>
+                    О нас
+                </span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!--ПОКА-->
     <article>
         <form action="/certificate/find/" method="GET">
         <input type="text" name="usr" placeholder="Example">

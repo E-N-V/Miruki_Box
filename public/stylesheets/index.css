@@ -44,6 +44,11 @@ width: 80%;
     color:blueviolet;
 }
 
+.banner button:hover{
+    border-color: rgb(158, 88, 224);
+    color: rgb(158, 88, 224);
+}
+
 .banner button:focus{
     outline: none;
     border-color: white;
