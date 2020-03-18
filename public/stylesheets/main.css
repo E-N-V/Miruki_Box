@@ -54,6 +54,7 @@
 /*__________ header __________*/
 html{
     font-family: Roboto ,Arial, Helvetica, sans-serif;
+    font-stretch: expanded;
 }
 
 header{

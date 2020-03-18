@@ -17,36 +17,55 @@ article{
 }
 
 .redactor .redactorArea .questMode{
-    margin: 10px 0 0 10px;
-    display: block;
-    font-size: 25px;
+    font-family: Roboto ,Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: left;
+    clear: both;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    width: 100%; 
     padding: 8px 10px;
+    margin: 10px 0 0 10px;
+    border: none;
     background: none;
     color: lightgray;
-    border: none;
-    clear: both;
+}
+.redactor .redactorArea .questMode img{
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
 .redactor .redactorArea .questMode:hover{
-    display: block;
-    font-size: 25px;
-    padding: 8px 10px;
     background-color: rgb(245, 245, 245);
     box-shadow: 0 0 5px 0px rgba(000,000,000,0.2);
     color: black;
-    border: none;
-    clear: both;
 }
 
-.redactor .redactorArea button img{
-    width: 50px;
-    height: 50px;
-}
-.question{
+.redactor .redactorArea .question{
     padding: 20px;
 }
 
-.redactor .redactorArea .controls{
+.redactor .redactorArea .question textarea{
+    font-size: 20px;
+    height: 120px;
+    resize: none;
+    width: 90%;
+    border: 2px solid;
+    border-color: black;
+    border-style: solid;
+    border-width: 0 0 2px 2px;
+}
+
+.redactor .redactorArea .question .oneAnswer{
+    border: black solid;
+    border-width: 0 0 2px 0;
+    font-size: 20px;
+}
+
+.redactor .redactorArea .question .controls{
     display: block;
     cursor: pointer;
     width: 50px;
@@ -59,20 +78,23 @@ article{
     font-size: 20px;
 }
 
-.redactor .redactorArea .answer{
+.redactor .redactorArea .question .answer{
     display: flex;
     align-items: center;
 }
 
-.redactor .redactorArea .answer span{
+.redactor .redactorArea .question .answer span{
     font-size: 25px;
     margin-right: 10px;
     width: 20px;
 }
 
-.redactor .redactorArea .answer input{
+.redactor .redactorArea .question .answer input{
+    max-width: 50%;
     font-size: 25px;
     margin-right: 10px;
+    border: solid black;
+    border-width: 0 0 2px 0;
 }
 
 .redactor .redactorButtons{
@@ -100,7 +122,6 @@ article{
     background-color: white;
 }
 
-
 .questions .questBlock, .questCreate{
     cursor: pointer;
     display: flex;
@@ -116,4 +137,14 @@ article{
 
 .questCreate{
     font-size: 120px;
+}
+
+@media (max-width:450px){
+    .questContainer{
+        width: 100px;
+    }    
+
+    .redactor{
+        width: calc(100% - 100px);
+    }
 }

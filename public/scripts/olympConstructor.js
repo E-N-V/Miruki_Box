@@ -64,7 +64,7 @@ window.onload = function lol(){
             if(questMode[i].id === 'radio'){
                 question[tyChort].innerHTML =`
                     <button class="goBack controls"><</button>
-                    <textarea name="" id="testArea" cols="30" rows="10"></textarea>
+                    <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                     <div class="answersContainer">
                         <div class="answer">
                             <span>a)</span>
@@ -96,7 +96,7 @@ window.onload = function lol(){
                     <div class="answersContainer">
                         <div class="answer">
                             <span>a)</span>
-                            <input type="text" name="" id="" class="input">
+                            <input type="text" name="" id="" class="input" placeholder="Вопрос">
                             <div class="checkbox"></div>
                             <button class="controls delete" style="display:none">-</button>
                         </div>
@@ -110,8 +110,8 @@ window.onload = function lol(){
                 //письменный ответ
                 question[tyChort].innerHTML =`
                     <button class="goBack controls"><</button>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                    <input type="text" name="" id="">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                    <input class ="oneAnswer" type="text" name="" id="" placeholder="Ответ">
                 `;
             }
             goBack = question[tyChort].getElementsByClassName('goBack');
