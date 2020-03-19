@@ -14,7 +14,7 @@ function reDraw(block, mode){
                         <div class="controls delete" style="display: none">-</div>
                     </div>
                 </div>
-                <div class="controls append" name="radio" onclick="AddAnswer(document.getElementById('AnswerContainer'), this)">+</div>
+                <div class="controls append" id="radio" onclick="AddAnswer(document.getElementById('AnswerContainer'), this)">+</div>
                 `;
                 break;
         case "checkbox":
@@ -44,7 +44,7 @@ function reDraw(block, mode){
 
 function AddAnswer(block, mode){
     const div = document.createElement('div');
-    switch (mode.name) {
+    switch (mode.id) {
         case "textbox":
             div.className = 'answer';
             div.innerHTML = `
@@ -85,14 +85,15 @@ function delAnswer(block) {
 async function AddQuestion(block){
     document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1].className = "question";
     const div = document.createElement('div');
-    div.id = "question";
+    const t = document.getElementsByClassName('question').length + 1;
+    div.id = "q_" + t;
     div.className = "question";
     div.className += " " + "current";
     div.innerHTML = `
        <h2>Выбирете тип вопроса:</h2>
-    <div class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
-    <div class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
-    <div class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
+    <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_${t}'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+    <div class="questMode" id="checkbox" onclick="reDraw(document.getElementById('q_${t}'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+    <div class="questMode" id="textbox" onclick="reDraw(document.getElementById('q_${t}'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
     `;
     const count = document.getElementsByClassName('questBlock').length + 1;
     document.getElementById('redactorArea').append(div);
@@ -109,12 +110,10 @@ async function AddQuestion(block){
 
 function goBack(block) {
     block.innerHTML = `
-                    <div class="question" id="question">
                         <h2>Выбирете тип вопроса:</h2>
-                        <div class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
-                        <div class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
-                        <div class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
-                    </div>
+                        <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_${t}'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+                        <div class="questMode" id="checkbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+                        <div class="questMode" id="textbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
     `;
 }
 
@@ -122,9 +121,5 @@ function SwitchQuestion(block) {
     const cur = document.getElementsByClassName('current')[0];
     cur.className = "question";
     const id = block.id.split('_');
-    console.log(id[1] - 1);
     document.getElementsByClassName('question')[id[1] - 1].className = "question current";
-    //TODO: Доделать скрытие блоков.
-
-
 }

@@ -67,9 +67,9 @@
     <article>
         <section class="redactor">
             <div class="redactorArea" id="redactorArea">
-                <div class="question current" id="question">
+                <div class="question current" id="q_1">
                     <h2>Выбирете тип вопроса:</h2>
-                    <div class="questMode" id="radio" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1],  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+                    <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_1'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
                     <div class="questMode" id="checkbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
                     <div class="questMode" id="textbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
                 </div>
