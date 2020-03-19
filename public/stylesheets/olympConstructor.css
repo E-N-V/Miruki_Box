@@ -209,3 +209,11 @@ article{
         width: 80%;
     }
 }
+
+.question{
+    display: none;
+}
+
+.current{
+    display: block;
+}

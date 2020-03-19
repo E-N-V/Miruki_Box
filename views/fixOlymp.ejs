@@ -63,21 +63,20 @@
             </div>
         </div>
     </header>
-
-<article>
-<!--    <form action="/tests/olymp/" method="post">-->
+    <form action="/olympList/create/fix" method="post">
+    <article>
         <section class="redactor">
             <div class="redactorArea" id="redactorArea">
-                <div class="question" id="question">
+                <div class="question current" id="question">
                     <h2>Выбирете тип вопроса:</h2>
-                    <button class="questMode" id="radio" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1],  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
-                    <button class="questMode" id="checkbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
-                    <button class="questMode" id="textbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+                    <div class="questMode" id="radio" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1],  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+                    <div class="questMode" id="checkbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+                    <div class="questMode" id="textbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
                 </div>
             </div>
             <div class="redactorButtons">
-                <button type="reset">Cancel</button>
-                <button type="submit">Submit</button>
+                <div type="reset">Cancel</div>
+                <div type="submit">Submit</div>
             </div>
         </section>
         <section class="questContainer">
@@ -87,8 +86,8 @@
             </div>
             <div id="questCreate" onclick="AddQuestion(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1])"><span>+</span></div>
         </section>
-<!--    </form>-->
-</article>
+    </article>
+</form>
 <footer id="diiv"></footer>
 </body>
 </html>

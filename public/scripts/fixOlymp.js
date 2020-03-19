@@ -1,38 +1,40 @@
+/*TODO:  Неумею в js*/
+
 function reDraw(block, mode){
     switch (mode.id) {
         case "radio":
             block.innerHTML = `
-                <button class="goBack controls" onclick="goBack(document.getElementById('redactorArea'))"><</button>
+                <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0],  this)"><</div>
                 <textarea name="" id="testArea" cols="30" rows="10"></textarea>
                 <div class="answersContainer" id="AnswerContainer">
                     <div class="answer">
                         <span>a)</span>
                         <input type="text" name="" id="text" class="input">
                         <div class="radio"></div>
-                        <button class="controls delete" style="display: none">-</button>
+                        <div class="controls delete" style="display: none">-</div>
                     </div>
                 </div>
-                <button class="controls append" name="radio" onclick="AddAnswer(document.getElementById('AnswerContainer'), this)">+</button>
+                <div class="controls append" name="radio" onclick="AddAnswer(document.getElementById('AnswerContainer'), this)">+</div>
                 `;
                 break;
         case "checkbox":
             block.innerHTML = `
-                <button class="goBack controls" onclick="goBack(document.getElementById('redactorArea'))"><</button>
+                <div class="goBack controls" onclick="goBack(document.getElementById('redactorArea'))"><</div>
                     <textarea name="" id="" cols="30" rows="10"></textarea>
                     <div class="answersContainer">
                         <div class="answer">
                             <span>a)</span>
                             <input type="text" name="" id="" class="input">
                             <div class="checkbox"></div>
-                            <button class="controls delete" style="display:none">-</button>
+                            <div class="controls delete" style="display:none">-</div>
                         </div>
                     </div>
-                    <button class="controls append" name="checkbox" onclick="AddAnswer(document.getElementById('AnswerContainer'), this)">+</button>
+                    <div class="controls append" name="checkbox" onclick="AddAnswer(document.getElementById('AnswerContainer'), this)">+</div>
                 `;
             break;
         case "textbox":
             block.innerHTML = `
-                <button class="goBack controls" onclick="goBack(document.getElementById('redactorArea'))"><</button>
+                <div class="goBack controls" onclick="goBack(document.getElementById('redactorArea'))"><</div>
                 <textarea name="" id="" cols="30" rows="10"></textarea>
                 <input type="text" name="" id="">
                 `;
@@ -49,7 +51,7 @@ function AddAnswer(block, mode){
             <span>a)</span>
             <input type="text" name="" id="text" class="input">
             <div class="radio"></div>
-            <button class="controls delete">-</button>
+            <div class="controls delete">-</div>
             `;
             block.append(div);
             break;
@@ -59,7 +61,7 @@ function AddAnswer(block, mode){
             <span>a)</span>
             <input type="text" name="" id="text" class="input">
             <div class="radio"></div>
-            <button class="controls delete">-</button>
+            <div class="controls delete">-</div>
             `;
             block.append(div);
             break;
@@ -69,7 +71,7 @@ function AddAnswer(block, mode){
             <span>a)</span>
             <input type="text" name="" id="text" class="input">
             <div class="radio"></div>
-            <button class="controls delete" onclick="delAnswer(document.getElementsByClassName('answer')[1])">-</button>
+            <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('answer')[1])">-</div>
             `;
             block.append(div);
             break;
@@ -80,7 +82,7 @@ function delAnswer(block) {
     block.remove();
 }
 
-function AddQuestion(block){
+async function AddQuestion(block){
     document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1].className = "question";
     const div = document.createElement('div');
     div.id = "question";
@@ -88,42 +90,41 @@ function AddQuestion(block){
     div.className += " " + "current";
     div.innerHTML = `
        <h2>Выбирете тип вопроса:</h2>
-    <button class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
-    <button class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
-    <button class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+    <div class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+    <div class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+    <div class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
     `;
     const count = document.getElementsByClassName('questBlock').length + 1;
     document.getElementById('redactorArea').append(div);
-    block.style.display = "none";
     const but = document.createElement("div");
     but.className = "questBlock";
     but.id = "QList_" + count;
-    but.addEventListener("click", SwitchQuestion(but));
+    but.setAttribute("onclick", "SwitchQuestion(this)")
     but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
     but.innerHTML = `
     <span>ВОПРОС НАМБА</span><span class="JOPA">` + count + `</span>
     `;
-    console.log(but);
     document.getElementById('q').append(but);
 }
 
 function goBack(block) {
     block.innerHTML = `
-                    <h2>Выбирете тип вопроса:</h2>
-                    <button class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
-                    <button class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
-                    <button class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
+                    <div class="question" id="question">
+                        <h2>Выбирете тип вопроса:</h2>
+                        <div class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+                        <div class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+                        <div class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
+                    </div>
     `;
 }
 
 function SwitchQuestion(block) {
+    const cur = document.getElementsByClassName('current')[0];
+    cur.className = "question";
     const id = block.id.split('_');
     console.log(id[1] - 1);
-    document.getElementsByClassName('question')[id[1] - 1].style.display = "block";
+    document.getElementsByClassName('question')[id[1] - 1].className = "question current";
     //TODO: Доделать скрытие блоков.
 
-    const cur = document.getElementsByClassName('current')[0];
-    cur.style.display = "none";
-    cur.className = "question";
 
 }
