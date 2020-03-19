@@ -81,42 +81,49 @@ function delAnswer(block) {
 }
 
 function AddQuestion(block){
+    document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1].className = "question";
     const div = document.createElement('div');
     div.id = "question";
     div.className = "question";
+    div.className += " " + "current";
     div.innerHTML = `
        <h2>Выбирете тип вопроса:</h2>
     <button class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
     <button class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
     <button class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
     `;
-    const count = document.getElementsByClassName('questBlock').length;
+    const count = document.getElementsByClassName('questBlock').length + 1;
     document.getElementById('redactorArea').append(div);
     block.style.display = "none";
     const but = document.createElement("div");
     but.className = "questBlock";
     but.id = "QList_" + count;
+    but.addEventListener("click", SwitchQuestion(but));
     but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
     but.innerHTML = `
     <span>ВОПРОС НАМБА</span><span class="JOPA">` + count + `</span>
     `;
+    console.log(but);
     document.getElementById('q').append(but);
 }
 
 function goBack(block) {
     block.innerHTML = `
-    <div class="question" id="question">
                     <h2>Выбирете тип вопроса:</h2>
                     <button class="questMode" id="radio" onclick="reDraw(document.getElementById('question'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
                     <button class="questMode" id="checkbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
                     <button class="questMode" id="textbox" onclick="reDraw(document.getElementById('question'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
-                </div>
     `;
 }
 
 function SwitchQuestion(block) {
-    const id = block.id.split('_')[1];
-    document.getElementsByClassName('')[id].style.display = "block";
+    const id = block.id.split('_');
+    console.log(id[1] - 1);
+    document.getElementsByClassName('question')[id[1] - 1].style.display = "block";
     //TODO: Доделать скрытие блоков.
-    // document.getElementsByClassName('').style.display = "none";
+
+    const cur = document.getElementsByClassName('current')[0];
+    cur.style.display = "none";
+    cur.className = "question";
+
 }
