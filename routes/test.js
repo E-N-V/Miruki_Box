@@ -10,8 +10,5 @@ router.get('/', function(req, res, next) {
 router.get('/create', function (req,res,next) {
     res.render('olympConstructor.ejs')
 });
-router.get('/create/fix', function (req,res,next) {
-    res.render('fixOlymp.ejs')
-});
 
 module.exports = router;

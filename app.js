@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const testRouter = require('./routes/test');
 const certificateRouter = require('./routes/certificateRouter');
+const testDB = require('./routes/testingDB');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/olympList', testRouter);
 app.use('/certificate', certificateRouter);
+// app.use('/db', testDB);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
