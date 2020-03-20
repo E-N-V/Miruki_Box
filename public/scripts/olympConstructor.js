@@ -1,179 +1,192 @@
-function scanDoc(){
-var inputs = document.getElementsByClassName('input');
-    for(let scan = 0; scan < inputs.length; scan-=-1){
-        inputs[scan].addEventListener('keyup', log);
-        function log(){
-            var s = inputs[scan].value;
-            console.clear();
-            s === ''? false : console.log('key press! Now', s);
+/*TODO:  Неумею в js*/
+
+function getCurrentBlockNum(){
+    var qstBlocks = document.getElementsByClassName('question');
+    for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
+        if(qstBlocks[qstBlock].className == 'question current'){
+            return qstBlock;
         }
     }
 }
 
-function loopaAndPoopa(){
-    let question = document.getElementsByClassName('question');
-    let delBut = question[tyChort].getElementsByClassName('delete');
-    for(let k = 0; k < delBut.length; k-=-1){
-        delBut[k].onclick = () => {
-            let answer = question[tyChort].getElementsByClassName('answer');
-            answer[k].remove();
-            for(let j = k; j < delBut.length; j-=-1){
-                let tag = answer[j].getElementsByTagName('span');
-                tag[0].innerHTML = arr_en[j]+')';
-                //ПОПЫТКА РЕШЕНИЯ
-                scanDoc()
-                loopaAndPoopa();
-            }
-        }
+
+function checkBoxChpok(){
+    let current = document.getElementsByClassName('current')[0];
+    let boxes = document.getElementsByClassName('checkBox');
+    let input = document.createElement('input');
+    let checkdiv = current.getElementsByClassName('checkbox');//some ninja code )0))
+    checkdiv = checkdiv[checkdiv.length - 1]
+    input.setAttribute("class", 'checkBox');
+    input.type = 'checkbox';
+    input.name = ''; 
+    input.id = 'inpId' + getCurrentBlockNum()+ '' + boxes.length;
+    checkdiv.append(input);
+    let label = document.createElement('label');
+    label.setAttribute("for", input.id );
+    checkdiv.append(label);
+}
+
+function RadioChpok(){
+    let current = document.getElementsByClassName('current')[0];
+    let boxes = document.getElementsByClassName('Radio');
+    let input = document.createElement('input');
+    let checkdiv = current.getElementsByClassName('radio');//some ninja code )0))
+    checkdiv = checkdiv[checkdiv.length - 1]
+    input.setAttribute("class", 'Radio');
+    input.type = 'radio';
+    input.name = 'radios' + getCurrentBlockNum();
+    input.id = 'inpId' + getCurrentBlockNum()+ '' + boxes.length;
+    checkdiv.append(input);
+    let label = document.createElement('label');
+    label.setAttribute("for", input.id );
+    checkdiv.append(label);
+}
+
+function reDraw(block, mode){
+    switch (mode.id) {
+        case "radio":
+            block.innerHTML = `
+                <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0],  this)"><</div>
+                <textarea name="" id="testArea" cols="30" rows="10"></textarea>
+                <div class="answersContainer" id="AnswerContainer">
+                    <div class="answer">
+                        <span>1)</span>
+                        <input type="text" name="" id="text" class="input">
+                        <div class="radio"></div>
+                        <div class="controls delete" style="display: none">-</div>
+                    </div>
+                </div>
+                <div class="controls append" id="radio" onclick="AddAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answersContainer')[0], this)">+</div>
+                `;
+                RadioChpok();
+                break;
+        case "checkbox":
+            block.innerHTML = `
+                <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0],  this)"><</div>
+                <textarea name="" id="testArea" cols="30" rows="10"></textarea>
+                <div class="answersContainer" id="AnswerContainer">
+                    <div class="answer">
+                        <span>1)</span>
+                        <input type="text" name="" id="text" class="input">
+                        <div class="checkbox"></div>
+                        <div class="controls delete" style="display: none">-</div>
+                    </div>
+                </div>
+                <div class="controls append" id="checkbox" onclick="AddAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answersContainer')[0], this)">+</div>
+                `;
+                checkBoxChpok()
+                break;
+        case "textbox":
+            block.innerHTML = `
+                <div class="goBack controls" onclick="goBack(document.getElementById('redactorArea'))"><</div>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <input type="text" name="" id="">
+                `;
+            break;
     }
 }
-    
-function butHole(){
-    //плюсы
-    let question = document.getElementsByClassName('question');
-    let addBut = question[tyChort].getElementsByClassName('append');
-    addBut[0].onclick = () => {
-        let container = question[tyChort].getElementsByClassName('answersContainer');
-        let answer = question[tyChort].getElementsByClassName('answer');
-        let tag = answer[answer.length-1].getElementsByTagName('span');
-        tag = arr_en.indexOf(tag[0].innerHTML[0]);
-        container[0].innerHTML +=`
-        <div class="answer">
-            <span>`+ arr_en[tag+1] +`)</span>
-            <input type="text" name="" id="" class="input">
+
+function AddAnswer(block, mode){
+    const div = document.createElement('div');
+    switch (mode.id) {
+        case "textbox":
+            div.className = 'answer';
+            div.innerHTML = `
+            <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
+            <input type="text" name="" id="text" class="input">
+            <div class="radio"></div>
+            <div class="controls delete">-</div>
+            `;
+            block.append(div);
+            break;
+        case "checkbox":
+            div.className = 'answer';
+            div.innerHTML = `
+            <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
+            <input type="text" name="" id="text" class="input">
             <div class="checkbox"></div>
-            <button class="controls delete">-</button>
-        </div>
-        `;
-        scanDoc()
-        //минусы
-        loopaAndPoopa();
+            <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
+            `;
+            block.append(div);
+            checkBoxChpok();
+            break;
+        case "radio":
+            div.className = 'answer';
+            div.innerHTML = `
+            <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
+            <input type="text" name="" id="text" class="input">
+            <div class="radio"></div>
+            <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
+            `;
+            block.append(div);
+            RadioChpok();
+            break;
     }
-    loopaAndPoopa();    
 }
 
-let arr_en = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-let tyChort = 0;
-window.onload = function lol(){
-    scanDoc()
-    let question = document.getElementsByClassName('question');
-    questMode = question[tyChort].getElementsByClassName('questMode');
-    for(let i = 0; i < questMode.length; i-=-1){
-        questMode[i].onclick = () => {
-            //один ответ
-            if(questMode[i].id === 'radio'){
-                question[tyChort].innerHTML =`
-                    <button class="goBack controls"><</button>
-                    <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
-                    <div class="answersContainer">
-                        <div class="answer">
-                            <span>a)</span>
-                            <input type="text" name="" id="texta" class="input">
-                            <div class="radio"></div>
-                            <button class="controls delete" style="display:none">-</button>
-                        </div>
-                    </div>
-                    <button class="controls append">+</button>
-                `
-                scanDoc()
-                /* КОД НА СЧИТЫВАНИЯ VALUE В ИНПУТАХ 
-                var d = document.getElementById('texta')
-                d.addEventListener('keyup', log)
-                function log(){
-                    var s = document.getElementById('texta').value
-                    console.clear()
-                    s == ''? false : console.log('key press! Now', s)
-                }
-                /* КОНЕЦ КОДА */
+function delAnswer(block) {
+    block.remove();
+    // моё
+    let ianswers = document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName("answer");
+    for(iansw = 1; iansw < ianswers.length; iansw-=-1){
+        ianswers[iansw].getElementsByClassName('delete')[0].setAttribute("onclick", "delAnswer(document.getElementsByClassName('question')["+ getCurrentBlockNum() +"].getElementsByClassName('answer')["+ iansw +"])")
+        ianswers[iansw].getElementsByTagName('span')[0].innerText = (iansw + 1) + ')';
+        ianswers[iansw].getElementsByTagName('div')[0].getElementsByTagName('input')[0].setAttribute("id", 'inpId' + getCurrentBlockNum()+ '' + iansw);
+        ianswers[iansw].getElementsByTagName('div')[0].getElementsByTagName('label')[0].setAttribute("for", 'inpId' + getCurrentBlockNum()+ '' + iansw);
+    }
+}
 
-                //плюсы
-                butHole()
-            }else if(questMode[i].id === 'checkbox'){
-                //не один ответ
-                question[tyChort].innerHTML =`
-                    <button class="goBack controls"><</button>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                    <div class="answersContainer">
-                        <div class="answer">
-                            <span>a)</span>
-                            <input type="text" name="" id="" class="input" placeholder="Вопрос">
-                            <div class="checkbox"></div>
-                            <button class="controls delete" style="display:none">-</button>
-                        </div>
-                    </div>
-                    <button class="controls append">+</button>
-                `;
-                scanDoc()
-                //плюсы
-                butHole();
-            }else if(questMode[i].id === 'textbox'){
-                //письменный ответ
-                question[tyChort].innerHTML =`
-                    <button class="goBack controls"><</button>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
-                    <input class ="oneAnswer" type="text" name="" id="" placeholder="Ответ">
-                `;
-            }
-            goBack = question[tyChort].getElementsByClassName('goBack');
-            goBack[0].onclick = () =>{
-                question[tyChort].innerHTML = `
-                    <h2>Выбирете тип вопроса:</h2>
-                        <button class="questMode" id="radio"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
-                        <button class="questMode" id="checkbox"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
-                       <button class="questMode" id="textbox"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
-                `;
-                lol();
-            }
-            questMode[2].remove();
-            questMode[1].remove();
-            questMode[0].remove();
-        }
+async function AddQuestion(block){
+    document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1].className = "question";
+    const div = document.createElement('div');
+    const t = document.getElementsByClassName('question').length + 1;
+    div.id = "q_" + t;
+    div.className = "question";
+    div.className += " " + "current";
+    div.innerHTML = `
+       <h2>Выбирете тип вопроса:</h2>
+    <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_${t}'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+    <div class="questMode" id="checkbox" onclick="reDraw(document.getElementById('q_${t}'), this)"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+    <div class="questMode" id="textbox" onclick="reDraw(document.getElementById('q_${t}'), this)"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
+    `;
+    const count = document.getElementsByClassName('questBlock').length + 1;
+    document.getElementById('redactorArea').append(div);
+    const but = document.createElement("div");
+    but.className = "questBlock";
+    but.id = "QList_" + count;
+    but.setAttribute("onclick", "SwitchQuestion(this)")
+//my
+    for(qstb = 0; qstb < document.getElementsByClassName('questBlock').length;qstb-=-1){
+        document.getElementsByClassName('questBlock')[qstb].style = "background-color: violetblue;";
     }
 
-    //ЗДЕСЬ НАЧНЁКЕПОАОАЖДЛЬПУЫ Чжол  МСМСУКА
-    let questCreate = document.getElementsByClassName('questCreate');
-    questCreate[0].onclick = () =>{
-        let questions = document.getElementsByClassName('questions');
-        let question = document.getElementsByClassName('question');
-        tyChort = question.length;
-        let redacAre = document.getElementsByClassName('redactorArea');
-        for(let i = 0; i < question.length;i-=-1){
-            question[i].style.display = 'none'
-        } 
-        redacAre[0].innerHTML += `
-            <div class="question">
-                <h2>Выбирете тип вопроса:</h2>
-                <button class="questMode" id="radio"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></button>
-                <button class="questMode" id="checkbox"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></button>
-                <button class="questMode" id="textbox"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></button>
-            </div>
-        `
-        let questBlock = document.getElementsByClassName('questBlock'); 
-        for(let l = 0; l < questBlock.length;l-=-1){
-            questBlock[l].style.backgroundColor = 'blueviolet';
-            questBlock[l].style.outlineColor = 'blueviolet';
-        }
-        questions[0].innerHTML += `
-        <div class="questBlock" style="background-color:deeppink;outline-color:deeppink;"><span>ВОПРОС НАМБА</span><span class="JOPA">`+ (1+tyChort) +`</span></div>
-        `; 
-        lol();
+//????    but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
+    but.style = "background-color: deeppink;";
+    but.innerHTML = `
+    <span>ВОПРОС НАМБА</span><span class="JOPA">` + count + `</span>
+    `;
+    document.getElementById('q').append(but);
+}
+
+function goBack(block) {
+    block.innerHTML = `
+                        <h2>Выбирете тип вопроса:</h2>
+                        <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_${t}'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+                        <div class="questMode" id="checkbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+                        <div class="questMode" id="textbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
+    `;
+}
+
+function SwitchQuestion(block) {
+//my
+    for(qstb = 0; qstb < document.getElementsByClassName('questBlock').length;qstb-=-1){
+        document.getElementsByClassName('questBlock')[qstb].style = "background-color: violetblue;";
     }
-    let questBlock = document.getElementsByClassName('questBlock');
-    for(let i = 0; i < questBlock.length;i-=-1){
-        questBlock[i].onclick = () => {
-            for(let l = 0; l < question.length;l-=-1){
-                question[l].style.display ='none';
-            }
-            for(let l = 0; l < questBlock.length;l-=-1){
-                questBlock[l].style.backgroundColor = 'blueviolet';
-                questBlock[l].style.outlineColor = 'blueviolet';
-            }
-            questBlock[i].style.backgroundColor = 'deeppink';
-            questBlock[i].style.outlineColor = 'deeppink';
-            question[i].style.display ='block';
-            tyChort = i;
-            butHole();
-            lol();
-        }
-    }
+
+    block.style = "background-color: deeppink;"
+
+    const cur = document.getElementsByClassName('current')[0];
+    cur.className = "question";
+    const id = block.id.split('_');
+    document.getElementsByClassName('question')[id[1] - 1].className = "question current";
 }
