@@ -146,8 +146,8 @@ async function AddQuestion(block){
     div.innerHTML = `
        <h2>Выбирете тип вопроса:</h2>
     <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_${t}'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
-    <div class="questMode" id="checkbox" onclick="reDraw(document.getElementById('q_${t}'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
-    <div class="questMode" id="textbox" onclick="reDraw(document.getElementById('q_${t}'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
+    <div class="questMode" id="checkbox" onclick="reDraw(document.getElementById('q_${t}'), this)"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+    <div class="questMode" id="textbox" onclick="reDraw(document.getElementById('q_${t}'), this)"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
     `;
     const count = document.getElementsByClassName('questBlock').length + 1;
     document.getElementById('redactorArea').append(div);
@@ -172,8 +172,8 @@ function goBack(block) {
     block.innerHTML = `
                         <h2>Выбирете тип вопроса:</h2>
                         <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_${t}'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
-                        <div class="questMode" id="checkbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
-                        <div class="questMode" id="textbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/radio.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
+                        <div class="questMode" id="checkbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+                        <div class="questMode" id="textbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
     `;
 }
 
