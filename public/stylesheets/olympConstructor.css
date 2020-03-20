@@ -217,3 +217,44 @@ article{
 .current{
     display: block;
 }
+
+/*CHECKBOXES*/
+
+.checkBox{
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+label{
+    position: relative;
+    cursor: pointer;
+}
+
+.checkBox + label:before,.checkBox:checked + label:before{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: lightgray;
+    transition: 0.2s;
+    box-shadow: 0 0 3px 0 black;
+}
+
+.checkBox + label:after{
+    content: '';
+    position: absolute;
+}
+
+.checkBox:checked + label:before{
+    background-color: deeppink;
+}
+
+.checkBox:checked + label:after{
+    content: '✔';
+    position: absolute;
+    color: white;
+    font-size: 23px;
+    right: -22px;
+    top: -5px;
+}
