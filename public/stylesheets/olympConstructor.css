@@ -52,6 +52,7 @@ article{
     height: 120px;
     resize: none;
     width: 90%;
+    margin-bottom: 5px;
     border: 2px solid;
     border-color: black;
     border-style: solid;
@@ -75,7 +76,9 @@ article{
     box-shadow: 0 0 5px 0px black;
     color: white;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 .redactor .redactorArea .question .answer{
@@ -253,6 +256,52 @@ label{
 .checkBox:checked + label:after{
     content: '✔';
     position: absolute;
+    color: white;
+    font-size: 23px;
+    right: -22px;
+    top: -5px;
+}
+
+/*radio*/
+
+.radio{
+    margin-right: 10px;
+}
+
+.Radio{
+    margin-right: 20px;
+    opacity: 0;
+    z-index: -1;
+}
+
+label{
+    position: relative;
+    cursor: pointer;
+}
+
+.Radio + label:before,.Radio:checked + label:before{
+    content: '';
+    transform: translate(-100%,-4px);
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: lightgray;
+    transition: 0.2s;
+    box-shadow: 0 0 3px 0 black;
+}
+
+.Radio + label:after, .Radio:checked + label:after{
+    content: '';
+    transform: translate(-140%,-4px);
+    position: absolute;
+}
+
+.Radio:checked + label:before{
+    background-color: deeppink;
+}
+
+.Radio:checked + label:after{
+    content: '✔';
     color: white;
     font-size: 23px;
     right: -22px;
