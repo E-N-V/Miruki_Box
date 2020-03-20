@@ -19,7 +19,7 @@ function checkBoxChpok(){
     input.setAttribute("class", 'checkBox');
     input.type = 'checkbox';
     input.name = ''; 
-    input.id = 'checkbox' + boxes.length;
+    input.id = 'inpId' + getCurrentBlockNum()+ '' + boxes.length;
     checkdiv.append(input);
     let label = document.createElement('label');
     label.setAttribute("for", input.id );
@@ -35,14 +35,13 @@ function RadioChpok(){
     input.setAttribute("class", 'Radio');
     input.type = 'radio';
     input.name = 'radios' + getCurrentBlockNum();
-    input.id = 'radio' + boxes.length;
+    input.id = 'inpId' + getCurrentBlockNum()+ '' + boxes.length;
     checkdiv.append(input);
     let label = document.createElement('label');
     label.setAttribute("for", input.id );
     checkdiv.append(label);
 }
 
-// хотя хз
 function reDraw(block, mode){
     switch (mode.id) {
         case "radio":
@@ -51,7 +50,7 @@ function reDraw(block, mode){
                 <textarea name="" id="testArea" cols="30" rows="10"></textarea>
                 <div class="answersContainer" id="AnswerContainer">
                     <div class="answer">
-                        <span>a)</span>
+                        <span>1)</span>
                         <input type="text" name="" id="text" class="input">
                         <div class="radio"></div>
                         <div class="controls delete" style="display: none">-</div>
@@ -63,19 +62,20 @@ function reDraw(block, mode){
                 break;
         case "checkbox":
             block.innerHTML = `
-                <div class="goBack controls" onclick="goBack(document.getElementById('redactorArea'))"><</div>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                    <div class="answersContainer">
-                        <div class="answer">
-                            <span>a)</span>
-                            <input type="text" name="" id="" class="input">
-                            <div class="checkbox"></div>
-                            <div class="controls delete" style="display:none">-</div>
-                        </div>
+                <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0],  this)"><</div>
+                <textarea name="" id="testArea" cols="30" rows="10"></textarea>
+                <div class="answersContainer" id="AnswerContainer">
+                    <div class="answer">
+                        <span>1)</span>
+                        <input type="text" name="" id="text" class="input">
+                        <div class="checkbox"></div>
+                        <div class="controls delete" style="display: none">-</div>
                     </div>
-                    <div class="controls append" name="checkbox" onclick="AddAnswer(document.getElementById('AnswerContainer'), this)">+</div>
+                </div>
+                <div class="controls append" id="checkbox" onclick="AddAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answersContainer')[0], this)">+</div>
                 `;
-            break;
+                checkBoxChpok()
+                break;
         case "textbox":
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementById('redactorArea'))"><</div>
@@ -92,7 +92,7 @@ function AddAnswer(block, mode){
         case "textbox":
             div.className = 'answer';
             div.innerHTML = `
-            <span>a)</span>
+            <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
             <input type="text" name="" id="text" class="input">
             <div class="radio"></div>
             <div class="controls delete">-</div>
@@ -102,20 +102,21 @@ function AddAnswer(block, mode){
         case "checkbox":
             div.className = 'answer';
             div.innerHTML = `
-            <span>a)</span>
+            <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
             <input type="text" name="" id="text" class="input">
-            <div class="radio"></div>
-            <div class="controls delete">-</div>
+            <div class="checkbox"></div>
+            <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
             block.append(div);
+            checkBoxChpok();
             break;
         case "radio":
             div.className = 'answer';
             div.innerHTML = `
-            <span>a)</span>
+            <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
             <input type="text" name="" id="text" class="input">
             <div class="radio"></div>
-            <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('answer')[1])">-</div>
+            <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
             block.append(div);
             RadioChpok();
@@ -125,6 +126,14 @@ function AddAnswer(block, mode){
 
 function delAnswer(block) {
     block.remove();
+    // моё
+    let ianswers = document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName("answer");
+    for(iansw = 1; iansw < ianswers.length; iansw-=-1){
+        ianswers[iansw].getElementsByClassName('delete')[0].setAttribute("onclick", "delAnswer(document.getElementsByClassName('question')["+ getCurrentBlockNum() +"].getElementsByClassName('answer')["+ iansw +"])")
+        ianswers[iansw].getElementsByTagName('span')[0].innerText = (iansw + 1) + ')';
+        ianswers[iansw].getElementsByTagName('div')[0].getElementsByTagName('input')[0].setAttribute("id", 'inpId' + getCurrentBlockNum()+ '' + iansw);
+        ianswers[iansw].getElementsByTagName('div')[0].getElementsByTagName('label')[0].setAttribute("for", 'inpId' + getCurrentBlockNum()+ '' + iansw);
+    }
 }
 
 async function AddQuestion(block){
@@ -146,7 +155,13 @@ async function AddQuestion(block){
     but.className = "questBlock";
     but.id = "QList_" + count;
     but.setAttribute("onclick", "SwitchQuestion(this)")
-    but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
+//my
+    for(qstb = 0; qstb < document.getElementsByClassName('questBlock').length;qstb-=-1){
+        document.getElementsByClassName('questBlock')[qstb].style = "background-color: violetblue;";
+    }
+
+//????    but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
+    but.style = "background-color: deeppink;";
     but.innerHTML = `
     <span>ВОПРОС НАМБА</span><span class="JOPA">` + count + `</span>
     `;
@@ -163,6 +178,13 @@ function goBack(block) {
 }
 
 function SwitchQuestion(block) {
+//my
+    for(qstb = 0; qstb < document.getElementsByClassName('questBlock').length;qstb-=-1){
+        document.getElementsByClassName('questBlock')[qstb].style = "background-color: violetblue;";
+    }
+
+    block.style = "background-color: deeppink;"
+
     const cur = document.getElementsByClassName('current')[0];
     cur.className = "question";
     const id = block.id.split('_');

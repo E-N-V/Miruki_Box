@@ -96,7 +96,7 @@ article{
     border-radius: 0;
     max-width: 50%;
     font-size: 25px;
-    margin-right: 10px;
+    margin-right: 35px;
     border: solid black;
     border-width: 0 0 2px 0;
 }
@@ -109,7 +109,8 @@ article{
     background-color: white;
 }
 
-.redactor .redactorButtons button{
+.redactor .redactorButtons div{
+    display: inline-block;
     margin: 5px;
     font-size: 25px;
     padding: 8px 10px;
@@ -117,6 +118,7 @@ article{
     box-shadow: 0 0 5px 0px black;
     color: white;
     border: none;
+    text-align: center;
 }
 
 .questContainer{
@@ -126,7 +128,7 @@ article{
     background-color: white;
 }
 
-.questions .questBlock, .questCreate{
+.questions .questBlock, #questCreate{
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -223,6 +225,10 @@ article{
 
 /*CHECKBOXES*/
 
+.checkbox{
+    margin-right: 10px;
+}
+
 .checkBox{
     opacity: 0;
     z-index: -1;
@@ -235,18 +241,24 @@ label{
 }
 
 .checkBox + label:before,.checkBox:checked + label:before{
+    top: 2px;
+    left: -25px;
     content: '';
     position: absolute;
     width: 25px;
     height: 25px;
     background-color: lightgray;
     transition: 0.2s;
-    box-shadow: 0 0 3px 0 black;
+    box-shadow: 0 0 5px 0 black;
 }
 
-.checkBox + label:after{
+.checkBox + label:after, .checkBox:checked + label:after{
+    /*top: 12px; fuck this*/
+    transform: translate(0,3px);
+    left: -22px;
     content: '';
     position: absolute;
+
 }
 
 .checkBox:checked + label:before{
@@ -255,7 +267,6 @@ label{
 
 .checkBox:checked + label:after{
     content: '✔';
-    position: absolute;
     color: white;
     font-size: 23px;
     right: -22px;
@@ -272,6 +283,7 @@ label{
     margin-right: 20px;
     opacity: 0;
     z-index: -1;
+    position: absolute;
 }
 
 label{
@@ -281,19 +293,26 @@ label{
 
 .Radio + label:before,.Radio:checked + label:before{
     content: '';
-    transform: translate(-100%,-4px);
+    top: 2px;
+    left: -25px;
     position: absolute;
     width: 25px;
     height: 25px;
     background-color: lightgray;
     transition: 0.2s;
-    box-shadow: 0 0 3px 0 black;
+    box-shadow: 0 0 5px 0 black;
+    border-radius: 12.5px;
 }
 
 .Radio + label:after, .Radio:checked + label:after{
     content: '';
-    transform: translate(-140%,-4px);
+    box-sizing: border-box;
+    top: 7px;
+    left: -20px;
+    width: 15px;
+    height: 15px;
     position: absolute;
+    border-radius: 10px;
 }
 
 .Radio:checked + label:before{
@@ -301,9 +320,7 @@ label{
 }
 
 .Radio:checked + label:after{
-    content: '✔';
-    color: white;
-    font-size: 23px;
-    right: -22px;
-    top: -5px;
+    content: '';
+    border: 2px solid black;
+    box-shadow: 0 0 3px 0 black;
 }
