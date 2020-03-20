@@ -72,126 +72,50 @@
         </div>
     </header>
     <article>
-        <section>
-            <!--TODO: Сделать ссылку на testEngine.ejs-->
-            <a href="/olympList/create">
-                <figure style="background-color: gray;">
-                    <div class="olympCategory">
-                        <img src="images/ICO.svg" alt="">
-                        <a href="/olympList/create">
-                            <span>Создание олимпиады</span>
-                        </a>
-                    </div>
-                    <div class="olympsCantainer"><!--ЗАТЫЧКА ПОЗЖЕ ПОФИКШУ--></div>
-                </figure>
-            </a>
-            <figure>
-                <div class="olympCategory">
-                    <img src="images/ICO.svg" alt="">
-                    <span>Программирование</span>
-                </div>
-                <div class="olympsCantainer">
-                    <!--Тип плашечка с олимпиадой это будет ссылка на редактор олимпиады-->
-                    <div class="olymp">
-                        <span>HTML</span><span class="olympDate">19.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>CSS</span><span class="olympDate">21.05.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>JavaScript</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>PascalANC.NET</span><span class="olympDate">19.06.2021</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Python</span><span class="olympDate">12.11.2020</span>
-                    </div>
-                </div>
-            </figure>
-            <figure style="background-color: orange;">
-                <div class="olympCategory">
-                    <img src="images/ICO.svg" alt="">
-                    <span>Строитнльство</span>
-                </div>
-                <div class="olympsCantainer">
-                    <div class="olymp">
-                        <span>Кладка плитки</span><span class="olympDate">19.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Установка унитазов</span><span class="olympDate">21.05.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Мантаж проводки</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                </div>
-            </figure>
-            <figure style="background-color: green;">
-                <div class="olympCategory">
-                    <img src="images/ICO.svg" alt="">
-                    <span>Архитектура</span>
-                </div>
-                <div class="olympsCantainer">
-                    <div class="olymp">
-                        <span>ХЗ</span><span class="olympDate">19.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>ХЗ</span><span class="olympDate">21.05.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>хз</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                </div>
-            </figure>
-            <figure style="background-color: blue;">
-                <div class="olympCategory">
-                    <img src="images/ICO.svg" alt="">
-                    <span>Офисные ПО</span>
-                </div>
-                <div class="olympsCantainer">
-                    <div class="olymp">
-                        <span>Word</span><span class="olympDate">19.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Excel</span><span class="olympDate">21.05.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Acess</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Power Point</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Open Office</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Paint.NET</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                </div>
-            </figure>
-            <figure style="background-color: deeppink;">
-                <div class="olympCategory">
-                    <img src="images/ICO.svg" alt="">
-                    <span>ГЕЙминг</span>
-                </div>
-                <div class="olympsCantainer">
-                    <div class="olymp">
-                        <span>Майнклуфт</span><span class="olympDate">19.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>КСГО</span><span class="olympDate">21.05.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Дота3</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Овердроч</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                    <div class="olymp">
-                        <span>Хартстоне</span><span class="olympDate">30.04.2020</span>
-                    </div>
-                </div>
-            </figure>
+        <section class="olympCategories">
+            <div class="cat-nav">
+                <ul>
+                    <li><img src="images/ico.png" alt=""></li>
+                    <li><img src="images/ico.png" alt=""></li>
+                    <li><img src="images/ico.png" alt=""></li>
+                    <li><a href="/olympList/create"><img src="images/addolymp.png" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="cat-head">
+                <img src="images/ico.png" alt="">
+                <h1>Название категории</h1>
+            </div>
+            <div class="cat-description">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita praesentium veritatis deserunt perspiciatis quod iusto dolore quas asperiores accusantium facere et nostrum numquam dolores, soluta nemo dolor non quibusdam laborum?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptas aliquid quae, quasi quaerat cumque nam animi modi sequi, commodi tempore autem, odit quod distinctio voluptates iste illum suscipit officiis!</p>
+            </div>
+        </section>
+        <section class="olympSelect">
+            <div class="olymp">
+                <h3>Название Название Название Название Название</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
+                <a href=""><div>Участвовать</div></a>
+            </div>
+            <div class="olymp">
+                <h3>Название</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
+                <a href=""><div>Участвовать</div></a>
+            </div>
+            <div class="olymp">
+                <h3>Название</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
+                <a href=""><div>Участвовать</div></a>
+            </div>
+            <div class="olymp">
+                <h3>Название</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
+                <a href=""><div>Участвовать</div></a>
+            </div>
+            <div class="olymp">
+                <h3>Название</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
+                <a href=""><div>Участвовать</div></a>
+            </div>
         </section>
     </article>
     <footer></footer>
