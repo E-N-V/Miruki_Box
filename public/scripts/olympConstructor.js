@@ -46,7 +46,7 @@ function reDraw(block, mode){
     switch (mode.id) {
         case "radio":
             block.innerHTML = `
-                <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0],  this)"><</div>
+                <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="testArea" cols="30" rows="10"></textarea>
                 <div class="answersContainer" id="AnswerContainer">
                     <div class="answer">
@@ -62,7 +62,7 @@ function reDraw(block, mode){
                 break;
         case "checkbox":
             block.innerHTML = `
-                <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0],  this)"><</div>
+                <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="testArea" cols="30" rows="10"></textarea>
                 <div class="answersContainer" id="AnswerContainer">
                     <div class="answer">
@@ -78,7 +78,7 @@ function reDraw(block, mode){
                 break;
         case "textbox":
             block.innerHTML = `
-                <div class="goBack controls" onclick="goBack(document.getElementById('redactorArea'))"><</div>
+                <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="" cols="30" rows="10"></textarea>
                 <input type="text" name="" id="">
                 `;
@@ -169,11 +169,13 @@ async function AddQuestion(block){
 }
 
 function goBack(block) {
+    const t = block.id.split("_");
+    const count = t[1];
     block.innerHTML = `
                         <h2>Выбирете тип вопроса:</h2>
-                        <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_${t}'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
-                        <div class="questMode" id="checkbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
-                        <div class="questMode" id="textbox" onclick="document.getElementById('q_${t}'), this)"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
+                        <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_${count}'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+                        <div class="questMode" id="checkbox" onclick="reDraw(document.getElementById('q_${count}'),  this)"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+                        <div class="questMode" id="textbox" onclick="reDraw(document.getElementById('q_${count}'),  this)"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
     `;
 }
 
