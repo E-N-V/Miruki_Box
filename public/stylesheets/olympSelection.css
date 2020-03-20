@@ -51,7 +51,8 @@ article .olympCategories .cat-head{
 }
 
 article .olympCategories .cat-head img{
-    height: 100px;   
+    height: 100px;  
+    margin-right: 20px; 
 }
 
 article .olympCategories .cat-head h1{
@@ -66,6 +67,7 @@ article .olympCategories .cat-description{
     align-content: center;
     width: 100%;
     height: calc(80vh - 175px);
+    overflow-y: auto;
 }
 
 article .olympCategories .cat-description p{
