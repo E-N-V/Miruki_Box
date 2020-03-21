@@ -14,34 +14,39 @@ article .olympCategories{
 article .olympCategories .cat-nav{
     padding-bottom: 20px;
     width: 100%;
+    overflow-x: auto;
 }
 
 article .olympCategories .cat-nav ul{
+    margin-top: 20px;
     display: flex;
-    align-items: center;
-    list-style-position: inside;
-    vertical-align: center;
-    font-size: 20px;
+    list-style: none;
 }
 
 article .olympCategories .cat-nav ul li{
-    display: list-item;
-    vertical-align: center;
-    width: 63px;
-    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;    
 }
 
-article .olympCategories .cat-nav ul li:first-child{
-    list-style: none;
-    vertical-align: center;
-    width: 35px;
-    margin: 0;
+article .olympCategories .cat-nav ul li:before{
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    margin-right: 10px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+article .olympCategories .cat-nav ul li:first-child:before{
+    content: '';
+    display: none;
 }
 
 article .olympCategories .cat-nav ul li img{
     width: 35px;
     height: 35px;
-    transform: translate(0,30%);
 }
 
 /*оглавлении категории*/
@@ -129,4 +134,29 @@ article .olympSelect .olymp div{
     background-color: rgb(31, 31, 138);
     color: white;
     box-shadow: 0 0 10px 0 black;
+}
+
+/*АДАПТИВ*/
+
+@media(max-width:400px){
+
+    article .olympCategories .cat-head img{
+        height: 70px;  
+    }
+    
+    article .olympCategories .cat-head h1{
+        font-size: 30px;
+    }   
+    
+    article .olympCategories .cat-description p{
+        font-size: 20px;
+    }
+    
+    article .olympSelect .olymp h3{
+    font-size: 25px;
+    }
+
+    article .olympSelect .olymp p{
+        font-size: 15px;
+    }
 }
