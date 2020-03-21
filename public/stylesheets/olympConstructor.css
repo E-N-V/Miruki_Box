@@ -241,7 +241,7 @@ label{
 }
 
 .checkBox + label:before,.checkBox:checked + label:before{
-    top: 2px;
+    top: -13px;
     left: -25px;
     content: '';
     position: absolute;
@@ -254,7 +254,7 @@ label{
 
 .checkBox + label:after, .checkBox:checked + label:after{
     /*top: 12px; fuck this*/
-    transform: translate(0,3px);
+    transform: translate(0,-12px);
     left: -22px;
     content: '';
     position: absolute;
@@ -293,7 +293,7 @@ label{
 
 .Radio + label:before,.Radio:checked + label:before{
     content: '';
-    top: 2px;
+    top: -13px;
     left: -25px;
     position: absolute;
     width: 25px;
@@ -307,7 +307,7 @@ label{
 .Radio + label:after, .Radio:checked + label:after{
     content: '';
     box-sizing: border-box;
-    top: 7px;
+    top: -8px;
     left: -20px;
     width: 15px;
     height: 15px;
@@ -323,4 +323,13 @@ label{
     content: '';
     border: 2px solid black;
     box-shadow: 0 0 3px 0 black;
+}
+
+.oneAnswerInput{
+    border-radius: 0;
+    max-width: 50%;
+    font-size: 25px;
+    margin-right: 35px;
+    border: solid black;
+    border-width: 0 0 2px 0;
 }
