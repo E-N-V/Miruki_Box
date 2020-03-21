@@ -11,7 +11,8 @@ body,article{
     justify-content: center;
     width: 100%;
     min-height: 360px;
-    background-image: url("/images/затычка.png");
+/*    background-image: url("/images/затычка.png");*/
+    background: linear-gradient(90deg, rgb(135, 81, 185), rgb(58, 35, 80));
     background-repeat: no-repeat;
     background-size: cover;
 

@@ -119,13 +119,13 @@ header{
 
 .massages{
     width: 50px;
-    background-image: url('../images/massages.svg');
+    background-image: url('../images/massages.png');
 }
 
 .notifications{
     width: 35px;
     background-position: 30% 0;
-    background-image: url('../images/notifications.svg');
+    background-image: url('../images/notifications.png');
 }
 
 .avatar{
