@@ -129,6 +129,7 @@ background: #CCC;
     }
 
     .banner .textBlock span{
+        display: block;
         text-align: center;
         color: deeppink;
     }
@@ -144,6 +145,7 @@ background: #CCC;
     .cards::-webkit-scrollbar-thumb:hover {
         background: #000;
       }
+      
     
 }
 /*

@@ -67,7 +67,6 @@ article .olympCategories .cat-description{
     align-content: center;
     width: 100%;
     height: calc(80vh - 175px);
-    overflow-y: auto;
 }
 
 article .olympCategories .cat-description p{
@@ -119,7 +118,6 @@ article .olympSelect .olymp h3{
 article .olympSelect .olymp p{
     font-size: 20px;
     height: 165px;
-    overflow-y:scroll;
     flex-grow: 1;
 }
 
