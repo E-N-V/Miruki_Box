@@ -4,11 +4,12 @@ article{
 }
 /*категории*/
 article .olympCategories{
+    transition: 1s;
     width: 80%;
     padding: 0 10%;
     padding-bottom: 20px;
+    background: linear-gradient(160deg, rgba(000, 000, 000, 0), rgba(000, 000, 000, 0.8));
     background-color: dodgerblue;
-    background: linear-gradient(140deg, dodgerblue, rgb(1, 42, 82));
 }
 /*выбор категории*/
 article .olympCategories .cat-nav{
@@ -45,6 +46,7 @@ article .olympCategories .cat-nav ul li:first-child:before{
 }
 
 article .olympCategories .cat-nav ul li img{
+    cursor: pointer;
     width: 35px;
     height: 35px;
 }
@@ -120,6 +122,14 @@ article .olympSelect .olymp h3{
     font-size: 30px;
     text-align: right;
     vertical-align: bottom;
+}
+
+article .olympSelect h4{
+    margin: 0 auto;    
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: rgb(100, 88, 124);
+    font-size: 30px;
 }
 
 article .olympSelect .olymp p{

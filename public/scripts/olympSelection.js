@@ -1,22 +1,83 @@
-window.onload = () =>{
-    let olymps = document.getElementsByClassName('olympCategory');
-    let olympsContainers = document.getElementsByClassName('olympsCantainer');
-
-    for(let i = 0; i < olymps.length; i-=-1){
-        olymps[i].onclick = () =>{
-            if(olymps[i].value == 1){
-                olymps[i].value = 0;
-                let olympsList = olympsContainers[i].getElementsByClassName('olymp');
-                for(let l = 0; l < olympsList.length; l-=-1){
-                    olympsList[l].style.height = '0';
-                }
-            }else{
-                olymps[i].value = 1;
-                let olympsList = olympsContainers[i].getElementsByClassName('olymp');
-                for(let l = 0; l < olympsList.length; l-=-1){
-                    olympsList[l].style.height = '28px';
-                }
-            }
+function pawPoof(catName,cats){
+    for(cat = 0; cat < cats.length; cat-=-1){
+        if (cats[cat].id == catName) {
+            cats[cat].style.display = 'block';
+        } else {
+            cats[cat].style.display = 'none'
         }
     }
+}
+
+function catPillow(catName){
+    let catsBox = document.getElementsByClassName('olympCategories')[0];
+    switch (catName) {
+        case 'arch':
+            catsBox.style.backgroundColor = 'orange';
+            break;
+        case 'prog':
+            catsBox.style.backgroundColor = 'dodgerblue';
+            break;
+        case 'weld':
+            catsBox.style.backgroundColor = 'greenyellow';
+            break;
+        case 'mech':
+            catsBox.style.backgroundColor = 'red';
+        break;
+        case 'office':
+            catsBox.style.backgroundColor = 'blue';
+        break;
+        case 'art':
+            catsBox.style.backgroundColor = 'deeppink';
+            break;
+        default:
+            catsBox.style.backgroundColor = 'blueviolet';
+            break;
+    }
+}
+
+function catBallOfWool(target,olympName,olympDiscription,olympUrl){
+    let olymp = document.createElement('div');
+    olymp.setAttribute('class','olymp');
+    olymp.innerHTML = `
+        <h3>`+ olympName +`</h3>
+        <p>`+ olympDiscription +`</p>
+        <a href="`+ olympUrl +`"><div>Участвовать</div></a>
+        `
+    target.append(olymp);
+}
+
+function catPlay(catName){
+    let olympContainer = document.getElementsByClassName('olympSelect')[0];
+    //чистим старые олимпиады
+    let olymps = document.getElementsByClassName('olymp');
+        for(i = 0; i < olymps.length; i++){
+            olymps[i].remove();
+        }
+        //TODO: ХЗ как но надо из бдшки достовать олимпиады их описания и тд.
+        //тип если они найденны просто добовляешь их функцией catBallOfWool
+    if(false){
+        catBallOfWool(olympContainer,'olympName','olympDiscription','olympUrl')
+        document.getElementById('nothingMassage').style.display = 'none';
+    }else{
+        document.getElementById('nothingMassage').style.display = 'block';
+    }
+}
+
+function catBlush(catName){
+    let shyCats = document.getElementsByClassName('cat-nav')[0].getElementsByTagName('img');
+    for (i = 0; i < shyCats.length; i++) {
+        if (shyCats[i].name == catName) {
+            shyCats[i].style.boxShadow = '1px 1px 0 0 white';
+        } else {
+            shyCats[i].style.boxShadow = '0 0 0 0 white';
+        }
+    }
+}
+
+function catSelect(catName){    
+    let cats = document.getElementsByClassName('cat-kit');
+    pawPoof(catName,cats);
+    catPillow(catName);
+    catPlay(catName);
+    catBlush(catName);
 }
