@@ -63,6 +63,7 @@ html{
 /*__________ header __________*/
 
 header{
+    z-index:1;
     top:0;
     position: fixed;
     box-sizing: border-box;
