@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: calc(100vh - 379px);
     min-height: 360px;
     background-image: url("/images/затычка.png");
     background-repeat: no-repeat;
