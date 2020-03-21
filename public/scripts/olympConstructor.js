@@ -80,7 +80,7 @@ function reDraw(block, mode){
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="" cols="30" rows="10"></textarea>
-                <input type="text" name="" id="">
+                <input type="text" name="" id="" class="oneAnswerInput">
                 `;
             break;
     }

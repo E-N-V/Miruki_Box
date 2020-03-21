@@ -5,7 +5,6 @@ article{
 /*категории*/
 article .olympCategories{
     width: 80%;
-    min-height: 80vh;
     padding: 0 10%;
     padding-bottom: 20px;
     background-color: dodgerblue;
@@ -28,12 +27,14 @@ article .olympCategories .cat-nav ul li{
     display: list-item;
     vertical-align: center;
     width: 63px;
+    margin-left: 20px;
 }
 
 article .olympCategories .cat-nav ul li:first-child{
     list-style: none;
     vertical-align: center;
-    width: 45px;
+    width: 35px;
+    margin: 0;
 }
 
 article .olympCategories .cat-nav ul li img{
@@ -66,7 +67,7 @@ article .olympCategories .cat-description{
     align-items: center;
     align-content: center;
     width: 100%;
-    height: calc(80vh - 175px);
+    height: calc(100vh - 408px);
 }
 
 article .olympCategories .cat-description p{

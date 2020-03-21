@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80vh;
     min-height: 360px;
     background-image: url("/images/затычка.png");
     background-repeat: no-repeat;
@@ -14,7 +13,7 @@
 }
 
 .banner .textBlock{
-width: 80%;
+    width: 80%;
 }
 
 .banner .textBlock h1{
@@ -133,7 +132,7 @@ background: #CCC;
         text-align: center;
         color: deeppink;
     }
-    
+
     .subText{
         font-size: 30px;
     }
@@ -145,9 +144,8 @@ background: #CCC;
     .cards::-webkit-scrollbar-thumb:hover {
         background: #000;
       }
-      
-    
 }
+
 /*
 @media screen and (max-width: 890px){
     figure figcaption .textBlock h1{
