@@ -33,7 +33,8 @@ article .olympCategories .cat-nav ul li{
 article .olympCategories .cat-nav ul li:first-child{
     list-style: none;
     vertical-align: center;
-    width: 45px;
+    width: 35px;
+    margin: 0;
 }
 
 article .olympCategories .cat-nav ul li img{
