@@ -28,6 +28,7 @@ article .olympCategories .cat-nav ul li{
     display: list-item;
     vertical-align: center;
     width: 63px;
+    margin-left: 20px;
 }
 
 article .olympCategories .cat-nav ul li:first-child{
@@ -40,7 +41,6 @@ article .olympCategories .cat-nav ul li img{
     width: 35px;
     height: 35px;
     transform: translate(0,30%);
-    margin-right: 20px;
 }
 
 /*оглавлении категории*/
