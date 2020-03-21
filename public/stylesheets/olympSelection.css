@@ -5,7 +5,6 @@ article{
 /*категории*/
 article .olympCategories{
     width: 80%;
-    min-height: 80vh;
     padding: 0 10%;
     padding-bottom: 20px;
     background-color: dodgerblue;
@@ -67,7 +66,7 @@ article .olympCategories .cat-description{
     align-items: center;
     align-content: center;
     width: 100%;
-    height: calc(80vh - 175px);
+    height: calc(100vh - 408px);
 }
 
 article .olympCategories .cat-description p{

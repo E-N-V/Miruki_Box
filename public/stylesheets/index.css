@@ -145,9 +145,8 @@ background: #CCC;
     .cards::-webkit-scrollbar-thumb:hover {
         background: #000;
       }
-      
-    
 }
+
 /*
 @media screen and (max-width: 890px){
     figure figcaption .textBlock h1{
