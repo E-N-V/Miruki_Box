@@ -63,11 +63,10 @@ article .olympCategories .cat-head h1{
 article .olympCategories .cat-description{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     align-content: center;
     width: 100%;
-    height: calc(100vh - 408px);
 }
 
 article .olympCategories .cat-description p{
