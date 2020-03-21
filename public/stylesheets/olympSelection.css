@@ -13,6 +13,7 @@ article .olympCategories{
 /*выбор категории*/
 article .olympCategories .cat-nav{
     padding-bottom: 20px;
+    width: 100%;
 }
 
 article .olympCategories .cat-nav ul{
@@ -90,7 +91,7 @@ article .olympSelect{
 }
 
 article .olympSelect .olymp{
-    flex-shrink: 0;
+    flex-shrink: 1;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -117,7 +118,6 @@ article .olympSelect .olymp h3{
 
 article .olympSelect .olymp p{
     font-size: 20px;
-    height: 165px;
     flex-grow: 1;
 }
 

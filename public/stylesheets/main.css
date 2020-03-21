@@ -100,7 +100,7 @@ header{
     align-items: center;
     height: 100%;
 }
-
+/*
 .usersNoteAmount{
     position: absolute;
     right: 0;
@@ -140,7 +140,7 @@ header{
     background-size: 150% 150%;
     background-position: 50% 50%;
 }
-
+*/
 @media screen and (max-width: 400px){
     
     header .siteLogo span{
