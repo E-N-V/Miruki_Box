@@ -158,6 +158,7 @@ header{
         right: 20px;
         background-color: blueviolet;
         border-radius: 100%;
+        display: none;
     }
 
     .nav-zatychka{
