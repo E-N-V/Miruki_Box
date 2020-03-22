@@ -111,7 +111,7 @@ article{
 }
 
 .backButton{
-    float: left;
+    margin-right: 20px;
 }
 
 .redactor .redactorButtons button, .buttonSub, .help{
@@ -128,9 +128,11 @@ article{
 }
 
 .questContainer{
+    position: fixed;
+    right: 0;
     overflow-y: scroll;
     width: 250px;
-    height: calc(100vh);
+    height: calc(100vh - 100px);
     background-color: white;
 }
 
@@ -162,17 +164,25 @@ article{
         padding: 0 5px 0 0 ;
     }
 
+    .redactor .redactorArea{
+        max-height: calc(100vh - 168px);        
+    }
+
     .redactor .redactorArea .questMode{
         font-size: 10px;
         color: black;
     }
 
-    .redactor .redactorButtons{
+    .redactor .redactorButtons,.backButton{
         margin-top: 5px;
     }
 
-    .redactor .redactorButtons button{
+    .redactor .redactorButtons button, .buttonSub, .help{
         font-size: 15px;
+    }
+
+    .backButton{
+        margin-right: 5px;
     }
 
     .questions .questBlock, .questCreate{
@@ -187,7 +197,6 @@ article{
 
     .questions .questBlock span{
         width: 70%;
-        
     }
 
     .questions .questBlock .JOPA{
@@ -343,6 +352,7 @@ label{
 /*Тута preparation*/
 
 .preparation,.instruction{
+    overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -387,7 +397,7 @@ font-size: 40px;
     box-sizing: border-box;
     padding: 20px;
     margin: 20px 0;
-    background-color: rgba(183, 158, 231, 0.5) ;
+    background-color: rgba(183, 158, 231, 0.8) ;
 }
 
 .instruction .instSection h3{
@@ -401,3 +411,79 @@ font-size: 40px;
 
 /*Выбор optional*/
 
+.questOptions{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.questOptions .optional{
+    width: 50%;
+}
+
+.questOptions .answersContainer{
+    width: 50%;
+}
+
+@media(max-width:900px){
+    .questOptions .optional{
+        width: 100%;
+    }
+    
+    .questOptions .answersContainer{
+        width: 100%;
+    }
+}
+
+.questOptions .optional ul{
+    list-style: none;
+}
+
+.questOptions .optional ul li{
+    display: inline-block;
+}
+
+.opt-mode{
+    opacity: 0;
+    z-index: -1;
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+
+.opt-mode + label{
+    transform: translate(-40px,0);
+    position: relative;
+}
+
+.opt-mode + label:before, .opt-mode:checked + label:before{
+    transition: 1s;
+    content: '';
+    position: absolute;
+    display: block;
+    top: -40px;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: lightgray;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.opt-mode:checked + label:before{
+    background-color: dodgerblue;
+}
+
+.nothing-opt + label:before, .nothing-opt:checked + label:before{
+    background-image: url(../images/nothing.png);
+}
+
+.image-opt + label:before, .image-opt:checked + label:before{
+    background-image: url(../images/picture.png);
+}
+
+.code-opt + label:before, .code-opt:checked + label:before{
+    background-image: url(../images/code.png);
+}

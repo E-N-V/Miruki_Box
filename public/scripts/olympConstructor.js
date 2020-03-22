@@ -51,11 +51,11 @@ function reDraw(block, mode){
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
-                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
                             <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
                             <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
                             <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
                         </ul>
                     </div>
@@ -79,11 +79,11 @@ function reDraw(block, mode){
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
-                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
                             <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
                             <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
                             <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
                         </ul>
                     </div>
@@ -107,11 +107,11 @@ function reDraw(block, mode){
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
-                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
                             <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
                             <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
                             <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
                         </ul>
                     </div>
@@ -280,7 +280,9 @@ function optModeSwap(num){
 function helpInst(num){
     if(num == 0){
         document.getElementsByClassName('instruction')[0].style.display = 'none';
+        document.getElementsByTagName('body')[0].style.overflowY = 'initial';
     } else {
         document.getElementsByClassName('instruction')[0].style.display = 'block';
+        document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
     }
 }
