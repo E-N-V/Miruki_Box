@@ -47,11 +47,11 @@ function reDraw(block, mode){
         case "radio":
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="testArea" cols="30" rows="10"></textarea>
+                <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="answersContainer" id="AnswerContainer">
                     <div class="answer">
                         <span>1)</span>
-                        <input type="text" name="" id="text" class="input">
+                        <input type="text" name="" id="text" class="input" placeholder="Ответ">
                         <div class="radio"></div>
                         <div class="controls delete" style="display: none">-</div>
                     </div>
@@ -63,11 +63,11 @@ function reDraw(block, mode){
         case "checkbox":
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="testArea" cols="30" rows="10"></textarea>
+                <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="answersContainer" id="AnswerContainer">
                     <div class="answer">
                         <span>1)</span>
-                        <input type="text" name="" id="text" class="input">
+                        <input type="text" name="" id="text" class="input" placeholder="Ответ">
                         <div class="checkbox"></div>
                         <div class="controls delete" style="display: none">-</div>
                     </div>
@@ -79,8 +79,8 @@ function reDraw(block, mode){
         case "textbox":
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <input type="text" name="" id="" class="oneAnswerInput">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <input type="text" name="" id="" class="oneAnswerInput" placeholder="Ответ">
                 `;
             break;
     }
@@ -137,7 +137,10 @@ function delAnswer(block) {
 }
 
 async function AddQuestion(block){
-    document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1].className = "question";
+    const all = document.getElementsByClassName('current');
+    for(i = 0; i < all.length; i++){
+        all[i].className = "question";
+    }
     const div = document.createElement('div');
     const t = document.getElementsByClassName('question').length + 1;
     div.id = "q_" + t;
@@ -187,8 +190,20 @@ function SwitchQuestion(block) {
 
     block.style = "background-color: deeppink;"
 
-    const cur = document.getElementsByClassName('current')[0];
-    cur.className = "question";
+    const all = document.getElementsByClassName('current');
+    for(i = 0; i < all.length; i++){
+        all[i].className = "question";
+    }
     const id = block.id.split('_');
     document.getElementsByClassName('question')[id[1] - 1].className = "question current";
+}
+
+/*Тута preparation*/
+
+function MainIN(num){
+    if(num == 0){
+        document.getElementsByClassName('preparation')[0].style.display = 'none';
+    } else {
+        document.getElementsByClassName('preparation')[0].style.display = 'flex';
+    }
 }

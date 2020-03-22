@@ -67,7 +67,7 @@ function catBlush(catName){
     let shyCats = document.getElementsByClassName('cat-nav')[0].getElementsByTagName('img');
     for (i = 0; i < shyCats.length; i++) {
         if (shyCats[i].name == catName) {
-            shyCats[i].style.boxShadow = '1px 1px 0 0 white';
+            shyCats[i].style.boxShadow = '15px 15px 0 -14px white,-15px -15px 0 -14px white';
         } else {
             shyCats[i].style.boxShadow = '0 0 0 0 white';
         }

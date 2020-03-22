@@ -101,7 +101,7 @@ article{
     border-width: 0 0 2px 0;
 }
 
-.redactor .redactorButtons{
+.redactor .redactorButtons,.backButton{
     display: table;
     float: right;
     margin-top: 15px;
@@ -109,7 +109,12 @@ article{
     background-color: white;
 }
 
-.redactor .redactorButtons div{
+.backButton{
+    float: left;
+}
+
+.redactor .redactorButtons button, .buttonSub{
+    font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     margin: 5px;
     font-size: 25px;
@@ -332,4 +337,22 @@ label{
     margin-right: 35px;
     border: solid black;
     border-width: 0 0 2px 0;
+}
+
+/*Тута preparation*/
+
+.preparation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: calc(100vh - 50px);
+    background-color: black;
+    z-index: 1;
+}
+
+.preparation .main-input{
+    display: block;
+    background-color: white;
 }

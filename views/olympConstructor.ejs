@@ -73,30 +73,47 @@
         </div>
     </header>
     <form action="/olympList/create/fix" method="post">
-    <article>
-        <section class="redactor">
-            <div class="redactorArea" id="redactorArea">
-                <div class="question current" id="q_1">
-                    <h2>Выбирете тип вопроса:</h2>
-                    <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_1'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
-                    <div class="questMode" id="checkbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
-                    <div class="questMode" id="textbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
+        <article>
+            <div class="preparation">
+                <div class="main-input">
+                    <!--ТУТ ИМЯ И СЕКЦИЯ ОЛИМПИАДЫ-->
+                    <select name="" id="">
+                        <option value="">1 секция</option>
+                        <option value="">2 секция</option>
+                        <option value="">3 секция</option>
+                        <option value="">4 секция</option>
+                        <option value="">5 секция</option>
+                    </select>
+                    <input type="text" name="" id="" placeholder="Название олимпиады">
+                    <div class="buttonSub nextMI" onclick="MainIN(0)">Далее</div>
                 </div>
             </div>
-            <div class="redactorButtons">
-                <button type="reset">Cancel</button>
-                <button type="submit">Submit</button>
-            </div>
-        </section>
-        <section class="questContainer">
-            <div class="questions" id="q">
-                <div class="questionsScroll"></div>
-                <div id="QList_1" class="questBlock" style="background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);" onclick="SwitchQuestion(this)"><span>ВОПРОС НАМБА</span><span class="JOPA">1</span></div>
-            </div>
-            <div id="questCreate" onclick="AddQuestion(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1])"><span>+</span></div>
-        </section>
-    </article>
-</form>
+            <section class="redactor">
+                <div class="redactorArea" id="redactorArea">
+                    <div class="question current" id="q_1">
+                        <h2>Выбирете тип вопроса:</h2>
+                        <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_1'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>
+                        <div class="questMode" id="checkbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/checkbox.svg" alt=""><span>Вопрос имеющий несколько ответов</span></div>
+                        <div class="questMode" id="textbox" onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)"><img src="/images/textbox.svg" alt=""><span>Вопрос на который нужно дать письменный ответ (точное число или слово)</span></div>
+                    </div>
+                </div>
+                <div class="redactorButtons">
+                    <button type="reset">Cancel</button>
+                    <button type="submit">Submit</button>
+                </div>
+                <div class="backButton">
+                    <div onclick="MainIN(1)" class="buttonSub">Back</button>
+                </div>
+            </section>
+            <section class="questContainer">
+                <div class="questions" id="q">
+                    <div class="questionsScroll"></div>
+                    <div id="QList_1" class="questBlock" style="background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);" onclick="SwitchQuestion(this)"><span>ВОПРОС НАМБА</span><span class="JOPA">1</span></div>
+                </div>
+                <div id="questCreate" onclick="AddQuestion(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1])"><span>+</span></div>
+            </section>
+        </article>
+    </form>
 <footer id="diiv"></footer>
 </body>
 </html>
