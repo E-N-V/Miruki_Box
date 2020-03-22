@@ -48,12 +48,24 @@ function reDraw(block, mode){
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
-                <div class="answersContainer" id="AnswerContainer">
-                    <div class="answer">
-                        <span>1)</span>
-                        <input type="text" name="" id="text" class="input" placeholder="Ответ">
-                        <div class="radio"></div>
-                        <div class="controls delete" style="display: none">-</div>
+                <div class="questOptions">
+                    <div class="optional">
+                        <ul>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
+                        </ul>
+                    </div>
+                    <div class="answersContainer" id="AnswerContainer">
+                        <div class="answer">
+                            <span>1)</span>
+                            <input type="text" name="" id="text" class="input" placeholder="Ответ">
+                            <div class="radio"></div>
+                            <div class="controls delete" style="display: none">-</div>
+                        </div>
                     </div>
                 </div>
                 <div class="controls append" id="radio" onclick="AddAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answersContainer')[0], this)">+</div>
@@ -64,12 +76,24 @@ function reDraw(block, mode){
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
-                <div class="answersContainer" id="AnswerContainer">
-                    <div class="answer">
-                        <span>1)</span>
-                        <input type="text" name="" id="text" class="input" placeholder="Ответ">
-                        <div class="checkbox"></div>
-                        <div class="controls delete" style="display: none">-</div>
+                <div class="questOptions">
+                    <div class="optional">
+                        <ul>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
+                        </ul>
+                    </div>
+                    <div class="answersContainer" id="AnswerContainer">
+                        <div class="answer">
+                            <span>1)</span>
+                            <input type="text" name="" id="text" class="input" placeholder="Ответ">
+                            <div class="checkbox"></div>
+                            <div class="controls delete" style="display: none">-</div>
+                        </div>
                     </div>
                 </div>
                 <div class="controls append" id="checkbox" onclick="AddAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answersContainer')[0], this)">+</div>
@@ -80,7 +104,19 @@ function reDraw(block, mode){
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
-                <input type="text" name="" id="" class="oneAnswerInput" placeholder="Ответ">
+                <div class="questOptions">
+                    <div class="optional">
+                        <ul>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
+                        </ul>
+                    </div>
+                    <input type="text" name="" id="" class="oneAnswerInput" placeholder="Ответ">
+                </div>
                 `;
             break;
     }
@@ -205,5 +241,36 @@ function MainIN(num){
         document.getElementsByClassName('preparation')[0].style.display = 'none';
     } else {
         document.getElementsByClassName('preparation')[0].style.display = 'flex';
+    }
+}
+
+/*Тута свап мода доп контента */
+
+function optEarse(){
+    let optCon = document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('opt-content');
+        if(optCon.length > 0){
+            optCon[0].remove();
+    }
+}
+
+function optModeSwap(num){
+    if(num == 0){
+        optEarse()
+    }else{
+        optEarse()
+        let div = document.createElement('div');
+        div.setAttribute('class', 'opt-content')
+        switch (num) {
+            case 1:
+                div.innerHTML = '<input type="file">'
+                break;
+            case 2:
+                div.innerHTML = '<textarea name="" id="testArea" cols="30" rows="10" placeholder="Код"></textarea>'
+                break;        
+            default:
+                
+                break;
+        }
+        document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('optional')[0].append(div);
     }
 }
