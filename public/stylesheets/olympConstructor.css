@@ -155,10 +155,19 @@ article{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (max-width:450px){
+@media (max-width:660px){
     .questContainer{
         width: 100px;
     }    
+
+    .questBlock span{
+        font-size: 10px;
+    }
+
+    .questMode img{
+        width: 50px;
+        height: 50px;
+    }
 
     .redactor{
         width: calc(100% - 100px);
@@ -206,7 +215,6 @@ article{
 
     .questions .questBlock .JOPA{
         margin-left: 5px;
-        width: 20%;
     }
 
     .redactor .redactorArea .question .answer{
@@ -231,6 +239,19 @@ article{
 
     .oneAnswer{
         width: 80%;
+    }
+
+    .questions .questBlock span{
+        width: 35px;        
+    }
+
+    .questions .questBlock .JOPA{
+        margin-left: 5px;
+        font-size:40px;
+    }
+
+    .redactor .redactorArea .question .answer input{
+        width: calc(100% - 100px);
     }
 }
 
@@ -439,6 +460,7 @@ font-size: 40px;
         width: 100%;
     }
 }
+
 
 .questOptions .optional ul{
     text-align: center;

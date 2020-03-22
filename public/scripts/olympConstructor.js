@@ -202,7 +202,7 @@ async function AddQuestion(block){
 //????    but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
     but.style = "background-color: deeppink;";
     but.innerHTML = `
-    <span>ВОПРОС НАМБА</span><span class="JOPA">` + count + `</span>
+    <span>ВОПРОС НОМЕР</span><span class="JOPA">` + count + `</span>
     `;
     document.getElementById('q').append(but);
 }
