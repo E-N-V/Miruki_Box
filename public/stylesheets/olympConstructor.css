@@ -419,6 +419,7 @@ font-size: 40px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .questOptions .optional{
@@ -440,6 +441,7 @@ font-size: 40px;
 }
 
 .questOptions .optional ul{
+    text-align: center;
     list-style: none;
 }
 
@@ -466,7 +468,7 @@ font-size: 40px;
     position: absolute;
     display: block;
     top: -40px;
-    left: 0;
+    left: -20px;
     height: 40px;
     width: 40px;
     border-radius: 100%;
