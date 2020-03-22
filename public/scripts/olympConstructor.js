@@ -129,7 +129,7 @@ function AddAnswer(block, mode){
             div.className = 'answer';
             div.innerHTML = `
             <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
-            <input type="text" name="" id="text" class="input">
+            <input type="text" name="" id="text" class="input" placeholder="Ответ">
             <div class="radio"></div>
             <div class="controls delete">-</div>
             `;
@@ -139,7 +139,7 @@ function AddAnswer(block, mode){
             div.className = 'answer';
             div.innerHTML = `
             <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
-            <input type="text" name="" id="text" class="input">
+            <input type="text" name="" id="text" class="input" placeholder="Ответ">
             <div class="checkbox"></div>
             <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
@@ -150,7 +150,7 @@ function AddAnswer(block, mode){
             div.className = 'answer';
             div.innerHTML = `
             <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
-            <input type="text" name="" id="text" class="input">
+            <input type="text" name="" id="text" class="input" placeholder="Ответ">
             <div class="radio"></div>
             <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
