@@ -68,6 +68,7 @@ article{
 }
 
 .redactor .redactorArea .question .controls{
+    flex-shrink: 0;
     display: block;
     cursor: pointer;
     width: 50px;
@@ -94,8 +95,8 @@ article{
 }
 
 .redactor .redactorArea .question .answer input{
+    width: calc(100% - 140px);
     border-radius: 0;
-    max-width: 50%;
     font-size: 25px;
     margin-right: 35px;
     border: solid black;
@@ -219,7 +220,6 @@ article{
     }
     
     .redactor .redactorArea .question .answer input{
-        width: 50%;
         font-size: 15px;
     }
 
@@ -423,11 +423,11 @@ font-size: 40px;
 }
 
 .questOptions .optional{
-    width: 50%;
+    width: 30%;
 }
 
 .questOptions .answersContainer{
-    width: 50%;
+    width: 70%;
 }
 
 @media(max-width:900px){
