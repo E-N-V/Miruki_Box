@@ -90,6 +90,29 @@
             </div>
             <section class="redactor">
                 <div class="redactorArea" id="redactorArea">
+                    <div class="help" onclick="helpInst(1)">?</div>
+                    <div class="instruction">
+                        <div class="help" style="margin-right: calc(5% - 10px);" onclick="helpInst(0)">X</div>
+                        <h2>Инструкция</h2>
+                        <div class="instSection">
+                            <h3>Something</h3>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias culpa laudantium suscipit id laborum possimus cum, atque est fugiat magni architecto repudiandae, enim corrupti maxime dolores doloribus eum labore ea.</p>
+                        </div>
+                        <div class="instSection">
+                            <h3>Типы вопросов</h3>
+                            <p>Всего есть 3 типа вопросов, с одним ответом, с несколькими ответами, и письменным ответом.</p>
+                            <p>Первые два типа отличаются только количеством правильных ответов. Т.Е. У первого типа может быть любое кол-во ответов но только один правельный, а у второго любое кол-во ответов и любое кол-во правильных ответов</p>
+                            <p>В вопросе с письменным ответом нужно дать точный ответ. Т.Е. нету вариантов ответа. Его лучше применять когда требуется дать численный ответ или когда нужно дать точное название, по типу оператора в программировании</p>
+                        </div>
+                        <div class="instSection">
+                            <h3>Опциональный контент</h3>
+                            <p>В вопросе помимо, самого собственно вопроса и ответа могут быть картинки или код.</p>
+                            <p>Выбор осуществляется посредством этого меню:</p>
+                            <p>При выборе 1-го варианта, опционального контента не будет. Т.Е. будет только вопрос и ответ.</p>
+                            <p>При выборе 2-го варианта, в вопросе будет картинка которую вы загружаете в форматах (тут перечесление).</p>
+                            <p>При выборе 3-го варианта, в вопросе будет блок с кодом.</p>                            
+                        </div>
+                    </div>
                     <div class="question current" id="q_1">
                         <h2>Выбирете тип вопроса:</h2>
                         <div class="questMode" id="radio" onclick="reDraw(document.getElementById('q_1'),  this)"><img src="/images/radio.svg" alt=""><span>Вопрос имеющий один ответ</span></div>

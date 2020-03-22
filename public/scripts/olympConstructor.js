@@ -274,3 +274,13 @@ function optModeSwap(num){
         document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('optional')[0].append(div);
     }
 }
+
+/*ТУТА HELP */
+
+function helpInst(num){
+    if(num == 0){
+        document.getElementsByClassName('instruction')[0].style.display = 'none';
+    } else {
+        document.getElementsByClassName('instruction')[0].style.display = 'block';
+    }
+}

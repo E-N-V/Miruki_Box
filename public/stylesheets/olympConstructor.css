@@ -10,6 +10,7 @@ article{
 }
 
 .redactor .redactorArea{
+    position: relative;
     width: 100%;
     background-color: white;
 }
@@ -113,7 +114,7 @@ article{
     float: left;
 }
 
-.redactor .redactorButtons button, .buttonSub{
+.redactor .redactorButtons button, .buttonSub, .help{
     font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     margin: 5px;
@@ -341,7 +342,7 @@ label{
 
 /*Тута preparation*/
 
-.preparation{
+.preparation,.instruction{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -355,6 +356,47 @@ label{
 .preparation .main-input{
     display: block;
     background-color: white;
+}
+
+/*Помосч*/
+
+.help{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.instruction{
+    display: none;
+    background-color: rgba(000,000,000,0.8);
+}
+
+.instruction{
+    display: none;
+    box-sizing: border-box;
+    padding: 20px 5%;
+    background-color: rgba(000,000,000,0.8);
+}
+
+.instruction h2{
+color: white;
+font-size: 40px;
+}
+
+.instruction .instSection{
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(183, 158, 231, 0.5) ;
+}
+
+.instruction .instSection h3{
+    color: white;
+    font-size: 30px;
+}
+
+.instruction .instSection p{
+    color: white;
 }
 
 /*Выбор optional*/
