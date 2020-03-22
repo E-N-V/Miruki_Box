@@ -168,6 +168,10 @@ article{
         max-height: calc(100vh - 168px);        
     }
 
+    #questCreate{
+        height: 80px;
+    }
+
     .redactor .redactorArea .questMode{
         font-size: 10px;
         color: black;
@@ -486,4 +490,54 @@ font-size: 40px;
 
 .code-opt + label:before, .code-opt:checked + label:before{
     background-image: url(../images/code.png);
+}
+
+
+@media (max-width:450px){
+    /*CHECKBOXES*/
+    .checkbox{
+        margin-right: 10px;
+    }
+
+    .checkBox + label:before,.checkBox:checked + label:before{
+        top: -10px;
+        left: -25px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .checkBox:checked + label:after{
+        font-size: 20px;
+        right: -24px;
+        top: -3px;
+    }
+
+    /*radio*/
+
+    .Radio + label:before,.Radio:checked + label:before{
+        top: -11px;
+        left: -25px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .Radio + label:after, .Radio:checked + label:after{
+        top: -8px;
+        left: -20px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .Radio + label:after, .Radio:checked + label:after{
+        top: -7px;
+        left: -21px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .oneAnswerInput{
+        max-width: 100%;
+        width: 100vw;
+        margin: 0;
+    }
 }
