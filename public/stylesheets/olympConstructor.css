@@ -1,6 +1,7 @@
 article{
     background-color: black;
     display: flex;
+    min-height: calc(100vh - 50px);
 }
 
 .redactor{
@@ -10,6 +11,7 @@ article{
 }
 
 .redactor .redactorArea{
+    position: relative;
     width: 100%;
     background-color: white;
 }
@@ -67,6 +69,7 @@ article{
 }
 
 .redactor .redactorArea .question .controls{
+    flex-shrink: 0;
     display: block;
     cursor: pointer;
     width: 50px;
@@ -92,24 +95,31 @@ article{
     width: 20px;
 }
 
-.redactor .redactorArea .question .answer input{
+.redactor .redactorArea .question .answer .input{
+    width: calc(100% - 140px);
     border-radius: 0;
-    max-width: 50%;
     font-size: 25px;
     margin-right: 35px;
     border: solid black;
     border-width: 0 0 2px 0;
 }
 
-.redactor .redactorButtons{
+.redactor .redactorButtons,.backButton{
     display: table;
     float: right;
     margin-top: 15px;
     padding: 10px;
     background-color: white;
+    cursor: pointer;
 }
 
-.redactor .redactorButtons div{
+.backButton{
+    margin-right: 20px;
+}
+
+.redactor .redactorButtons button, .buttonSub, .help{
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     margin: 5px;
     font-size: 25px;
@@ -122,9 +132,11 @@ article{
 }
 
 .questContainer{
+    position: fixed;
+    right: 0;
     overflow-y: scroll;
     width: 250px;
-    height: calc(100vh);
+    height: calc(100vh - 50px);
     background-color: white;
 }
 
@@ -146,14 +158,31 @@ article{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (max-width:450px){
+@media (max-width:660px){
     .questContainer{
         width: 100px;
     }    
 
+    .questBlock span{
+        font-size: 10px;
+    }
+
+    .questMode img{
+        width: 50px;
+        height: 50px;
+    }
+
     .redactor{
         width: calc(100% - 100px);
         padding: 0 5px 0 0 ;
+    }
+
+    .redactor .redactorArea{
+        max-height: calc(100vh - 168px);        
+    }
+
+    #questCreate{
+        height: 80px;
     }
 
     .redactor .redactorArea .questMode{
@@ -161,12 +190,16 @@ article{
         color: black;
     }
 
-    .redactor .redactorButtons{
+    .redactor .redactorButtons,.backButton{
         margin-top: 5px;
     }
 
-    .redactor .redactorButtons button{
+    .redactor .redactorButtons button, .buttonSub, .help{
         font-size: 15px;
+    }
+
+    .backButton{
+        margin-right: 5px;
     }
 
     .questions .questBlock, .questCreate{
@@ -181,12 +214,10 @@ article{
 
     .questions .questBlock span{
         width: 70%;
-        
     }
 
     .questions .questBlock .JOPA{
         margin-left: 5px;
-        width: 20%;
     }
 
     .redactor .redactorArea .question .answer{
@@ -200,7 +231,6 @@ article{
     }
     
     .redactor .redactorArea .question .answer input{
-        width: 50%;
         font-size: 15px;
     }
 
@@ -212,6 +242,19 @@ article{
 
     .oneAnswer{
         width: 80%;
+    }
+
+    .questions .questBlock span{
+        width: 35px;        
+    }
+
+    .questions .questBlock .JOPA{
+        margin-left: 5px;
+        font-size:40px;
+    }
+
+    .redactor .redactorArea .question .answer input{
+        width: calc(100% - 100px);
     }
 }
 
@@ -227,6 +270,7 @@ article{
 
 .checkbox{
     margin-right: 10px;
+    width: 13px;
 }
 
 .checkBox{
@@ -277,6 +321,7 @@ label{
 
 .radio{
     margin-right: 10px;
+    width: 13px;
 }
 
 .Radio{
@@ -321,15 +366,352 @@ label{
 
 .Radio:checked + label:after{
     content: '';
-    border: 2px solid black;
-    box-shadow: 0 0 3px 0 black;
+    border: 2px solid white;
+    box-shadow: 0 0 3px 0 white;
 }
 
 .oneAnswerInput{
+    height: 31px;
     border-radius: 0;
     max-width: 50%;
     font-size: 25px;
     margin-right: 35px;
     border: solid black;
     border-width: 0 0 2px 0;
+}
+
+/*Тута preparation*/
+
+.preparation,.instruction{
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: calc(100vh - 50px);
+    background-color: black;
+    z-index: 1;
+}
+
+.preparation span{
+    padding: 10px;
+}
+
+.preparation ul{
+    padding: 10px;
+}
+
+.preparation ul li{
+    display: inline-block;
+}
+
+.preparation ul li input[type = radio]{
+    display: block;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.preparation ul li label{
+    display: block;
+    position: relative;
+    transform: translate(0,-50px);
+}
+
+.preparation ul li input[type = radio] + label:before, .preparation ul li input[type = radio]:checked + label:before{
+    content: '';
+    position: absolute;
+    display: block;
+    top: 2px;
+    left: 2px;
+    width: 42px;
+    height: 42px;
+    background-color: lightgray;
+    background-size: 37px 37px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 2px solid white;
+}
+
+.preparation ul li input[type = radio]:checked + label:before{
+    background-color: red;
+    box-shadow: 18px 18px 0 -15px black, -18px -18px 0 -15px black;
+}
+
+#arch + label:before, #arch:checked + label:before{
+    background-image: url(../images/arch.png);
+}
+
+#arch:checked + label:before{
+    background-color: orange;
+}
+
+#prog + label:before, #prog:checked + label:before{
+    background-image: url(../images/prog.png);
+}
+
+#prog:checked + label:before{
+    background-color: dodgerblue;
+}
+
+#weld + label:before, #weld:checked + label:before{
+    background-image: url(../images/weld.png);
+}
+
+#weld:checked + label:before{
+    background-color: green;
+}
+
+#mech + label:before, #mech:checked + label:before{
+    background-image: url(../images/mech.png);
+}
+
+#mech:checked + label:before{
+    background-color: red;
+}
+
+#office + label:before, #office:checked + label:before{
+    background-image: url(../images/office.png);
+}
+
+#office:checked + label:before{
+    background-color: blue;
+}
+
+#art + label:before, #art:checked + label:before{
+    background-image: url(../images/art.png);
+}
+
+#art:checked + label:before{
+    background-color: deeppink;
+}
+
+.preparation .main-input{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+}
+
+.preparation span{
+    font-size: 35px;
+    text-shadow: 2px 2px 0 orange;
+}
+
+.preparation div{
+    margin: 0 10px 10px 10px;
+}
+
+.preparation input[type = text]{
+    /*width: calc(100% - 20px);*/
+    margin: 0 10px 10px 10px;
+    border: none;
+    border: solid black;
+    border-width: 0 0 2px 0;
+    font-size: 25px;
+}
+
+/*Помосч*/
+
+.help{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.instruction{
+    top: 50px;
+    display: none;
+    background-color: rgba(000,000,000,0.8);
+}
+
+.instruction{
+    display: none;
+    box-sizing: border-box;
+    padding: 20px 5%;
+    background-color: rgba(000,000,000,0.8);
+}
+
+.instruction h2{
+color: white;
+font-size: 40px;
+}
+
+.instruction .instSection{
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(183, 158, 231, 0.8) ;
+}
+
+.instruction .instSection h3{
+    color: white;
+    font-size: 30px;
+}
+
+.instruction .instSection p{
+    color: white;
+}
+
+/*Выбор optional*/
+
+.questOptions{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.questOptions .optional{
+    width: 30%;
+}
+
+.questOptions .answersContainer{
+    width: 70%;
+}
+
+@media(max-width:900px){
+    .questOptions .optional{
+        width: 100%;
+    }
+    
+    .questOptions .answersContainer{
+        width: 100%;
+    }
+}
+
+
+.questOptions .optional ul{
+    text-align: center;
+    list-style: none;
+}
+
+.questOptions .optional ul li{
+    display: inline-block;
+}
+
+.opt-mode{
+    opacity: 0;
+    z-index: -1;
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+
+.opt-mode + label{
+    transform: translate(-40px,0);
+    position: relative;
+}
+
+.opt-mode + label:before, .opt-mode:checked + label:before{
+    transition: 1s;
+    content: '';
+    position: absolute;
+    display: block;
+    top: -40px;
+    left: -20px;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: lightgray;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.opt-mode:checked + label:before{
+    background-color: dodgerblue;
+}
+
+.nothing-opt + label:before, .nothing-opt:checked + label:before{
+    background-image: url(../images/nothing.png);
+}
+
+.image-opt + label:before, .image-opt:checked + label:before{
+    background-image: url(../images/picture.png);
+}
+
+.code-opt + label:before, .code-opt:checked + label:before{
+    background-image: url(../images/code.png);
+}
+
+
+@media (max-width:450px){
+    /*CHECKBOXES*/
+    .checkbox{
+        margin-right: 10px;
+    }
+
+    .checkBox + label:before,.checkBox:checked + label:before{
+        top: -10px;
+        left: -25px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .checkBox:checked + label:after{
+        font-size: 20px;
+        right: -24px;
+        top: -3px;
+    }
+
+    /*radio*/
+
+    .Radio + label:before,.Radio:checked + label:before{
+        top: -11px;
+        left: -25px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .Radio + label:after, .Radio:checked + label:after{
+        top: -8px;
+        left: -20px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .Radio + label:after, .Radio:checked + label:after{
+        top: -7px;
+        left: -21px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .oneAnswerInput{
+        max-width: 100%;
+        width: 100vw;
+        margin: 0;
+    }
+}
+
+
+.checkBox, .Radio{
+    width: 13px;
+}
+
+/*head update*/
+
+.redactorHead{
+    display: flex;
+    align-items: flex-end;
+}
+
+.redactorHead *{
+    margin: 20px 0 20px 20px ;
+}
+
+.redactorHead img{
+    width: 50px;
+}
+
+.redactorHead h1{
+    color: white;
+}
+
+.nextMI{
+    background-color: blueviolet !important;
+    color: black !important;
 }

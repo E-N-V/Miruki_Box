@@ -10,6 +10,7 @@ body,article{
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 20px 0;
     min-height: 360px;
 /*    background-image: url("/images/затычка.png");*/
     background: linear-gradient(90deg, black, rgb(58, 35, 80));

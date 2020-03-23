@@ -4,11 +4,12 @@ article{
 }
 /*категории*/
 article .olympCategories{
+    transition: 1s;
     width: 80%;
     padding: 0 10%;
     padding-bottom: 20px;
+    background: linear-gradient(160deg, rgba(000, 000, 000, 0), rgba(000, 000, 000, 0.8));
     background-color: dodgerblue;
-    background: linear-gradient(140deg, dodgerblue, rgb(1, 42, 82));
 }
 /*выбор категории*/
 article .olympCategories .cat-nav{
@@ -45,6 +46,7 @@ article .olympCategories .cat-nav ul li:first-child:before{
 }
 
 article .olympCategories .cat-nav ul li img{
+    cursor: pointer;
     width: 35px;
     height: 35px;
 }
@@ -64,6 +66,7 @@ article .olympCategories .cat-head img{
 
 article .olympCategories .cat-head h1{
     font-size: 40px;
+    word-break: break-all;
 }
 /*описание категории*/
 article .olympCategories .cat-description{
@@ -121,6 +124,14 @@ article .olympSelect .olymp h3{
     vertical-align: bottom;
 }
 
+article .olympSelect h4{
+    margin: 0 auto;    
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: rgb(100, 88, 124);
+    font-size: 30px;
+}
+
 article .olympSelect .olymp p{
     font-size: 20px;
     flex-grow: 1;
@@ -140,8 +151,14 @@ article .olympSelect .olymp div{
 
 @media(max-width:400px){
 
+
+    article .olympCategories .cat-head{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     article .olympCategories .cat-head img{
-        height: 70px;  
+        height: 100px;  
     }
     
     article .olympCategories .cat-head h1{

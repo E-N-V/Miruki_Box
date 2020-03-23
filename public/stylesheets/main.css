@@ -70,6 +70,7 @@ header{
     width: 100%;
     height: 50px;
     background-color: blueviolet;
+    box-shadow: 0 10px 5px -10px black inset,0 -10px 5px -10px black inset;
 }
 
 .siteLogo{
@@ -80,12 +81,13 @@ header{
 
 .siteLogo a{
     display: flex;
+    align-items: center;
     height: 50px;
 }
 
 .siteLogo a img{
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
 }
 
 .siteLogo a span{
@@ -240,9 +242,40 @@ article{
 }
 /*__________ footer __________*/
 footer{
-    color: white;
+
+    display: flex;
     box-sizing: border-box;
+    justify-content: flex-start;
     width: 100%;
-    height: 50px;
+    padding: 20px 10%;
     background-color: black;
+    color: white;
+}
+
+footer a{
+    color: white;
+}
+
+footer a:hover{
+    color: rgb(223, 155, 255);
+}
+
+footer a:focus{
+    color: rgb(223, 155, 255);
+    text-shadow: 0 0 5px white;
+}
+
+footer ul{
+    list-style: none;
+    padding: 20px 5%;
+}
+
+footer ul li{
+    font-size: 15px;
+}
+
+footer ul li:first-child{
+    font-size: 18px;
+    font-weight: bolder;
+    letter-spacing: 1px;
 }

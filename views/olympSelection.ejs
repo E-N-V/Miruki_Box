@@ -8,6 +8,7 @@
     <script src="/scripts/olympSelection.js"></script>
     <script src="scripts/main.js"></script>
     <title>Затычка</title>
+    <script src="scripts/olympSelection.js"></script>
 </head>
 <body>
     <header id="header">
@@ -73,27 +74,87 @@
         <section class="olympCategories">
             <div class="cat-nav">
                 <ul>
-                    <li><img src="images/ico.png" alt=""></li>
-                    <li><img src="images/ico.png" alt=""></li>
-                    <li><img src="images/ico.png" alt=""></li>
-                    <li><img src="images/ico.png" alt=""></li>
-                    <li><img src="images/ico.png" alt=""></li>
-                    <li><img src="images/ico.png" alt=""></li>
+                    <li><img src="images/arch.png" name="arch" onclick="catSelect('arch')"></li>
+                    <li><img src="images/prog.png" name="prog" onclick="catSelect('prog')" style="box-shadow:15px 15px 0 -14px white,-15px -15px 0 -14px white;"></li>
+                    <li><img src="images/weld.png" name="weld" onclick="catSelect('weld')"></li>
+                    <li><img src="images/mech.png" name="mech" onclick="catSelect('mech')"></li>
+                    <li><img src="images/office.png" name="office" onclick="catSelect('office')"></li>
+                    <li><img src="images/art.png" name="art" onclick="catSelect('art')"></li>
                     <li><a href="/olympList/create"><img src="images/AddOlymp.png" alt=""></a></li>
                 </ul>
             </div>
-            <div class="cat-head">
-                <img src="images/ico.png" alt="">
-                <h1>Название категории</h1>
+            <div class="cat-kit" id="arch" style="display: none;">
+                <div class="cat-head">
+                    <img src="images/arch.png" alt="">
+                    <h1>Архитектура</h1>
+                </div>
+                <div class="cat-description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita praesentium veritatis deserunt perspiciatis quod iusto dolore quas asperiores accusantium facere et nostrum numquam dolores, soluta nemo dolor non quibusdam laborum?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptas aliquid quae, quasi quaerat cumque nam animi modi sequi, commodi tempore autem, odit quod distinctio voluptates iste illum suscipit officiis!</p>
+                </div>
             </div>
-            <div class="cat-description">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita praesentium veritatis deserunt perspiciatis quod iusto dolore quas asperiores accusantium facere et nostrum numquam dolores, soluta nemo dolor non quibusdam laborum?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptas aliquid quae, quasi quaerat cumque nam animi modi sequi, commodi tempore autem, odit quod distinctio voluptates iste illum suscipit officiis!</p>
+            <div class="cat-kit" id="prog" style="display: block;">
+                <div class="cat-head">
+                    <img src="images/prog.png" alt="">
+                    <h1>Программирование</h1>
+                </div>
+                <div class="cat-description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita praesentium veritatis deserunt perspiciatis quod iusto dolore quas asperiores accusantium facere et nostrum numquam dolores, soluta nemo dolor non quibusdam laborum?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptas aliquid quae, quasi quaerat cumque nam animi modi sequi, commodi tempore autem, odit quod distinctio voluptates iste illum suscipit officiis!</p>
+                </div>
+            </div>
+            <div class="cat-kit" id="weld" style="display: none;">
+                <div class="cat-head">
+                    <img src="images/weld.png" alt="">
+                    <h1>Сварка</h1>
+                </div>
+                <div class="cat-description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita praesentium veritatis deserunt perspiciatis quod iusto dolore quas asperiores accusantium facere et nostrum numquam dolores, soluta nemo dolor non quibusdam laborum?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptas aliquid quae, quasi quaerat cumque nam animi modi sequi, commodi tempore autem, odit quod distinctio voluptates iste illum suscipit officiis!</p>
+                </div>
+            </div>
+            <div class="cat-kit" id="mech" style="display: none;">
+                <div class="cat-head">
+                    <img src="images/mech.png" alt="">
+                    <h1>Механика</h1>
+                </div>
+                <div class="cat-description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita praesentium veritatis deserunt perspiciatis quod iusto dolore quas asperiores accusantium facere et nostrum numquam dolores, soluta nemo dolor non quibusdam laborum?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptas aliquid quae, quasi quaerat cumque nam animi modi sequi, commodi tempore autem, odit quod distinctio voluptates iste illum suscipit officiis!</p>
+                </div>
+            </div>
+            <div class="cat-kit" id="office" style="display: none;">
+                <div class="cat-head">
+                    <img src="images/office.png" alt="">
+                    <h1>Офисное ПО</h1>
+                </div>
+                <div class="cat-description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita praesentium veritatis deserunt perspiciatis quod iusto dolore quas asperiores accusantium facere et nostrum numquam dolores, soluta nemo dolor non quibusdam laborum?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptas aliquid quae, quasi quaerat cumque nam animi modi sequi, commodi tempore autem, odit quod distinctio voluptates iste illum suscipit officiis!</p>
+                </div>
+            </div>
+            <div class="cat-kit" id="art" style="display: none;">
+                <div class="cat-head">
+                    <img src="images/art.png" alt="">
+                    <h1>Графическое ПО</h1>
+                </div>
+                <div class="cat-description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita praesentium veritatis deserunt perspiciatis quod iusto dolore quas asperiores accusantium facere et nostrum numquam dolores, soluta nemo dolor non quibusdam laborum?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptas aliquid quae, quasi quaerat cumque nam animi modi sequi, commodi tempore autem, odit quod distinctio voluptates iste illum suscipit officiis!</p>
+                </div>
             </div>
         </section>
         <section class="olympSelect">
+            <h4 id="nothingMassage">Олимпиад не найденно</h4>
+            <!--TODO: Сделать чтобы олимпиаду достовали из бд-->
+            <!--
             <div class="olymp">
-                <h3>Название Название Название Название Название</h3>
+                <h3>Язык C#</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
+                <a href=""><div>Участвовать</div></a>
+            </div>
+            <div class="olymp">
+                <h3>Язык C++</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
                 <a href=""><div>Участвовать</div></a>
             </div>
@@ -112,13 +173,23 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
                 <a href=""><div>Участвовать</div></a>
             </div>
-            <div class="olymp">
-                <h3>Название</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
-                <a href=""><div>Участвовать</div></a>
-            </div>
+            -->
         </section>
     </article>
-    <footer></footer>
+    <footer>
+        <ul>
+            <li>Навигация</li>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/olympList">Олимпиады</a></li>
+            <li><a href="/certificate">Сертификаты</a></li>
+            <li><a href="/about">О нас</a></li>
+        </ul>
+
+        <ul>
+            <li>Контакты</li>
+            <li>Почта: standart@mail.gomo</li>
+            <li>Адресс: тупо БАСК</li>
+        </ul>
+    </footer>
 </body>
 </html>

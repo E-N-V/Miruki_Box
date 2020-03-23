@@ -47,13 +47,25 @@ function reDraw(block, mode){
         case "radio":
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="testArea" cols="30" rows="10"></textarea>
-                <div class="answersContainer" id="AnswerContainer">
-                    <div class="answer">
-                        <span>1)</span>
-                        <input type="text" name="" id="text" class="input">
-                        <div class="radio"></div>
-                        <div class="controls delete" style="display: none">-</div>
+                <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <div class="questOptions">
+                    <div class="optional">
+                        <ul>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
+                        </ul>
+                    </div>
+                    <div class="answersContainer" id="AnswerContainer">
+                        <div class="answer">
+                            <span>1)</span>
+                            <input type="text" name="" id="text" class="input" placeholder="Ответ">
+                            <div class="radio"></div>
+                            <div class="controls delete" style="display: none">-</div>
+                        </div>
                     </div>
                 </div>
                 <div class="controls append" id="radio" onclick="AddAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answersContainer')[0], this)">+</div>
@@ -63,13 +75,25 @@ function reDraw(block, mode){
         case "checkbox":
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="testArea" cols="30" rows="10"></textarea>
-                <div class="answersContainer" id="AnswerContainer">
-                    <div class="answer">
-                        <span>1)</span>
-                        <input type="text" name="" id="text" class="input">
-                        <div class="checkbox"></div>
-                        <div class="controls delete" style="display: none">-</div>
+                <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <div class="questOptions">
+                    <div class="optional">
+                        <ul>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
+                        </ul>
+                    </div>
+                    <div class="answersContainer" id="AnswerContainer">
+                        <div class="answer">
+                            <span>1)</span>
+                            <input type="text" name="" id="text" class="input" placeholder="Ответ">
+                            <div class="checkbox"></div>
+                            <div class="controls delete" style="display: none">-</div>
+                        </div>
                     </div>
                 </div>
                 <div class="controls append" id="checkbox" onclick="AddAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answersContainer')[0], this)">+</div>
@@ -79,8 +103,20 @@ function reDraw(block, mode){
         case "textbox":
             block.innerHTML = `
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <input type="text" name="" id="" class="oneAnswerInput">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <div class="questOptions">
+                    <div class="optional">
+                        <ul>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt-mode`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
+                        </ul>
+                    </div>
+                    <input type="text" name="" id="" class="input oneAnswerInput" placeholder="Ответ">
+                </div>
                 `;
             break;
     }
@@ -93,7 +129,7 @@ function AddAnswer(block, mode){
             div.className = 'answer';
             div.innerHTML = `
             <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
-            <input type="text" name="" id="text" class="input">
+            <input type="text" name="" id="text" class="input" placeholder="Ответ">
             <div class="radio"></div>
             <div class="controls delete">-</div>
             `;
@@ -103,7 +139,7 @@ function AddAnswer(block, mode){
             div.className = 'answer';
             div.innerHTML = `
             <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
-            <input type="text" name="" id="text" class="input">
+            <input type="text" name="" id="text" class="input" placeholder="Ответ">
             <div class="checkbox"></div>
             <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
@@ -114,7 +150,7 @@ function AddAnswer(block, mode){
             div.className = 'answer';
             div.innerHTML = `
             <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
-            <input type="text" name="" id="text" class="input">
+            <input type="text" name="" id="text" class="input" placeholder="Ответ">
             <div class="radio"></div>
             <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
@@ -137,7 +173,10 @@ function delAnswer(block) {
 }
 
 async function AddQuestion(block){
-    document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1].className = "question";
+    const all = document.getElementsByClassName('current');
+    for(i = 0; i < all.length; i++){
+        all[i].className = "question";
+    }
     const div = document.createElement('div');
     const t = document.getElementsByClassName('question').length + 1;
     div.id = "q_" + t;
@@ -157,13 +196,14 @@ async function AddQuestion(block){
     but.setAttribute("onclick", "SwitchQuestion(this)")
 //my
     for(qstb = 0; qstb < document.getElementsByClassName('questBlock').length;qstb-=-1){
-        document.getElementsByClassName('questBlock')[qstb].style = "background-color: violetblue;";
+        document.getElementsByClassName('questBlock')[qstb].className = 'questBlock';
     }
 
 //????    but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
-    but.style = "background-color: deeppink;";
+    but.className = 'questBlock choosenOne'
+
     but.innerHTML = `
-    <span>ВОПРОС НАМБА</span><span class="JOPA">` + count + `</span>
+    <span>ВОПРОС НОМЕР</span><span class="JOPA">` + count + `</span>
     `;
     document.getElementById('q').append(but);
 }
@@ -182,13 +222,123 @@ function goBack(block) {
 function SwitchQuestion(block) {
 //my
     for(qstb = 0; qstb < document.getElementsByClassName('questBlock').length;qstb-=-1){
-        document.getElementsByClassName('questBlock')[qstb].style = "background-color: violetblue;";
+        document.getElementsByClassName('questBlock')[qstb].className = 'questBlock';
     }
 
-    block.style = "background-color: deeppink;"
+    block.className = 'questBlock choosenOne'
 
-    const cur = document.getElementsByClassName('current')[0];
-    cur.className = "question";
+    const all = document.getElementsByClassName('current');
+    for(i = 0; i < all.length; i++){
+        all[i].className = "question";
+    }
     const id = block.id.split('_');
     document.getElementsByClassName('question')[id[1] - 1].className = "question current";
 }
+
+/*Тута preparation*/
+
+function MainIN(num){
+    let olympCat = document.getElementById('olympCat');
+    let olympName = document.getElementById('olympName');
+    let prepare = document.getElementsByClassName('preparation')[0];
+    if(num == 0){
+        document.getElementById('olympH1').innerText = olympName.value;
+        prepare.style.display = 'none';
+
+    } else {
+        prepare.style.display = 'flex';
+    }
+}
+
+function catSwap(num){
+    let name = document.getElementById('olympCatH1');
+    let ico = document.getElementById('olympICO');
+    let style = document.getElementById('catStyle');
+    switch (num) {
+        case 0:
+            name.innerText = 'Архитектура'
+            name.style.textShadow = '2px 2px 0 orange'
+            ico.setAttribute('src', '/images/arch.png')
+            style.setAttribute('href', '/stylesheets/cats/arch.css');
+            break;
+        case 1:
+            name.innerText = 'Программирование'
+            name.style.textShadow = '2px 2px 0 dodgerblue'
+            ico.setAttribute('src', '/images/prog.png')
+            style.setAttribute('href', '/stylesheets/cats/prog.css');
+            break;
+        case 2:
+            name.innerText = 'Сварка'
+            name.style.textShadow = '2px 2px 0 green'
+            ico.setAttribute('src', '/images/weld.png')
+            style.setAttribute('href', '/stylesheets/cats/weld.css');
+            break;
+        case 3:
+            name.innerText = 'Автомеханника'
+            name.style.textShadow = '2px 2px 0 red'
+            ico.setAttribute('src', '/images/mech.png')
+            style.setAttribute('href', '/stylesheets/cats/mech.css');
+            break;
+        case 4:
+            name.innerText = 'Офисное ПО'
+            name.style.textShadow = '2px 2px 0 blue'
+            ico.setAttribute('src', '/images/office.png')
+            style.setAttribute('href', '/stylesheets/cats/office.css');
+            break;
+        case 5:
+            name.innerText = 'Графическое ПО'
+            name.style.textShadow = '2px 2px 0 deeppink'
+            ico.setAttribute('src', '/images/art.png')
+            style.setAttribute('href', '/stylesheets/cats/art.css');
+            break;
+        default:
+            name.innerText = 'error'
+            ico.setAttribute('src', '/images/ico.png')
+            break;
+    }
+}
+
+/*Тута свап мода доп контента */
+
+function optEarse(){
+    let optCon = document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('opt-content');
+        if(optCon.length > 0){
+            optCon[0].remove();
+    }
+}
+
+function optModeSwap(num){
+    if(num == 0){
+        optEarse()
+    }else{
+        optEarse()
+        let div = document.createElement('div');
+        div.setAttribute('class', 'opt-content')
+        switch (num) {
+            case 1:
+                div.innerHTML = '<input type="file">'
+                break;
+            case 2:
+                div.innerHTML = '<textarea name="" id="testArea" cols="30" rows="10" placeholder="Код"></textarea>'
+                break;        
+            default:
+                
+                break;
+        }
+        document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('optional')[0].append(div);
+    }
+}
+
+/*ТУТА HELP */
+
+function helpInst(num){
+    if(num == 0){
+        document.getElementsByClassName('instruction')[0].style.display = 'none';
+        document.getElementsByTagName('body')[0].style.overflowY = 'initial';
+    } else {
+        document.getElementsByClassName('instruction')[0].style.display = 'block';
+        document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+    }
+}
+
+/* */
