@@ -366,8 +366,8 @@ label{
 
 .Radio:checked + label:after{
     content: '';
-    border: 2px solid black;
-    box-shadow: 0 0 3px 0 black;
+    border: 2px solid white;
+    box-shadow: 0 0 3px 0 white;
 }
 
 .oneAnswerInput{
@@ -497,6 +497,7 @@ label{
 
 .preparation span{
     font-size: 35px;
+    text-shadow: 2px 2px 0 orange;
 }
 
 .preparation div{
@@ -708,4 +709,9 @@ font-size: 40px;
 
 .redactorHead h1{
     color: white;
+}
+
+.nextMI{
+    background-color: blueviolet !important;
+    color: black !important;
 }

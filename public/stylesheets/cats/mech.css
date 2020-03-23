@@ -1,0 +1,33 @@
+.redactor{
+    background:linear-gradient(to bottom, rgba(255, 0, 0, 0.699), rgba(0, 0, 0, 0) 20%);
+}
+
+.redactor .redactorArea .question .controls{
+    background-color: red;
+    box-shadow: 0 0 5px 0px black;
+    color: white;
+}
+
+.redactor .redactorButtons button, .buttonSub, .help{
+    background-color: red;
+    box-shadow: 0 0 5px 0px black;
+    color: white;
+}
+
+.questions .questBlock, #questCreate{
+    background-color: red;
+    box-shadow: 0 0 10px 0 black;
+}
+
+.checkBox:checked + label:before{
+    background-color: brown;
+}
+
+.Radio:checked + label:before{
+    background-color: brown;
+}
+
+.choosenOne{
+    background-color: brown !important;
+    color: white;
+}

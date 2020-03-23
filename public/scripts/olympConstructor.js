@@ -196,11 +196,12 @@ async function AddQuestion(block){
     but.setAttribute("onclick", "SwitchQuestion(this)")
 //my
     for(qstb = 0; qstb < document.getElementsByClassName('questBlock').length;qstb-=-1){
-        document.getElementsByClassName('questBlock')[qstb].style = "background-color: violetblue;";
+        document.getElementsByClassName('questBlock')[qstb].className = 'questBlock';
     }
 
 //????    but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
-    but.style = "background-color: deeppink;";
+    but.className = 'questBlock choosenOne'
+
     but.innerHTML = `
     <span>ВОПРОС НОМЕР</span><span class="JOPA">` + count + `</span>
     `;
@@ -221,10 +222,10 @@ function goBack(block) {
 function SwitchQuestion(block) {
 //my
     for(qstb = 0; qstb < document.getElementsByClassName('questBlock').length;qstb-=-1){
-        document.getElementsByClassName('questBlock')[qstb].style = "background-color: violetblue;";
+        document.getElementsByClassName('questBlock')[qstb].className = 'questBlock';
     }
 
-    block.style = "background-color: deeppink;"
+    block.className = 'questBlock choosenOne'
 
     const all = document.getElementsByClassName('current');
     for(i = 0; i < all.length; i++){
@@ -252,30 +253,43 @@ function MainIN(num){
 function catSwap(num){
     let name = document.getElementById('olympCatH1');
     let ico = document.getElementById('olympICO');
+    let style = document.getElementById('catStyle');
     switch (num) {
         case 0:
             name.innerText = 'Архитектура'
+            name.style.textShadow = '2px 2px 0 orange'
             ico.setAttribute('src', '/images/arch.png')
+            style.setAttribute('href', '/stylesheets/cats/arch.css');
             break;
         case 1:
             name.innerText = 'Программирование'
+            name.style.textShadow = '2px 2px 0 dodgerblue'
             ico.setAttribute('src', '/images/prog.png')
+            style.setAttribute('href', '/stylesheets/cats/prog.css');
             break;
         case 2:
             name.innerText = 'Сварка'
+            name.style.textShadow = '2px 2px 0 green'
             ico.setAttribute('src', '/images/weld.png')
+            style.setAttribute('href', '/stylesheets/cats/weld.css');
             break;
         case 3:
             name.innerText = 'Автомеханника'
+            name.style.textShadow = '2px 2px 0 red'
             ico.setAttribute('src', '/images/mech.png')
+            style.setAttribute('href', '/stylesheets/cats/mech.css');
             break;
         case 4:
             name.innerText = 'Офисное ПО'
+            name.style.textShadow = '2px 2px 0 blue'
             ico.setAttribute('src', '/images/office.png')
+            style.setAttribute('href', '/stylesheets/cats/office.css');
             break;
         case 5:
             name.innerText = 'Графическое ПО'
+            name.style.textShadow = '2px 2px 0 deeppink'
             ico.setAttribute('src', '/images/art.png')
+            style.setAttribute('href', '/stylesheets/cats/art.css');
             break;
         default:
             name.innerText = 'error'

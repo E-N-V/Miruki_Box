@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/stylesheets/main.css">
     <link rel="stylesheet" href="/stylesheets/olympConstructor.css">
+    <link id="catStyle" rel="stylesheet" href="/stylesheets/cats/arch.css">
     <!--<script src="/scripts/olympCheckBox.js"></script>-->
     <script src="/scripts/olympConstructor.js"></script>
     <script src="/scripts/main.js"></script>
@@ -150,7 +151,7 @@
             <section class="questContainer">
                 <div class="questions" id="q">
                     <div class="questionsScroll"></div>
-                    <div id="QList_1" class="questBlock" style="background-color: deeppink; outline-color: deeppink;" onclick="SwitchQuestion(this)"><span>ВОПРОС НОМЕР</span><span class="JOPA">1</span></div>
+                    <div id="QList_1" class="questBlock choosenOne" onclick="SwitchQuestion(this)"><span>ВОПРОС НОМЕР</span><span class="JOPA">1</span></div>
                 </div>
                 <div id="questCreate" onclick="AddQuestion(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1])"><span>+</span></div>
             </section>
