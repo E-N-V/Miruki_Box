@@ -334,6 +334,7 @@ label{
 label{
     position: relative;
     cursor: pointer;
+    display: block;
 }
 
 .Radio + label:before,.Radio:checked + label:before{
@@ -603,6 +604,7 @@ font-size: 40px;
 .opt-mode + label{
     transform: translate(-40px,0);
     position: relative;
+    display:block;
 }
 
 .opt-mode + label:before, .opt-mode:checked + label:before{
