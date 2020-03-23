@@ -394,8 +394,12 @@ label{
     z-index: 1;
 }
 
+.preparation span{
+    padding: 10px;
+}
+
 .preparation ul{
-    
+    padding: 10px;
 }
 
 .preparation ul li{
@@ -403,12 +407,101 @@ label{
 }
 
 .preparation ul li input[type = radio]{
-    
+    display: block;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.preparation ul li label{
+    display: block;
+    position: relative;
+    transform: translate(0,-50px);
+}
+
+.preparation ul li input[type = radio] + label:before, .preparation ul li input[type = radio]:checked + label:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: lightgray;
+    background-size: 40px 40px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.preparation ul li input[type = radio]:checked + label:before{
+    background-color: red;
+}
+
+#arch + label:before, #arch:checked + label:before{
+    background-image: url(../images/arch.png);
+}
+
+#arch:checked + label:before{
+    background-color: orange;
+}
+
+#prog + label:before, #prog:checked + label:before{
+    background-image: url(../images/prog.png);
+}
+
+#prog:checked + label:before{
+    background-color: dodgerblue;
+}
+
+#weld + label:before, #weld:checked + label:before{
+    background-image: url(../images/weld.png);
+}
+
+#weld:checked + label:before{
+    background-color: green;
+}
+
+#mech + label:before, #mech:checked + label:before{
+    background-image: url(../images/mech.png);
+}
+
+#mech:checked + label:before{
+    background-color: red;
+}
+
+#office + label:before, #office:checked + label:before{
+    background-image: url(../images/office.png);
+}
+
+#office:checked + label:before{
+    background-color: blue;
+}
+
+#art + label:before, #art:checked + label:before{
+    background-image: url(../images/art.png);
+}
+
+#art:checked + label:before{
+    background-color: deeppink;
 }
 
 .preparation .main-input{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
     background-color: white;
+}
+
+.preparation div{
+    margin: 0 10px 10px 10px;
+}
+
+.preparation input[type = text]{
+    /*width: calc(100% - 20px);*/
+    margin: 0 10px 10px 10px;
+    border: none;
+    border: solid black;
+    border-width: 0 0 2px 0;
+    font-size: 25px;
 }
 
 /*Помосч*/
