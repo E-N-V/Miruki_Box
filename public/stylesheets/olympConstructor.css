@@ -424,16 +424,20 @@ label{
     content: '';
     position: absolute;
     display: block;
-    width: 50px;
-    height: 50px;
+    top: 2px;
+    left: 2px;
+    width: 42px;
+    height: 42px;
     background-color: lightgray;
-    background-size: 40px 40px;
+    background-size: 37px 37px;
     background-position: 50%;
     background-repeat: no-repeat;
+    border: 2px solid white;
 }
 
 .preparation ul li input[type = radio]:checked + label:before{
     background-color: red;
+    box-shadow: 18px 18px 0 -15px black, -18px -18px 0 -15px black;
 }
 
 #arch + label:before, #arch:checked + label:before{
@@ -489,6 +493,10 @@ label{
     flex-direction: column;
     padding: 10px;
     background-color: white;
+}
+
+.preparation span{
+    font-size: 35px;
 }
 
 .preparation div{
