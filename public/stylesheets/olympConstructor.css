@@ -1,6 +1,7 @@
 article{
     background-color: black;
     display: flex;
+    min-height: calc(100vh - 50px);
 }
 
 .redactor{
@@ -94,7 +95,7 @@ article{
     width: 20px;
 }
 
-.redactor .redactorArea .question .answer input{
+.redactor .redactorArea .question .answer .input{
     width: calc(100% - 140px);
     border-radius: 0;
     font-size: 25px;
@@ -133,7 +134,7 @@ article{
     right: 0;
     overflow-y: scroll;
     width: 250px;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 50px);
     background-color: white;
 }
 
@@ -267,6 +268,7 @@ article{
 
 .checkbox{
     margin-right: 10px;
+    width: 13px;
 }
 
 .checkBox{
@@ -317,6 +319,7 @@ label{
 
 .radio{
     margin-right: 10px;
+    width: 13px;
 }
 
 .Radio{
@@ -366,6 +369,7 @@ label{
 }
 
 .oneAnswerInput{
+    height: 31px;
     border-radius: 0;
     max-width: 50%;
     font-size: 25px;
@@ -564,4 +568,9 @@ font-size: 40px;
         width: 100vw;
         margin: 0;
     }
+}
+
+
+.checkBox, .Radio{
+    width: 13px;
 }

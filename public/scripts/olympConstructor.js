@@ -115,7 +115,7 @@ function reDraw(block, mode){
                             <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
                         </ul>
                     </div>
-                    <input type="text" name="" id="" class="oneAnswerInput" placeholder="Ответ">
+                    <input type="text" name="" id="" class="input oneAnswerInput" placeholder="Ответ">
                 </div>
                 `;
             break;
