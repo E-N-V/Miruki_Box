@@ -16,7 +16,7 @@
     <header id="header">
         <div class="siteLogo">
             <a href="/">
-                <img src="images/logover2.png" alt="">
+                <img src="/images/logover2.png" alt="">
                 <span>MirukiBox</span>
             </a>
         </div>
@@ -77,18 +77,36 @@
             <div class="preparation">
                 <div class="main-input">
                     <!--ТУТ ИМЯ И СЕКЦИЯ ОЛИМПИАДЫ-->
-                    <select name="" id="">
-                        <option value="">1 секция</option>
-                        <option value="">2 секция</option>
-                        <option value="">3 секция</option>
-                        <option value="">4 секция</option>
-                        <option value="">5 секция</option>
-                    </select>
-                    <input type="text" name="" id="" placeholder="Название олимпиады">
+                    <span id="olympCatH1">Архитектура</span>
+                    <ul>
+                        <li><input type="radio" name="olympCat" onclick="catSwap(0)" id="arch" checked>
+                            <label for="arch"></label>
+                        </li>
+                        <li><input type="radio" name="olympCat" onclick="catSwap(1)" id="prog">
+                            <label for="prog"></label>
+                        </li>
+                        <li><input type="radio" name="olympCat" onclick="catSwap(2)" id="weld">
+                            <label for="weld"></label>
+                        </li>
+                        <li><input type="radio" name="olympCat" onclick="catSwap(3)" id="mech">
+                            <label for="mech"></label>
+                        </li>
+                        <li><input type="radio" name="olympCat" onclick="catSwap(4)" id="office">
+                            <label for="office"></label>
+                        </li>
+                        <li><input type="radio" name="olympCat" onclick="catSwap(5)" id="art">
+                            <label for="art"></label>
+                        </li>
+                    </ul>
+                    <input type="text" name="" id="olympName" value="Название олимпиады" placeholder="Название олимпиады">
                     <div class="buttonSub nextMI" onclick="MainIN(0)">Далее</div>
                 </div>
             </div>
             <section class="redactor">
+                <div class="redactorHead">
+                    <img id="olympICO" src="/images/arch.png" alt="">
+                    <h1 id="olympH1">Название олимпиады</h1>
+                </div>
                 <div class="redactorArea" id="redactorArea">
                     <div class="help" onclick="helpInst(1)">?</div>
                     <div class="instruction">

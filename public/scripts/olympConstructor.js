@@ -237,10 +237,50 @@ function SwitchQuestion(block) {
 /*Тута preparation*/
 
 function MainIN(num){
+    let olympCat = document.getElementById('olympCat');
+    let olympName = document.getElementById('olympName');
+    let prepare = document.getElementsByClassName('preparation')[0];
     if(num == 0){
-        document.getElementsByClassName('preparation')[0].style.display = 'none';
+        document.getElementById('olympH1').innerText = olympName.value;
+        prepare.style.display = 'none';
+
     } else {
-        document.getElementsByClassName('preparation')[0].style.display = 'flex';
+        prepare.style.display = 'flex';
+    }
+}
+
+function catSwap(num){
+    let name = document.getElementById('olympCatH1');
+    let ico = document.getElementById('olympICO');
+    switch (num) {
+        case 0:
+            name.innerText = 'Архитектура'
+            ico.setAttribute('src', '/images/arch.png')
+            break;
+        case 1:
+            name.innerText = 'Программирование'
+            ico.setAttribute('src', '/images/prog.png')
+            break;
+        case 2:
+            name.innerText = 'Сварка'
+            ico.setAttribute('src', '/images/weld.png')
+            break;
+        case 3:
+            name.innerText = 'Автомеханника'
+            ico.setAttribute('src', '/images/mech.png')
+            break;
+        case 4:
+            name.innerText = 'Офисное ПО'
+            ico.setAttribute('src', '/images/office.png')
+            break;
+        case 5:
+            name.innerText = 'Графическое ПО'
+            ico.setAttribute('src', '/images/art.png')
+            break;
+        default:
+            name.innerText = 'error'
+            ico.setAttribute('src', '/images/ico.png')
+            break;
     }
 }
 
@@ -286,3 +326,5 @@ function helpInst(num){
         document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
     }
 }
+
+/* */

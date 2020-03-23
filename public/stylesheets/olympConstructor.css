@@ -392,6 +392,18 @@ label{
     z-index: 1;
 }
 
+.preparation ul{
+    
+}
+
+.preparation ul li{
+    display: inline-block;
+}
+
+.preparation ul li input[type = radio]{
+    
+}
+
 .preparation .main-input{
     display: block;
     background-color: white;
@@ -573,4 +585,23 @@ font-size: 40px;
 
 .checkBox, .Radio{
     width: 13px;
+}
+
+/*head update*/
+
+.redactorHead{
+    display: flex;
+    align-items: flex-end;
+}
+
+.redactorHead *{
+    margin: 20px 0 20px 20px ;
+}
+
+.redactorHead img{
+    width: 50px;
+}
+
+.redactorHead h1{
+    color: white;
 }
