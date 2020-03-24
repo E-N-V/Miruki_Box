@@ -4,8 +4,8 @@ window.onload = () =>{
     let title = document.getElementsByTagName('title')[0];
     switch (title.innerText) {
         case 'Создание тестов':
-            readInputsKeys();
-            tabulation();
+            //readInputsKeys();
+            //tabulation();
             break;
     
         default:
