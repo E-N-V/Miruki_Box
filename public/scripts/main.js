@@ -1,5 +1,18 @@
 //document.getElementById('preLoader').style.display = 'none';
 
+window.onload = () =>{
+    let title = document.getElementsByTagName('title')[0];
+    switch (title.innerText) {
+        case 'Создание тестов':
+            readInputsKeys();
+            tabulation();
+            break;
+    
+        default:
+            break;
+    }
+}
+
 function navOpen(){
     let menuButton = document.getElementsByClassName('nav-main');
     let menuContent = document.getElementsByClassName('nav-content');
@@ -11,3 +24,4 @@ function navOpen(){
         menuContent[0].value = '1'
     }
 }
+
