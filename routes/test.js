@@ -9,15 +9,15 @@ router.get('/', function(req, res, next) {
     })
 });
 router.get('/create', function (req, res, next) {
-    res.render('olympConstructor.ejs')
+    if (!req.body.name) {
+        res.render('olympConstructor.ejs')
+    }else {
+        console.log(req.body);
+        res.send(req.body);
+    }
 });
-router.get('/olympList/create/test', (req, res, next) => {
-    console.log(req.body);
-    res.send(req.body);
-});
-router.get('/walkthrough', (req, res, next) => {
-    const olymp = req.query.olymp;
-    res.render('olympWalkthrough',{data: olymp});
+router.get('/walk', (req, res, next) => {
+    res.render('olympWalkthrough');
 });
 
 module.exports = router;

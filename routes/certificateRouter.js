@@ -9,6 +9,6 @@ router.get('/', function(req, res, next) {
 router.get('/find/', (req,res,next) => {
     console.log(req.query.usr);
     res.status(200).send('<div> Hello </div>');
-})
+});
 
 module.exports = router;
