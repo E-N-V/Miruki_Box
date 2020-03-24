@@ -76,14 +76,14 @@
             </div>
         </div>
     </header>
-    <form action="/olympList/create" method="post" id="form" onsubmit="return formPass()">
+    <form action="./checked/" method="post" id="form" onsubmit="return formPass()">
         <article>
             <div class="preparation">
                 <div class="main-input">
                     <!--ТУТ ИМЯ И СЕКЦИЯ ОЛИМПИАДЫ-->
                     <span id="olympCatH1">Архитектура</span>
                     <ul>
-                        <li><input type="radio" name="olympCat" onclick="catSwap(0)" id="arch" checked>
+                        <li><input type="radio" name="olympCat" value="archetictura" onclick="catSwap(0)" id="arch" checked>
                             <label for="arch"></label>
                         </li>
                         <li><input type="radio" name="olympCat" onclick="catSwap(1)" id="prog">

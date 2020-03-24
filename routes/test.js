@@ -8,13 +8,12 @@ router.get('/', function(req, res, next) {
         'title': 'Тестирование'
     })
 });
-router.get('/create', function (req, res, next) {
-    if (!req.body.name) {
-        res.render('olympConstructor.ejs')
-    }else {
-        console.log(req.body);
-        res.send(req.body);
-    }
+router.post('/checked/', (req, res, next) => {
+    console.log(req.body);
+    res.status(200).send(req.body);
+});
+router.get('/create/', function (req, res, next) {
+    res.render('olympConstructor');
 });
 router.get('/walk', (req, res, next) => {
     res.render('olympWalkthrough');

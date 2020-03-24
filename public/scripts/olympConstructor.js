@@ -2,7 +2,7 @@
 /*изменение обработки клавишь */
 
 function formPass(){
-    check = (window.key != 13);
+    check = (window.key !== 13);
     window.key = 0;
     return check;
 }
@@ -23,7 +23,7 @@ function readTAKeys(){
         textareas = opt[l].getElementsByTagName('textarea');
         for(let i = 0; i < textareas.length; i-=-1){
             textareas[i].onkeydown = function(){
-                if(event.keyCode==9 || event.which==9){
+                if(event.keyCode === 9 || event.which === 9){
                     event.preventDefault();
                     var s = this.selectionStart;
                     this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
@@ -39,7 +39,7 @@ function readTAKeys(){
 function getCurrentBlockNum(){
     var qstBlocks = document.getElementsByClassName('question');
     for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
-        if(qstBlocks[qstBlock].className == 'question current'){
+        if(qstBlocks[qstBlock].className === 'question current'){
             return qstBlock;
         }
     }
@@ -51,7 +51,7 @@ function checkBoxChpok(){
     let boxes = document.getElementsByClassName('checkBox');
     let input = document.createElement('input');
     let checkdiv = current.getElementsByClassName('checkbox');//some ninja code )0))
-    checkdiv = checkdiv[checkdiv.length - 1]
+    checkdiv = checkdiv[checkdiv.length - 1];
     input.setAttribute("class", 'checkBox');
     input.type = 'checkbox';
     input.name = ''; 
@@ -67,7 +67,7 @@ function RadioChpok(){
     let boxes = document.getElementsByClassName('Radio');
     let input = document.createElement('input');
     let checkdiv = current.getElementsByClassName('radio');//some ninja code )0))
-    checkdiv = checkdiv[checkdiv.length - 1]
+    checkdiv = checkdiv[checkdiv.length - 1];
     input.setAttribute("class", 'Radio');
     input.type = 'radio';
     input.name = 'radios' + getCurrentBlockNum();
@@ -229,14 +229,14 @@ async function AddQuestion(block){
     const but = document.createElement("div");
     but.className = "questBlock";
     but.id = "QList_" + count;
-    but.setAttribute("onclick", "SwitchQuestion(this)")
+    but.setAttribute("onclick", "SwitchQuestion(this)");
 //my
     for(qstb = 0; qstb < document.getElementsByClassName('questBlock').length;qstb-=-1){
         document.getElementsByClassName('questBlock')[qstb].className = 'questBlock';
     }
 
 //????    but.style = "background-color: deeppink; outline-color: deeppink; margin-top: calc(5% + 10px);";
-    but.className = 'questBlock choosenOne'
+    but.className = 'questBlock choosenOne';
 
     but.innerHTML = `
     <span>ВОПРОС НОМЕР</span><span class="JOPA">` + count + `</span>
@@ -261,7 +261,7 @@ function SwitchQuestion(block) {
         document.getElementsByClassName('questBlock')[qstb].className = 'questBlock';
     }
 
-    block.className = 'questBlock choosenOne'
+    block.className = 'questBlock choosenOne';
 
     const all = document.getElementsByClassName('current');
     for(i = 0; i < all.length; i++){
@@ -277,7 +277,7 @@ function MainIN(num){
     let olympCat = document.getElementById('olympCat');
     let olympName = document.getElementById('olympName');
     let prepare = document.getElementsByClassName('preparation')[0];
-    if(num == 0){
+    if(num === 0){
         document.getElementById('olympH1').innerText = olympName.value;
         prepare.style.display = 'none';
 
@@ -292,44 +292,44 @@ function catSwap(num){
     let style = document.getElementById('catStyle');
     switch (num) {
         case 0:
-            name.innerText = 'Архитектура'
-            name.style.textShadow = '2px 2px 0 orange'
-            ico.setAttribute('src', '/images/arch.png')
+            name.innerText = 'Архитектура';
+            name.style.textShadow = '2px 2px 0 orange';
+            ico.setAttribute('src', '/images/arch.png');
             style.setAttribute('href', '/stylesheets/cats/arch.css');
             break;
         case 1:
-            name.innerText = 'Программирование'
-            name.style.textShadow = '2px 2px 0 dodgerblue'
-            ico.setAttribute('src', '/images/prog.png')
+            name.innerText = 'Программирование';
+            name.style.textShadow = '2px 2px 0 dodgerblue';
+            ico.setAttribute('src', '/images/prog.png');
             style.setAttribute('href', '/stylesheets/cats/prog.css');
             break;
         case 2:
-            name.innerText = 'Сварка'
-            name.style.textShadow = '2px 2px 0 green'
-            ico.setAttribute('src', '/images/weld.png')
+            name.innerText = 'Сварка';
+            name.style.textShadow = '2px 2px 0 green';
+            ico.setAttribute('src', '/images/weld.png');
             style.setAttribute('href', '/stylesheets/cats/weld.css');
             break;
         case 3:
-            name.innerText = 'Автомеханника'
-            name.style.textShadow = '2px 2px 0 red'
-            ico.setAttribute('src', '/images/mech.png')
+            name.innerText = 'Автомеханника';
+            name.style.textShadow = '2px 2px 0 red';
+            ico.setAttribute('src', '/images/mech.png');
             style.setAttribute('href', '/stylesheets/cats/mech.css');
             break;
         case 4:
-            name.innerText = 'Офисное ПО'
-            name.style.textShadow = '2px 2px 0 blue'
-            ico.setAttribute('src', '/images/office.png')
+            name.innerText = 'Офисное ПО';
+            name.style.textShadow = '2px 2px 0 blue';
+            ico.setAttribute('src', '/images/office.png');
             style.setAttribute('href', '/stylesheets/cats/office.css');
             break;
         case 5:
-            name.innerText = 'Графическое ПО'
-            name.style.textShadow = '2px 2px 0 deeppink'
-            ico.setAttribute('src', '/images/art.png')
+            name.innerText = 'Графическое ПО';
+            name.style.textShadow = '2px 2px 0 deeppink';
+            ico.setAttribute('src', '/images/art.png');
             style.setAttribute('href', '/stylesheets/cats/art.css');
             break;
         default:
-            name.innerText = 'error'
-            ico.setAttribute('src', '/images/ico.png')
+            name.innerText = 'error';
+            ico.setAttribute('src', '/images/ico.png');
             break;
     }
 }
@@ -344,18 +344,18 @@ function optEarse(){
 }
 
 function optModeSwap(num){
-    if(num == 0){
+    if(num === 0){
         optEarse()
     }else{
-        optEarse()
+        optEarse();
         let div = document.createElement('div');
-        div.setAttribute('class', 'opt-content')
+        div.setAttribute('class', 'opt-content');
         switch (num) {
             case 1:
-                div.innerHTML = '<input type="file">'
+                div.innerHTML = '<input type="file">';
                 break;
             case 2:
-                div.innerHTML = '<textarea name="" id="testArea" cols="30" rows="10" placeholder="Код"></textarea>'
+                div.innerHTML = '<textarea name="" id="testArea" cols="30" rows="10" placeholder="Код"></textarea>';
                 break;        
             default:
                 
@@ -368,7 +368,7 @@ function optModeSwap(num){
 /*ТУТА HELP */
 
 function helpInst(num){
-    if(num == 0){
+    if(num === 0){
         document.getElementsByClassName('instruction')[0].style.display = 'none';
         document.getElementsByTagName('body')[0].style.overflowY = 'initial';
     } else {
