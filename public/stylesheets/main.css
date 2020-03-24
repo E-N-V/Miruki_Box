@@ -7,6 +7,35 @@
 декорирование
 */
 
+.preLoader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+
+.hideLoader{
+    animation: predatorMode 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes predatorMode {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.preLoader img{
+    width: 100px;
+}
+
 @font-face {
     font-family: Roboto; /* Имя шрифта */
     src: url(../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf); /* Путь к файлу со шрифтом */

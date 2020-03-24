@@ -1,5 +1,25 @@
 //document.getElementById('preLoader').style.display = 'none';
 
+function preLoaderOut(){
+    document.getElementsByClassName('preLoader')[0].setAttribute('class', 'preLoader hideLoader');
+}
+
+window.onload = () =>{
+    
+    preLoaderOut();
+    
+    let title = document.getElementsByTagName('title')[0];
+    switch (title.innerText) {
+        case 'Создание тестов':
+            readInputsKeys();
+            readTAKeys()
+            break;
+    
+        default:
+            break;
+    }
+}
+
 window.onclick = () =>{
     let title = document.getElementsByTagName('title')[0];
     switch (title.innerText) {
@@ -13,18 +33,6 @@ window.onclick = () =>{
     }
 }
 
-window.onload = () =>{
-    let title = document.getElementsByTagName('title')[0];
-    switch (title.innerText) {
-        case 'Создание тестов':
-            readInputsKeys();
-            readTAKeys()
-            break;
-    
-        default:
-            break;
-    }
-}
 
 function navOpen(){
     let menuButton = document.getElementsByClassName('nav-main');
