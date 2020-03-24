@@ -54,7 +54,7 @@ function checkBoxChpok(){
     checkdiv = checkdiv[checkdiv.length - 1]
     input.setAttribute("class", 'checkBox');
     input.type = 'checkbox';
-    input.name = ''; 
+    input.name = 'checkBoxes'+ getCurrentBlockNum(); 
     input.id = 'inpId' + getCurrentBlockNum()+ '' + boxes.length;
     input.value = boxes.length;    
     checkdiv.append(input);
