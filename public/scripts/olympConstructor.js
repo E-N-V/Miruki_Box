@@ -86,7 +86,7 @@ function reDraw(block, mode){
             block.innerHTML = `
                <input type="hidden" name="questType`+ getCurrentBlockNum() +`" value="radio">
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <textarea name="questText`+ getCurrentBlockNum() +`" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
@@ -115,7 +115,7 @@ function reDraw(block, mode){
             block.innerHTML = `
                <input type="hidden" name="questType`+ getCurrentBlockNum() +`" value="checkbox">
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <textarea name="questText`+ getCurrentBlockNum() +`" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
@@ -144,7 +144,7 @@ function reDraw(block, mode){
             block.innerHTML = `
                 <input type="hidden" name="questType`+ getCurrentBlockNum() +`" value="textbox">
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <textarea name="questText`+ getCurrentBlockNum() +`" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
