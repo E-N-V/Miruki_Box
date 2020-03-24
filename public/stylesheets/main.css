@@ -17,7 +17,63 @@
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: black;
+    color: white;
+}
+
+.loadingText{
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    transform: translate(1px,1px);
+    width: 65.33px;
+}
+
+.loadingText:after{
+    content:'...';
+    animation: dots 3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes dots {
+    0% {
+        content:'';
+    }
+
+    25% {
+        content:'.';
+    }
+    
+    50% {
+        content:'..';
+    }
+
+    75% {
+        content:'...';
+    }
+}
+
+.carousel{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border-width: 5px;
+    border-style: solid;
+    outline-width: 5px;
+    outline-style: solid;
+    outline-offset: -5px;
+    animation: ceepRolling 5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes ceepRolling {
+    100%{
+        transform: rotate(360deg);
+    }
 }
 
 .hideLoader{
