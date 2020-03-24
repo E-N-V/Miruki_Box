@@ -1,11 +1,24 @@
 //document.getElementById('preLoader').style.display = 'none';
 
+window.onclick = () =>{
+    let title = document.getElementsByTagName('title')[0];
+    switch (title.innerText) {
+        case 'Создание тестов':
+            readInputsKeys();
+            readTAKeys()
+            break;
+    
+        default:
+            break;
+    }
+}
+
 window.onload = () =>{
     let title = document.getElementsByTagName('title')[0];
     switch (title.innerText) {
         case 'Создание тестов':
-            //readInputsKeys();
-            //tabulation();
+            readInputsKeys();
+            readTAKeys()
             break;
     
         default:

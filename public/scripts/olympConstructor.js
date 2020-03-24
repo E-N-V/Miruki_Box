@@ -1,30 +1,34 @@
 /*TODO:  Неумею в js*/
-
 /*изменение обработки клавишь */
-async function readInputsKeys(){
+
+function formPass(){
+    check = (window.key != 13);
+    window.key = 0;
+    return check;
+}
+
+function readInputsKeys(){
     let inputs = document.getElementsByTagName('input');
-    while (true) {
-        for(let i = 0; i < inputs.length; i-=-1){
-            inputs[i].onkeypress = function() {
-                window.key = event.keyCode;
-                alert(window.key)
-            };
+    for(let i = 0; i < inputs.length; i-=-1){
+        inputs[i].onkeypress = function() {
+            window.key = event.keyCode;
+        };
+    }
+}
+
+function readTAKeys(){
+    let textareas = document.getElementsByTagName('textarea');
+    for(let i = 0; i < textareas.length; i-=-1){
+        textareas[i].onkeydown = function(){
+            if(event.keyCode==9 || event.which==9){
+                event.preventDefault();
+                var s = this.selectionStart;
+                this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+                this.selectionEnd = s+1; 
+            }
         }
     }
 }
-
-function tabulation(){
-    alert(1)
-    let textareas = document.getElementsByTagName('textarea');
-    for(let i = 0; i < textareas.length; i-=-1){
-        textareas[i].onkeypress = function() {
-            window.key = event.keyCode;
-            alert(window.key);
-        };
-    }
-
-}
-
 
 /**/
 
