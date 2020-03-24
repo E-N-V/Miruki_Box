@@ -17,14 +17,18 @@ function readInputsKeys(){
 }
 
 function readTAKeys(){
-    let textareas = document.getElementsByTagName('textarea');
-    for(let i = 0; i < textareas.length; i-=-1){
-        textareas[i].onkeydown = function(){
-            if(event.keyCode==9 || event.which==9){
-                event.preventDefault();
-                var s = this.selectionStart;
-                this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
-                this.selectionEnd = s+1; 
+    let opt = document.getElementsByClassName('optional');
+    
+    for (let l = 0; l < opt.length; l++) {
+        textareas = opt[l].getElementsByTagName('textarea');
+        for(let i = 0; i < textareas.length; i-=-1){
+            textareas[i].onkeydown = function(){
+                if(event.keyCode==9 || event.which==9){
+                    event.preventDefault();
+                    var s = this.selectionStart;
+                    this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+                    this.selectionEnd = s+1; 
+                }
             }
         }
     }

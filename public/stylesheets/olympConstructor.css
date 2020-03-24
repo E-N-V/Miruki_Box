@@ -1,3 +1,7 @@
+*{
+    tab-size:2;
+}
+
 article{
     background-color: black;
     display: flex;
