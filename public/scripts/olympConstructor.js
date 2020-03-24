@@ -84,6 +84,7 @@ function reDraw(block, mode){
     switch (mode.id) {
         case "radio":
             block.innerHTML = `
+               <input type="hidden" name="questType`+ getCurrentBlockNum() +`" value="radio">
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
@@ -112,6 +113,7 @@ function reDraw(block, mode){
                 break;
         case "checkbox":
             block.innerHTML = `
+               <input type="hidden" name="questType`+ getCurrentBlockNum() +`" value="checkbox">
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
@@ -140,6 +142,7 @@ function reDraw(block, mode){
                 break;
         case "textbox":
             block.innerHTML = `
+                <input type="hidden" name="questType`+ getCurrentBlockNum() +`" value="textbox">
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
