@@ -14,8 +14,9 @@ window.onload = () =>{
             readInputsKeys();
             readTAKeys()
             break;
-    
-        default:
+        case 'Выбор олимпиад':
+            catPlay('prog');
+            default:
             break;
     }
 }

@@ -48,7 +48,7 @@ function getCurrentBlockNum(){
 
 function checkBoxChpok(){
     let current = document.getElementsByClassName('current')[0];
-    let boxes = document.getElementsByClassName('checkBox');
+    let boxes = current.getElementsByClassName('checkBox');
     let input = document.createElement('input');
     let checkdiv = current.getElementsByClassName('checkbox');//some ninja code )0))
     checkdiv = checkdiv[checkdiv.length - 1];
@@ -56,6 +56,7 @@ function checkBoxChpok(){
     input.type = 'checkbox';
     input.name = ''; 
     input.id = 'inpId' + getCurrentBlockNum()+ '' + boxes.length;
+    input.value = boxes.length;    
     checkdiv.append(input);
     let label = document.createElement('label');
     label.setAttribute("for", input.id );
@@ -64,7 +65,7 @@ function checkBoxChpok(){
 
 function RadioChpok(){
     let current = document.getElementsByClassName('current')[0];
-    let boxes = document.getElementsByClassName('Radio');
+    let boxes = current.getElementsByClassName('Radio');
     let input = document.createElement('input');
     let checkdiv = current.getElementsByClassName('radio');//some ninja code )0))
     checkdiv = checkdiv[checkdiv.length - 1];
@@ -72,6 +73,7 @@ function RadioChpok(){
     input.type = 'radio';
     input.name = 'radios' + getCurrentBlockNum();
     input.id = 'inpId' + getCurrentBlockNum()+ '' + boxes.length;
+    input.value = boxes.length;    
     checkdiv.append(input);
     let label = document.createElement('label');
     label.setAttribute("for", input.id );
@@ -82,8 +84,9 @@ function reDraw(block, mode){
     switch (mode.id) {
         case "radio":
             block.innerHTML = `
+               <input type="hidden" name="questType`+ getCurrentBlockNum() +`" value="radio">
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <textarea name="questText`+ getCurrentBlockNum() +`" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
@@ -98,7 +101,7 @@ function reDraw(block, mode){
                     <div class="answersContainer" id="AnswerContainer">
                         <div class="answer">
                             <span>1)</span>
-                            <input type="text" name="" id="text" class="input" placeholder="Ответ">
+                            <input type="text" name="answer0`+ getCurrentBlockNum() +`" id="text" class="input" placeholder="Ответ">
                             <div class="radio"></div>
                             <div class="controls delete" style="display: none">-</div>
                         </div>
@@ -110,8 +113,9 @@ function reDraw(block, mode){
                 break;
         case "checkbox":
             block.innerHTML = `
+               <input type="hidden" name="questType`+ getCurrentBlockNum() +`" value="checkbox">
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <textarea name="questText`+ getCurrentBlockNum() +`" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
@@ -126,7 +130,7 @@ function reDraw(block, mode){
                     <div class="answersContainer" id="AnswerContainer">
                         <div class="answer">
                             <span>1)</span>
-                            <input type="text" name="" id="text" class="input" placeholder="Ответ">
+                            <input type="text" name="answer0`+ getCurrentBlockNum() +`" id="text" class="input" placeholder="Ответ">
                             <div class="checkbox"></div>
                             <div class="controls delete" style="display: none">-</div>
                         </div>
@@ -138,8 +142,9 @@ function reDraw(block, mode){
                 break;
         case "textbox":
             block.innerHTML = `
+                <input type="hidden" name="questType`+ getCurrentBlockNum() +`" value="textbox">
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
+                <textarea name="questText`+ getCurrentBlockNum() +`" id="" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
@@ -151,7 +156,7 @@ function reDraw(block, mode){
                             <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
                         </ul>
                     </div>
-                    <input type="text" name="" id="" class="input oneAnswerInput" placeholder="Ответ">
+                    <input type="text" name="answer`+ getCurrentBlockNum() +`" id="" class="input oneAnswerInput" placeholder="Ответ">
                 </div>
                 `;
             break;
@@ -165,7 +170,7 @@ function AddAnswer(block, mode){
             div.className = 'answer';
             div.innerHTML = `
             <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
-            <input type="text" name="" id="text" class="input" placeholder="Ответ">
+            <input type="text" name="answer`+ getCurrentBlockNum() +`" id="text" class="input" placeholder="Ответ">
             <div class="radio"></div>
             <div class="controls delete">-</div>
             `;
@@ -175,7 +180,7 @@ function AddAnswer(block, mode){
             div.className = 'answer';
             div.innerHTML = `
             <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
-            <input type="text" name="" id="text" class="input" placeholder="Ответ">
+            <input type="text" name="answer`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + '' + getCurrentBlockNum() +`" id="text" class="input" placeholder="Ответ">
             <div class="checkbox"></div>
             <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
@@ -186,7 +191,7 @@ function AddAnswer(block, mode){
             div.className = 'answer';
             div.innerHTML = `
             <span>`+ (document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + 1) +`)</span>
-            <input type="text" name="" id="text" class="input" placeholder="Ответ">
+            <input type="text" name="answer`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length + '' + getCurrentBlockNum() +`" id="text" class="input" placeholder="Ответ">
             <div class="radio"></div>
             <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
