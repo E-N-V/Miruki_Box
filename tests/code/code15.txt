@@ -1,0 +1,6 @@
+class c1 { 
+     int i; 
+public: 
+     int get_i() { return i; } 
+     void put_i(int j) { i = j; } 
+};
