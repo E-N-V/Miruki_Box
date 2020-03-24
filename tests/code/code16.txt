@@ -1,0 +1,13 @@
+#include <iostream>  
+  
+using namespace std;  
+  
+struct A {  
+    A(); 
+    A(int v) { cout << v; }  
+};  
+  
+int main()  
+{  
+    A a(0), a2, a3(2);   
+}
