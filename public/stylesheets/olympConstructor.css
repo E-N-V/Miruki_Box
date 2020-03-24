@@ -334,6 +334,7 @@ label{
 label{
     position: relative;
     cursor: pointer;
+    display: block;
 }
 
 .Radio + label:before,.Radio:checked + label:before{
@@ -565,26 +566,20 @@ font-size: 40px;
 }
 
 .questOptions .optional{
-    width: 30%;
+    width: 100%;
+    padding-bottom: 10px;
 }
 
 .questOptions .answersContainer{
-    width: 70%;
+    width: 100%;
 }
 
 @media(max-width:900px){
-    .questOptions .optional{
-        width: 100%;
-    }
-    
-    .questOptions .answersContainer{
-        width: 100%;
-    }
 }
 
 
 .questOptions .optional ul{
-    text-align: center;
+    text-align: left;
     list-style: none;
 }
 
@@ -601,8 +596,9 @@ font-size: 40px;
 }
 
 .opt-mode + label{
-    transform: translate(-40px,0);
+    transform: translate(0,0);
     position: relative;
+    display:block;
 }
 
 .opt-mode + label:before, .opt-mode:checked + label:before{
@@ -611,7 +607,7 @@ font-size: 40px;
     position: absolute;
     display: block;
     top: -40px;
-    left: -20px;
+    left: 0px;
     height: 40px;
     width: 40px;
     border-radius: 100%;

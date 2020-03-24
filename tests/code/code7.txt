@@ -1,0 +1,9 @@
+class Test  
+{ 
+    static void Main(string[] args)  
+    { 
+        char[] vowels = {'a','e','i','o','u'}; 
+        for (int i = 1; i <= vowels.Length; i++) 
+        Console.Write(vowels[i] + " "); 
+    } 
+} 

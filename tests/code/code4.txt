@@ -1,0 +1,13 @@
+string[] str = new string[5);
+try
+{
+	str[4] = "anything”;
+}
+catch (Exception e)
+{
+	Console.WriteLine(e.Message);
+}
+catch (IndexOutOfRangeException e)
+{
+	Console.WriteLine(e.Message);
+}

@@ -1,5 +1,33 @@
 /*TODO:  Неумею в js*/
 
+/*изменение обработки клавишь */
+async function readInputsKeys(){
+    let inputs = document.getElementsByTagName('input');
+    while (true) {
+        for(let i = 0; i < inputs.length; i-=-1){
+            inputs[i].onkeypress = function() {
+                window.key = event.keyCode;
+                alert(window.key)
+            };
+        }
+    }
+}
+
+function tabulation(){
+    alert(1)
+    let textareas = document.getElementsByTagName('textarea');
+    for(let i = 0; i < textareas.length; i-=-1){
+        textareas[i].onkeypress = function() {
+            window.key = event.keyCode;
+            alert(window.key);
+        };
+    }
+
+}
+
+
+/**/
+
 function getCurrentBlockNum(){
     var qstBlocks = document.getElementsByClassName('question');
     for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
