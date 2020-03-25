@@ -1,19 +1,24 @@
 
 //TODO: Просто заполни
-generateOlymp(4)
+generateOlymp(1)
 
 function generateOlymp(questAmount){
-    let code = `function lol(){
-    kek{
-        fdf
+    let code = `function getCurrentBlockNum(){
+    var qstBlocks = document.getElementsByClassName('question');
+    for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
+        if(qstBlocks[qstBlock].className == 'question current'){
+            return qstBlock;
+        }
     }
-}`
+}
+    `
+    let example = `<>`
     let img ='/images/затычка.png'
     let answersTest = ['Никак', 'Учи философию', 'Тыж программист!', 'AVE MARIA']
     let tagsTest = ['4'];
     generateHead('Имя олимпиады', 'prog');
     for (let k = 0; k < questAmount; k++) {
-        generateQuest('Как жить?', 'checkbox', 'nothing', 'sideContent', answersTest, tagsTest);
+        generateQuest('Как жить?', 'radio', 'code', code, answersTest, tagsTest);
     }
 }
 
@@ -84,7 +89,7 @@ function generateOpt(num, optType, optContent){
                 break;
             case 'code':
                 optBlock = document.createElement('code');
-                optBlock.innerHTML =`<pre>`+ optContent +`</pre>`;
+                optBlock.innerHTML =`<pre>`+ codeEater(optContent) +`</pre>`;
                 break;
             default:
                 break;
@@ -150,4 +155,209 @@ function questSwap(num){
     }
     answbuts[num].setAttribute('class', 'currentBut');
     targetBlock(num).setAttribute('class', 'question current');
+}
+
+/*
+32 - пробел
+123,125 {}
+40,41 ()
+10 энтер
+40 .
+58 :
+61 =
+39 '
+34 "
+43 +
+45 -
+61 = 
+47 /
+42 *
+94 ^
+63 ?
+33 !
+36 $
+35 #
+64 @
+38 &
+124 |
+92 \
+47 /
+32*4 = TAB
+60, 62 <>
+*/
+
+function nextSS(code, coord){
+    let spSymb = [32,123,125,40,41,10,40,58,61,39,34,43,45,61,47,42,94,63,33,36,35,64,38,124,92,47,60,62,46];
+    let keycode;
+    for (let l = coord; l < code.length; l++) {
+        if( spSymb.includes( code[l].charCodeAt() ) ){
+            keycode = code[l].charCodeAt();
+            break;
+        }
+    }
+    return keycode
+}
+
+function prevSS(code, coord){
+    let spSymb = [32,123,125,40,41,10,40,58,61,39,34,43,45,61,47,42,94,63,33,36,35,64,38,124,92,47,60,62];
+    let keycode = '';
+    for (let l = coord; l > -1; l--) {
+        if( spSymb.includes( code[l].charCodeAt() ) ){
+            keycode = code[l].charCodeAt();
+            break;
+        }
+    }
+    return keycode
+}
+
+function htmlKiller(char){
+    if(char == '<'){
+
+        char = '&lt;'
+    }else if(char == '>'){
+
+        char = '&gt;'
+    }
+    return char
+}
+
+function testShot(code){
+    let codeAfter = ''
+    let word = '';
+    let cmntMode = 0;
+    let cmntModeInitKey = '';
+    let quoteMode = 0;
+    let quoteModeInitKey = '';
+    let spSymb = [32,123,125,40,41,10,40,58,61,39,34,43,45,61,47,42,94,63,33,36,35,64,38,124,92,47,60,62,46,93,91,96];
+    for (let i = 0; i < code.length; i++) {
+        if( spSymb.includes( code[i].charCodeAt() ) ) {
+            switch (code[i].charCodeAt()) {
+                case 34:
+                case 39:
+                case 96:
+                    if ( cmntMode == 0 ) {
+                        if ( quoteMode == 0 ) {
+                            if(code[i].charCodeAt()==34){
+                                cmntModeInitKey='0'
+                            }else if(code[i].charCodeAt()==39){
+                                cmntModeInitKey='1'
+                            }else if(code[i].charCodeAt()==96){
+                                cmntModeInitKey='2'
+                            }
+                            quoteMode = 1;
+                            codeAfter += '<span class="cde-atreb">' + word + '</span>';
+                            word = '';
+                            codeAfter += '<span class="cde-qote">' + htmlKiller(code[i]); 
+                        }else if(code[i].charCodeAt()==34 && cmntModeInitKey == '0' ){
+                            quoteMode = 0;
+                            codeAfter += word;
+                            word = '';
+                            codeAfter += htmlKiller(code[i]) + '</span>';
+                        }else if(code[i].charCodeAt()==39 && cmntModeInitKey == '1' ){
+                            quoteMode = 0;
+                            codeAfter += word;
+                            word = '';
+                            codeAfter += htmlKiller(code[i]) + '</span>';
+                        }else if(code[i].charCodeAt()==96 && cmntModeInitKey == '2' ){
+                            quoteMode = 0;
+                            codeAfter += word;
+                            word = '';
+                            codeAfter += htmlKiller(code[i]) + '</span>';
+                        }
+                    }else{
+                        word += htmlKiller(code[i]);
+                    }
+                    break;
+                    case 60:
+                    case 62:
+                    case 47:
+                    case 10:
+                    case 42:
+                    case 45:
+                    if ( quoteMode == 0 ) {
+
+                        if ( cmntMode == 0 ) {
+                            if(  code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 42 || code[i].charCodeAt() == 60 && code[i+1].charCodeAt() == 33 && code[i+2].charCodeAt() == 45 && code[i+3].charCodeAt() == 45 || code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 47 ){
+                                if(code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 42){
+                                    cmntModeInitKey = 0;
+                                }else if(code[i].charCodeAt() == 60 && code[i+1].charCodeAt() == 33 && code[i+2].charCodeAt() == 45 && code[i+3].charCodeAt() == 45){
+                                    cmntModeInitKey = 1;
+                                }else if(code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 47){
+                                    cmntModeInitKey = 2;
+                                }
+                                cmntMode = 1;
+                                codeAfter += '<span class="cde-atreb">' + word + '</span>';
+                                word = '';
+                                codeAfter += '<span class="cde-cmnt">' + htmlKiller(code[i]);
+
+                            }else{
+
+                                word += htmlKiller(code[i]);
+                            }
+                        }else{
+                            if(code[i-1].charCodeAt() == 42 && code[i].charCodeAt() == 47 && cmntModeInitKey == '0' ){
+
+                                cmntMode = 0;
+                                codeAfter += word;
+
+                                word = '';
+                                codeAfter += htmlKiller(code[i]) + '</span>';
+
+                            }else if( code[i-2].charCodeAt() == 45 && code[i-1].charCodeAt() == 45 && code[i].charCodeAt() == 62 && cmntModeInitKey == '1'){
+                                
+                                cmntMode = 0;
+                                codeAfter += word;
+
+                                word = '';
+                                codeAfter += htmlKiller(code[i]) + '</span>';
+
+                            }else if(code[i].charCodeAt() == 10 && cmntModeInitKey == '2'){
+                                
+                                cmntMode = 0;
+                                codeAfter += word;
+
+                                word = '';
+                                codeAfter += htmlKiller(code[i]) + '</span>';
+
+                            }else{
+
+                                word += htmlKiller(code[i]);
+                            }
+                        }
+                    }
+                    break;
+                case 40:
+                    if ( cmntMode == 0 && quoteMode == 0) {
+                        codeAfter += '<span class="cde-func">'+ word +'</span>' + htmlKiller(code[i]) ;
+                        word = '';
+                    }else{
+                        word += htmlKiller(code[i]);
+                    }
+                    break;
+                default:
+                    if ( cmntMode == 0 && quoteMode == 0) {
+                        if(word != ''){
+                            codeAfter += '<span class="cde-atreb">'+ word +'</span>' + htmlKiller(code[i]) ;
+                        }else{
+                            codeAfter += htmlKiller(code[i]);
+                        }
+                        word = '';
+                    }else{
+                        word += htmlKiller(code[i]);
+                    }
+                    break;
+            }
+        }else{
+            word += htmlKiller(code[i]);
+        }
+    }
+
+    return codeAfter
+}
+
+
+
+function codeEater(code){
+    code = testShot(code)
+    return code;
 }
