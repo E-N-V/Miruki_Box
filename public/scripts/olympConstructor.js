@@ -2,6 +2,7 @@
 /*изменение обработки клавишь */
 
 function formPass(){
+    document.getElementById('counter').value = document.getElementsByClassName('question').length - 1;
     check = (window.key !== 13);
     window.key = 0;
     return check;
@@ -90,11 +91,11 @@ function reDraw(block, mode){
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
-                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt-mode_`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt_mode_${getCurrentBlockNum()}" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
                             <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt-mode_`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt_mode_${getCurrentBlockNum()}" id="opt-mode1`+ getCurrentBlockNum() +`">
                             <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt-mode_`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt_mode_${getCurrentBlockNum()}" id="opt-mode2`+ getCurrentBlockNum() +`">
                             <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
                         </ul>
                     </div>
@@ -119,11 +120,11 @@ function reDraw(block, mode){
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
-                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt-mode_`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt_mode_${getCurrentBlockNum()}" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
                             <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt-mode_`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt_mode_${getCurrentBlockNum()}" id="opt-mode1`+ getCurrentBlockNum() +`">
                             <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt-mode_`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt_mode_${getCurrentBlockNum()}" id="opt-mode2`+ getCurrentBlockNum() +`">
                             <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
                         </ul>
                     </div>
@@ -138,7 +139,7 @@ function reDraw(block, mode){
                 </div>
                 <div class="controls append" id="checkbox" onclick="AddAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answersContainer')[0], this)">+</div>
                 `;
-                checkBoxChpok()
+                checkBoxChpok();
                 break;
         case "textbox":
             block.innerHTML = `
@@ -148,15 +149,15 @@ function reDraw(block, mode){
                 <div class="questOptions">
                     <div class="optional">
                         <ul>
-                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt-mode_`+ getCurrentBlockNum() +`" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
+                            <li onclick="optModeSwap(0)"><input value='nothing' class='opt-mode nothing-opt' type="radio" name="opt_mode_${getCurrentBlockNum()}" id="opt-mode0`+ getCurrentBlockNum() +`" checked>
                             <label for="opt-mode0`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt-mode_`+ getCurrentBlockNum() +`" id="opt-mode1`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(1)"><input value='image' class='opt-mode image-opt' type="radio" name="opt_mode_${getCurrentBlockNum()}" id="opt-mode1`+ getCurrentBlockNum() +`">
                             <label for="opt-mode1`+ getCurrentBlockNum() +`"></li>
-                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt-mode_`+ getCurrentBlockNum() +`" id="opt-mode2`+ getCurrentBlockNum() +`">
+                            <li onclick="optModeSwap(2)"><input value='code' class='opt-mode code-opt' type="radio" name="opt_mode_${getCurrentBlockNum()}" id="opt-mode2`+ getCurrentBlockNum() +`">
                             <label for="opt-mode2`+ getCurrentBlockNum() +`"></li>
                         </ul>
                     </div>
-                    <input type="text" name="answer_`+ getCurrentBlockNum() +`" id="" class="input oneAnswerInput" placeholder="Ответ">
+                    <input type="text" name="answer_`+ getCurrentBlockNum() + `" id="" class="input oneAnswerInput" placeholder="Ответ">
                 </div>
                 `;
             break;

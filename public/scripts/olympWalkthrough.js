@@ -1,6 +1,6 @@
 
 //TODO: Просто заполни
-generateOlymp(1)
+generateOlymp(1);
 
 function generateOlymp(questAmount){
     let code = `function getCurrentBlockNum(){
@@ -11,10 +11,10 @@ function generateOlymp(questAmount){
         }
     }
 }
-    `
-    let example = `<>`
-    let img ='/images/затычка.png'
-    let answersTest = ['Никак', 'Учи философию', 'Тыж программист!', 'AVE MARIA']
+    `;
+    let example = `<>`;
+    let img ='/images/затычка.png';
+    let answersTest = ['Никак', 'Учи философию', 'Тыж программист!', 'AVE MARIA'];
     let tagsTest = ['4'];
     generateHead('Имя олимпиады', 'prog');
     for (let k = 0; k < questAmount; k++) {
@@ -25,7 +25,7 @@ function generateOlymp(questAmount){
 function getCurrentBlockNum(){
     var qstBlocks = document.getElementsByClassName('question');
     for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
-        if(qstBlocks[qstBlock].className == 'question current'){
+        if(qstBlocks[qstBlock].className === 'question current'){
             return qstBlock;
         }
     }
@@ -64,7 +64,7 @@ function generateQuest(questText, questType, optType, optContent, answersText, a
 function generateBody(num, questText){
     let quest = document.createElement('div');
     let questNum = num + 1;
-    num == 0 ? quest.setAttribute('class', 'question current') : quest.setAttribute('class', 'question');
+    num === 0 ? quest.setAttribute('class', 'question current') : quest.setAttribute('class', 'question');
     quest.innerHTML = (`
         <div class="olymp-question">
             <h2>Вопрос номер <span id="questNum">`+ questNum +`</span></h2>
@@ -81,7 +81,7 @@ function generateBody(num, questText){
 function generateOpt(num, optType, optContent){
     let block = targetBlock(num).getElementsByClassName('olymp-question')[0];
     let optBlock;
-    if(optType != 'nothing'){
+    if(optType !== 'nothing'){
         switch (optType) {
             case 'image':
                 optBlock = document.createElement('img');
@@ -106,7 +106,7 @@ function generateAnswers(num, questType, answersText, answersRightTags){
         case 'radio':
             for (let i = 0; i < answersText.length; i-=-1) {
                 answer = document.createElement('li');
-                answTag = countAnswers(num) + 1
+                answTag = countAnswers(num) + 1;
                 answer.innerHTML = (`
                     <span id="answTag">`+ answTag +`)</span>`+ answersText[i] +`<input type="radio" name="answer`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
                     <label for="answer`+ countAnswers(num) + '' + num +`">
@@ -117,7 +117,7 @@ function generateAnswers(num, questType, answersText, answersRightTags){
         case 'checkbox':
             for (let i = 0; i < answersText.length; i-=-1) {
                 answer = document.createElement('li');
-                answTag = countAnswers(num) + 1
+                answTag = countAnswers(num) + 1;
                 answer.innerHTML = (`
                     <span id="answTag">`+ answTag +`)</span>`+ answersText[i] +`<input type="checkbox" name="answer`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
                     <label for="answer`+ countAnswers(num) + '' + num +`">
@@ -140,7 +140,7 @@ function generateAnswBut(num){
     let block = document.getElementsByClassName('olymp-nav')[0];
     let AnswBut = document.createElement('span');
     AnswBut.innerText = num + 1;
-    num == 0? AnswBut.className ='currentBut' : AnswBut.className = '';
+    num === 0? AnswBut.className ='currentBut' : AnswBut.className = '';
     AnswBut.innerText = num + 1;
     AnswBut.setAttribute('onclick', 'questSwap('+ num +')');
     block.append(AnswBut);
@@ -211,10 +211,10 @@ function prevSS(code, coord){
 }
 
 function htmlKiller(char){
-    if(char == '<'){
+    if(char === '<'){
 
         char = '&lt;'
-    }else if(char == '>'){
+    }else if(char === '>'){
 
         char = '&gt;'
     }
@@ -222,7 +222,7 @@ function htmlKiller(char){
 }
 
 function testShot(code){
-    let codeAfter = ''
+    let codeAfter = '';
     let word = '';
     let cmntMode = 0;
     let cmntModeInitKey = '';
@@ -235,30 +235,30 @@ function testShot(code){
                 case 34:
                 case 39:
                 case 96:
-                    if ( cmntMode == 0 ) {
-                        if ( quoteMode == 0 ) {
-                            if(code[i].charCodeAt()==34){
+                    if ( cmntMode === 0 ) {
+                        if ( quoteMode === 0 ) {
+                            if(code[i].charCodeAt()===34){
                                 cmntModeInitKey='0'
-                            }else if(code[i].charCodeAt()==39){
+                            }else if(code[i].charCodeAt()===39){
                                 cmntModeInitKey='1'
-                            }else if(code[i].charCodeAt()==96){
+                            }else if(code[i].charCodeAt()===96){
                                 cmntModeInitKey='2'
                             }
                             quoteMode = 1;
                             codeAfter += '<span class="cde-atreb">' + word + '</span>';
                             word = '';
                             codeAfter += '<span class="cde-qote">' + htmlKiller(code[i]); 
-                        }else if(code[i].charCodeAt()==34 && cmntModeInitKey == '0' ){
+                        }else if(code[i].charCodeAt()===34 && cmntModeInitKey === '0' ){
                             quoteMode = 0;
                             codeAfter += word;
                             word = '';
                             codeAfter += htmlKiller(code[i]) + '</span>';
-                        }else if(code[i].charCodeAt()==39 && cmntModeInitKey == '1' ){
+                        }else if(code[i].charCodeAt()===39 && cmntModeInitKey === '1' ){
                             quoteMode = 0;
                             codeAfter += word;
                             word = '';
                             codeAfter += htmlKiller(code[i]) + '</span>';
-                        }else if(code[i].charCodeAt()==96 && cmntModeInitKey == '2' ){
+                        }else if(code[i].charCodeAt()===96 && cmntModeInitKey === '2' ){
                             quoteMode = 0;
                             codeAfter += word;
                             word = '';
@@ -274,15 +274,15 @@ function testShot(code){
                     case 10:
                     case 42:
                     case 45:
-                    if ( quoteMode == 0 ) {
+                    if ( quoteMode === 0 ) {
 
-                        if ( cmntMode == 0 ) {
-                            if(  code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 42 || code[i].charCodeAt() == 60 && code[i+1].charCodeAt() == 33 && code[i+2].charCodeAt() == 45 && code[i+3].charCodeAt() == 45 || code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 47 ){
-                                if(code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 42){
+                        if ( cmntMode === 0 ) {
+                            if(  code[i].charCodeAt() === 47 && code[i+1].charCodeAt() === 42 || code[i].charCodeAt() === 60 && code[i+1].charCodeAt() === 33 && code[i+2].charCodeAt() === 45 && code[i+3].charCodeAt() === 45 || code[i].charCodeAt() === 47 && code[i+1].charCodeAt() === 47 ){
+                                if(code[i].charCodeAt() === 47 && code[i+1].charCodeAt() === 42){
                                     cmntModeInitKey = 0;
-                                }else if(code[i].charCodeAt() == 60 && code[i+1].charCodeAt() == 33 && code[i+2].charCodeAt() == 45 && code[i+3].charCodeAt() == 45){
+                                }else if(code[i].charCodeAt() === 60 && code[i+1].charCodeAt() === 33 && code[i+2].charCodeAt() === 45 && code[i+3].charCodeAt() === 45){
                                     cmntModeInitKey = 1;
-                                }else if(code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 47){
+                                }else if(code[i].charCodeAt() === 47 && code[i+1].charCodeAt() === 47){
                                     cmntModeInitKey = 2;
                                 }
                                 cmntMode = 1;
@@ -295,7 +295,7 @@ function testShot(code){
                                 word += htmlKiller(code[i]);
                             }
                         }else{
-                            if(code[i-1].charCodeAt() == 42 && code[i].charCodeAt() == 47 && cmntModeInitKey == '0' ){
+                            if(code[i-1].charCodeAt() === 42 && code[i].charCodeAt() === 47 && cmntModeInitKey === '0' ){
 
                                 cmntMode = 0;
                                 codeAfter += word;
@@ -303,7 +303,7 @@ function testShot(code){
                                 word = '';
                                 codeAfter += htmlKiller(code[i]) + '</span>';
 
-                            }else if( code[i-2].charCodeAt() == 45 && code[i-1].charCodeAt() == 45 && code[i].charCodeAt() == 62 && cmntModeInitKey == '1'){
+                            }else if( code[i-2].charCodeAt() === 45 && code[i-1].charCodeAt() === 45 && code[i].charCodeAt() === 62 && cmntModeInitKey === '1'){
                                 
                                 cmntMode = 0;
                                 codeAfter += word;
@@ -311,7 +311,7 @@ function testShot(code){
                                 word = '';
                                 codeAfter += htmlKiller(code[i]) + '</span>';
 
-                            }else if(code[i].charCodeAt() == 10 && cmntModeInitKey == '2'){
+                            }else if(code[i].charCodeAt() === 10 && cmntModeInitKey === '2'){
                                 
                                 cmntMode = 0;
                                 codeAfter += word;
@@ -327,7 +327,7 @@ function testShot(code){
                     }
                     break;
                 case 40:
-                    if ( cmntMode == 0 && quoteMode == 0) {
+                    if ( cmntMode === 0 && quoteMode === 0) {
                         codeAfter += '<span class="cde-func">'+ word +'</span>' + htmlKiller(code[i]) ;
                         word = '';
                     }else{
@@ -335,8 +335,8 @@ function testShot(code){
                     }
                     break;
                 default:
-                    if ( cmntMode == 0 && quoteMode == 0) {
-                        if(word != ''){
+                    if ( cmntMode === 0 && quoteMode === 0) {
+                        if(word !== ''){
                             codeAfter += '<span class="cde-atreb">'+ word +'</span>' + htmlKiller(code[i]) ;
                         }else{
                             codeAfter += htmlKiller(code[i]);
@@ -358,6 +358,6 @@ function testShot(code){
 
 
 function codeEater(code){
-    code = testShot(code)
+    code = testShot(code);
     return code;
 }

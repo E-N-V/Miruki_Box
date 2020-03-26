@@ -1,0 +1,20 @@
+#include <iostream> 
+ 
+class A 
+{ 
+    public: 
+    A() { std::cout << "A()"; } 
+ 
+    A(const A& a){ std::cout << "copyA()"; } 
+ 
+    A& operator=(const A& a) 
+    { 
+        std::cout << "=()"; 
+    } 
+}; 
+ 
+int main() 
+{ 
+    A a1; 
+    A a2 = a1; 
+} 

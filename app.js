@@ -10,7 +10,6 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const testRouter = require('./routes/test');
 const certificateRouter = require('./routes/certificateRouter');
-const olympWalkthrough = require('./routes/olympWalkthrough');
 const walkRouter = require('./routes/walkRouter.js');
 const testDB = require('./routes/testingDB');
 
@@ -31,7 +30,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/olympList', testRouter);
 app.use('/certificate', certificateRouter);
-app.use('/walkthrough', olympWalkthrough);
 app.use('/walk', walkRouter);
 app.use('/db', testDB);
 
