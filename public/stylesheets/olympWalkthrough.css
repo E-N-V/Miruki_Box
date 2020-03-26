@@ -2,6 +2,18 @@ body{
     background-color: black;
 }
 
+.current{
+    display: block !important;
+}
+
+.question{
+    display: none;
+}
+
+.currentBut{
+    background-color: deeppink !important;
+}
+
 article{
     width:90%;
     margin-left: 5%;
@@ -78,11 +90,110 @@ article{
 .olymp-flex .olymp-body .olymp-answers ul li span{
     font-weight: bold;
 }
-
-.olymp-flex .olymp-body .olymp-answers ul li input{
+/*чек бокс*/
+input[type = checkbox]{
+    display: inline-block;
     height: 25px;
     width: 25px;
+    z-index: -1;
+    opacity: 0;
 }
+
+input[type = checkbox] + label{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 25px;
+    width: 25px;
+    transform: translateX(-25px);
+}
+
+input[type = checkbox] + label:before, input[type = checkbox]:checked + label:before{
+    content: '';
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 0;
+    left: 0;
+    background-color: lightgray;
+    transition: .2s;
+}
+
+input[type = checkbox]:checked + label:before{
+    background-color: dodgerblue;
+}
+
+input[type = checkbox] + label:after, input[type = checkbox]:checked + label:after{
+    content: '';
+    font-family: arial;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 25px;
+    width: 25px;
+    transform: translateY(-1px);
+}
+
+input[type = checkbox]:checked + label:after{
+    content: '✔';
+}
+
+input[type = radio]{
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    z-index: -1;
+    opacity: 0;
+}
+
+input[type = radio] + label{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 25px;
+    width: 25px;
+    transform: translateX(-25px);
+}
+
+input[type = radio] + label:before, input[type = checkbox]:checked + label:before{
+    content: '';
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 0;
+    left: 0;
+    background-color: lightgray;
+    border-radius: 100%;
+    transition: .2s;
+}
+
+input[type = radio]:checked + label:before{
+    background-color: dodgerblue;
+}
+
+input[type = radio] + label:after, input[type = checkbox]:checked + label:after{
+    content: '';
+    font-family: arial;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 13px;
+    width: 13px;
+}
+
+input[type = radio]:checked + label:after{
+    content: '';
+    border:2px solid black;
+    box-shadow: 0 0 10px 0 black;
+    border-radius: 100%;
+}
+
 
 .olymp-flex .olymp-nav{
     box-sizing: border-box;
@@ -131,4 +242,25 @@ article{
     .olymp-flex .olymp-nav{
         width: 50%;
     }
+}
+
+.cde-func{
+    color: orange;
+}
+
+.cde-atreb{
+    color: rgb(115, 115, 255);
+}
+
+.cde-qote{
+    color: brown;
+}
+
+code,pre{
+    background-color: black;
+    color:white;
+}
+
+.cde-cmnt{
+    color:green;
 }

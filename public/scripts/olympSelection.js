@@ -56,7 +56,7 @@ function catPlay(catName){
         //TODO: ХЗ как но надо из бдшки достовать олимпиады их описания и тд.
         //тип если они найденны просто добовляешь их функцией catBallOfWool
     if(true){
-        catBallOfWool(olympContainer,'Затычка','Лупа заткнула Пупу ','/olympList/walk')
+        catBallOfWool(olympContainer,'Затычка','Описание затычки ','/olympList/walk')
         document.getElementById('nothingMassage').style.display = 'none';
     }else{
         document.getElementById('nothingMassage').style.display = 'block';
