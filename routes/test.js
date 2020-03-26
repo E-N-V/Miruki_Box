@@ -23,10 +23,5 @@ router.post('/checked/', (req, res, next) => {
 router.get('/create/', function (req, res, next) {
     res.render('olympConstructor');
 });
-router.get('/walk', (req, res, next) => {
-    const id_olymp = req.query.olymp;
-    console.log(id_olymp);
-    res.render('olympWalkthrough');
-});
 
 module.exports = router;

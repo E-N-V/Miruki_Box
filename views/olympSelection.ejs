@@ -144,6 +144,7 @@
         </section>
         <section class="olympSelect" id="OlympListRaw">
             <h4 id="nothingMassage">Олимпиад не найденно</h4>
+            <!--            TODO: Код ниже НЕ можешь трогать.         -->
             <%
                 const categories = [];
                 const Name_olymp = {
@@ -166,7 +167,10 @@
                             break;
                     }
             %>
+
+<!--            TODO: Код ниже можешь трогать.         -->
             <script>
+                // Здесь происходит загрузка с сервера данных, и сразу парситься в нормальный массив, Ибо сначала приходить дичь несусветная. Можешь потрогать, но лучше не стоит.
                 let raw = "<%=categories%>".split(',');
                 const categories = [];
                 const name_olymp = {
@@ -181,6 +185,7 @@
                 raw = "<%=Name_olymp.programming%>".split(',');
                 for (const item of raw)
                     name_olymp.programming.push(item)
+                // Начиная с этого места, можешь писать и переписывать как хочешь. Тут просто вывод в блоки до тех пор пока были необработанные данные. И да, вот ссылка на то что есть в бд localhost:3000/db
                 const OList = document.getElementById('OlympListRaw');
                 for (let i = 0; i < name_olymp.office.length; i++) {
                     let div = document.createElement('div');
@@ -188,7 +193,7 @@
                         div.innerHTML += `
                             <h3>${name_olymp.office[i].split(':')[0]}</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
-                            <a href="./walk?olymp=${name_olymp.office[i].split(':')[1]}"><div>Участвовать</div></a>`;
+                            <a href="/walk/${name_olymp.office[i].split(':')[1]}"><div>Участвовать</div></a>`;
                         OList.append(div)
                     }
             </script>

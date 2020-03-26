@@ -13,11 +13,14 @@ const pool = mySql.createPool({
 /* GET home page. */
 router.get('/', function(req, res, next) {
     //any function
-    pool.query('select * from users;', (err, data) => {
-        if (err) throw res.send(err);
-        res.render('testingDB', {
-            users: data
-        })
+    pool.query('show tables;;', (err, show_table) => {
+        pool.query('select * from name_categories, categories', (err, tables) => {
+            if (err) throw res.send(err);
+            res.status('200').render(`testingDB`, {
+                sTable: show_table,
+                iTable: tables
+            })
+        });
     });
 });
 
