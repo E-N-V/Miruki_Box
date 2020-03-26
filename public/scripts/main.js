@@ -15,7 +15,7 @@ window.onload = () =>{
             readTAKeys()
             break;
         case 'Выбор олимпиад':
-            catPlay('prog');
+            //catPlay('prog');
             default:
             break;
     }

@@ -78,6 +78,6 @@ function catSelect(catName){
     let cats = document.getElementsByClassName('cat-kit');
     pawPoof(catName,cats);
     catPillow(catName);
-    catPlay(catName);
+    //catPlay(catName);
     catBlush(catName);
 }
