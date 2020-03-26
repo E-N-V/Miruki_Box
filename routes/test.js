@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     })
 });
 router.post('/checked/', (req, res, next) => {
-    console.log(req.body);
+    mysql.query("select * from");
     res.status(200).send(req.body);
 });
 router.get('/create/', function (req, res, next) {
