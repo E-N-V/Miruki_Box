@@ -1,6 +1,6 @@
 function pawPoof(catName,cats){
     for(cat = 0; cat < cats.length; cat-=-1){
-        if (cats[cat].id == catName) {
+        if (cats[cat].id === catName) {
             cats[cat].style.display = 'block';
         } else {
             cats[cat].style.display = 'none'
@@ -42,7 +42,7 @@ function catBallOfWool(target,olympName,olympDiscription,olympUrl){
         <h3>`+ olympName +`</h3>
         <p>`+ olympDiscription +`</p>
         <a href="`+ olympUrl +`"><div>Участвовать</div></a>
-        `
+        `;
     target.append(olymp);
 }
 
@@ -66,7 +66,7 @@ function catPlay(catName){
 function catBlush(catName){
     let shyCats = document.getElementsByClassName('cat-nav')[0].getElementsByTagName('img');
     for (i = 0; i < shyCats.length; i++) {
-        if (shyCats[i].name == catName) {
+        if (shyCats[i].name === catName) {
             shyCats[i].style.boxShadow = '15px 15px 0 -14px white,-15px -15px 0 -14px white';
         } else {
             shyCats[i].style.boxShadow = '0 0 0 0 white';

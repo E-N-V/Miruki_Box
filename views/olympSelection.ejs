@@ -142,36 +142,57 @@
                 </div>
             </div>
         </section>
-        <section class="olympSelect">
+        <section class="olympSelect" id="OlympListRaw">
             <h4 id="nothingMassage">Олимпиад не найденно</h4>
-            <!--TODO: Сделать чтобы олимпиаду достовали из бд-->
-            <!--
-            <div class="olymp">
-                <h3>Язык C#</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
-                <a href=""><div>Участвовать</div></a>
-            </div>
-            <div class="olymp">
-                <h3>Язык C++</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
-                <a href=""><div>Участвовать</div></a>
-            </div>
-            <div class="olymp">
-                <h3>Название</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
-                <a href=""><div>Участвовать</div></a>
-            </div>
-            <div class="olymp">
-                <h3>Название</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
-                <a href=""><div>Участвовать</div></a>
-            </div>
-            <div class="olymp">
-                <h3>Название</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
-                <a href=""><div>Участвовать</div></a>
-            </div>
-            -->
+            <%
+                const categories = [];
+                const Name_olymp = {
+                    programming: [],
+                    office: [],
+                    architecture: [],
+                    graphics: [],
+                    mechanic: [],
+                    svarka: []
+                }
+                for (const item of data_cat)
+                    categories.push(item.name)
+                for (const item of data)
+                    switch (item.name.toLowerCase()) {
+                        case "programming":
+                            Name_olymp.programming.push(item.table_name + ":" + item.url);
+                            break;
+                        case "office":
+                            Name_olymp.office.push(item.table_name + ":" + item.url);
+                            break;
+                    }
+            %>
+            <script>
+                let raw = "<%=categories%>".split(',');
+                const categories = [];
+                const name_olymp = {
+                    programming: [],
+                    office: []
+                };
+                for (const val of raw)
+                    categories.push(val)
+                raw = "<%=Name_olymp.office%>".split(',');
+                for (const item of raw)
+                    name_olymp.office.push(item)
+                raw = "<%=Name_olymp.programming%>".split(',');
+                for (const item of raw)
+                    name_olymp.programming.push(item)
+                const OList = document.getElementById('OlympListRaw');
+                for (let i = 0; i < name_olymp.office.length; i++) {
+                    let div = document.createElement('div');
+                        div.className = 'olymp';
+                        div.innerHTML += `
+                            <h3>${name_olymp.office[i].split(':')[0]}</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
+                            <a href="./walk?olymp=${name_olymp.office[i].split(':')[1]}"><div>Участвовать</div></a>`;
+                        OList.append(div)
+                    }
+            </script>
+
         </section>
     </article>
     <footer>
