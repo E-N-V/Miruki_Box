@@ -7,6 +7,7 @@
     <script src="/scripts/main.js"></script>
     <link rel="stylesheet" href="/stylesheets/olympWalkthrough.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto+Condensed:300,300i,400,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <script src="/scripts/olympWalkthrough.js"></script>
     <title>затычка</title>
 </head>
 <body>
@@ -82,29 +83,41 @@
         <form action="">
             <div class="olymp-flex">
                 <section class="olymp-body">
-                    <!--<div class="question current">
-                        <div class="olymp-question">
-                            <h2>Вопрос номер <span id="questNum">#</span></h2>
-                            <h3 id="questionText">Что изабраженно на этой картинке?</h2>
-                            <img src="/images/Безымянный.png" alt="">
-                        </div>
-                        <div class="olymp-answers">
-                            <ul>
-                                <li><span id="answTag">a)</span> Серый квадрат <input type="checkbox" name="" id=""></li>
-                                <li><span id="answTag">b)</span> Ничего <input type="checkbox" name="" id=""></li>
-                                <li><span id="answTag">c)</span> Пустата <input type="checkbox" name="" id=""></li>
-                                <li><span id="answTag">d)</span> В душе моём <input type="checkbox" name="" id=""></li>
-                            </ul>
-                        </div>
-                    </div>-->
+                    
                 </section>
                 <section class="olymp-nav">
                     
                 </section>
             </div>
         </form>
-        <script src="/scripts/olympWalkthrough.js"></script>
+        <script>
+            //TODO: Создание вот тут вот
+            //не ругайся на меня плез если чтото не так, просто напиши что не так или что переделать я исправлю
+            //имя и иконка олимпиады
+            //generateHead('Имя олимпиады', 'Тута котегория');
+            //ща напишу функцию на перевод твоих в мои (чтобы не париться лишний раз)
+            
+            //создание вопросов функцией:
+            //generateQuest('Вопрос строкой', 'Тип вопроса (radio,checkbox,textbox)', 'Тип опционального контента(nothing,image,code)', 'опциональный контент', 'ответы в виде массива', 'правильные ответы тоже в виде масиива хз короче как на самом деле');
+            /* опциональный контент:
+             если nothing в 'опциональный контент' пиши что угодно или '' (хз как сделать чтобы скипало вот это вот если ничего не пишешь)
+            если image пишешь url (тип "/image/..../папка/файл.имг")
+            если code то просто строчку с кодом или хз как могу поменять
+            */
+            let answersTest = ['Никак', 'Учи философию', 'Тыж программист!', 'AVE MARIA'];
+            let tagsTest = ['4'];
+            let code = `function getCurrentBlockNum(){
+    var qstBlocks = document.getElementsByClassName('question');
+    for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
+        if(qstBlocks[qstBlock].className == 'question current'){
+            return qstBlock;
+        }
+    }
+}`;
+            generateQuest('Как жить?', 'radio', 'code', code, answersTest, tagsTest);
+        </script>
     </article>
+
     <footer>
         <ul>
             <li>Навигация</li>

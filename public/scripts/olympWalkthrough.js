@@ -1,7 +1,3 @@
-
-//TODO: Просто заполни
-generateOlymp(1);
-
 function generateOlymp(questAmount){
     let code = `function getCurrentBlockNum(){
     var qstBlocks = document.getElementsByClassName('question');
