@@ -1,22 +1,3 @@
-function generateOlymp(questAmount){
-    let code = `function getCurrentBlockNum(){
-    var qstBlocks = document.getElementsByClassName('question');
-    for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
-        if(qstBlocks[qstBlock].className == 'question current'){
-            return qstBlock;
-        }
-    }
-}
-    `;
-    let example = `<>`;
-    let img ='/images/затычка.png';
-    let answersTest = ['Никак', 'Учи философию', 'Тыж программист!', 'AVE MARIA'];
-    let tagsTest = ['4'];
-    generateHead('Имя олимпиады', 'prog');
-    for (let k = 0; k < questAmount; k++) {
-        generateQuest('Как жить?', 'radio', 'code', code, answersTest, tagsTest);
-    }
-}
 
 function getCurrentBlockNum(){
     var qstBlocks = document.getElementsByClassName('question');
@@ -46,14 +27,14 @@ function countAnswers(num){
 function generateHead(olympName, olympCat){
     block = document.getElementsByClassName('olymp-head')[0];
     block.getElementsByTagName('h1')[0].innerText = olympName;
-    block.getElementsByTagName('img')[0].setAttribute('src', '/images/'+ olympCat +'.png');
+    block.getElementsByTagName('img')[0].setAttribute('src', '/images/'+ translateCat(olympCat) +'.png');
 }
 
-function generateQuest(questText, questType, optType, optContent, answersText, answersRightTags){
+function generateQuest(questText, questType, optType, optContent, answersText){
     let generatedBlockNum = countBlocks();
     generateBody(generatedBlockNum, questText);
     generateOpt(generatedBlockNum, optType, optContent);
-    generateAnswers(generatedBlockNum, questType, answersText, answersRightTags);
+    generateAnswers(generatedBlockNum, questType, answersText);
     generateAnswBut(generatedBlockNum);
 }
 
@@ -94,7 +75,7 @@ function generateOpt(num, optType, optContent){
     }
 }
 
-function generateAnswers(num, questType, answersText, answersRightTags){
+function generateAnswers(num, questType, answersText){
     let block = targetBlock(num).getElementsByTagName('ul')[0];
     let answer;
     let answTag;
@@ -357,3 +338,38 @@ function codeEater(code){
     code = testShot(code);
     return code;
 }
+
+function translateCat(name){
+    switch (name) {
+        case 'programming':
+            name = 'prog'
+            break;
+        case 'office':
+            name = 'office'
+            break;
+        case 'architecture':
+            name = 'arch'
+            break;
+        case 'graphics':
+            name = 'art'
+            break;
+        case 'mechanic':
+            name = 'mech'
+            break;
+        case 'svarka':
+            name = 'weld'
+            break;
+    
+        default:
+            name = 'error'
+            break;
+    }
+    return name;
+}
+/*
+                    programming: [],
+                    office: [],
+                    architecture: [],
+                    graphics: [],
+                    mechanic: [],
+                    svarka: []*/
