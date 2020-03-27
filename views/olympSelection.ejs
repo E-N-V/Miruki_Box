@@ -235,6 +235,9 @@
 
 
                 function catPlay(catName){
+                    let olympName;
+                    let olympDesc;
+                    let olympURL;
                     //чистим старые олимпиады
                     let olymps = document.getElementsByClassName('olymp');
                     for(i = 0; i < olymps.length; i++){
@@ -249,7 +252,18 @@
                         if(translateMeow(catName).length > 0){
                             document.getElementById('nothingMassage').style.display = 'none';
                             for (let i = 0; i < translateMeow(catName).length; i++) {
-                                catBallOfWool(`${translateMeow(catName)[i].split(':')[0]}`,`Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!`,`/walk/${translateMeow(catName)[i].split(':')[1]}`)
+                                
+                                
+                                
+                                //тут добавление вот этого вот
+                                olympName = `${translateMeow(catName)[i].split(':')[0]}`;
+                                olympName = beautifulMeow(olympName);
+                                olympDesc = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!`
+                                olympURL = `/walk/${translateMeow(catName)[i].split(':')[1]}`;
+                                catBallOfWool(olympName, olympDesc,olympURL)
+                            
+                            
+                            
                             }
                         }else{
                             document.getElementById('nothingMassage').style.display = 'block';

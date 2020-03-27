@@ -133,6 +133,19 @@ function translateMeow(word){
     return word;
 }
 
+function beautifulMeow(word){
+    let beautiWord = '';
+    for(let j = 0; j < word.length; j-=-1){
+        if(word[j] == '_'){
+            beautiWord += ' ';
+        } else {
+            beautiWord += word[j];
+        }
+    }
+    return beautiWord;
+}
+
+
 /* 
                        A___A
            A___A       |o o|
