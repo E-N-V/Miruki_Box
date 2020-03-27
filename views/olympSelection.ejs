@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="stylesheets/olympSelection.css">
     <script src="/scripts/olympSelection.js"></script>
     <title>Выбор олимпиад</title>
-    <script src="scripts/olympSelection.js"></script>
 </head>
 <body>
     <div class="preLoader">
@@ -143,7 +142,7 @@
             </div>
         </section>
         <section class="olympSelect" id="OlympListRaw">
-            <!--<h4 id="nothingMassage">Олимпиад не найденно</h4>-->
+            <h4 id="nothingMassage">Олимпиад не найденно</h4>
             <!--            TODO: Код ниже НЕ можешь трогать.         -->
             <%
                 const categories = [];
@@ -179,23 +178,84 @@
                 };
                 for (const val of raw)
                     categories.push(val)
+                
                 raw = "<%=Name_olymp.office%>".split(',');
-                for (const item of raw)
+                if(raw[0] != ''){
+                    for (const item of raw)
                     name_olymp.office.push(item)
+                }
+                
                 raw = "<%=Name_olymp.programming%>".split(',');
-                for (const item of raw)
+                if(raw[0] != ''){
+                    for (const item of raw)
                     name_olymp.programming.push(item)
+                }
+                
+                raw = "<%=Name_olymp.architecture%>".split(',');
+                if(raw[0] != ''){
+                    for (const item of raw)
+                    name_olymp.architecture.push(item)
+                }
+                
+                raw = "<%=Name_olymp.mechanic%>".split(',');
+                if(raw[0] != ''){
+                    for (const item of raw)
+                    name_olymp.mechanic.push(item)
+                }
+                
+                raw = "<%=Name_olymp.graphics%>".split(',');
+                if(raw[0] != ''){
+                    for (const item of raw)
+                    name_olymp.graphics.push(item)
+                }
+                
+                raw = "<%=Name_olymp.svarka%>".split(',');
+                if(raw[0] != ''){
+                    for (const item of raw)
+                    name_olymp.svarka.push(item)
+                }
                 // Начиная с этого места, можешь писать и переписывать как хочешь. Тут просто вывод в блоки до тех пор пока были необработанные данные. И да, вот ссылка на то что есть в бд localhost:3000/db
-                const OList = document.getElementById('OlympListRaw');
-                for (let i = 0; i < name_olymp.office.length; i++) {
-                    let div = document.createElement('div');
-                        div.className = 'olymp';
-                        div.innerHTML += `
-                            <h3>${name_olymp.office[i].split(':')[0]}</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!</p>
-                            <a href="/walk/${name_olymp.office[i].split(':')[1]}"><div>Участвовать</div></a>`;
-                        OList.append(div)
+                window.olymps = name_olymp;
+                                /*
+                                    /^--^\     /^--^\     /^--^\
+                                    \____/     \____/     \____/
+                                    /      \   /      \   /      \
+                                    |        | |        | |        |
+                                    \__  __/   \__  __/   \__  __/
+                |^|^|^|^|^|^|^|^|^|^|^|^\ \^|^|^|^/ /^|^|^|^|^\ \^|^|^|^|^|^|^|^|^|^|^|^|
+                | | | | | | | | | | | | |\ \| | |/ /| | | | | | \ \ | | | | | | | | | | |
+                ########################/ /######\ \###########/ /#######################
+                | | | | | | | | | | | | \/| | | | \/| | | | | |\/ | | | | | | | | | | | |
+                |_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
+                */
+
+
+                function catPlay(catName){
+                    //чистим старые олимпиады
+                    let olymps = document.getElementsByClassName('olymp');
+                    for(i = 0; i < olymps.length; i++){
+                        olymps[i].remove();
                     }
+                    //Лёгкий фикс кек
+                    olymps = document.getElementsByClassName('olymp');
+                    for(i = 0; i < olymps.length; i++){
+                        olymps[i].remove();
+                    }
+                    if(translateMeow(catName) != undefined){
+                        if(translateMeow(catName).length > 0){
+                            document.getElementById('nothingMassage').style.display = 'none';
+                            for (let i = 0; i < translateMeow(catName).length; i++) {
+                                catBallOfWool(`${translateMeow(catName)[i].split(':')[0]}`,`Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!`,`/walk/${translateMeow(catName)[i].split(':')[1]}`)
+                            }
+                        }else{
+                            document.getElementById('nothingMassage').style.display = 'block';
+                        }
+                    }else{
+                        document.getElementById('nothingMassage').style.display = 'block';
+                    }
+                }
+                catPlay('prog')
+                // а остальное в js
             </script>
 
         </section>

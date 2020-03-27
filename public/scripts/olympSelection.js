@@ -1,3 +1,11 @@
+/*_                ___       _.--.
+\`.|\..----...-'`   `-._.-'_.-'`
+/  ' `         ,       __.--'
+)/' _/     \   `-_,   /
+`-'" `"\_  ,_.-;_.-\_ ', 
+    _.-'_./   {_.'   ; /
+   {_.-``-'         {_/
+*/
 function pawPoof(catName,cats){
     for(cat = 0; cat < cats.length; cat-=-1){
         if (cats[cat].id === catName) {
@@ -7,6 +15,19 @@ function pawPoof(catName,cats){
         }
     }
 }
+
+/*
+                ,
+              _/((
+     _.---. .'   `\
+   .'      `     ^ T=
+  /     \       .--'
+ |      /       )'-.
+ ; ,   <__..-(   '-.)
+  \ \-.__)    ``--._)
+   '.'-.__.-.
+     '-...-'
+*/
 
 function catPillow(catName){
     let catsBox = document.getElementsByClassName('olympCategories')[0];
@@ -35,7 +56,20 @@ function catPillow(catName){
     }
 }
 
-function catBallOfWool(target,olympName,olympDiscription,olympUrl){
+/*
+               /\____/\    __
+             .'  """"  `,-'  `--.__
+        __,- :   -  -  ;  " ::     `-. -.__
+     ,-sssss `._  `' _,'"     ,'~~~::`.sssss-.
+    |ssssss ,' ,_`--'_    __,' ::  `  `.ssssss|
+   |sssssss `-._____~ `,,'_______,---_;; ssssss|
+    |ssssssssss     `--'~{__   ____   ,'ssssss|
+     `-ssssssssssssssssss ~~~~~~~~~~~~ ssss.-'
+          `---.sssssssssssssssssssss.---'
+*/
+
+function catBallOfWool(olympName,olympDiscription,olympUrl){
+    let target = document.getElementsByClassName('olympSelect')[0];
     let olymp = document.createElement('div');
     olymp.setAttribute('class','olymp');
     olymp.innerHTML = `
@@ -46,22 +80,67 @@ function catBallOfWool(target,olympName,olympDiscription,olympUrl){
     target.append(olymp);
 }
 
-function catPlay(catName){
-    let olympContainer = document.getElementsByClassName('olympSelect')[0];
-    //чистим старые олимпиады
-    let olymps = document.getElementsByClassName('olymp');
-        for(i = 0; i < olymps.length; i++){
-            olymps[i].remove();
-        }
-        //TODO: ХЗ как но надо из бдшки достовать олимпиады их описания и тд.
-        //тип если они найденны просто добовляешь их функцией catBallOfWool
-    if(true){
-        catBallOfWool(olympContainer,'Затычка','Описание затычки ','/olympList/walk')
-        document.getElementById('nothingMassage').style.display = 'none';
-    }else{
-        document.getElementById('nothingMassage').style.display = 'block';
+
+/*
+               .               ,.
+              T."-._..---.._,-"/|
+              l|"-.  _.v._   (" |
+              [l /.'_ \; _~"-.`-t
+              Y " _(o} _{o)._ ^.|
+              j  T  ,-<v>-.  T  ]
+              \  l ( /-^-\ ) !  !
+               \. \.  "~"  ./  /c-..,__
+                 ^r- .._ .- .-"  `- .  ~"--.
+                  > \.                      \
+                  ]   ^.                     \
+                  3  .  ">            .       Y  
+     ,.__.--._   _j   \ ~   .         ;       |
+    (    ~"-._~"^._\   ^.    ^._      I     . l
+     "-._ ___ ~"-,_7    .Z-._   7"   Y      ;  \        _
+        /"   "~-(r r  _/_--._~-/    /      /,.--^-._   / Y
+        "-._    '"~~~>-._~]>--^---./____,.^~        ^.^  !
+            ~--._    '   Y---.                        \./
+                 ~~--._  l_   )                        \
+                       ~-._~~~---._,____..---           \
+                           ~----"~       \
+                                          \
+*/
+
+function translateMeow(word){
+    switch (word) {
+        case 'arch':
+            word = window.olymps.architecture;
+            break;
+        case 'prog':
+            word = window.olymps.programming;
+            break;
+        case 'weld':
+            word = window.olymps.svarka;
+            break;
+        case 'mech':
+            word = window.olymps.mechanic;
+        break;
+        case 'office':
+            word = window.olymps.office;
+        break;
+        case 'art':
+            word = window.olymps.graphics;
+            break;
+        default:
+            word = window.olymps.MEEEEEOW;
+            break;
     }
+    return word;
 }
+
+/* 
+                       A___A
+           A___A       |o o|
+     ____ / o o \      |='=|
+___/~____   ='= /_____/    |_________
+  (______)__m_m_)    /  ||||
+                    |___||||]
+*/
 
 function catBlush(catName){
     let shyCats = document.getElementsByClassName('cat-nav')[0].getElementsByTagName('img');
@@ -74,10 +153,18 @@ function catBlush(catName){
     }
 }
 
+/*
+              __..--''``---....___   _..._    __
+    /// //_.-'    .-/";  `        ``<._  ``.''_ `. / // /
+   ///_.-' _..--.'_    \                    `( ) ) // //
+   / (_..-' // (< _     ;_..__               ; `' / ///
+    / // // //  `-._,_)' // / ``--...____..-' /// / //
+*/
+
 function catSelect(catName){    
     let cats = document.getElementsByClassName('cat-kit');
     pawPoof(catName,cats);
     catPillow(catName);
-    //catPlay(catName);
+    catPlay(catName);
     catBlush(catName);
 }
