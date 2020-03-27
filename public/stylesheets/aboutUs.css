@@ -3,7 +3,7 @@ body{
 }
 
 article{
-    background-color: rgb(183, 158, 231);
+    background-color: #000034;
 }
 
 section{
@@ -19,22 +19,25 @@ img{
 
 p{
     padding: 20px;
+    color: white;
 }
 
 h1{
     padding: 20px;
     text-align: center;
     font-size: 50px;
+    color: white;
 }
 
 h2{
+    color: white;
     font-size: 30px;
     padding: 20px;
 }
 
 .management{
     color: white;
-    background-color: rgb(100, 88, 124);
+    background-color: #463566;
 }
 
 .flex{
