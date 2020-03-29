@@ -85,7 +85,7 @@ function generateAnswers(num, questType, answersText){
                 answer = document.createElement('li');
                 answTag = countAnswers(num) + 1;
                 answer.innerHTML = (`
-                    <span id="answTag">`+ answTag +`)</span>`+ answersText[i] +`<input type="radio" name="answer`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
+                    <span id="answTag">`+ answTag +`)</span>`+ answersText[i] +`<input type="radio" name="answer_`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
                     <label for="answer`+ countAnswers(num) + '' + num +`">
                 `);
                 block.append(answer);
@@ -96,7 +96,7 @@ function generateAnswers(num, questType, answersText){
                 answer = document.createElement('li');
                 answTag = countAnswers(num) + 1;
                 answer.innerHTML = (`
-                    <span id="answTag">`+ answTag +`)</span>`+ answersText[i] +`<input type="checkbox" name="answer`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
+                    <span id="answTag">`+ answTag +`)</span>`+ answersText[i] +`<input type="checkbox" name="answer_`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
                     <label for="answer`+ countAnswers(num) + '' + num +`">
                 `);
                 block.append(answer);
@@ -104,7 +104,7 @@ function generateAnswers(num, questType, answersText){
             break;
         case 'textbox':
             answer = document.createElement('input');
-            answer.name= 'answer' + num;
+            answer.name= 'answer_' + num;
             answer.className= 'oneAnswer';
             block.append(answer);
             break;
