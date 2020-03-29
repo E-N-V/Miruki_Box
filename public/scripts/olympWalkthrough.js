@@ -373,3 +373,18 @@ function translateCat(name){
                     graphics: [],
                     mechanic: [],
                     svarka: []*/
+
+
+/*Тута preparation*/
+
+function MainIN(num){
+    let prepare = document.getElementsByClassName('preparation')[0];
+    if(num === 0){
+        document.getElementsByTagName('body')[0].style.overflowY = 'initial';
+        prepare.style.display = 'none';
+
+    } else {
+        document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+        prepare.style.display = 'flex';
+    }
+}
