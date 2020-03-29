@@ -1,0 +1,21 @@
+#include <iostream> 
+ 
+using namespace std; 
+ 
+int preinc(int &x) { 
+    return ++x; 
+} 
+ 
+int postinc(int &x) { 
+    return x++; 
+} 
+ 
+int main(void) { 
+    int x = 5; 
+ 
+    cout << preinc(x); 
+    cout << postinc(x); 
+    cout << x; 
+ 
+    return 0; 
+} 

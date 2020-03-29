@@ -1,0 +1,15 @@
+#include <iostream> 
+ 
+int & calculate(int &x) 
+{ 
+    x++; 
+    return x; 
+} 
+ 
+int main() { 
+ 
+    int x, y = 10; 
+    x = ++calculate(y); 
+    std::cout << x << " " << y; 
+    return 0; 
+} 
