@@ -12,6 +12,7 @@ router.get('/:name', (req, res, next) => {
             mysql.query("select * from " + name, (err, data) => {
                 if (err) return res.status(500).render('404/error');
                 const query_pool = [];
+                let i = 0;
                 for (const item of data) {
                     const map = {
                         id: item.id,
@@ -22,7 +23,10 @@ router.get('/:name', (req, res, next) => {
                         f: item.f
                     };
                     query_pool.push(map);
+                    if (i === 19) return;
+                    i++;
                 }
+                console.log(query_pool.length);
 
                 const fs = require('fs');
                 const text = (fs.readFileSync(`public/code/code_${query_pool[0].f.slice(4,6)}.txt`, {encoding: 'utf-8'}));
