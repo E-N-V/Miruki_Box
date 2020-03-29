@@ -23,10 +23,15 @@ router.get('/:name', (req, res, next) => {
                     };
                     query_pool.push(map);
                 }
+
+                const fs = require('fs');
+                const text = (fs.readFileSync(`public/code/code_${query_pool[0].f.slice(4,6)}.txt`, {encoding: 'utf-8'}));
+
                 res.render('olympWalkthrough', {
                     data: query_pool,
                     name_olymp: id_olymp,
-                    category: tb_name()[1]
+                    category: tb_name()[1],
+                    code: text
                 });
             });
         });
