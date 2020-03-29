@@ -9,7 +9,7 @@ router.get('/:name', (req, res, next) => {
             if (err) return res.status(500).render('404/error');
             const tb_name = () => {for (const item of find) if (item.url === id_olymp) return [item.table_name, item.name]};
             const name = tb_name()[0];
-            mysql.query("select * from c_plus_plus", (err, data) => {
+            mysql.query("select * from " + name, (err, data) => {
                 if (err) return res.status(500).render('404/error');
                 const query_pool = [];
                 for (const item of data) {
