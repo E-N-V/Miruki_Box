@@ -16,7 +16,8 @@ router.get('/', function(req, res, next) {
     });
 });
 router.post('/checked/', (req, res, next) => {
-
+    //  TODO: Доделать логику добавления олимпиад в бд, а так же вывод и прохождение онных.
+    //  TODO: пASSкриптум, я не знаю больше ничего...
     console.log(req.body);
 
     const quests = {

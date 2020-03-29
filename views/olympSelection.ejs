@@ -159,10 +159,10 @@
                 for (const item of data)
                     switch (item.name.toLowerCase()) {
                         case "programming":
-                            Name_olymp.programming.push(item.table_name + ":" + item.url);
+                            Name_olymp.programming.push(item.url);
                             break;
                         case "office":
-                            Name_olymp.office.push(item.table_name + ":" + item.url);
+                            Name_olymp.office.push(item.url);
                             break;
                     }
             %>
@@ -184,37 +184,37 @@
                     categories.push(val)
                 
                 raw = "<%=Name_olymp.office%>".split(',');
-                if(raw[0] != ''){
+                if(raw[0] !== ''){
                     for (const item of raw)
                     name_olymp.office.push(item)
                 }
                 
                 raw = "<%=Name_olymp.programming%>".split(',');
-                if(raw[0] != ''){
+                if(raw[0] !== ''){
                     for (const item of raw)
                     name_olymp.programming.push(item)
                 }
                 
                 raw = "<%=Name_olymp.architecture%>".split(',');
-                if(raw[0] != ''){
+                if(raw[0] !== ''){
                     for (const item of raw)
                     name_olymp.architecture.push(item)
                 }
                 
                 raw = "<%=Name_olymp.mechanic%>".split(',');
-                if(raw[0] != ''){
+                if(raw[0] !== ''){
                     for (const item of raw)
                     name_olymp.mechanic.push(item)
                 }
                 
                 raw = "<%=Name_olymp.graphics%>".split(',');
-                if(raw[0] != ''){
+                if(raw[0] !== ''){
                     for (const item of raw)
                     name_olymp.graphics.push(item)
                 }
                 
                 raw = "<%=Name_olymp.svarka%>".split(',');
-                if(raw[0] != ''){
+                if(raw[0] !== ''){
                     for (const item of raw)
                     name_olymp.svarka.push(item)
                 }
@@ -248,7 +248,7 @@
                     for(i = 0; i < olymps.length; i++){
                         olymps[i].remove();
                     }
-                    if(translateMeow(catName) != undefined){
+                    if(translateMeow(catName) !== undefined){
                         if(translateMeow(catName).length > 0){
                             document.getElementById('nothingMassage').style.display = 'none';
                             for (let i = 0; i < translateMeow(catName).length; i++) {
@@ -256,10 +256,10 @@
                                 
                                 
                                 //тут добавление вот этого вот
-                                olympName = `${translateMeow(catName)[i].split(':')[0]}`;
+                                olympName = `${translateMeow(catName)[i]}`;
                                 olympName = beautifulMeow(olympName);
                                 olympDesc = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!`
-                                olympURL = `/walk/${translateMeow(catName)[i].split(':')[1]}`;
+                                olympURL = `/walk/${translateMeow(catName)[i]}`;
                                 catBallOfWool(olympName, olympDesc,olympURL)
                             
                             

@@ -114,21 +114,40 @@
             если code то просто строчку с кодом или хз как могу поменять
             */
 
+            <%
+            const query_pool = data;
+            console.log(query_pool[0])
+            %>
+
             /*ПРИМЕР ГИНЕРАЦИИ*/
-            generateHead('C#', 'programming');
+            generateHead('<%=name_olymp%>', '<%=category%>');
             
-            let quest = 'Как жить?'
-            let type = 'radio'
-            let optType = 'code'
+            let quest = '<%= query_pool[0].title%>'
+            <%
+                let type = 'radio';
+                if (Number(query_pool[0].right)) {
+                    if (query_pool[0].right.length > 1) type = 'checkbox'
+                    else type = 'radio'
+                }else type = 'textbox'
+                console.log(type)
+            %>
+            let type = '<%=query_pool[0].type%>>'
+            <%
+                let opt_mode = '';
+                if (query_pool[0].f.slice(0, 3) === 'code') opt_mode = 'code'
+                else if (query_pool[0].f.slice(0, 2) === 'Рис') opt_mode = 'image'
+                console.log(opt_mode)
+            %>
+            let optType = '<%=opt_mode%>'
             //В коде это выглядит не красиво но хз как это по другому сделать
             let code = `function getCurrentBlockNum(){
-    var qstBlocks = document.getElementsByClassName('question');
-    for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
-        if(qstBlocks[qstBlock].className == 'question current'){
-            return qstBlock;
-        }
-    }
-}`;
+                            var qstBlocks = document.getElementsByClassName('question');
+                                for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
+                                    if(qstBlocks[qstBlock].className == 'question current'){
+                                    return qstBlock;
+                                }
+                            }
+                        }`;
             let answersTest = ['Никак', 'Учи философию', 'Тыж программист!', 'AVE MARIA'];
             generateQuest(quest, type, optType , code, answersTest);
             quest = 'Норм сделал?'
