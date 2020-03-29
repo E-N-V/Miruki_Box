@@ -86,6 +86,7 @@ function reDraw(block, mode){
         case "radio":
             block.innerHTML = `
                <input type="hidden" name="questType_`+ getCurrentBlockNum() +`" value="radio">
+               <input type="hidden" name="questAnswwersAmount_`+ getCurrentBlockNum() +`" value="1" class='answAmount'>
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="questText_`+ getCurrentBlockNum() +`" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
@@ -115,6 +116,7 @@ function reDraw(block, mode){
         case "checkbox":
             block.innerHTML = `
                <input type="hidden" name="questType_`+ getCurrentBlockNum() +`" value="checkbox">
+               <input type="hidden" name="questAnswwersAmount_`+ getCurrentBlockNum() +`" value="1" class='answAmount'>
                 <div class="goBack controls" onclick="goBack(document.getElementsByClassName('current')[0])"><</div>
                 <textarea name="questText_`+ getCurrentBlockNum() +`" id="testArea" cols="30" rows="10" placeholder="Вопрос"></textarea>
                 <div class="questOptions">
@@ -186,6 +188,7 @@ function AddAnswer(block, mode){
             <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
             block.append(div);
+            document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answAmount')[0].value = document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length;
             checkBoxChpok();
             break;
         case "radio":
@@ -197,6 +200,7 @@ function AddAnswer(block, mode){
             <div class="controls delete" onclick="delAnswer(document.getElementsByClassName('question')[`+ getCurrentBlockNum() +`].getElementsByClassName('answer')[`+ document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length +`])">-</div>
             `;
             block.append(div);
+            document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answAmount')[0].value = document.getElementsByClassName('question')[getCurrentBlockNum()].getElementsByClassName('answer').length;
             RadioChpok();
             break;
     }
