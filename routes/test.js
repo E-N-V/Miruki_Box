@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', function(req, res, next) {
     mysql.query('select name, table_name, url from categories;', (err, data) => {
         if (err) return res.status(500).render('404/error');
-        mysql.query('select name from name_categories;', (err, data_cat) => {
+        mysql.query('select name from name_category;', (err, data_cat) => {
             if (err) return res.status(500).render('404/error');
             res.render('olympSelection', {
                 data: data,

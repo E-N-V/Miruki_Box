@@ -6,12 +6,12 @@ const pool = mysql.createPool({
     password: "4958d574",
     database: "heroku_cd281529c651890"
 });
-// const pool = mysql.createPool({
-//     connectionLimit: 5,
-//     host: "localhost",
-//     user: "root",
-//     password: "",
-//     database: "heroku_cd281529c651890"
-// });
+//const pool = mysql.createPool({
+//    connectionLimit: 5,
+//    host: "localhost",
+//    user: "root",
+//    password: "",
+//    database: "heroku_cd281529c651890"
+//});
 
 module.exports = pool;

@@ -126,29 +126,20 @@
             %>
 
             /*ПРИМЕР ГИНЕРАЦИИ*/
+            // generateQuest(quest, type, optType , code, answersTest);
             generateHead('<%=name_olymp%>', '<%=category%>');
-            
-            let quest = '<%= query_pool[0].title%>'
+            let pr = null;
             <%
-                let type = 'radio';
-                if (Number(query_pool[0].right)) {
-                    if (query_pool[0].right.length > 1) type = 'checkbox'
-                    else type = 'radio'
-                }else type = 'textbox'
+            for (const item of query_pool) {
             %>
-            let type = '<%=type%>'
-            <%
-                let opt_mode = '';
-                if (query_pool[0].f.slice(0, 4) === 'code') opt_mode = 'code'
-                else if (query_pool[0].f.slice(0, 3) === 'Рис') opt_mode = 'image'
-            %>
-            let optType = '<%=opt_mode%>'
-            //В коде это выглядит не красиво но хз как это по другому сделать
-            <%
-            %>
-            let code = `<%=code%>`;
-            let answersTest = '';
-            generateQuest(quest, type, optType , code, answersTest);
+                pr = `<%=item.answers%>`.split(';');
+                if (pr.length > 3) pr.pop()
+                generateQuest('<%=item.description%>',
+                                '<%=item.type%>',
+                                '<%=item.opt_mode%>',
+                                `<%=item.f%>`,
+                                pr);
+            <%}%>
             // quest = 'Норм сделал?'
             // type = 'checkbox'
             // optType = 'nothing'

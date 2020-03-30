@@ -7,39 +7,52 @@ router.get('/:name', (req, res, next) => {
     const id_olymp = req.params.name;
         mysql.query("select name, table_name, url from categories", (err, find) => {
             if (err) return res.status(500).render('404/error');
-            const tb_name = () => {for (const item of find) if (item.url === id_olymp) return [item.table_name, item.name]};
-            const name = tb_name()[0];
-            mysql.query("select * from " + name, (err, data) => {
+            const table_info = {
+                name: null,
+                tb_name: null
+            };
+            for (const item of find) 
+                if (item.url === id_olymp) {
+                    table_info.name = item.name;
+                    table_info.tb_name = item.table_name;
+                }
+            mysql.query("select * from " + table_info.tb_name, (err, data) => {
                 if (err) return res.status(500).render('404/error');
-                const query_pool = [];
-                let i = 0;
+                let all_query_pool = [];
                 for (const item of data) {
                     const map = {
                         id: item.id,
-                        title: item.title,
+                        type: item.type,
                         description: item.description,
                         answers: item.answer,
-                        right: item.right,
-                        f: item.f
+                        right: item.right_,
+                        f: null,
+                        opt_mode: null
                     };
-                    query_pool.push(map);
-                    if (i === 19) return;
-                    i++;
+                    let temp = item.f;
+                    if (temp){
+                        if (temp.slice(0, 3) === 'Рис') {
+                            map.f = item.f + ".png";
+                            map.opt_mode = 'image';
+                        }
+                        else if (temp.slice(0, 4) === 'code') {
+                            const fs = require('fs');
+                            map.f = (fs.readFileSync(`public/code/code_${temp.slice(4)}.txt`, {encoding: 'utf-8'}));
+                            map.opt_mode = 'code'
+                        }
+                    }
+                    all_query_pool.push(map);
                 }
-                console.log(query_pool.length);
-
-                const fs = require('fs');
-                const text = (fs.readFileSync(`public/code/code_${query_pool[0].f.slice(4,6)}.txt`, {encoding: 'utf-8'}));
-
+                if (all_query_pool.length > 20)
+                    for (let i = all_query_pool.length; i > 20; i--)
+                        all_query_pool.splice(Math.floor(Math.random() * (all_query_pool.length - 1) + 1) - 1, 1)
                 res.render('olympWalkthrough', {
-                    data: query_pool,
+                    data: all_query_pool,
                     name_olymp: id_olymp,
-                    category: tb_name()[1],
-                    code: text
+                    category: table_info.name,
                 });
             });
         });
-
 });
 
 module.exports = router;
