@@ -66,7 +66,7 @@ function generateOpt(num, optType, optContent){
                 break;
             case 'code':
                 optBlock = document.createElement('code');
-                optBlock.innerHTML =`<pre>`+ codeEater(optContent) +`</pre>`;
+                optBlock.innerHTML =`<pre>`+ /*codeEater(optContent)*/ optContent +`</pre>`;
                 break;
             default:
                 break;
@@ -206,7 +206,9 @@ function testShot(code){
     let quoteMode = 0;
     let quoteModeInitKey = '';
     let spSymb = [32,123,125,40,41,10,40,58,61,39,34,43,45,61,47,42,94,63,33,36,35,64,38,124,92,47,60,62,46,93,91,96];
+    console.log(code);
     for (let i = 0; i < code.length; i++) {
+        console.log(code[i]);
         if( spSymb.includes( code[i].charCodeAt() ) ) {
             switch (code[i].charCodeAt()) {
                 case 34:
@@ -280,7 +282,7 @@ function testShot(code){
                                 word = '';
                                 codeAfter += htmlKiller(code[i]) + '</span>';
 
-                            }else if( code[i-2].charCodeAt() === 45 && code[i-1].charCodeAt() === 45 && code[i].charCodeAt() === 62 && cmntModeInitKey === '1'){
+                            }else if(code[i].charCodeAt() === 10 && cmntModeInitKey === '2'){
                                 
                                 cmntMode = 0;
                                 codeAfter += word;
@@ -288,7 +290,7 @@ function testShot(code){
                                 word = '';
                                 codeAfter += htmlKiller(code[i]) + '</span>';
 
-                            }else if(code[i].charCodeAt() === 10 && cmntModeInitKey === '2'){
+                            }else if( code[i-2].charCodeAt() === 45 && code[i-1].charCodeAt() === 45 && code[i].charCodeAt() === 62 && cmntModeInitKey === '1'){
                                 
                                 cmntMode = 0;
                                 codeAfter += word;

@@ -134,6 +134,7 @@
             %>
                 pr = `<%=item.answers%>`.split(';');
                 if (pr.length > 3) pr.pop()
+                console.log(`<%=item.f%>`)
                 generateQuest('<%=item.description%>',
                                 '<%=item.type%>',
                                 '<%=item.opt_mode%>',
