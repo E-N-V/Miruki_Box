@@ -132,14 +132,15 @@
             <%
             for (const item of query_pool) {
             %>
+                
                 pr = `<%=item.answers%>`.split(';');
                 if (pr.length > 3) pr.pop()
-                console.log(`<%=item.f%>`)
                 generateQuest('<%=item.description%>',
                                 '<%=item.type%>',
                                 '<%=item.opt_mode%>',
                                 `<%=item.f%>`,
                                 pr);
+                window.xyi = 78;
             <%}%>
             // quest = 'Норм сделал?'
             // type = 'checkbox'

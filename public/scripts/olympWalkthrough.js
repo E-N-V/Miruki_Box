@@ -66,7 +66,7 @@ function generateOpt(num, optType, optContent){
                 break;
             case 'code':
                 optBlock = document.createElement('code');
-                optBlock.innerHTML =`<pre>`+ /*codeEater(optContent)*/ optContent +`</pre>`;
+                optBlock.innerHTML =`<pre>`+ /*codeEater(optContent)*/ testShot(optContent) +`</pre>`;
                 break;
             default:
                 break;
@@ -146,7 +146,6 @@ function questSwap(num){
 34 "
 43 +
 45 -
-61 = 
 47 /
 42 *
 94 ^
@@ -205,10 +204,11 @@ function testShot(code){
     let cmntModeInitKey = '';
     let quoteMode = 0;
     let quoteModeInitKey = '';
-    let spSymb = [32,123,125,40,41,10,40,58,61,39,34,43,45,61,47,42,94,63,33,36,35,64,38,124,92,47,60,62,46,93,91,96];
-    console.log(code);
+    let spSymb = [32,123,125,40,41,10,40,58,61,39,34,43,45,61,47,42,94,63,33,36,35,64,38,124,92,47,60,62,46,93,91,96,59];
     for (let i = 0; i < code.length; i++) {
-        console.log(code[i]);
+        if (window.xyi !== 78){
+            console.log(i + ':' + code[i].charCodeAt() + '\ \ \ \ :' + word)
+        }
         if( spSymb.includes( code[i].charCodeAt() ) ) {
             switch (code[i].charCodeAt()) {
                 case 34:
@@ -217,27 +217,27 @@ function testShot(code){
                     if ( cmntMode === 0 ) {
                         if ( quoteMode === 0 ) {
                             if(code[i].charCodeAt()===34){
-                                cmntModeInitKey='0'
+                                quoteModeInitKey='0'
                             }else if(code[i].charCodeAt()===39){
-                                cmntModeInitKey='1'
+                                quoteModeInitKey='1'
                             }else if(code[i].charCodeAt()===96){
-                                cmntModeInitKey='2'
+                                quoteModeInitKey='2'
                             }
                             quoteMode = 1;
                             codeAfter += '<span class="cde-atreb">' + word + '</span>';
                             word = '';
                             codeAfter += '<span class="cde-qote">' + htmlKiller(code[i]); 
-                        }else if(code[i].charCodeAt()===34 && cmntModeInitKey === '0' ){
+                        }else if(code[i].charCodeAt()===34 && quoteModeInitKey === '0' ){
                             quoteMode = 0;
                             codeAfter += word;
                             word = '';
                             codeAfter += htmlKiller(code[i]) + '</span>';
-                        }else if(code[i].charCodeAt()===39 && cmntModeInitKey === '1' ){
+                        }else if(code[i].charCodeAt()===39 && quoteModeInitKey === '1' ){
                             quoteMode = 0;
                             codeAfter += word;
                             word = '';
                             codeAfter += htmlKiller(code[i]) + '</span>';
-                        }else if(code[i].charCodeAt()===96 && cmntModeInitKey === '2' ){
+                        }else if(code[i].charCodeAt()===96 && quoteModeInitKey === '2' ){
                             quoteMode = 0;
                             codeAfter += word;
                             word = '';
@@ -247,21 +247,21 @@ function testShot(code){
                         word += htmlKiller(code[i]);
                     }
                     break;
+
                     case 60:
                     case 62:
                     case 47:
                     case 10:
                     case 42:
                     case 45:
-                    if ( quoteMode === 0 ) {
-
-                        if ( cmntMode === 0 ) {
-                            if(  code[i].charCodeAt() === 47 && code[i+1].charCodeAt() === 42 || code[i].charCodeAt() === 60 && code[i+1].charCodeAt() === 33 && code[i+2].charCodeAt() === 45 && code[i+3].charCodeAt() === 45 || code[i].charCodeAt() === 47 && code[i+1].charCodeAt() === 47 ){
-                                if(code[i].charCodeAt() === 47 && code[i+1].charCodeAt() === 42){
+                    if ( quoteMode == 0 ) {
+                        if ( cmntMode == 0 ) {
+                            if(  code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 42 || code[i].charCodeAt() == 60 && code[i+1].charCodeAt() == 33 && code[i+2].charCodeAt() == 45 && code[i+3].charCodeAt() == 45 || code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 47 ){
+                                if(code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 42){
                                     cmntModeInitKey = 0;
-                                }else if(code[i].charCodeAt() === 60 && code[i+1].charCodeAt() === 33 && code[i+2].charCodeAt() === 45 && code[i+3].charCodeAt() === 45){
+                                }else if(code[i].charCodeAt() == 60 && code[i+1].charCodeAt() == 33 && code[i+2].charCodeAt() == 45 && code[i+3].charCodeAt() == 45){
                                     cmntModeInitKey = 1;
-                                }else if(code[i].charCodeAt() === 47 && code[i+1].charCodeAt() === 47){
+                                }else if(code[i].charCodeAt() == 47 && code[i+1].charCodeAt() == 47){
                                     cmntModeInitKey = 2;
                                 }
                                 cmntMode = 1;
@@ -274,39 +274,34 @@ function testShot(code){
                                 word += htmlKiller(code[i]);
                             }
                         }else{
-                            if(code[i-1].charCodeAt() === 42 && code[i].charCodeAt() === 47 && cmntModeInitKey === '0' ){
-
+                            if(code[i-1].charCodeAt() == 42 && code[i].charCodeAt() == 47 && cmntModeInitKey == '0' ){
                                 cmntMode = 0;
                                 codeAfter += word;
-
+                                word = '';
+                                codeAfter += htmlKiller(code[i]) + '</span>';
+                            }else if(code[i].charCodeAt() == 10 && cmntModeInitKey == '2'){
+                                cmntMode = 0;
+                                codeAfter += word;
                                 word = '';
                                 codeAfter += htmlKiller(code[i]) + '</span>';
 
-                            }else if(code[i].charCodeAt() === 10 && cmntModeInitKey === '2'){
-                                
-                                cmntMode = 0;
-                                codeAfter += word;
-
-                                word = '';
-                                codeAfter += htmlKiller(code[i]) + '</span>';
-
-                            }else if( code[i-2].charCodeAt() === 45 && code[i-1].charCodeAt() === 45 && code[i].charCodeAt() === 62 && cmntModeInitKey === '1'){
-                                
-                                cmntMode = 0;
-                                codeAfter += word;
-
-                                word = '';
-                                codeAfter += htmlKiller(code[i]) + '</span>';
-
+                            }else if(i < 2 && code[i].charCodeAt() == 62){
+                                if( code[i-2].charCodeAt() == 45 && code[i-1].charCodeAt() == 45 && code[i].charCodeAt() == 62 && cmntModeInitKey == '1'){
+                                    cmntMode = 0;
+                                    codeAfter += word;
+                                    word = '';
+                                    codeAfter += htmlKiller(code[i]) + '</span>';
+                                }else{
+                                    word += htmlKiller(code[i]);
+                                }
                             }else{
-
                                 word += htmlKiller(code[i]);
                             }
                         }
                     }
                     break;
                 case 40:
-                    if ( cmntMode === 0 && quoteMode === 0) {
+                    if ( cmntMode == 0 && quoteMode == 0) {
                         codeAfter += '<span class="cde-func">'+ word +'</span>' + htmlKiller(code[i]) ;
                         word = '';
                     }else{
@@ -314,7 +309,7 @@ function testShot(code){
                     }
                     break;
                 default:
-                    if ( cmntMode === 0 && quoteMode === 0) {
+                    if ( cmntMode == 0 && quoteMode == 0) {
                         if(word !== ''){
                             codeAfter += '<span class="cde-atreb">'+ word +'</span>' + htmlKiller(code[i]) ;
                         }else{
