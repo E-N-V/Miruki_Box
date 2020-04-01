@@ -58,7 +58,7 @@ function generateBody(num, questText){
 function generateOpt(num, optType, optContent){
     let block = targetBlock(num).getElementsByClassName('olymp-question')[0];
     let optBlock;
-    if(optType !== 'nothing'){
+    if(optType !== ''){
         switch (optType) {
             case 'image':
                 optBlock = document.createElement('img');
@@ -66,7 +66,7 @@ function generateOpt(num, optType, optContent){
                 break;
             case 'code':
                 optBlock = document.createElement('code');
-                optBlock.innerHTML =`<pre>`+ /*codeEater(optContent)*/ testShot(optContent) +`</pre>`;
+                optBlock.innerHTML =`<pre>`+  testShot(optContent) +`</pre>`;
                 break;
             default:
                 break;
@@ -206,9 +206,6 @@ function testShot(code){
     let quoteModeInitKey = '';
     let spSymb = [32,123,125,40,41,10,40,58,61,39,34,43,45,61,47,42,94,63,33,36,35,64,38,124,92,47,60,62,46,93,91,96,59];
     for (let i = 0; i < code.length; i++) {
-        if (window.xyi !== 78){
-            console.log(i + ':' + code[i].charCodeAt() + '\ \ \ \ :' + word)
-        }
         if( spSymb.includes( code[i].charCodeAt() ) ) {
             switch (code[i].charCodeAt()) {
                 case 34:
