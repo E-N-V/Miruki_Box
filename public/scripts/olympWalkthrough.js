@@ -62,7 +62,7 @@ function generateOpt(num, optType, optContent){
         switch (optType) {
             case 'image':
                 optBlock = document.createElement('img');
-                optBlock.setAttribute('src', optContent);
+                optBlock.setAttribute('src', '/images/tests/' + optContent);
                 break;
             case 'code':
                 optBlock = document.createElement('code');
