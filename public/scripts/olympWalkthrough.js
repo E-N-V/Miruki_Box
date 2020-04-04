@@ -1,4 +1,16 @@
 
+function beautifulMeow(word){
+    let beautiWord = '';
+    for(let j = 0; j < word.length; j-=-1){
+        if(word[j] == '_'){
+            beautiWord += ' ';
+        } else {
+            beautiWord += word[j];
+        }
+    }
+    return beautiWord;
+}
+
 function getCurrentBlockNum(){
     var qstBlocks = document.getElementsByClassName('question');
     for(qstBlock = 0; qstBlock <= qstBlocks.length; qstBlock-=-1){
@@ -26,7 +38,7 @@ function countAnswers(num){
 
 function generateHead(olympName, olympCat){
     block = document.getElementsByClassName('olymp-head')[0];
-    block.getElementsByTagName('h1')[0].innerText = olympName;
+    block.getElementsByTagName('h1')[0].innerText = beautifulMeow(olympName);
     block.getElementsByTagName('img')[0].setAttribute('src', '/images/'+ translateCat(olympCat) +'.png');
 }
 
@@ -35,7 +47,7 @@ function generateQuest(questText, questType, optType, optContent, answersText){
     generateBody(generatedBlockNum, questText);
     generateOpt(generatedBlockNum, optType, optContent);
     generateAnswers(generatedBlockNum, questType, answersText);
-    generateAnswBut(generatedBlockNum);
+    generateAnswBut(generatedBlockNum, questText);
 }
 
 function generateBody(num, questText){
@@ -84,8 +96,13 @@ function generateAnswers(num, questType, answersText){
             for (let i = 0; i < answersText.length; i-=-1) {
                 answer = document.createElement('li');
                 answTag = countAnswers(num) + 1;
+                if( answTag % 2 == 0){
+                    answer.style.backgroundColor = 'rgba(000,000,255,.2)'
+                }else{
+                    answer.style.backgroundColor = 'white'
+                }
                 answer.innerHTML = (`
-                    <span id="answTag">`+ answTag +`)</span>`+ answersText[i] +`<input type="radio" name="answer_`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
+                    <span id="answTag">`+ answTag +`)</span><p>`+ answersText[i] +`</p><input type="radio" name="answer_`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
                     <label for="answer`+ countAnswers(num) + '' + num +`">
                 `);
                 block.append(answer);
@@ -95,15 +112,25 @@ function generateAnswers(num, questType, answersText){
             for (let i = 0; i < answersText.length; i-=-1) {
                 answer = document.createElement('li');
                 answTag = countAnswers(num) + 1;
+                if( answTag % 2 == 0){
+                    answer.style.backgroundColor = 'rgba(000,000,255,.2)'
+                }else{
+                    answer.style.backgroundColor = 'white'
+                }
                 answer.innerHTML = (`
-                    <span id="answTag">`+ answTag +`)</span>`+ answersText[i] +`<input type="checkbox" name="answer_`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
+                    <span id="answTag">`+ answTag +`)</span><p>`+ answersText[i] +`</p><input type="checkbox" name="answer_`+ num +`" id="answer`+ countAnswers(num) + '' + num +`" value="`+ countAnswers(num) +`">
                     <label for="answer`+ countAnswers(num) + '' + num +`">
                 `);
                 block.append(answer);
             }
             break;
         case 'textbox':
+            textstring = document.createElement('p');
+            textstring.innerText = 'Ответ:';
+            block.append(textstring);
+
             answer = document.createElement('input');
+            answer.type = 'text';
             answer.name= 'answer_' + num;
             answer.className= 'oneAnswer';
             block.append(answer);
@@ -113,12 +140,12 @@ function generateAnswers(num, questType, answersText){
     }
 }
 
-function generateAnswBut(num){
+function generateAnswBut(num, text){
     let block = document.getElementsByClassName('olymp-nav')[0];
     let AnswBut = document.createElement('span');
-    AnswBut.innerText = num + 1;
     num === 0? AnswBut.className ='currentBut' : AnswBut.className = '';
     AnswBut.innerText = num + 1;
+    AnswBut.innerText += ' ' + text;
     AnswBut.setAttribute('onclick', 'questSwap('+ num +')');
     block.append(AnswBut);
 }

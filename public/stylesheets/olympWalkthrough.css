@@ -9,6 +9,7 @@ body{
 
 .question{
     display: none;
+    height: fit-content;
 }
 
 .currentBut{
@@ -50,7 +51,10 @@ article{
 }
 
 .olymp-flex .olymp-body{
-    flex-grow: 4;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .olymp-flex .olymp-body .olymp-question{
@@ -80,17 +84,44 @@ article{
     background-color: white;
 }
 
+.olymp-flex .olymp-body .olymp-answers p{
+    display: inline-block;
+    font-size: 20px;
+}
+
+.olymp-flex .olymp-body .olymp-answers input[type = text]{
+    display: inline-block;
+    border: none;
+    font-size: 20px;
+    border: solid black;
+    border-radius: 0;
+    border-width: 0 0 2px 0;
+    background-color: transparent;
+}
+
 .olymp-flex .olymp-body .olymp-answers ul{
     list-style: none;
 }
 
 .olymp-flex .olymp-body .olymp-answers ul li{
+    display: flex;
+    align-items: center;
+    padding: 5px;
     font-size: 25px;
 }
 
 .olymp-flex .olymp-body .olymp-answers ul li span{
     font-weight: bold;
 }
+
+.olymp-flex .olymp-body .olymp-answers ul li p{
+    box-sizing: border-box;
+    font-size: 25px;
+    flex-grow: 2;
+    margin-left: 10px;
+    width: 95%;
+}
+
 /*чек бокс*/
 input[type = checkbox]{
     display: inline-block;
@@ -119,10 +150,12 @@ input[type = checkbox] + label:before, input[type = checkbox]:checked + label:be
     left: 0;
     background-color: lightgray;
     transition: .2s;
+    box-shadow: 0 0 5px 0 black;
 }
 
 input[type = checkbox]:checked + label:before{
-    background-color: dodgerblue;
+    background-color: dodgerblue !important;
+    border-radius: 0 !important;
 }
 
 input[type = checkbox] + label:after, input[type = checkbox]:checked + label:after{
@@ -139,7 +172,7 @@ input[type = checkbox] + label:after, input[type = checkbox]:checked + label:aft
 }
 
 input[type = checkbox]:checked + label:after{
-    content: '✔';
+    content: '✔' !important;
 }
 
 input[type = radio]{
@@ -170,6 +203,7 @@ input[type = radio] + label:before, input[type = checkbox]:checked + label:befor
     background-color: lightgray;
     border-radius: 100%;
     transition: .2s;
+    box-shadow: 0 0 5px 0 black;
 }
 
 input[type = radio]:checked + label:before{
@@ -189,23 +223,57 @@ input[type = radio] + label:after, input[type = checkbox]:checked + label:after{
 }
 
 input[type = radio]:checked + label:after{
+    transform: translateX(1px);
     content: '';
     border:2px solid black;
     box-shadow: 0 0 10px 0 black;
     border-radius: 100%;
 }
 
+.buttons{
+    box-sizing: border-box;
+    width: 200px;
+    transform: translateY(calc(68vh - 5px)) translateX(-5px);
+    position: absolute;
+    order: 3;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+.buttons button{
+    width: 100%;
+    float: right;
+    cursor: pointer;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    font-size: 25px;
+    background-color: blueviolet;
+    box-shadow: 0 0 10px 0 black;
+    border: none;
+}
 
 .olymp-flex .olymp-nav{
-    box-sizing: border-box;
-    padding: 5px;
     display: flex;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
     flex-wrap: wrap;
-    justify-content: center;
-    width: 10%;
-    flex-grow: 1;
-    background-color: white;
+    flex-grow: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
     overflow-y: scroll;
+    width: 200px;
+    padding: 5px;
+    background-color: white;
+    max-height: 68vh;
 }
 
 .olymp-flex .olymp-nav span{
@@ -213,36 +281,24 @@ input[type = radio]:checked + label:after{
     display: inline-block;
     box-sizing: border-box;
     border: 5px solid white;
-    width: 50%;
-    height: 50px;
+    width: 100%;
+    padding: 10px 5px;
     font-size: 20px;
     background-color: blueviolet;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis; /* Добавляем многоточие */
 }
 
-@media (max-width: 900px){
-    .olymp-flex .olymp-nav span{
-        width: 100%;
-    }
-}
 
-@media (max-width: 800px){
-    .olymp-flex .olymp-nav{
-        width: 15%;
-    }
-}
-
-@media (max-width: 650px){
-    .olymp-flex .olymp-nav{
-        width: 30%;
-    }
-}
-
-@media (max-width: 460px){
-    .olymp-flex .olymp-nav{
-        width: 50%;
-    }
+code pre{
+    background-color: black;
+    color:white;
+    padding: 20px;
+    font-size: 15px;
 }
 
 .cde-func{
@@ -250,16 +306,11 @@ input[type = radio]:checked + label:after{
 }
 
 .cde-atreb{
-    color: rgb(115, 115, 255);
+    color: rgb(183, 0, 255);
 }
 
 .cde-qote{
     color: brown;
-}
-
-code,pre{
-    background-color: black;
-    color:white;
 }
 
 .cde-cmnt{
@@ -287,8 +338,23 @@ code,pre{
 .preparation .main-input{
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px;
     background-color: white;
+}
+
+.preparation .main-input input[type = text]{
+    margin: 20px 0;
+    display: block;
+    border: none;
+    font-size: 20px;
+    border: solid black;
+    border-radius: 0;
+    border-width: 0 0 2px 0;
+    background-color: transparent;
+}
+
+.preparation .main-input p{
+    font-size: 25px !important;
 }
 
 .preparation span{
@@ -301,10 +367,11 @@ code,pre{
 }
 
 .buttonSub{
+    box-sizing: border-box;
+    width: 100%;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
-    margin: 5px;
     font-size: 25px;
     padding: 8px 10px;
     background-color: blueviolet;
@@ -312,4 +379,5 @@ code,pre{
     color: white;
     border: none;
     text-align: center;
+    margin: 0 !important;
 }
