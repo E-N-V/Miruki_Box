@@ -78,7 +78,7 @@ function generateOpt(num, optType, optContent){
                 break;
             case 'code':
                 optBlock = document.createElement('code');
-                optBlock.innerHTML =`<pre>`+  testShot(optContent) +`</pre>`;
+                optBlock.innerHTML = '<pre>' + testShot(optContent) + '</pre>';
                 break;
             default:
                 break;

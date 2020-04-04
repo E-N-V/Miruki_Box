@@ -54,7 +54,7 @@ article{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 100%;
+    width: calc(100% - 200px);
 }
 
 .olymp-flex .olymp-body .olymp-question{
@@ -294,11 +294,25 @@ input[type = radio]:checked + label:after{
 }
 
 
-code pre{
-    background-color: black;
-    color:white;
-    padding: 20px;
+code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid blueviolet;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
     font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+
+pre{
+    display: contents;
 }
 
 .cde-func{
@@ -380,4 +394,24 @@ code pre{
     border: none;
     text-align: center;
     margin: 0 !important;
+}
+
+/*АДАПТИВ*/
+
+@media (max-width:500px){
+    .olymp-nav{
+        width: 100px !important;
+    }
+    .olymp-body{
+        width: calc(100% - 100px) !important;
+    }
+
+    .buttons{
+        width: 100px;
+    }
+    
+    .buttons button{
+        padding: 5px;
+        font-size: 10px;
+    }
 }
