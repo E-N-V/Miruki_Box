@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <script src="scripts/main.js"></script>
+    <link rel="stylesheet" href="stylesheets/profile.css">
+    <title><%= title_page%></title>
+</head>
+<body>
+    <div class="preLoader">
+        <div class="carousel"></div>
+        <p class="loadingText">Loading</p>
+    </div>
+    <header id="header">
+        <div class="siteLogo">
+            <a href="/">
+                <img src="images/logover2.png" alt="">
+                <span>MirukiBox</span>
+            </a>
+        </div>
+        <nav class="nav-zatychka">
+            <a href="/olympList">
+                <span>
+                    Олимпиады
+                </span>
+            </a>
+            <a href="/certificate">
+                <span>
+                    Сертификаты
+                </span>
+            </a>
+            <a href="/about">
+                <span>
+                    О нас
+                </span>
+            </a>
+        </nav>
+        <div class="userMenu">
+            <!--<div class="massages">
+                <span class="usersNoteAmount"> 0 </span>
+            </div>
+            <div class="notifications">
+                <span class="usersNoteAmount"> 0 </span>
+            </div>
+            <div class="avatar">
+            </div>-->
+            <div class="nav-main" onclick="navOpen()">
+            </div>
+            <div class="nav-content">
+                <a href="/">
+                <span>
+                    Главная
+                </span>
+                </a>
+                <a href="/olympList">
+                <span>
+                    Олимпиады
+                </span>
+                </a>
+                <a href="/certificate">
+                    <span>
+                        Сертификаты
+                    </span>
+                    </a>
+                <a href="/about">
+                <span>
+                    О нас
+                </span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <article>
+        <section>
+            <div class="mainUserBlock">
+                <div class="avatarBlock">
+
+                </div>
+                <h1 class="surName">Иванов</h1>
+                <h2 class="otherNames">Иван Иванович</h2>
+                <ul class="userInfo">
+                        <li>Студент</li>
+                        <li>Уфа</li>
+                        <li>ПО-31</li>
+                        <li>Email:chelyk@info.gay</li>
+                </ul>
+            </div>
+            <div class="olymps">
+                <h5>Олимпиады</h5>
+                <div class="olymp">
+                    <div class="medal gold">
+                            1
+                    </div>
+                    <div class="olympInfo">
+                        <h3>Название Олимпиады</h3>
+                        <span>29.04.2020</span>
+                    </div>
+                    <h4>1 место</h4>
+                </div>
+                <div class="olymp">
+                    <div class="medal silver">
+                        2
+                    </div>
+                    <div class="olympInfo">
+                        <h3>Название Олимпиады</h3>
+                        <span>29.04.2020</span>
+                    </div>
+                    <h4>2 место</h4>
+                </div>
+                <div class="olymp">
+                    <div class="medal bronze">
+                        3
+                    </div>
+                    <div class="olympInfo">
+                        <h3>Название Олимпиады</h3>
+                        <span>29.04.2020</span>
+                    </div>
+                    <h4>3 место</h4>
+                </div>
+                <div class="olymp">
+                    <div class="medal junk">
+                        уч
+                    </div>
+                    <div class="olympInfo">
+                        <h3>Название Олимпиады</h3>
+                        <span>29.04.2020</span>
+                    </div>
+                    <h4>участие</h4>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <footer>
+        <ul>
+            <li>Навигация</li>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/olympList">Олимпиады</a></li>
+            <li><a href="/certificate">Сертификаты</a></li>
+            <li><a href="/about">О нас</a></li>
+        </ul>
+
+        <ul>
+            <li>Контакты</li>
+            <li>Почта: standart@mail.gomo</li>
+            <li>Адресс: тупо БАСК</li>
+        </ul>
+
+    </footer>
+</body>
+</html>
