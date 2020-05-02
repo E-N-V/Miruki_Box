@@ -1,0 +1,74 @@
+article{
+    background:linear-gradient(50deg,#675192, #0f0b14);
+    display: flex;
+}
+
+section{
+    margin-left: 5%;
+    width: 90%;
+    background-color: white;
+    padding: 20px;
+}
+
+section h1{
+    font-size: 60px;
+}
+
+section ul{
+    list-style: none;
+    font-size: 30px;
+}
+
+section .users .user ul{
+    list-style: none;
+    flex-grow: 1;
+}
+
+section .users .user ul li:first-child{
+    font-size: 30px;
+}
+
+section .users .user ul li{
+    font-size: 20px;
+}
+
+section .users{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+section .users .user{
+    flex-grow: 1;
+    margin: 10px;
+    display: flex;
+    background-color: lightgray;
+    padding: 20px;
+}
+
+section .users .user .avatar{
+    margin-right: 20px;
+    width: 150px;
+    height: 150px;
+    background-image: url(../images/avatar.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+section .users .user .medal{
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-image: url("../images/userCoin.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #8557A7;
+    font-size: 40px;
+    text-shadow: -2px 0 0 rgb(64, 33, 87);
+}
