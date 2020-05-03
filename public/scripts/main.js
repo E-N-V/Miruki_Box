@@ -47,3 +47,14 @@ function navOpen(){
     }
 }
 
+
+function openNote(){
+    noteWind = document.getElementsByClassName("noteWindow")[0]
+    if(noteWind.value == 1){
+        noteWind.style.transform = 'translate(0,-100%)'
+        noteWind.value = 2        
+    }else{
+        noteWind.style.transform = 'translate(0,45px)'
+        noteWind.value = 1    
+    }
+}

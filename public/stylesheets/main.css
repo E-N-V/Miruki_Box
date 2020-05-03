@@ -317,6 +317,78 @@ header{
             margin-right: 10px;
         }
     }
+
+    .userBlock{
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        margin-right: 15px;
+    }
+
+    .userBlock .userProfile{
+        width: 36px;
+        height: 36px;
+        background-image: url("../images/avatar.png");
+        display: inline-block;
+        background-size: contain;
+        border: 2px solid white;
+    }
+
+    .userBlock .notifications{
+        width: 40px;
+        height: 40px;
+        background-image: url("../images/bell.png");
+        display: inline-block;
+        background-size: contain;
+        margin-right: 10px;
+    }
+
+    .noteWindow{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 0;
+        transition: 1s;
+        width: 300px;
+        background-color: rgb(70, 61, 98);
+        padding-top: 10px;
+        transform: translate(0,-100%);
+    }
+
+    .noteWindow .note{
+        background-color: white;
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .noteWindow .note button{
+        box-shadow: 0 0 5px black;
+        display: block;
+        color: white;
+        background-color: blueviolet;
+        padding: 5px 10px;
+        border: none;
+        margin-top: 10px;
+    }
+
+    .noteWindow::after{
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        color: white;
+        content: "оповещения";
+        text-align: center;
+        background-color: blueviolet;
+        height: 40px;
+        width: 100%;
+    }
+
 /*__________ article __________*/
 article{
     margin-top: 50px;
