@@ -1,0 +1,8 @@
+extends ../public/index.pug
+
+block header
+    <title>#{title}</title>
+
+block main
+    each user, index in users
+        h2(onclick=`alert(${index})`)= user.name
