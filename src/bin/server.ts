@@ -29,7 +29,7 @@ const arrControllers: any = [
 ];
 
 const app = new App({
-	port: 3001,
+	port: 3000,
 	controllers: arrControllers,
 	middleWares: arrMiddlewares,
 });
