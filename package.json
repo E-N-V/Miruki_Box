@@ -5,7 +5,8 @@
   "main": "./dist/bin/server.js",
   "scripts": {
     "start": "cd dist && node bin/server",
-    "build": "tsc && cp ./src/public ./dist -r && cp ./src/views ./dist -r"
+    "build": "tsc && cp ./src/public ./dist -r && cp ./src/views ./dist -r",
+    "dev": "cd src && ts-node bin/server"
   },
   "dependencies": {
     "@types/express": "^4.17.6",

@@ -45,27 +45,28 @@ block main
     article
         section
             div X
-            form(action="")
+            form(action="/register/validate")
                 span имя
-                input(type="text" name="" id="")
+                input(type="text" name="first_name" id="1" required)
                 span фамилия
-                input(type="text" name="" id="")
+                input(type="text" name="second_name" id="2" required)
                 span отчество
-                input(type="text" name="" id="")
+                input(type="text" name="third_name" id="3" required)
                 span почта
-                input(type="text" name="" id="")
+                input(type="text" name="e_mail" id="4" required)
                 span пароль
-                input(type="password" name="" id="")
+                input(type="password" name="password" id="fPass" required)
                 span повторите пароль
-                input(type="password" name="" id="")
+                input(type="password" name="" id="sPass" required)
 
                 p Я даю разрешение на обработку данных 
-                    input(type="checkbox" name="" id="")
+                    input(type="checkbox" name="confidential" id="5" required)
 
                 p Я принимаю условия 
                     a(href="" class="userAgree") пользовательского соглашения
-                    input(type="checkbox" name="" id="")
+                    input(type="checkbox" name="accept_conditions" id="6" required)
 
-                button Регистрация
+                button(type="submit" id="sub" disabled) Регистрация
 
                 a(href="login" class="toLogin") У меня уже есть аккаунт
+                <script src="scripts/registration/main.js"></script>
