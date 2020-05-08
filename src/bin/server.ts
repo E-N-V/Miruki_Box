@@ -1,15 +1,37 @@
 import App from "../app";
 
+/**
+ * Import middleware
+ */
 import * as bodyParser from "body-parser";
 import loggerMiddleware from "../middleware/logger";
 
+const arrMiddlewares: any = [bodyParser.json(), bodyParser.urlencoded({ extended: true }), loggerMiddleware];
+
+/**
+ * Import controllers etc, routes
+ */
 //import PostsController from "../controllers/posts/posts.controller";
 import HomeController from "../controllers/get/home.controller";
+import CertificateController from "../controllers/get/certificate.controller";
+import AboutController from "../controllers/get/about.controller";
+import LoginGetController from "../controllers/get/login.controller";
+import RegisterGetController from "../controllers/get/register.controller";
+import ProfileController from "../controllers/get/profile.controller";
+
+const arrControllers: any = [
+	new HomeController(),
+	new CertificateController(),
+	new AboutController(),
+	new LoginGetController(),
+	new RegisterGetController(),
+	new ProfileController(),
+];
 
 const app = new App({
-	port: 3000,
-	controllers: [new HomeController()],
-	middleWares: [bodyParser.json(), bodyParser.urlencoded({ extended: true }), loggerMiddleware],
+	port: 3001,
+	controllers: arrControllers,
+	middleWares: arrMiddlewares,
 });
 
 app.listen();

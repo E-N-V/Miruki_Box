@@ -2,7 +2,7 @@ import { Router, Request, Response } from "express";
 import IControllerBase from "../../interfaces/IControllerBase";
 
 export default class HomeController implements IControllerBase {
-	public path = "/";
+	public path = "/profile";
 	public router = Router();
 
 	constructor() {
@@ -14,6 +14,6 @@ export default class HomeController implements IControllerBase {
 	}
 
 	index = (req: Request, res: Response) => {
-		res.render("home", { title: "test" });
+		res.render("profile", { title: "Профиль" });
 	};
 }

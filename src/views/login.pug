@@ -1,0 +1,57 @@
+extends ../public/index.pug
+
+block header
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <script src="scripts/main.js"></script>
+    <link rel="stylesheet" href="stylesheets/registration.css">
+    <title>#{title_page}</title>
+
+block main
+    div(class="preLoader")
+        div(class="carousel")
+        p(class="loadingText") Loading
+    header(id="header")
+        div(class="siteLogo")
+            a(href="/")
+                img(src="images/logover2.png" alt="")
+                span MirukiBox
+        nav(class="nav-zatychka")
+            a(href="/olympList")
+                span Олимпиады
+            a(href="/certificate")
+                span Сертификаты
+            a(href="/about")
+                span О нас
+        div(class="userMenu")
+            //div(class="massages")
+            //    span(class="usersNoteAmount") 0
+            //div(class="notifications")
+            //    span(class="usersNoteAmount") 0
+            //div(class="avatar")
+
+            div(class="nav-main" onclick="navOpen()")
+            div(class="nav-content")
+                a(href="/")
+                    span Главная
+                a(href="/olympList")
+                    span Олимпиады
+                a(href="/certificate")
+                    span Сертификаты
+                a(href="/about")
+                    span О нас
+
+    article
+        section
+            div
+                a(href="/") X
+            form(action="/login/validate")
+                span Почта
+                input(type="text" name="" id="")
+                span пароль
+                input(type="password" name="" id="")
+                p Запомнить логин и пароль 
+                    input(type="checkbox" name="" id="")
+                button Логин
+                a(href="/register" class="toLogin") У меня нет аккаунта
