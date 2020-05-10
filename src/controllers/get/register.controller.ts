@@ -4,8 +4,10 @@ import IControllerBase from "../../interfaces/IControllerBase";
 export default class HomeController implements IControllerBase {
 	public path = "/register";
 	public router = Router();
+	public err: string = ""
 
-	constructor() {
+	constructor(err?: string) {
+		if (err) this.err = err
 		this.initRoutes();
 	}
 
@@ -14,6 +16,6 @@ export default class HomeController implements IControllerBase {
 	}
 
 	index = (req: Request, res: Response) => {
-		res.render("register", { title: "Регистрация" });
+		res.render("register", { title: "Регистрация", err: this.err.length > 0? this.err : ""});
 	};
 }

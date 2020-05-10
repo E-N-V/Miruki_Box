@@ -18,6 +18,7 @@ import AboutController from "../controllers/get/about.controller";
 import LoginGetController from "../controllers/get/login.controller";
 import RegisterGetController from "../controllers/get/register.controller";
 import ProfileController from "../controllers/get/profile.controller";
+import ValidateRegisterController from "../controllers/posts/register.validate.controller";
 
 const arrControllers: any = [
 	new HomeController(),
@@ -26,6 +27,7 @@ const arrControllers: any = [
 	new LoginGetController(),
 	new RegisterGetController(),
 	new ProfileController(),
+	new ValidateRegisterController(),
 ];
 
 const app = new App({

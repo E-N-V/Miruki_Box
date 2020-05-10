@@ -45,28 +45,35 @@ block main
     article
         section
             div X
-            form(action="/register/validate")
+            form(action="/register" method="post")
                 span имя
-                input(type="text" name="first_name" id="1" required)
+                input(type="text" name="first_name" required)
                 span фамилия
-                input(type="text" name="second_name" id="2" required)
+                input(type="text" name="second_name" required)
                 span отчество
-                input(type="text" name="third_name" id="3" required)
+                input(type="text" name="third_name" required)
                 span почта
-                input(type="text" name="e_mail" id="4" required)
+                input(type="text" name="e_mail" required)
                 span пароль
-                input(type="password" name="password" id="fPass" required)
+                input(type="password" name="password" required)
                 span повторите пароль
-                input(type="password" name="" id="sPass" required)
+                input(type="password" name="conf_password" required)
 
                 p Я даю разрешение на обработку данных 
-                    input(type="checkbox" name="confidential" id="5" required)
+                    input(type="checkbox" name="confidential" required)
 
                 p Я принимаю условия 
                     a(href="" class="userAgree") пользовательского соглашения
-                    input(type="checkbox" name="accept_conditions" id="6" required)
+                    input(type="checkbox" name="accept_conditions" required)
 
-                button(type="submit" id="sub" disabled) Регистрация
+                button(type="submit" id="sub") Регистрация
 
                 a(href="login" class="toLogin") У меня уже есть аккаунт
                 <script src="scripts/registration/main.js"></script>
+    
+    if err.length > 0
+        div(style="border: solid red 1px; display: ; background: black; /*! opacity: 1; */position: absolute;width: 20%;height: auto;top: 25%;left: 20%;color: white;transform: translate(-50%, -50%);")
+            center
+                h2(center) Ошибка
+                p #{err}
+        
