@@ -40,7 +40,12 @@ export default class app {
 	public listen() {
 		this.app.listen(this.port, async () => {
             console.log(`App listening on the http://localhost:${this.port}`);
-            (await createConnection()).isConnected? console.log(`Database is connected!`) : Error("Database is not connected!")
+			const con = (await createConnection())
+			con.isConnected? console.log(`Database is connected!`) : ()=>{
+				Error("Database is not connected!")
+				con.close()
+			} 
+			
             /*
             Это для Егора, ибо у него дырявая голова
 

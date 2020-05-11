@@ -1,0 +1,15 @@
+{
+   "type": "mysql",
+   "host": "",
+   "port": 3306,
+   "username": "",
+   "password": "",
+   "database": "miruki_box",
+   "synchronize": true,
+   "entities": [
+      "./database/entity/**/*.js"
+   ],
+   "cli": {
+      "entitiesDir": "./database/entity/"
+   }
+}

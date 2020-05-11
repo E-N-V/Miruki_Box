@@ -1,18 +1,20 @@
 import { Request, Response } from "express";
+import {User} from "../database/entity/User"
+import { getConnection } from "typeorm";
 
 export const LoginView = async (req: Request, res: Response): Promise<any> => {
 	return res.render("login", { title: "Авторизация" });
 };
 
 export const LoginPost = async (req: Request, res: Response): Promise<any> => {
-	let email = req.body.e_mail;
-	let pass = req.body.password;
+	let usr = new User()
+	usr.email = req.body.e_mail;
+	usr.password = req.body.password;
 
-	let EMAIL = "";
-	let PASSWORD = "";
-	if (pass != PASSWORD || email != EMAIL)
-		return res.render("login", { title: "Регистрация", err: "Введенные вами данные не верны, повторите попытку." });
-	res.cookie("usr", email, {
+	if (!getConnection().getRepository(User).findOneOrFail(usr))
+		return res.render("login", { title: "Авторизация", err: "Введенные вами данные не верны, повторите попытку." });
+
+	res.cookie("usr", req.body.e_mail, {
 		path: "/",
 		httpOnly: true,
 		expires: new Date(

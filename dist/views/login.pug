@@ -15,9 +15,9 @@ block main
                 a(href="/") X
             form(action="/login" method="post")
                 span Почта
-                input(type="text" name="e_mail")
+                input(type="text" name="e_mail" required)
                 span пароль
-                input(type="password" name="password")
+                input(type="password" name="password" required)
                 p Запомнить меня
                     input(type="checkbox" name="rem_me")
                 button Логин

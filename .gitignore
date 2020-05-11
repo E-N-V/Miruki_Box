@@ -4,3 +4,6 @@ node_modules/
 build/
 tmp/
 temp/
+dist/
+ormconfig.json
+yarn.lock

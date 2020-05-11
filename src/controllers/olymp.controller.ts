@@ -1,7 +1,10 @@
 import {Request, Response} from "express"
+import {OlympInfo} from "../database/entity/OlympInfo"
+import { getConnection } from "typeorm";
 
 export const OlympList = async (req: Request, res: Response): Promise<any> => {
-    return res.render("olympSelection", { title: "Выбор олимпиад" });
+    let result = await getConnection().getRepository(OlympInfo).find({select: ["section", "title", "except", "description"]})
+    return res.render("olympSelection", { title: "Выбор олимпиад",  olymp: result });
 }
 
 export const OlympWalk = async (req: Request, res: Response): Promise<any> => {
