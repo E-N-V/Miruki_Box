@@ -18,7 +18,10 @@ import AboutController from "../controllers/get/about.controller";
 import LoginGetController from "../controllers/get/login.controller";
 import RegisterGetController from "../controllers/get/register.controller";
 import ProfileController from "../controllers/get/profile.controller";
-import ValidateRegisterController from "../controllers/posts/register.validate.controller";
+import ValidateRegisterController from "../controllers/post/register.validate.controller";
+import OlympListController from "../controllers/get/olympList.controller";
+import OlympWalkthroughtController from "../controllers/get/olympWalktrought.controller";
+import OlympCreatorController from "../controllers/get/olympCreate.controller";
 
 const arrControllers: any = [
 	new HomeController(),
@@ -28,6 +31,9 @@ const arrControllers: any = [
 	new RegisterGetController(),
 	new ProfileController(),
 	new ValidateRegisterController(),
+	new OlympListController(),
+	new OlympWalkthroughtController(),
+	new OlympCreatorController(),
 ];
 
 const app = new App({

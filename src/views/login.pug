@@ -46,12 +46,18 @@ block main
         section
             div
                 a(href="/") X
-            form(action="/login/validate")
+            form(action="/login" method="post")
                 span Почта
-                input(type="text" name="" id="")
+                input(type="text" name="e_mail")
                 span пароль
-                input(type="password" name="" id="")
-                p Запомнить логин и пароль 
-                    input(type="checkbox" name="" id="")
+                input(type="password" name="password")
+                p Запомнить меня
+                    input(type="checkbox" name="rem_me")
                 button Логин
                 a(href="/register" class="toLogin") У меня нет аккаунта
+
+    if err.length > 0
+        div(style="border: solid red 1px; display: ; background: black; /*! opacity: 1; */position: absolute;width: 20%;height: auto;top: 25%;left: 20%;color: white;transform: translate(-50%, -50%);")
+            center
+                h2(center) Ошибка
+                p #{err}

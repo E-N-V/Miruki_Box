@@ -46,13 +46,13 @@ block main
         section
             div(class="mainUserBlock")
                 div(class="avatarBlock")
-                h1(class="surName") Иванов
-                h2(class="otherNames") Иван Иванович
+                h1(class="surName") #{iUser.f_name}
+                h2(class="otherNames") #{iUser.s_name} #{iUser.t_name}
                 ul(class="userInfo")
                         li Студент
                         li Уфа
                         li ПО-31
-                        li Email:chelyk@info.gay
+                        li Email: #{iUser.email}
             div(class="olymps")
                 h5 Олимпиады
                 div(class="olymp")
