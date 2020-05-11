@@ -3,6 +3,48 @@ html(lang="en")
     head
         block header
     body
+        .preLoader
+            .carousel
+            p.loadingText Loading
+        header#header
+            .siteLogo
+                a(href='/')
+                    img(src='/images/logover2.png', alt='')
+                    span MirukiBox
+            nav.nav-zatychka
+                a(href='/olympList')
+                    span
+                        | Олимпиады
+                a(href='/certificate')
+                    span
+                        | Сертификаты
+                a(href='/about')
+                    span
+                        | О нас
+            .userMenu
+                //
+                    <div class="massages">
+                    <span class="usersNoteAmount"> 0 </span>
+                    </div>
+                    <div class="notifications">
+                    <span class="usersNoteAmount"> 0 </span>
+                    </div>
+                    <div class="avatar">
+                    </div>
+                .nav-main(onclick='navOpen()')
+                .nav-content
+                    a(href='/')
+                        span
+                            | Главная
+                    a(href='/olympList')
+                        span
+                            | Олимпиады
+                    a(href='/certificate')
+                        span
+                            | Сертификаты
+                    a(href='/about')
+                        span
+                            | О нас
         block main
     footer
         ul

@@ -1,3 +1,3 @@
 export default interface IControllerBase {
-	initRoutes(): any;
+    initRoutes(): any;
 }

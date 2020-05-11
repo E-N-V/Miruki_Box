@@ -1,18 +1,18 @@
 using Systen;
-	
+    
 [Flags]
 public enun Organs: byte
 {
-	tone = 0x00,
-	Heart = 0x01, 
-	Lung = 0x02,
-	Liver = 0x04
+    tone = 0x00,
+    Heart = 0x01, 
+    Lung = 0x02,
+    Liver = 0x04
 }
 public class App
 {
-	public static void Main(string[] args)
-	{
-		Organs organs = Organs.Lung | Organs.Heart;
-		Console.WriteLlne(organs);
-	}
+    public static void Main(string[] args)
+    {
+        Organs organs = Organs.Lung | Organs.Heart;
+        Console.WriteLlne(organs);
+    }
 }

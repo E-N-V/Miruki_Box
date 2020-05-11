@@ -24,22 +24,22 @@ import OlympWalkthroughtController from "../controllers/get/olympWalktrought.con
 import OlympCreatorController from "../controllers/get/olympCreate.controller";
 
 const arrControllers: any = [
-	new HomeController(),
-	new CertificateController(),
-	new AboutController(),
-	new LoginGetController(),
-	new RegisterGetController(),
-	new ProfileController(),
-	new ValidateRegisterController(),
-	new OlympListController(),
-	new OlympWalkthroughtController(),
-	new OlympCreatorController(),
+    new HomeController(),
+    new CertificateController(),
+    new AboutController(),
+    new LoginGetController(),
+    new RegisterGetController(),
+    new ProfileController(),
+    new ValidateRegisterController(),
+    new OlympListController(),
+    new OlympWalkthroughtController(),
+    new OlympCreatorController(),
 ];
 
 const app = new App({
-	port: 3000,
-	controllers: arrControllers,
-	middleWares: arrMiddlewares,
+    port: 3000,
+    controllers: arrControllers,
+    middleWares: arrMiddlewares,
 });
 
 app.listen();

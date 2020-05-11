@@ -1,140 +1,98 @@
 extends ../public/index.pug
 
 block header
-	meta(charset='UTF-8')
-	meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
-	meta(http-equiv='X-UA-Compatible', content='ie=edge')
-	link(rel='stylesheet', href='/stylesheets/main.css')
-	script(src='/scripts/main.js')
-	link(rel='stylesheet', href='/stylesheets/olympConstructor.css')
-	script(src='/scripts/olympConstructor.js')
-	link#catStyle(rel='stylesheet', href='/stylesheets/cats/arch.css')
-	title #{title}
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    script(src='/scripts/main.js')
+    link(rel='stylesheet', href='/stylesheets/olympConstructor.css')
+    script(src='/scripts/olympConstructor.js')
+    link#catStyle(rel='stylesheet', href='/stylesheets/cats/arch.css')
+    title #{title}
     
 block main
-	.preLoader
-		.carousel
-		p.loadingText Loading
-	header#header
-		.siteLogo
-			a(href='/')
-				img(src='/images/logover2.png', alt='')
-				span MirukiBox
-		nav.nav-zatychka
-			a(href='/olympList')
-				span
-					| Олимпиады
-			a(href='/certificate')
-				span
-					| Сертификаты
-			a(href='/about')
-				span
-					| О нас
-		.userMenu
-			//
-				<div class="massages">
-				<span class="usersNoteAmount"> 0 </span>
-				</div>
-				<div class="notifications">
-				<span class="usersNoteAmount"> 0 </span>
-				</div>
-				<div class="avatar">
-				</div>
-			.nav-main(onclick='navOpen()')
-			.nav-content
-				a(href='/')
-					span
-						| Главная
-				a(href='/olympList')
-					span
-						| Олимпиады
-				a(href='/certificate')
-					span
-						| Сертификаты
-				a(href='/about')
-					span
-						| О нас
-	form#form(action='./checked/', method='post', onsubmit='return formPass()')
-		input#counter(type='hidden', name='counter', value='0')
-		article
-			.preparation
-				.main-input
-					// ТУТ ИМЯ И СЕКЦИЯ ОЛИМПИАДЫ
-					span#olympCatH1 Архитектура
-					ul
-						li
-							input#arch(type='radio', name='olympCat', onclick='catSwap(0)', value='arch', checked='')
-							label(for='arch')
-						li
-							input#prog(type='radio', name='olympCat', onclick='catSwap(1)', value='prog')
-							label(for='prog')
-						li
-							input#weld(type='radio', name='olympCat', onclick='catSwap(2)', value='weld')
-							label(for='weld')
-						li
-							input#mech(type='radio', name='olympCat', onclick='catSwap(3)', value='mech')
-							label(for='mech')
-						li
-							input#office(type='radio', name='olympCat', onclick='catSwap(4)', value='office')
-							label(for='office')
-						li
-							input#art(type='radio', name='olympCat', onclick='catSwap(5)', value='art')
-							label(for='art')
-					input#olympName(type='text', name='', value='Название олимпиады', placeholder='Название олимпиады')
-					.buttonSub.nextMI(onclick='MainIN(0)') Далее
-			section.redactor
-				.redactorHead
-					img#olympICO(src='/images/arch.png', alt='')
-					h1#olympH1 Название олимпиады
-				#redactorArea.redactorArea
-					.help(onclick='helpInst(1)') ?
-					.instruction
-						.help(style='margin-right: calc(5% - 10px);', onclick='helpInst(0)') X
-						h2 Инструкция
-						.instSection
-							h3 Предисловие
-							p
-								| Данная инструкция поможет вам понять интерфейс сайта и его рабочую оболочку, а также общее представление об определенных объектах сайта.
-						.instSection
-							h3 Типы вопросов
-							p
-								| Всего есть 3 типа вопросов, с одним ответом, с несколькими ответами, и письменным ответом.
-							p
-								| Первые два типа отличаются только количеством правильных ответов. Т.Е. У первого типа может быть любое кол-во ответов но только один правельный, а у второго любое кол-во ответов и любое кол-во правильных ответов
-							p
-								| В вопросе с письменным ответом нужно дать точный ответ. Т.Е. нету вариантов ответа. Его лучше применять когда требуется дать численный ответ или когда нужно дать точное название, по типу оператора в программировании
-						.instSection
-							h3 Опциональный контент
-							p
-								| В вопросе помимо, самого собственно вопроса и ответа могут быть картинки или код.
-							p Выбор осуществляется посредством этого меню:
-							img(src='/images/instr-side-type.png', alt='')
-							p
-								| При выборе 1-го варианта, опционального контента не будет. Т.Е. будет только вопрос и ответ.
-							p
-								| При выборе 2-го варианта, в вопросе будет картинка которую вы загружаете в форматах (тут перечесление).
-							p При выборе 3-го варианта, в вопросе будет блок с кодом.
-					#q_1.question.current
-						h2 Выбирете тип вопроса:
-						#radio.questMode(onclick="reDraw(document.getElementById('q_1'),  this)")
-							img(src='/images/radio.svg', alt='')
-							span Вопрос имеющий один ответ
-						#checkbox.questMode(onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)")
-							img(src='/images/checkbox.svg', alt='')
-							span Вопрос имеющий несколько ответов
-						#textbox.questMode(onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)")
-							img(src='/images/textbox.svg', alt='')
-							span Вопрос на который нужно дать письменный ответ (точное число или слово)
-				.redactorButtons
-					button(type='reset') Cancel
-					button(type='submit') Submit
-				.backButton
-					.buttonSub(onclick='MainIN(1)') Back
-			section.questContainer
-				#q.questions
-					.questionsScroll
-					#QList_1.questBlock.choosenOne(onclick='SwitchQuestion(this)')
-						span ВОПРОС НОМЕР
-						span.JOPA 1
-				#questCreate(onclick="AddQuestion(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1])")
-					span +
+    form#form(action='./checked/', method='post', onsubmit='return formPass()')
+        input#counter(type='hidden', name='counter', value='0')
+        article
+            .preparation
+                .main-input
+                    // ТУТ ИМЯ И СЕКЦИЯ ОЛИМПИАДЫ
+                    span#olympCatH1 Архитектура
+                    ul
+                        li
+                            input#arch(type='radio', name='olympCat', onclick='catSwap(0)', value='arch', checked='')
+                            label(for='arch')
+                        li
+                            input#prog(type='radio', name='olympCat', onclick='catSwap(1)', value='prog')
+                            label(for='prog')
+                        li
+                            input#weld(type='radio', name='olympCat', onclick='catSwap(2)', value='weld')
+                            label(for='weld')
+                        li
+                            input#mech(type='radio', name='olympCat', onclick='catSwap(3)', value='mech')
+                            label(for='mech')
+                        li
+                            input#office(type='radio', name='olympCat', onclick='catSwap(4)', value='office')
+                            label(for='office')
+                        li
+                            input#art(type='radio', name='olympCat', onclick='catSwap(5)', value='art')
+                            label(for='art')
+                    input#olympName(type='text', name='', value='Название олимпиады', placeholder='Название олимпиады')
+                    .buttonSub.nextMI(onclick='MainIN(0)') Далее
+            section.redactor
+                .redactorHead
+                    img#olympICO(src='/images/arch.png', alt='')
+                    h1#olympH1 Название олимпиады
+                #redactorArea.redactorArea
+                    .help(onclick='helpInst(1)') ?
+                    .instruction
+                        .help(style='margin-right: calc(5% - 10px);', onclick='helpInst(0)') X
+                        h2 Инструкция
+                        .instSection
+                            h3 Предисловие
+                            p
+                                | Данная инструкция поможет вам понять интерфейс сайта и его рабочую оболочку, а также общее представление об определенных объектах сайта.
+                        .instSection
+                            h3 Типы вопросов
+                            p
+                                | Всего есть 3 типа вопросов, с одним ответом, с несколькими ответами, и письменным ответом.
+                            p
+                                | Первые два типа отличаются только количеством правильных ответов. Т.Е. У первого типа может быть любое кол-во ответов но только один правельный, а у второго любое кол-во ответов и любое кол-во правильных ответов
+                            p
+                                | В вопросе с письменным ответом нужно дать точный ответ. Т.Е. нету вариантов ответа. Его лучше применять когда требуется дать численный ответ или когда нужно дать точное название, по типу оператора в программировании
+                        .instSection
+                            h3 Опциональный контент
+                            p
+                                | В вопросе помимо, самого собственно вопроса и ответа могут быть картинки или код.
+                            p Выбор осуществляется посредством этого меню:
+                            img(src='/images/instr-side-type.png', alt='')
+                            p
+                                | При выборе 1-го варианта, опционального контента не будет. Т.Е. будет только вопрос и ответ.
+                            p
+                                | При выборе 2-го варианта, в вопросе будет картинка которую вы загружаете в форматах (тут перечесление).
+                            p При выборе 3-го варианта, в вопросе будет блок с кодом.
+                    #q_1.question.current
+                        h2 Выбирете тип вопроса:
+                        #radio.questMode(onclick="reDraw(document.getElementById('q_1'),  this)")
+                            img(src='/images/radio.svg', alt='')
+                            span Вопрос имеющий один ответ
+                        #checkbox.questMode(onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)")
+                            img(src='/images/checkbox.svg', alt='')
+                            span Вопрос имеющий несколько ответов
+                        #textbox.questMode(onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)")
+                            img(src='/images/textbox.svg', alt='')
+                            span Вопрос на который нужно дать письменный ответ (точное число или слово)
+                .redactorButtons
+                    button(type='reset') Cancel
+                    button(type='submit') Submit
+                .backButton
+                    .buttonSub(onclick='MainIN(1)') Back
+            section.questContainer
+                #q.questions
+                    .questionsScroll
+                    #QList_1.questBlock.choosenOne(onclick='SwitchQuestion(this)')
+                        span ВОПРОС НОМЕР
+                        span.JOPA 1
+                #questCreate(onclick="AddQuestion(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1])")
+                    span +
