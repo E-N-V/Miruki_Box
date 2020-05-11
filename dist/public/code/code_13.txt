@@ -1,4 +1,0 @@
-#define SQUARE(x) ((x)*(x)) 
-int m = 4; 
-int n = SQUARE(++m); 
-std::cout << n; 

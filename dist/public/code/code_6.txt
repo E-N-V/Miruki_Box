@@ -1,7 +1,0 @@
-internal sealed class SomeGenericClass<T>  
-{ 
-    public static T SomeMethod()  
-    { 
-        return new T(); 
-    } 
-} 

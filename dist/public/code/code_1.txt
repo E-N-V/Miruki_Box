@@ -1,5 +1,0 @@
-//1  int i = "s";
-//2  object o = 5;
-//3  object o2 = "123";
-//4  object o3 = delegate() { return 0; }
-//5  Delegate d = delegate() { return 0; }
