@@ -1,24 +1,30 @@
 {
-  "name": "miruki-box",
-  "version": "0.1.0",
-  "private": true,
-  "main": "./dist/bin/server.js",
-  "scripts": {
-    "start": "cd dist && node bin/server",
-    "build": "tsc && cp ./src/public ./dist -r && cp ./src/views ./dist -r",
-    "dev": "cd src && ts-node bin/server"
-  },
-  "dependencies": {
-    "@types/express": "^4.17.6",
-    "@types/node": "^13.13.4",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "mysql": "^2.18.1",
-    "pug": "^2.0.4",
-    "webpack": "^4.42.0"
-  },
-  "devDependencies": {
-    "@types/mysql": "^2.15.10"
-  }
+   "name": "miruki-box",
+   "version": "0.1.0",
+   "private": true,
+   "main": "./dist/bin/server.js",
+   "scripts": {
+      "start": "cd dist && node bin/server",
+      "build": "tsc && cp ./src/public ./dist -r && cp ./src/views ./dist -r",
+      "dev": "cd src && ts-node src/index.ts"
+   },
+   "dependencies": {
+      "@types/express": "^4.17.6",
+      "@types/node": "^13.13.4",
+      "cookie-parser": "~1.4.4",
+      "debug": "~2.6.9",
+      "express": "~4.16.1",
+      "mysql": "^2.14.1",
+      "node-gyp": "^6.1.0",
+      "pug": "^2.0.4",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.24",
+      "webpack": "^4.42.0"
+   },
+   "devDependencies": {
+      "@types/mysql": "^2.15.10",
+      "ts-node": "3.3.0",
+      "@types/node": "^8.0.29",
+      "typescript": "3.3.3333"
+   }
 }

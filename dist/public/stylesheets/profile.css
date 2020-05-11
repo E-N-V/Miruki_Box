@@ -1,0 +1,137 @@
+article{
+background:linear-gradient(50deg,#675192, #0f0b14);
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 5vh;
+}
+
+section .mainUserBlock, section .olymps{
+    background-color: white;
+    width: 100%;
+    margin: 20px;
+}
+
+/*Тут основная инфа*/
+section .mainUserBlock{
+    padding: 25px;
+}
+
+section .mainUserBlock .avatarBlock{
+    margin-right: 25px;
+    float: left;
+    width: 350px;
+    height: 350px;
+    background-image: url("../images/avatar.png");
+    background-size: contain;
+}
+
+section .mainUserBlock .surName{
+    font-size: 68px;
+}
+
+section .mainUserBlock .otherNames{
+    font-size: 36px;
+    font-weight: lighter;
+}
+
+section .mainUserBlock .userInfo{
+    list-style: none;
+    font-size: 24px;
+}
+
+/*тут олимпиады*/
+
+section .olymps{
+    padding: 25px;
+}
+
+section .olymps h5{
+    font-size: 44px;
+    font-weight: lighter;
+    text-align: center;
+}
+
+section .olymps .olymp{
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    margin: 25px 0;
+    padding: 10px;
+}
+
+section .olymps .olymp .medal{
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-position: 50%;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.gold{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    width: 90px !important;
+    height: 90px !important;
+    background-image: url("../images/goldmedal.png");
+    color: #FFDB86;
+    text-shadow: -3px 3px 0 #CC9C2A;
+}
+
+.silver{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    width: 90px !important;
+    height: 90px !important;
+    background-image: url("../images/silvermedal.png");
+    color: #C2C2C2;
+    text-shadow: -3px 3px 0 #818181;
+}
+
+.bronze{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    width: 90px !important;
+    height: 90px !important;
+    background-image: url("../images/bronzemedal.png");
+    color: #FFA086;
+    text-shadow: -3px 3px 0 #CC4D2A;
+}
+
+.junk{
+    background-image: url("../images/junkmedal.png");
+    color: #BFCBFF;
+    text-shadow: -3px 3px 0 #7687CC;
+    margin-right: 15px !important;
+}
+
+section .olymps .olymp .olympInfo{
+    flex-grow: 1;
+}
+
+section .olymps .olymp .olympInfo h3{
+    font-size: 44px;
+    font-weight: lighter;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+section .olymps .olymp .olympInfo span{
+    font-size: 18px;
+}
+
+section .olymps .olymp h4{
+    width: 200px;
+    font-size: 41px;
+}

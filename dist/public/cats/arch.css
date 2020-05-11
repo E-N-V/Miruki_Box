@@ -1,0 +1,43 @@
+.redactor{
+    background:linear-gradient(to bottom, rgba(255, 166, 0, 0.582), rgba(0, 0, 0, 0) 20%);
+}
+
+.redactor .redactorArea .question .controls{
+    background-color: orange;
+    box-shadow: 0 0 5px 0px black;
+    color: black;
+}
+
+.redactor .redactorButtons button, .buttonSub, .help{
+    background-color: orange;
+    box-shadow: 0 0 5px 0px black;
+    color: black;
+}
+
+.questions .questBlock, #questCreate{
+    background-color: orange;
+    box-shadow: 0 0 10px 0 black;
+}
+
+.checkBox:checked + label:before{
+    background-color: orangered;
+}
+
+.Radio:checked + label:before{
+    background-color: orangered;
+}
+
+.choosenOne{
+    background-color: orangered !important;
+}
+
+.Radio:checked + label:after{
+    border: 2px solid black;
+    box-shadow: 0 0 3px 0 black;
+}
+
+.checkBox:checked + label:after{
+    content: '✔';
+    color: black;
+}
+

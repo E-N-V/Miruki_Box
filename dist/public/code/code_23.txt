@@ -1,0 +1,31 @@
+#include <iostream> 
+using namespace std; 
+ 
+void func(class A* pA); 
+ 
+class A 
+{ 
+ public: 
+   A() 
+     {func(this);} 
+   virtual void function()=0; 
+}; 
+ 
+class B : public A 
+{ 
+ public: 
+   virtual void function() 
+    { 
+        cout<<"function B"<<endl; 
+    } 
+}; 
+ 
+void func(A* pA) 
+{ 
+     pA->function(); 
+} 
+ 
+int main() 
+{ 
+    A*a = new B; 
+} 

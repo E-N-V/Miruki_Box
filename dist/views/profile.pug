@@ -1,0 +1,48 @@
+extends ../public/index.pug
+
+block header
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <script src="scripts/main.js"></script>
+    <link rel="stylesheet" href="stylesheets/profile.css">
+    <title>#{title_page}</title>
+
+block main
+    article
+        section
+            div(class="mainUserBlock")
+                div(class="avatarBlock")
+                h1(class="surName") #{iUser.f_name}
+                h2(class="otherNames") #{iUser.s_name} #{iUser.t_name}
+                ul(class="userInfo")
+                        li Студент
+                        li Уфа
+                        li ПО-31
+                        li Email: #{iUser.email}
+            div(class="olymps")
+                h5 Олимпиады
+                div(class="olymp")
+                    div(class="medal gold") 1
+                    div(class="olympInfo")
+                        h3 Название Олимпиады
+                        span 29.04.2020
+                    h4 1 место
+                div(class="olymp")
+                    div(class="medal silver") 2
+                    div(class="olympInfo")
+                        h3 Название Олимпиады
+                        span 29.04.2020
+                    h4 2 место
+                div(class="olymp")
+                    div(class="medal bronze") 3
+                    div(class="olympInfo")
+                        h3 Название Олимпиады
+                        span 29.04.2020
+                    h4 3 место
+                div(class="olymp")
+                    div(class="medal junk") уч
+                    div(class="olympInfo")
+                        h3 Название Олимпиады
+                        span 29.04.2020
+                    h4 участие

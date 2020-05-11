@@ -1,0 +1,77 @@
+extends ../public/index.pug
+
+block header
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    script(src='/scripts/main.js')
+    link(rel='stylesheet', href='/stylesheets/olympWalkthrough.css')
+    link(href='https://fonts.googleapis.com/css?family=Pacifico|Roboto+Condensed:300,300i,400,700&display=swap&subset=cyrillic', rel='stylesheet')
+    script(src='/scripts/olympWalkthrough.js')
+    title #{title}
+
+block main
+    article
+        section.olymp-head
+            img(src='/images/ico.png', alt='')
+            h1 Название олимпиады
+        form(action="/result" method="post")
+            .preparation
+                .main-input
+                    // ТУТ ФИО
+                    p Введите ваши фамилию имя и отчество.
+                    input(type='text', name='fullName', placeholder='Иванов Иван Иванович')
+                    .buttonSub.nextMI(onclick='MainIN(0)') Далее
+            .olymp-flex
+                section.olymp-body
+                section.olymp-nav
+                    .buttons
+                        button Завершить
+        script.
+            //TODO: Создание вот тут вот
+            //не ругайся на меня плез если чтото не так, просто напиши что не так или что переделать я исправлю
+            //имя и иконка олимпиады
+            //generateHead('Имя олимпиады', 'Тута котегория');
+            //ща напишу функцию на перевод твоих в мои (чтобы не париться лишний раз)
+            //UPD: вот translateCat('name')
+            //я вставил её в функцию => если ты напишешь generateHead('Имя олимпиады', 'programming'); то категория будет программирование
+            /*создание вопросов функцией:
+            generateQuest('Вопрос строкой', 'Тип вопроса (radio,checkbox,textbox)', 'Тип опционального контента(nothing,image,code)', 'опциональный контент', 'ответы в виде массива');
+            При типе вопроса textbox в ответы пиши '', тк не знаю как сделать чтоб скипалось :с
+            UPD: раньше функция просила правильные ответы, но я тут понял что не использую их, хотя при генерации и не должен наверное
+            */
+            /* опциональный контент:
+            если nothing в 'опциональный контент' пиши что угодно или '' (хз как сделать чтобы скипало вот это вот если ничего не пишешь)
+            если image пишешь url (тип "/image/..../папка/файл.имг")
+            если code то просто строчку с кодом или хз как могу поменять
+            */
+            /*
+            <%
+            const query_pool = data;
+            %>
+            //ПРИМЕР ГИНЕРАЦИИ
+            // generateQuest(quest, type, optType , code, answersTest);
+            generateHead('<%=name_olymp%>', '<%=category%>');
+            let pr = null;
+            <%
+            for (const item of query_pool) {
+            %>
+            pr = `<%=item.answers%>`.split(';');
+            if (pr.length > 3) pr.pop()
+            generateQuest('<%=item.description%>',
+            '<%=item.type%>',
+            '<%=item.opt_mode%>',
+            `<%=item.f%>`,
+            pr);
+            <%}%>
+            */
+            // quest = 'Норм сделал?'
+            // type = 'checkbox'
+            // optType = 'nothing'
+            // answersTest = ['Нет', 'Никита, ты дцп', 'Не очень', 'Ужасно', 'Очень плохо', 'Просто разрыв жепы от этого', 'Никита очень плохой человек'];
+            // generateQuest(quest, type, optType , '', answersTest);
+            // quest = 'Мне грустно'
+            // type = 'textbox'
+            // optType = 'image'
+            // let img = '/images/sad.jpg'
+            // generateQuest(quest, type, optType , img, '');

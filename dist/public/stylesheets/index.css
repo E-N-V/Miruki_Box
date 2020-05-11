@@ -1,0 +1,202 @@
+
+body,article{
+    background-color: black;
+}
+
+.banner{
+    font-family: Roboto ,Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    min-height: 360px;
+/*    background-image: url("/images/затычка.png");*/
+    background: linear-gradient(90deg, black, rgb(58, 35, 80));
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.banner .textBlock{
+    width: 80%;
+}
+
+.banner .textBlock h1{
+    color: white;
+    font-size: 60px;
+}
+
+.banner .textBlock span{
+    color: deeppink;
+    width: 100%;
+}
+
+.subText{
+    font-size: 30px;
+}
+
+.banner button{
+    font-family: Roboto ,Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 15px;
+    border:3px solid blueviolet;
+    border-radius: 6px;
+    background-color: rgba(000, 000, 000, .5);
+    color:blueviolet;
+}
+
+.banner button:hover{
+    border-color: rgb(158, 88, 224);
+    color: rgb(158, 88, 224);
+}
+
+.banner button:focus{
+    outline: none;
+    border-color: white;
+    color: white;
+}
+
+/*__________ блок с перечислением специальностей __________*/
+.cardsContainer{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    background-color: black;
+    text-align: center;
+    height: 250px;
+    overflow-y: hidden;
+    overflow-x:scroll;
+}
+
+.cardsContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.cardsContainer::-webkit-scrollbar {
+width: 5px;
+}
+
+.cardsContainer::-webkit-scrollbar-track {
+background: #000;
+}
+
+.cardsContainer::-webkit-scrollbar-thumb {
+background: #FFF;
+}
+
+.cardsContainer::-webkit-scrollbar-thumb:hover {
+background: #CCC;
+}
+
+.cards-label{
+    font-family: Roboto-bold ,Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.cards{
+    justify-content: flex-start;
+    display: flex;
+    padding-top: 25px;
+    background-color: black;
+    color:white;
+}
+
+.cardsFlex{
+    display: inline-block;
+}
+
+.cards .card{
+    flex-basis: auto;
+    text-align: center;
+    width: 250px;
+    padding:0 10px;
+}
+
+.cards .card img{
+    width: 50px;
+    height: 50px;
+}
+
+.cards .card h3{
+    letter-spacing: 2px;
+    font-size: 25px;
+}
+
+@media (max-width: 450px){
+    .banner .textBlock h1{
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .banner .textBlock span{
+        display: block;
+        text-align: center;
+        color: deeppink;
+    }
+
+    .subText{
+        font-size: 30px;
+    }
+
+    .cards::-webkit-scrollbar-thumb {
+        background: #000;
+      }
+      
+    .cards::-webkit-scrollbar-thumb:hover {
+        background: #000;
+      }
+}
+
+/*
+@media screen and (max-width: 890px){
+    figure figcaption .textBlock h1{
+        font-size: 50px;
+    }
+
+    figure figcaption .textBlock span{
+        font-size: 20px;
+    }
+    
+    figure figcaption .textBlock button{
+        margin-top: 10px;
+        font-size: 15px;
+        height: 25px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    figure figcaption .textBlock h1{
+        font-size: 30px;
+    }
+
+    figure figcaption .textBlock span, figure figcaption .textBlock .subtext {
+        font-size: 15px;
+    }
+    
+    figure figcaption .textBlock button{
+        margin-top: 10px;
+        font-size: 15px;
+        height: 25px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    
+    figure{
+        overflow: hidden;
+    }
+
+    figure img{
+        width: auto;
+        height: 250px;
+        margin-left: -50%;
+    }
+}
+*/
+

@@ -1,0 +1,417 @@
+body{
+    background-color: black;
+    overflow-y: hidden;
+}
+
+.current{
+    display: block !important;
+}
+
+.question{
+    display: none;
+    height: fit-content;
+}
+
+.currentBut{
+    background-color: deeppink !important;
+}
+
+article{
+    width:90%;
+    margin-left: 5%;
+    background-color: rgba(000, 000, 000, 0);
+}
+
+.olymp-head{
+    display: flex;
+    background-color: black;
+    color: white;
+}
+
+.olymp-head{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+}
+
+.olymp-head img{
+    width: 100px;
+}
+
+.olymp-head h1{
+    margin-left: 20px;
+    font-size: 45px;
+}
+
+.olymp-flex{
+    display: flex;
+    width: 100%;
+}
+
+.olymp-flex .olymp-body{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: calc(100% - 200px);
+}
+
+.olymp-flex .olymp-body .olymp-question{
+    padding: 10px;
+    background-color: white;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.olymp-flex .olymp-body .olymp-question h2{
+    font-size: 20px;
+}
+
+.olymp-flex .olymp-body .olymp-question h3{
+    font-size: 30px;
+}
+
+.olymp-flex .olymp-body .olymp-question img{
+    max-width: 100%;
+    max-height: 50vh;
+}
+
+.olymp-flex .olymp-body .olymp-answers{
+    box-sizing: border-box;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: white;
+}
+
+.olymp-flex .olymp-body .olymp-answers p{
+    display: inline-block;
+    font-size: 20px;
+}
+
+.olymp-flex .olymp-body .olymp-answers input[type = text]{
+    display: inline-block;
+    border: none;
+    font-size: 20px;
+    border: solid black;
+    border-radius: 0;
+    border-width: 0 0 2px 0;
+    background-color: transparent;
+}
+
+.olymp-flex .olymp-body .olymp-answers ul{
+    list-style: none;
+}
+
+.olymp-flex .olymp-body .olymp-answers ul li{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-size: 25px;
+}
+
+.olymp-flex .olymp-body .olymp-answers ul li span{
+    font-weight: bold;
+}
+
+.olymp-flex .olymp-body .olymp-answers ul li p{
+    box-sizing: border-box;
+    font-size: 25px;
+    flex-grow: 2;
+    margin-left: 10px;
+    width: 95%;
+}
+
+/*чек бокс*/
+input[type = checkbox]{
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    z-index: -1;
+    opacity: 0;
+}
+
+input[type = checkbox] + label{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 25px;
+    width: 25px;
+    transform: translateX(-25px);
+}
+
+input[type = checkbox] + label:before, input[type = checkbox]:checked + label:before{
+    content: '';
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 0;
+    left: 0;
+    background-color: lightgray;
+    transition: .2s;
+    box-shadow: 0 0 5px 0 black;
+}
+
+input[type = checkbox]:checked + label:before{
+    background-color: dodgerblue !important;
+    border-radius: 0 !important;
+}
+
+input[type = checkbox] + label:after, input[type = checkbox]:checked + label:after{
+    content: '';
+    font-family: arial;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 25px;
+    width: 25px;
+    transform: translateY(-1px);
+}
+
+input[type = checkbox]:checked + label:after{
+    content: '✔' !important;
+}
+
+input[type = radio]{
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    z-index: -1;
+    opacity: 0;
+}
+
+input[type = radio] + label{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 25px;
+    width: 25px;
+    transform: translateX(-25px);
+}
+
+input[type = radio] + label:before, input[type = checkbox]:checked + label:before{
+    content: '';
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 0;
+    left: 0;
+    background-color: lightgray;
+    border-radius: 100%;
+    transition: .2s;
+    box-shadow: 0 0 5px 0 black;
+}
+
+input[type = radio]:checked + label:before{
+    background-color: dodgerblue;
+}
+
+input[type = radio] + label:after, input[type = checkbox]:checked + label:after{
+    content: '';
+    font-family: arial;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 13px;
+    width: 13px;
+}
+
+input[type = radio]:checked + label:after{
+    transform: translateX(1px);
+    content: '';
+    border:2px solid black;
+    box-shadow: 0 0 10px 0 black;
+    border-radius: 100%;
+}
+
+.buttons{
+    box-sizing: border-box;
+    width: 200px;
+    transform: translateY(calc(68vh - 5px)) translateX(-5px);
+    position: absolute;
+    order: 3;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+.buttons button{
+    width: 100%;
+    float: right;
+    cursor: pointer;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    font-size: 25px;
+    background-color: blueviolet;
+    box-shadow: 0 0 10px 0 black;
+    border: none;
+}
+
+.olymp-flex .olymp-nav{
+    display: flex;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    width: 200px;
+    padding: 5px;
+    background-color: white;
+    max-height: 68vh;
+}
+
+.olymp-flex .olymp-nav span{
+    color: white;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 5px solid white;
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 20px;
+    background-color: blueviolet;
+    text-align: left;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
+
+code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid blueviolet;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+
+pre{
+    display: contents;
+}
+
+.cde-func{
+    color: orange;
+}
+
+.cde-atreb{
+    color: rgb(183, 0, 255);
+}
+
+.cde-qote{
+    color: brown;
+}
+
+.cde-cmnt{
+    color:green;
+}
+
+.preparation{
+    top: 50px;
+    left: 0px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: calc(100vh - 50px);
+    background-color: black;
+    z-index: 1;
+}
+
+.preparation span{
+    padding: 10px;
+}
+
+.preparation .main-input{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+}
+
+.preparation .main-input input[type = text]{
+    margin: 20px 0;
+    display: block;
+    border: none;
+    font-size: 20px;
+    border: solid black;
+    border-radius: 0;
+    border-width: 0 0 2px 0;
+    background-color: transparent;
+}
+
+.preparation .main-input p{
+    font-size: 25px !important;
+}
+
+.preparation span{
+    font-size: 35px;
+    text-shadow: 2px 2px 0 orange;
+}
+
+.preparation div{
+    margin: 0 10px 10px 10px;
+}
+
+.buttonSub{
+    box-sizing: border-box;
+    width: 100%;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    font-size: 25px;
+    padding: 8px 10px;
+    background-color: blueviolet;
+    box-shadow: 0 0 5px 0px black;
+    color: white;
+    border: none;
+    text-align: center;
+    margin: 0 !important;
+}
+
+/*АДАПТИВ*/
+
+@media (max-width:500px){
+    .olymp-nav{
+        width: 100px !important;
+    }
+    .olymp-body{
+        width: calc(100% - 100px) !important;
+    }
+
+    .buttons{
+        width: 100px;
+    }
+    
+    .buttons button{
+        padding: 5px;
+        font-size: 10px;
+    }
+}

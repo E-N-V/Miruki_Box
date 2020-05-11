@@ -9,39 +9,25 @@ import loggerMiddleware from "../middleware/logger";
 const arrMiddlewares: any = [bodyParser.json(), bodyParser.urlencoded({ extended: true }), loggerMiddleware];
 
 /**
- * Import controllers etc, routes
+ * Import routes
  */
-//import PostsController from "../controllers/posts/posts.controller";
-import HomeController from "../controllers/get/home.controller";
-import CertificateController from "../controllers/get/certificate.controller";
-import AboutController from "../controllers/get/about.controller";
-import LoginGetController from "../controllers/get/login.controller";
-import RegisterGetController from "../controllers/get/register.controller";
-import ProfileController from "../controllers/get/profile.controller";
-import ValidateRegisterController from "../controllers/post/register.validate.controller";
-import OlympListController from "../controllers/get/olympList.controller";
-import OlympWalkthroughtController from "../controllers/get/olympWalktrought.controller";
-import OlympCreatorController from "../controllers/get/olympCreate.controller";
-import TestResultController from "../controllers/post/olymp.result.controller";
+import HomeRouter from "../routes/home.router";
+import LoginRouter from "../routes/login.router";
+import RegisterRouter from "../routes/register.router";
+import OlympRouter from "../routes/olymp.router";
 
-const arrControllers: any = [
-	new HomeController(),
-	new CertificateController(),
-	new AboutController(),
-	new LoginGetController(),
-	new RegisterGetController(),
-	new ProfileController(),
-	new ValidateRegisterController(),
-	new OlympListController(),
-	new OlympWalkthroughtController(),
-	new OlympCreatorController(),
-	new TestResultController(),
-];
+const arrRoutes: any = [HomeRouter, LoginRouter, RegisterRouter, OlympRouter];
 
+/**
+ * Init Web-site
+ */
 const app = new App({
 	port: 3000,
-	controllers: arrControllers,
+	routes: arrRoutes,
 	middleWares: arrMiddlewares,
 });
 
+/**
+ * Start web-site
+ */
 app.listen();
