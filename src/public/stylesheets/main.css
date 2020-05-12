@@ -299,7 +299,7 @@ header{
         padding: 10px;
     }
     
-    @media (max-width: 640px){
+    @media (max-width: 800px){
         .blickDagger{
             height: 3em;
             width: 3em;
