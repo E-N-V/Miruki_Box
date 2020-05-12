@@ -362,10 +362,10 @@ function optModeSwap(num){
         div.setAttribute('class', 'opt-content');
         switch (num) {
             case 1:
-                div.innerHTML = '<input type="file">';
+                div.innerHTML = '<input type="file"> name="optContent_' + getCurrentBlockNum() +'"';
                 break;
             case 2:
-                div.innerHTML = '<textarea name="" id="testArea" cols="30" rows="10" placeholder="Код"></textarea>';
+                div.innerHTML = '<textarea name="optContent_' + getCurrentBlockNum() +'" id="testArea" cols="30" rows="10" placeholder="Код"></textarea>';
                 break;        
             default:
                 
