@@ -44,7 +44,7 @@ export default class app {
 			(await createConnection()).dropDatabase()
 			await getConnection().close()
 			console.clear()
-			console.log(`App listening on the http://localhost:${this.port}`);
+			console.log(`App listening on the http://localhost:${this.port} go it now`);
 			const con = await createConnection();
 			if (con.isConnected) {
 				console.log(`Database is connected!`);
