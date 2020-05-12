@@ -11,12 +11,14 @@ export const LoginPost = async (req: Request, res: Response): Promise<any> => {
 	usr.email = req.body.e_mail;
 	usr.password = req.body.password;
 
-	if (!getConnection().getRepository(User).findOneOrFail(usr))
+	if (!await getConnection().getRepository(User).findOne(usr))
 		return res.render("login", { title: "Авторизация", err: "Введенные вами данные не верны, повторите попытку." });
 
+	res.clearCookie("usr")
 	res.cookie("usr", usr.email, {
+		path: "/",
 		secure: false,
-		httpOnly: false,
+		httpOnly: true,
 		expires: new Date(
 			new Date().getFullYear(),
 			new Date().getMonth(),

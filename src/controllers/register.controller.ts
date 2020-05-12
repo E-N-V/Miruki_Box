@@ -19,8 +19,10 @@ export const RegisterPost = async (req: Request, res: Response): Promise<any> =>
 	if (await con.findOne(usr)) return res.render("register", {title: "Регистрация", err: "Пользователь, с введеными данными уже существует."})
 	con.save(usr)
 	res.clearCookie("usr")
-	res.cookie("usr", req.body.e_mail, {
-		httpOnly: false,
+	res.cookie("usr", usr.email, {
+		path: "/",
+		secure: false,
+		httpOnly: true,
 		expires: new Date(
 			new Date().getFullYear(),
 			new Date().getMonth(),

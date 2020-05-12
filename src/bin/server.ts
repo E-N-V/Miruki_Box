@@ -17,8 +17,9 @@ import LoginRouter from "../routes/login.router";
 import RegisterRouter from "../routes/register.router";
 import OlympRouter from "../routes/olymp.router";
 import ProfileRouter from "../routes/profile.router"
+import FounderRouter from "../routes/founder.router"
 
-const arrRoutes: any = [HomeRouter, LoginRouter, RegisterRouter, OlympRouter, ProfileRouter];
+const arrRoutes: any = [HomeRouter, LoginRouter, RegisterRouter, OlympRouter, ProfileRouter, FounderRouter];
 
 /**
  * Init Web-site

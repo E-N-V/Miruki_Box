@@ -21,6 +21,9 @@ block main
                         li Уфа
                         li ПО-31
                         li Email: #{iUser.email}
+                        if founder
+                            a(href="/founder/olympRedactor")
+                                button Редактировать олимпиады
             div(class="userOlymps")
                 div(class="olympsCreation")
                     img(src="/images/gear.png", alt="")

@@ -1,10 +1,12 @@
 import express, { Application } from "express";
 import { join } from "path";
-import { createConnection } from "typeorm";
+import { createConnection, getConnection } from "typeorm";
+import { User } from "./database/entity/User";
+import { Founder } from "./database/entity/Privilege";
 
 export default class app {
 	public app: Application;
-    public port: number;
+	public port: number;
 
 	constructor(appInit: { port: number; middleWares: any; routes: any }) {
 		this.app = express();
@@ -39,26 +41,61 @@ export default class app {
 
 	public listen() {
 		this.app.listen(this.port, async () => {
-            console.log(`App listening on the http://localhost:${this.port}`);
-			const con = (await createConnection())
-			con.isConnected? console.log(`Database is connected!`) : ()=>{
-				Error("Database is not connected!")
-				con.close()
-			} 
-			
-            /*
-            Это для Егора, ибо у него дырявая голова
+			(await createConnection()).dropDatabase()
+			await getConnection().close()
+			console.clear()
+			console.log(`App listening on the http://localhost:${this.port}`);
+			const con = await createConnection();
+			if (con.isConnected) {
+				console.log(`Database is connected!`);
+			} else {
+				Error("Database is not connected!");
+				con.close();
+			}
 
-            const Connection: Connection = await createConnection()
-            let usr = new User()
-            usr.email = "ophcik@mail.ru"
-            usr.f_name = "Егор"
-            usr.s_name = "Леонтьев"
-            usr.t_name = "Константинович"
-            usr.password = "123456"
-            await Connection.getRepository(User).save(usr)
-            console.log(await Connection.getRepository(User).find())
-            */
+			/**
+			 * Import table founder this site
+			 */
+			let usr = new User();
+			let GOOD = new Founder();
+			async function addFounder(usr: User, GOOD: Founder) {
+				if (!(await con.getRepository(User).findOne(usr))) await con.getRepository(User).save(usr);
+				if (!(await con.getRepository(Founder).findOne(usr.email, { select: ["email"] })))
+					await con.getRepository(Founder).save(GOOD);
+			}
+
+			usr.id = 1;
+			usr.email = "ophcik@mail.ru";
+			usr.f_name = "Егор";
+			usr.s_name = "Леонтьев";
+			usr.t_name = "Константинович";
+			usr.password = "2659430_MIRUKI_CREATOR_EGOR";
+			GOOD.id = 1;
+			GOOD.user = usr;
+			GOOD.email = usr.email;
+			await addFounder(usr, GOOD);
+
+			usr.id = 2;
+			usr.email = "sm.nk@inbox.ru";
+			usr.f_name = "Никита";
+			usr.s_name = "Самошкин";
+			usr.t_name = "Алексеевич";
+			usr.password = "2659430_MIRUKI_CREATOR_NIKITA";
+			GOOD.id = 2;
+			GOOD.user = usr;
+			GOOD.email = usr.email;
+			await addFounder(usr, GOOD);
+
+			usr.id = 3;
+			usr.email = "vladskrip432@gmail.com";
+			usr.f_name = "Владислав";
+			usr.s_name = "Скрипко";
+			usr.t_name = "Евгеньевич";
+			usr.password = "2659430_MIRUKI_CREATOR_VLAD";
+			GOOD.id = 3;
+			GOOD.user = usr;
+			GOOD.email = usr.email;
+			await addFounder(usr, GOOD);
 		});
 	}
 }
