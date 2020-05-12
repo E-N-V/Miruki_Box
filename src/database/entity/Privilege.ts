@@ -22,6 +22,36 @@ export class Moderator{
 }
 
 @Entity()
+export class Student{
+	@PrimaryGeneratedColumn()
+	id!: number
+
+	@OneToOne((type) => User)
+	@JoinColumn()
+	id_usr!: User
+}
+
+@Entity()
+export class Student_op{
+	@PrimaryGeneratedColumn()
+	id!: number
+
+	@OneToOne((type) => User)
+	@JoinColumn()
+	id_usr!: User
+}
+
+@Entity()
+export class Prepod{
+	@PrimaryGeneratedColumn()
+	id!: number
+
+	@OneToOne((type) => User)
+	@JoinColumn()
+	id_usr!: User
+}
+
+@Entity()
 export class Founder{
 	@PrimaryGeneratedColumn()
 	id!: number

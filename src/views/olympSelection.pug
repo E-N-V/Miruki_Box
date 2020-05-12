@@ -6,6 +6,7 @@ block header
     link(rel='stylesheet', href='stylesheets/main.css')
     script(src='scripts/main.js')
     link(rel='stylesheet', href='stylesheets/olympSelection.css')
+    link(rel="stylesheet", href="stylesheets/bootstrap/bootstrap.min.css")
     script(src='/scripts/olympSelection.js')
     title #{title}
 
@@ -72,96 +73,19 @@ block main
                     p
                         | Программное обеспечение, позволяющее создавать, редактировать или просматривать графические файлы. Компьютерную графику можно разделить на три категории — растровая графика, векторная графика и трёхмерная графика. Многие графические программы предназначены для обработки только векторного изображения или только растра, но существуют и программы, сочетающие оба типа. Достаточно просто преобразовать векторное изображение в растр, обратная задача является достаточно сложной, но существуют программы и для этого (т. н. векторизаторы). Программы для работы с трёхмерной графикой могут использовать как векторные (например, для построения сложных объектов), так и растровые (например, в качестве текстур) изображения.
         section#OlympListRaw.olympSelect
-            h4#nothingMassage Олимпиад не найденно
-            script.
-
-                //Новый вывод
-                // \/ Рабочая зона \/
-                // С сервера прилетает olymp - массив массивов, тоесть он похож на [[/**/],[/**/],[/**/]]
-                // В нем есть поля section, title, except, description
-                // Все работай, чтобы вывод был как раньше и лучше
-                // /\ Рабочая зона /\
-
-                // Здесь происходит загрузка с сервера данных, и сразу парситься в нормальный массив, Ибо сначала приходить дичь несусветная. Можешь потрогать, но лучше не стоит.
-                let raw = "<%=categories%>".split(',');
-                const categories = [];
-                for (const val of raw)
-                categories.push(val)
-                raw = "<%=Name_olymp.office%>".split(',');
-                if(raw[0] !== ''){
-                for (const item of raw)
-                name_olymp.office.push(item)
-                }
-                raw = "<%=Name_olymp.programming%>".split(',');
-                if(raw[0] !== ''){
-                for (const item of raw)
-                name_olymp.programming.push(item)
-                }
-                raw = "<%=Name_olymp.architecture%>".split(',');
-                if(raw[0] !== ''){
-                for (const item of raw)
-                name_olymp.architecture.push(item)
-                }
-                raw = "<%=Name_olymp.mechanic%>".split(',');
-                if(raw[0] !== ''){
-                for (const item of raw)
-                name_olymp.mechanic.push(item)
-                }
-                raw = "<%=Name_olymp.graphics%>".split(',');
-                if(raw[0] !== ''){
-                for (const item of raw)
-                name_olymp.graphics.push(item)
-                }
-                raw = "<%=Name_olymp.svarka%>".split(',');
-                if(raw[0] !== ''){
-                for (const item of raw)
-                name_olymp.svarka.push(item)
-                }
-                // Начиная с этого места, можешь писать и переписывать как хочешь. Тут просто вывод в блоки до тех пор пока были необработанные данные. И да, вот ссылка на то что есть в бд localhost:3000/db
-                window.olymps = name_olymp;
-                /*
-                                     /^--^\\     /^--^\     /^--^\
-                                     \\____/     \____/     \____/
-                                    /      \\   /      \   /      \
-                                    |        | |        | |        |
-                                    \\__  __/   \__  __/   \__  __/
-                |^|^|^|^|^|^|^|^|^|^|^|^\\ \^|^|^|^/ /^|^|^|^|^\ \^|^|^|^|^|^|^|^|^|^|^|^|
-                | | | | | | | | | | | | |\\ \| | |/ /| | | | | | \ \ | | | | | | | | | | |
-                ########################/ /######\\ \###########/ /#######################
-                | | | | | | | | | | | | \\/| | | | \/| | | | | |\/ | | | | | | | | | | | |
-                |_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
-                */
-                function catPlay(catName){
-                let olympName;
-                let olympDesc;
-                let olympURL;
-                //чистим старые олимпиады
-                let olymps = document.getElementsByClassName('olymp');
-                for(i = 0; i < olymps.length; i++){
-                olymps[i].remove();
-                }
-                //Лёгкий фикс кек
-                olymps = document.getElementsByClassName('olymp');
-                for(i = 0; i < olymps.length; i++){
-                olymps[i].remove();
-                }
-                if(translateMeow(catName) !== undefined){
-                if(translateMeow(catName).length > 0){
-                document.getElementById('nothingMassage').style.display = 'none';
-                for (let i = 0; i < translateMeow(catName).length; i++) {
-                //тут добавление вот этого вот
-                olympName = `${translateMeow(catName)[i]}`;
-                olympName = beautifulMeow(olympName);
-                olympDesc = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem architecto cupiditate eaque aliquid dolore blanditiis laborum dolores iusto, rerum quo voluptatum id aspernatur dolorem deserunt soluta rem laboriosam illo totam!`
-                olympURL = `/walk/${translateMeow(catName)[i]}`;
-                catBallOfWool(olympName, olympDesc,olympURL)
-                }
-                }else{
-                document.getElementById('nothingMassage').style.display = 'block';
-                }
-                }else{
-                document.getElementById('nothingMassage').style.display = 'block';
-                }
-                }
-                catPlay('prog')
-                // а остальное в js
+            if olymp.length < 0
+                h4#nothingMassage Олимпиад не найденно
+            //Новый вывод
+            // \/ Рабочая зона \/
+            // С сервера прилетает olymp - массив массивов, тоесть он похож на [[/**/],[/**/],[/**/]]
+            // В нем есть поля section, title, except, description
+            // Все работай, чтобы вывод был как раньше и лучше
+            // /\ Рабочая зона /\
+            else
+                each item in olymp
+                        .card
+                            .card-header 
+                                p #{item.title}
+                            .card-body
+                                p.card-text #{item.except}
+                                a.btn.btn-primary(href='#') #{item.url}

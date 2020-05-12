@@ -12,19 +12,10 @@ export class OlympInfo{
     title!: string
 
     @Column()
-    excerpt!: string
+    except!: string
 
     @Column()
     description!: string
-}
-
-@Entity()
-export class TablesOlymp{
-    @PrimaryGeneratedColumn()
-    id!: number
-
-    @Column()
-    name!: string
 
     @Column()
     url!: string

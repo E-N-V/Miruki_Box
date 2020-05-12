@@ -3,7 +3,10 @@ import {OlympInfo} from "../database/entity/Olymp"
 import { getConnection } from "typeorm";
 
 export const OlympList = async (req: Request, res: Response): Promise<any> => {
-    let result = await getConnection().getRepository(OlympInfo).find({select: ["section", "title", "excerpt", "description"]})
+    let search = new OlympInfo()
+    search.section = req.query.section.toString()
+    let result = await getConnection().getRepository(OlympInfo).find(search)
+    console.log(result)
     return res.render("olympSelection", { title: "Выбор олимпиад",  olymp: result });
 }
 
