@@ -1,14 +1,46 @@
-function createReward( medalType:any , medalText:string, olympName:any, olympTime:any, olympPlace:any ){
+function createReward( medalText:string, olympName:any, olympTime:any, olympPlace:any ){
     const something:any = document.getElementById("olymps");
-    something.getElementsByTagName('img')[1].style.display = 'none'
+    const cat:any = document.getElementById('cat');
+    cat.style.display = 'none';
+    var medRar:any = '';
+    switch (olympPlace) {
+        case 1:
+            medRar = 'gold';
+            break;
+        case 2:
+            medRar = 'silver';
+            break;
+        case 3:
+            medRar = 'bronze';
+            break;
+        default:
+            medRar = 'junk';
+            break;
+    }
+
+    var medPlace:any = '';
+    switch (olympPlace) {
+        case 1:
+            medPlace = '1 место'
+            break;
+        case 2:
+            medPlace = '2 место'
+            break;
+        case 3:
+            medPlace = '3 место'
+            break;
+        default:
+            medPlace = 'участие'
+            break;
+    }
     something.innerHTML += `
                 <div class="olymp">
-                    <div class="medal gold"> 1 </div>
+                    <div class="medal ` + medRar + `"> ` + medalText + ` </div>
                     <div class="olympInfo">
-                        <h3> Название Олимпиады</h3>
-                        <span> 29.04.2020 </span>
+                        <h3> `+ olympName +` </h3>
+                        <span> `+ olympTime +` </span>
                     </div>
-                    <h4> 1 место </h4>
+                    <h4> `+ medPlace +` </h4>
                 </div>
     `
 }

@@ -202,7 +202,43 @@ section .olymps img{
     text-overflow: ellipsis;
 }
 
-/*div(class="userOlymps")
-div(class="olympsCreation")
-    img(src="/images/gear.png", alt="")
-    button(class="createOlymp")
+/*тесты*/
+
+.tests{
+    width: 100%;
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+}
+
+.tests h5{
+    width: 100%;
+    font-size: 50px;
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tests .test{
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 10px;
+}
+
+.tests .test h3{
+    font-size: 40px;
+}
+
+.tests .test span{
+    font-size: 20px;
+}
+
+.tests .test .score{
+    font-size: 40px;
+    flex-grow: 1;
+    text-align: end;
+    height: 45px;
+    padding-right: 20px;
+}
