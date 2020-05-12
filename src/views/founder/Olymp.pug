@@ -1,18 +1,19 @@
-html(lang="en")
-    head
-        <title>Страница Создателей</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    body
+extends ./index
+
+block main
+    center
         h1 Олимпиады
-        each item in arrOlymp
-            table
-                td
-                    tr= item.id
-                td
-                    tr= item.name
-                td
-                    tr= item.url
-                td
+    div(style="margin: 5px 10% 5px 10%;border-right: solid 1px black;border-left: solid 1px black;border-bottom: solid 1px black;")
+        table(class="table table-hover")
+            tr
+                th(scope="col") id
+                th(scope="col") name
+                th(scope="col") url
+                th(scope="col") options
+            each item in arrOlymp
                     tr
-                        a(href="./olympRedactor") Редактировать
+                        th(scope="row")= item.id
+                        td= item.name
+                        td= item.url
+                        td
+                            a(href="./olympRedactor") Редактировать

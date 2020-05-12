@@ -1,13 +1,14 @@
-html(lang="en")
-    head
-        title Страница Создателей
-        meta(charset="UTF-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet" href="stylesheets/bootstrap/bootstrap.min.css")
-    body
+extends ./index
+
+block main
+    center
         h1 Привет Создатель!
         br
-        a(href="/" class="link") Главная сайта
-        a(href="/profile") Профиль на сайте
-        a(href="/olympList") Олимпиады на сайте
-        a(href="/founder/olymp") Все доступные олимпиады
+        a(href="/" class="link")
+            button(class="btn btn-primary") Главная сайта
+        a(href="/profile")
+            button(class="btn btn-primary") Профиль на сайте
+        a(href="/olympList")
+            button(class="btn btn-primary") Олимпиады на сайте
+        a(href="/founder/olymp")
+            button(class="btn btn-primary") Все доступные олимпиады
