@@ -1,5 +1,18 @@
 // TODO: Неумею в js
 /*изменение обработки клавишь */
+/*
+questType_[номер вопроса] - тип вопроса
+questAnswwersAmount_[номер вопроса] - колво вопросов в тесте
+questText_[номер вопроса] - текст вопроса
+answer_[номер вопроса]_[номер ответа] - вариант ответа
+___
+нейминги для кода, картинки и ничего вроде не сделанны
+___
+opt_mode_[номер вопроса] - раньше по другому было (не я поменял) но это тип опционального контента (код, картинка, ничего)
+
+upd: у опционального контента имя optContent_[номер вопроса] 
+*/
+
 
 function formPass(){
     document.getElementById('counter').value = document.getElementsByClassName('question').length - 1;
@@ -362,10 +375,10 @@ function optModeSwap(num){
         div.setAttribute('class', 'opt-content');
         switch (num) {
             case 1:
-                div.innerHTML = '<input type="file">';
+                div.innerHTML = '<input type="file"> name="optContent_' + getCurrentBlockNum() +'"';
                 break;
             case 2:
-                div.innerHTML = '<textarea name="" id="testArea" cols="30" rows="10" placeholder="Код"></textarea>';
+                div.innerHTML = '<textarea name="optContent_' + getCurrentBlockNum() +'" id="testArea" cols="30" rows="10" placeholder="Код"></textarea>';
                 break;        
             default:
                 

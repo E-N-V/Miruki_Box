@@ -11,8 +11,9 @@ section{
 }
 
 section .mainUserBlock, section .olymps{
+    box-sizing: border-box;
     background-color: white;
-    width: 100%;
+    width: calc(60% - 40px);
     margin: 20px;
 }
 
@@ -48,6 +49,7 @@ section .mainUserBlock .userInfo{
 
 section .olymps{
     padding: 25px;
+    width: 100%;
 }
 
 section .olymps h5{
@@ -135,3 +137,72 @@ section .olymps .olymp h4{
     width: 200px;
     font-size: 41px;
 }
+
+section .olymps img{
+    margin-left: 30%;
+    width: 40%;
+}
+
+/* тут твои олимпиады*/
+
+.userOlymps{
+    display: flex;
+    box-sizing: border-box;
+    background-color: white;
+    width: calc(40% - 40px);
+    margin: 20px;
+    padding: 20px;
+}
+
+.userOlymps .olympsCreation{
+    border-right: 2px solid black;
+    width: 50%;
+}
+
+.userOlymps .olympsCreation img{
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+}
+
+.userOlymps .olympsCreation button{
+    display: block;
+    font-size: 20px;
+    color: white;
+    background-color: blueviolet;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.userOlymps .olympsCreation span{
+    font-size: 20px;
+}
+
+.userOlymps .olympsList{
+    width: 50%;
+    padding-right: 20px;
+}
+
+.userOlymps .olympsList p{
+    font-size: 30px;
+    border-bottom: 2px solid black;
+    padding: 5px;
+}
+
+.userOlymps .olympsList span{
+    display: block;
+    background-color: lightgray;
+    padding: 5px;
+    width: calc(100% - 20px);
+    margin: 10px;
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis;
+}
+
+/*div(class="userOlymps")
+div(class="olympsCreation")
+    img(src="/images/gear.png", alt="")
+    button(class="createOlymp")

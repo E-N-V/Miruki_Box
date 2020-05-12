@@ -7,40 +7,55 @@ block header
     <script src="scripts/main.js"></script>
     <link rel="stylesheet" href="stylesheets/profile.css">
     <title>#{title_page}</title>
+    <script src="scripts/profile.ts"></script>
 
 block main
     article
         section
             div(class="mainUserBlock")
                 div(class="avatarBlock")
-                h1(class="surName") #{iUser.f_name}
-                h2(class="otherNames") #{iUser.s_name} #{iUser.t_name}
-                ul(class="userInfo")
+                h1(class="surName" id="name1") #{iUser.f_name}
+                h2(class="otherNames" id="name2") #{iUser.s_name} #{iUser.t_name}
+                ul(class="userInfo" id="info")
                         li Студент
                         li Уфа
                         li ПО-31
                         li Email: #{iUser.email}
-            div(class="olymps")
+            div(class="userOlymps")
+                div(class="olympsCreation")
+                    img(src="/images/gear.png", alt="")
+                    button(class="createOlymp") Создать олимпиаду
+                    span(id="testsAmount") Всего тестов:#####
+                div(class="olympsList" id="testList")
+                    p Ваши тесты
+                    span Создание гачи реиксов 101
+                    span Математический Deep Dark Dungeon
+                    span Норм аниме хотите, я вот тоже хочу а его нет (0(((
+                    span Мне лень думать о том что ктото упорится и напишет название в 6 строк, i dont каре, у меня только эмпти хаус, не знаю какой бред тут написать
+            div(class="olymps" id="olymps")
                 h5 Олимпиады
-                div(class="olymp")
+                img(src="/images/Котэ.png", alt="")
+                script.
+                    createReward( 1 , 1, 1, '00.00.0000', 1 )
+                //-div(class="olymp")
                     div(class="medal gold") 1
                     div(class="olympInfo")
                         h3 Название Олимпиады
                         span 29.04.2020
                     h4 1 место
-                div(class="olymp")
+                //-div(class="olymp")
                     div(class="medal silver") 2
                     div(class="olympInfo")
                         h3 Название Олимпиады
                         span 29.04.2020
                     h4 2 место
-                div(class="olymp")
+                //-div(class="olymp")
                     div(class="medal bronze") 3
                     div(class="olympInfo")
                         h3 Название Олимпиады
                         span 29.04.2020
                     h4 3 место
-                div(class="olymp")
+                //-div(class="olymp")
                     div(class="medal junk") уч
                     div(class="olympInfo")
                         h3 Название Олимпиады
