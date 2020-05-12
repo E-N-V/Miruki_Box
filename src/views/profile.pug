@@ -7,7 +7,7 @@ block header
     <script src="scripts/main.js"></script>
     <link rel="stylesheet" href="stylesheets/profile.css">
     <title>#{title_page}</title>
-    <script src="scripts/profile.ts"></script>
+    <script src="scripts/profile.js"></script>
 
 block main
     article
@@ -32,32 +32,38 @@ block main
                     span Математический Deep Dark Dungeon
                     span Норм аниме хотите, я вот тоже хочу а его нет (0(((
                     span Мне лень думать о том что ктото упорится и напишет название в 6 строк, i dont каре, у меня только эмпти хаус, не знаю какой бред тут написать
+
             div(class="olymps" id="olymps")
-                h5 Олимпиады
-                img(src="/images/Котэ.png", alt="")
+                h5 Пройденные олимпиады
+                img(src="/images/Котэ.png", alt="" id="cat")
                 script.
-                    createReward( 1 , 1, 1, '00.00.0000', 1 )
-                //-div(class="olymp")
-                    div(class="medal gold") 1
-                    div(class="olympInfo")
-                        h3 Название Олимпиады
-                        span 29.04.2020
-                    h4 1 место
-                //-div(class="olymp")
-                    div(class="medal silver") 2
-                    div(class="olympInfo")
-                        h3 Название Олимпиады
-                        span 29.04.2020
-                    h4 2 место
-                //-div(class="olymp")
-                    div(class="medal bronze") 3
-                    div(class="olympInfo")
-                        h3 Название Олимпиады
-                        span 29.04.2020
-                    h4 3 место
-                //-div(class="olymp")
-                    div(class="medal junk") уч
-                    div(class="olympInfo")
-                        h3 Название Олимпиады
-                        span 29.04.2020
-                    h4 участие
+
+                    //-createReward(текст медали (лучше не больше 3 символов), имя олимпиады, время, место)
+                
+                    createReward( 'php', 'PHP для самых маленьких', '32.16.2077', 3 )
+
+                    createReward('JS','JS для самых здоровых','11.05.1945',1)
+
+                    createReward('H5','HTML 5 для альфа самцов','19.04.2006',4)
+            div(class="tests")
+                h5 Пройденные тесты
+                div(class="test")
+                    div
+                        h3 Название теста
+                        span 00.00.0000
+                    span(class="score") 100 баллов
+                div(class="test")
+                    div
+                        h3 Название теста
+                        span 00.00.0000
+                    span(class="score") 100 баллов
+                div(class="test")
+                    div
+                        h3 Название теста
+                        span 00.00.0000
+                    span(class="score") 100 баллов
+                div(class="test")
+                    div
+                        h3 Название теста
+                        span 00.00.0000
+                    span(class="score") 100 баллов

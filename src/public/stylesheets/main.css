@@ -345,6 +345,24 @@ header{
         margin-right: 10px;
     }
 
+    .userBlock .register{
+        width: 40px;
+        height: 40px;
+        background-image: url("../images/regLogo.png");
+        display: inline-block;
+        background-size: contain;
+        margin-right: 10px;
+    }
+
+    .userBlock .login{
+        width: 40px;
+        height: 40px;
+        background-image: url("../images/logLogo.png");
+        display: inline-block;
+        background-size: contain;
+        margin-right: 10px;
+    }
+
     .noteWindow{
         position: absolute;
         right: 0;
