@@ -45,10 +45,7 @@ export default class app {
 
 	public listen() {
 		this.app.listen(this.port, async () => {
-			//(await createConnection()).dropDatabase()
-			//await getConnection().close()
-			//console.clear()
-			console.log(`App listening on the http://localhost:${this.port} go it now`);
+			console.log(`App listening on the port -> ${this.port} go it now`);
 			const con = await createConnection();
 			if (con.isConnected) {
 				console.log(`Database is connected!`);
