@@ -4,7 +4,7 @@
    "port": 3306,
    "username": "admin_miruki",
    "password": "miruki",
-   "database": "miruki_box",
+   "database": "heroku_b94048dff065425",
    "synchronize": true,
    "logging": true,
    "entities": [
