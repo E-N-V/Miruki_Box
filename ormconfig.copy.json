@@ -1,6 +1,6 @@
 {
    "type": "mysql",
-   "host": "eu-cdbr-west-02.cleardb.net",
+   "host": "eu-cdbr-west-03.cleardb.net",
    "port": 3306,
    "username": "b01cfdb5e3a176",
    "password": "24a06c38",
