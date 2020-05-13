@@ -45,6 +45,17 @@ section .mainUserBlock .userInfo{
     font-size: 24px;
 }
 
+section .mainUserBlock button{
+    display: block;
+    font-size: 20px;
+    color: white;
+    background-color: blueviolet;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    border: none;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
 /*тут олимпиады*/
 
 section .olymps{
@@ -270,4 +281,61 @@ section .olymps img{
         font-size: 30px;
         width: 100px;
     }
+}
+
+/*profile change*/
+
+.profileChange{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.profileChange .changeMenu{
+    background-color: white;
+    position: relative;
+    padding: 25px;
+}
+
+.profileChange .changeMenu p{
+    font-size: 30px;
+}
+
+.profileChange .changeMenu span{
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.profileChange .changeMenu span input{
+
+}
+
+
+.profileChange .changeMenu button{
+    display: block;
+    font-size: 20px;
+    color: white;
+    background-color: blueviolet;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    border: none;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.profileChange .changeMenu .close{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top:-25px;
+    font-size: 40px;
+    color: white;
+    padding: 5px 10px;
+    background-color: blueviolet;
 }
