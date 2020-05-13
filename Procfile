@@ -1,2 +1,2 @@
-build: npm i typescript yarn -g && rm -rf ormconfig.json && cp ormconfig.copy.json ormconfig.json && yarn build && cp ./tests ./dist/database/ -r
+build: npm i typescript yarn -g && rm -rf ormconfig.json && cp ormconfig.copy.json ormconfig.json && yarn build && cp ./tests ./dist/database/ -r && heroku ps:scale web=1
 web: cd dist && node bin/server
