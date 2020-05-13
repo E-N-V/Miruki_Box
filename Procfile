@@ -1,0 +1,1 @@
+worker: tsc && cd dist && node bin/server
