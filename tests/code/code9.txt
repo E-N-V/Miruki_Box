@@ -1,9 +1,0 @@
-int k = 1; 
- 
-switch (k) 
-{ 
-    case 0:                                 //1 
-    case 1:  Console.WriteLine("Case 1");   //2 
-    case 2:                                 //3 
-    default: Console.WriteLine("Default");  //4 
-} 

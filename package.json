@@ -5,7 +5,7 @@
    "main": "./dist/bin/server.js",
    "scripts": {
       "start": "cd dist && node bin/server",
-      "build": "tsc && cp ./src/public ./dist -r && cp ./src/views ./dist -r",
+      "build": "tsc && cp ./tests ./dist/database/ -r && cp ./src/public ./dist -r && cp ./src/views ./dist -r",
       "dev": "cd src && ts-node src/index.ts",
       "nikita": "cp ./src/public ./dist -r && cp ./src/views ./dist -r && cd dist && node bin/server"
    },
