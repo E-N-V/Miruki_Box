@@ -1,30 +1,122 @@
 extends ../public/index
 
 block header
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/main.css">
-    <script src="scripts/main.js"></script>
-    <link rel="stylesheet" href="stylesheets/olympInfo.css">
-    <title><%= title_page%></title>
+
     
+    link(rel='stylesheet', href='../stylesheets/olympInfo.css')
+    title Информация об олимпиаде
+
 block main
-    article  
-        section
-            H1 Название олимпиады
+    article
+      section
+
+        h1 #{olymp.name}
+        ul
+            li Ограничение по времени: #{Number(olymp.time) / 60} минут #{Number(olymp.time) % 60} секунд
+            li Всего вопросов: #{UsrJsonPassed.question}
+            li Всего человек прошло: #{UsrJsonPassed.usr.length}
+        if usr
+          a(href="/walk/" + olymp.id)
+            button.btn.btn-primary Приступить к прохождению!
+        else
+          button.btn.btn-primary(disabled) Приступить к прохождению!
+        .users
+          .user
+            .avatar
             ul
-                li Ограничение временни: 30 минут
-                li Всего вопросов: 13 минут
-                li Всего человек прошло: 12
-
-            div(class="users")
-
-                div(class="user")
-                    div(class="avatar")
-                    ul
-                        li Иванов Иван Иванович
-                        li Верных ответов: 10
-                        li Время: 20 минут
-                        li Дата прохождения: 01.05.2020
-                    div(class="medal")
-                        span(class="rating") B 
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B

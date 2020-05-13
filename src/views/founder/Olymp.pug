@@ -6,11 +6,11 @@ block main
     div
         form(action="/founder/olymp" method="post")
             label(for="table") Загрузить новую олимпиаду
-            input(type="file", name="table" id="table" required)
+            input(type="file", name="filetable" id="table" required)
             button(type="submit")
         form(action="/founder/olymp" method="post")
             label(for="table") Загрузить новое описание олимпиад
-            input(type="file", name="tableInfo" id="table" required)
+            input(type="file", name="fileinfotable" id="table" required)
             button(type="submit")
     div(style="margin: 5px 10% 5px 10%;border-right: solid 1px black;border-left: solid 1px black;border-bottom: solid 1px black;")
         table(class="table table-hover")

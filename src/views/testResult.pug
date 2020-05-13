@@ -1,10 +1,9 @@
 extends ../public/index
 
 block header
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet', href='stylesheets/main.css')
-    script(src='scripts/main.js')
+
+    
+    
     link(rel='stylesheet', href='stylesheets/testResult.css')
     title #{title}
     script(src='scripts/testResult.js')
@@ -35,7 +34,8 @@ block main
                     circle.rail(cx='75', cy='75', r='70')
                     circle.train(cx='75', cy='75', r='70', transform='rotate(-90 75 75)')
                 p набрано баллов
-            button Завершить
+            a(href="/profile")
+                button(type="submit") Вернуться в свой профиль
         script.
             //TODO: тут вывод результата
             //generateResult(всего вопросов, правильных ответов, максимум временни (сек), время прохождения пользователя(сек))
@@ -43,4 +43,4 @@ block main
             //процент прохождения = 100 / общее колво вопросов * колво правельных ответов
             //и если время пользователя привышает максимальное то
             // мы вычитаем из процента прохождения 20 и вычитаем 1 за каждую минуту
-            generateResult(13,13,1800,2000)
+            generateResult(#{dataParse}, #{correct}, #{time}, #{time_pass})

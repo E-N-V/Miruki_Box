@@ -1,12 +1,15 @@
 import { Request, Response } from "express";
 import { getConnection} from "typeorm"
-import {User} from "../database/entity/User"
+import User from "../database/entity/User"
 
 export const RegisterView = async (req: Request, res: Response): Promise<any> => {
-	return res.render("register", { title: "Регистрация" });
+	if (req.cookies.usr) res.redirect("/profile")
+	let usr = req.cookies.usr
+	return res.render("register", { title: "Регистрация", usr });
 };
 
 export const RegisterPost = async (req: Request, res: Response): Promise<any> => {
+	let usra = req.cookies.usr
 	let usr = new User()
 	usr.f_name = req.body.first_name;
 	usr.s_name = req.body.second_name;
@@ -16,7 +19,7 @@ export const RegisterPost = async (req: Request, res: Response): Promise<any> =>
 	if (usr.password != req.body.conf_password)
 		return res.render("register", { title: "Регистрация", err: "Повторите свой пароль, он не верен." });
 	const con = getConnection().getRepository(User)
-	if (await con.findOne(usr)) return res.render("register", {title: "Регистрация", err: "Пользователь, с введеными данными уже существует."})
+	if (await con.findOne(usr)) return res.render("register", {title: "Регистрация", err: "Пользователь, с введеными данными уже существует.", usr: usra})
 	con.save(usr)
 	res.clearCookie("usr")
 	res.cookie("usr", usr.email, {

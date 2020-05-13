@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typeorm";
-import { User } from "./User";
+import  User  from "./User";
 
 @Entity()
 export class Admin {
@@ -56,7 +56,10 @@ export class Founder{
 	@PrimaryGeneratedColumn()
 	id!: number
 
-	@Column()
+	@Column({
+		length: 100,
+		type: "varchar"
+	})
 	email!: string
 
 	@OneToOne((type) => User)

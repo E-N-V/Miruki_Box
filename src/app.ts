@@ -1,8 +1,12 @@
 import express, { Application } from "express";
 import { join } from "path";
 import { createConnection, getConnection } from "typeorm";
-import { User } from "./database/entity/User";
+import  User  from "./database/entity/User";
 import { Founder } from "./database/entity/Privilege";
+import fs from "fs";
+import OlympInfo from "./database/entity/OlympInfo";
+import ods from "xlsx"
+import { ParseFile } from "./util/ParseOlympFile";
 
 export default class app {
 	public app: Application;
@@ -96,6 +100,32 @@ export default class app {
 			GOOD.user = usr;
 			GOOD.email = usr.email;
 			await addFounder(usr, GOOD);
+
+			/**
+			 * Init JSON for olymp and usr
+			 */
+			for (const itemFile of fs.readdirSync(join(__dirname, "database", "tests"))) {
+				if (itemFile.split(".")[1] != "ods") return
+				let file = ParseFile(join(__dirname, "database", "tests", itemFile))
+				
+				let question: number = file.length;
+
+				if (!fs.existsSync(join(__dirname, "database", "json", itemFile.split(".")[0] + ".json"))) {
+					fs.writeFileSync(
+						join(__dirname, "database", "json", itemFile.split(".")[0] + ".json"),
+						JSON.stringify({
+							question,
+							usr: [],
+						}),
+						{ encoding: "utf-8" }
+					);
+					
+					let olympInfo = await OlympInfo.findOne(new OlympInfo().id = Number(itemFile.split(".")[0]))
+					olympInfo!.path_json = join(__dirname, "database", "json", itemFile.split(".")[0] + ".json")
+					olympInfo!.path = join(__dirname, "database", "tests", itemFile)
+					await OlympInfo.update({id: Number(itemFile.split(".")[0])}, olympInfo!)
+				}
+			}
 		});
 	}
 }

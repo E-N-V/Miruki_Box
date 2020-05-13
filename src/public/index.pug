@@ -1,6 +1,10 @@
-<!DOCTYPE html>
+doctype
 html(lang="en")
     head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet', href='/stylesheets/main.css')
+        script(src='/scripts/main.js')
         block header
     body
         .preLoader
@@ -46,29 +50,31 @@ html(lang="en")
                         span
                             | О нас
             div(class="userBlock")
-                a(href="/login")
-                    div(class="login")
-                a(href="/register")
-                    div(class="register")
-                div(class="notifications" onclick="openNote()")
-                a(href="/profile")
-                    div(class="userProfile")
-        div(class="noteWindow")
-            div(class="note")
-                span Вы заняли N-е место в олимиаде "название олимпиады"
-                button Перейти
-            div(class="note")
-                span Вы заняли N-е место в олимиаде "название олимпиады"
-                button Перейти
-            div(class="note")
-                span Вы заняли N-е место в олимиаде "название олимпиады"
-                button Перейти
-            div(class="note")
-                span Вы заняли N-е место в олимиаде "название олимпиады"
-                button Перейти
-            div(class="note")
-                span Вы заняли N-е место в олимиаде "название олимпиады"
-                 button Перейти
+                if usr
+                    a(href="/profile")
+                        div(class="userProfile")
+                    div(class="notifications" onclick="openNote()")
+                    div(class="noteWindow")
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                            button Перейти
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                            button Перейти
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                            button Перейти
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                            button Перейти
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                             button Перейти
+                else
+                    a(href="/login")
+                        div(class="login")
+                    a(href="/register")
+                        div(class="register")
         block main
     footer
         ul

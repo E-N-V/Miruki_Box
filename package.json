@@ -23,7 +23,8 @@
       "pug": "^2.0.4",
       "reflect-metadata": "^0.1.10",
       "typeorm": "0.2.24",
-      "webpack": "^4.42.0"
+      "webpack": "^4.42.0",
+      "xlsx": "^0.16.0"
    },
    "devDependencies": {
       "ts-node": "3.3.0",

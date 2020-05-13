@@ -1,32 +1,51 @@
 extends ../public/index
 
 block header
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet', href='/stylesheets/main.css')
-    script(src='/scripts/main.js')
-    link(rel='stylesheet', href='/stylesheets/olympWalkthrough.css')
+    link(rel='stylesheet', href='../stylesheets/olympWalkthrough.css')
     link(href='https://fonts.googleapis.com/css?family=Pacifico|Roboto+Condensed:300,300i,400,700&display=swap&subset=cyrillic', rel='stylesheet')
-    script(src='/scripts/olympWalkthrough.js')
+    script(src='../scripts/olympWalkthrough.js')
+    link(rel="stylesheet", href="../stylesheets/bootstrap/bootstrap.min.css")
     title #{title}
 
 block main
     article
         section.olymp-head
             img(src='/images/ico.png', alt='')
-            h1 Название олимпиады
+            h1 #{olymp.title}
         form(action="/result" method="post")
-            .preparation
-                .main-input
-                    // ТУТ ФИО
-                    p Введите ваши фамилию имя и отчество.
-                    input(type='text', name='fullName', placeholder='Иванов Иван Иванович')
-                    .buttonSub.nextMI(onclick='MainIN(0)') Далее
+            input(type="hidden", name="olympID", value=olymp.id)
             .olymp-flex
                 section.olymp-body
+                    each item in dataParse
+                        .card
+                            .card-header
+                                p #{item.id}
+                            .card-body
+                                .card-header
+                                    if item.f
+                                        iframe(src="../code/" + item.f + ".txt", frameborder="1", width="100%", height="auto")
+                                    p #{item.description}
+                                .card-body
+                                    if item.type == "checkbox"
+                                        each val in item.answer.split(";")
+                                            .input-group.mb-3
+                                              .input-group-prepend
+                                                .input-group-text
+                                                  input(type="checkbox", name="answer_"+item.id)
+                                              p.form-control #{val}
+                                    else if item.type == "textbox"
+                                        input(type="text", name="answer_"+item.id)
+                                    else if item.type == "radio"
+                                        each val in item.answer.split(";")
+                                            .input-group
+                                              .input-group-prepend
+                                                .input-group-text
+                                                  input(type="radio", name="answer_"+item.id)
+                                              p.form-control #{val}
+
                 section.olymp-nav
                     .buttons
-                        button Завершить
+                        button(type="submit") Завершить
         script.
             //TODO: Создание вот тут вот
             //не ругайся на меня плез если чтото не так, просто напиши что не так или что переделать я исправлю
