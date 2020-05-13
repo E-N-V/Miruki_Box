@@ -1,0 +1,38 @@
+extends ../public/index
+
+block header
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <script src="scripts/main.js"></script>
+    <link rel="stylesheet" href="stylesheets/olympInfo.css">
+    <title>#{title_page}</title>
+    <link rel="stylesheet" href="stylesheets/users.css">
+block main
+    article
+        section
+            h1 Пользователи
+            div class="choose"
+                input(type="radio" name="1" id="admins" checked)
+                input(type="radio" name="1" id="teacher")
+                input(type="radio" name="1" id="pupils")
+                input(type="radio" name="1" id="turbopupils")
+                input(type="radio" name="1" id="FSB")
+                
+            div(class="tabs")
+                span Ф.И.О.
+                span Дата созд. профиля
+            
+            div(class="tabs")
+                span Ф.И.О.
+                span Дата созд. профиля
+            
+            div(class="tabs")
+                span Ф.И.О.
+                span Дата созд. профиля
+
+
+            div(class="controls")
+                span(class="left") {
+                span(class="numbers") 1 из ###...
+                span(class="right")}
