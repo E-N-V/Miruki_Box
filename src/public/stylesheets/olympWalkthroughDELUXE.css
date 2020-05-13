@@ -106,7 +106,7 @@ article form .olymp-flex .olymp-body .card .card-body .card-body .input-group{ /
     
 }
 
-article form .olymp-flex .olymp-body .card .card-body .card-body .input-group:hover{ /*тип ответ*/
+article form .olymp-flex .olymp-body .card .card-body .card-body .input-group:hover{
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: .25rem;
 }
@@ -125,6 +125,7 @@ article form .olymp-flex .olymp-body .card .card-body .card-body .input-group .i
 
 article form .olymp-flex .olymp-body .card .card-body .card-body .input-group .form-control{ /*ответ наверное*/
     background-color: rgba(0, 0, 0, 0);
+    height: initial;
 }
 
 article form .olymp-flex .olymp-nav .buttons button{
