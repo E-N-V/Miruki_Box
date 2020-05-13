@@ -1,1 +1,1 @@
-worker: tsc && cd dist && node bin/server
+worker: npm i typescript yarn -g && mkdir dist && rm -rf ormconfig.json && cp ormconfig.copy.json ormconfig.json && tsc && yarn start

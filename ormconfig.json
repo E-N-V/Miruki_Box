@@ -1,11 +1,12 @@
 {
    "type": "mysql",
-   "host": "eu-cdbr-west-02.cleardb.net",
+   "host": "localhost",
    "port": 3306,
-   "username": "b40de03e5f6a2f",
-   "password": "4958d574",
-   "database": "heroku_cd281529c651890",
+   "username": "admin_miruki",
+   "password": "miruki",
+   "database": "miruki_box",
    "synchronize": true,
+   "logging": true,
    "entities": [
       "./database/entity/**/*.js"
    ],
