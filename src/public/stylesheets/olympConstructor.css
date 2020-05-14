@@ -98,6 +98,10 @@ article .olymp-body .question span{
     color: white;
 }
 
+article .olymp-body .question span p{    
+    display: inline-block;
+}
+
 article .olymp-body .question .delete-question{
     display: block;
     float: right;
