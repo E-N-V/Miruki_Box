@@ -1,0 +1,54 @@
+body{
+    font-size: 20px;
+}
+
+article{
+    background-color: #000034;
+}
+
+section{
+    padding: 0 5%;
+    padding-bottom: 20px;
+}
+
+img{
+    width: 40%;
+}
+
+
+
+p{
+    padding: 20px;
+    color: white;
+}
+
+h1{
+    padding: 20px;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+
+h2{
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.management{
+    color: white;
+    background-color: #463566;
+}
+
+.flex{
+    display: flex;
+}
+
+@media (max-width: 450px){
+    .flex{
+        flex-wrap: wrap;
+    }
+    img{
+        width: 100%;
+    }
+}

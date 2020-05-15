@@ -1,0 +1,95 @@
+extends ../public/index
+
+block header
+    link(rel='stylesheet', href='../../stylesheets/bootstrap/bootstrap.min.css')
+    title Редактирование олимпиады
+
+block main
+    div(style="margin-top: 100px")
+    form(action="/olympList/redact/"+olympInfo.id, method="post")
+        .card
+            .card-header
+                p Редактирование олимпиады #{olympInfo.title}
+            .card-body
+                label(for="title") Название олимпиады
+                br
+                input(type="text", value=olympInfo.title, name="title", id="title", required)
+                br
+                label(for="except") Краткое описание олимпиады
+                br
+                input(type="text", value=olympInfo.except, name="except", id="except", required)
+                br
+                label(for="description") Полное описание олимпиады
+                br
+                textarea(cols="60", rows="6", name="description", id="description", required)=olympInfo.description
+                br
+                label(for="time") Время прохождения(число в секундах)
+                input(type="text", name="time", id="time", value="0", required)
+                each item in olympParse
+                    hr
+                    p Номер вопроса #{item.id}
+                    label(for="query_"+item.id) Вопрос
+                    br
+                    input(type="text", value=item.query, name="query", id="query_"+item.id, required)
+                    br
+                    if item.type == "radio"
+                        input(type="hidden", name="radios", value=item.id)
+                        -var val = item.answer.split(";")
+                        if val.length > 2
+                            -val.pop()
+                        input(type="hidden", name="answers", value=(val.length-1))
+                        -for (var i = 0; i < val.length; i++)
+                            if i == item.right_ -1
+                                label(for="answer_"+item.id) Ответ
+                                br
+                                .row
+                                    input(type="text", value=val[i].trim(), name="answertext_r", required)
+                                    input(type="text", name="radio", id="answer_"+item.id, value="+", required)
+                                    | + правильно, - не правильно
+                            else
+                                label(for="answer_"+item.id) Ответ
+                                br
+                                .row
+                                    input(type="text", value=val[i].trim(), name="answertext_r", required)
+                                    input(type="text", name="radio", id="answer_"+item.id,value="-", required)
+                                    | + правильно, - не правильно
+                    if item.type == "checkbox"
+                        input(type="hidden", name="checkboxs", value=item.id)
+                        -var val = item.answer.split(";")
+                        -var va = item.right_.split(";")
+                        if val.length > 2
+                            -val.pop()
+                        if va.length > 2
+                            -va.pop()
+                        input(type="hidden", name="answers", value=(val.length-1))
+                        -for (var i = 0; i < val.length; i++)
+                            -for(var ii = 0; i<va.length;ii++)
+                                if i == va[ii]
+                                    label(for="answer_"+item.id) Ответ
+                                    br
+                                    .row
+                                        input(type="text", value=val[i].trim(), name="answertext_c", required)
+                                        input(type="text", name="checkbox", id="answer_"+item.id, value="+", required)
+                                        | + правильно, - не правильно
+                                else
+                                    label(for="answer_"+item.id) Ответ
+                                    br
+                                    .row
+                                        input(type="text", value=val[i].trim(), name="answertext_c", required)
+                                        input(type="text", name="checkbox", id="answer_"+item.id, value="-", required)
+                                        | + правильно, - не правильно
+                    if item.type == "textbox"
+                        input(type="hidden", name="textboxs", value=item.id)
+                        label(for="right_"+item.id) Ответ
+                        br
+                        textarea(cols="30", rows="10", name="textbox", id="right_"+item.id, required)=item.right_
+                    br
+                    if item.f
+                        input(type="hidden", name="files", value=item.id)
+                        label(for="f_"+item.id) Файл
+                        br
+                        input(type="text", value=item.f, name="file", id="f_"+item.id)
+                    hr
+        button.btn.btn-success(type="submit") Принять изменения
+        a(href="/olympList")
+            button.btn.btn-primary Вернуться назад

@@ -1,0 +1,421 @@
+body{
+    background:linear-gradient(50deg,#675192, #0f0b14);
+}
+
+article{
+    padding: 20px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: white;
+}
+
+article .olymp-head{
+
+}
+
+article .olymp-head input[type = text]{
+    display: block;
+    font-size: 50px;
+    border: none;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+article .olymp-head span{
+    font-size: 30px;
+}
+
+article .olymp-head .olymp-cat{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+article .olymp-head .olymp-cat input{
+    display: none;
+}
+
+article .olymp-head .olymp-cat label{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+article .olymp-head .olymp-cat input + label::before, article .olymp-head .olymp-cat input:checked + label::before{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background-color: lightgray;
+    background-size: cover;
+    background-position: 50%;
+}
+
+article .olymp-head .olymp-cat input:checked + label::before{
+    background-color: dodgerblue;
+}
+
+#prog + label::before{
+    background-image: url("../images/prog.png");
+}
+
+#arch + label::before{
+    background-image: url("../images/arch.png");
+}
+
+#office + label::before{
+    background-image: url("../images/office.png");
+}
+
+#mech + label::before{
+    background-image: url("../images/mech.png");
+}
+
+#weld + label::before{
+    background-image: url("../images/weld.png");
+}
+
+#art + label::before{
+    background-image: url("../images/art.png");
+}
+
+article .olymp-body{
+    margin-bottom: 20px;
+}
+
+article .olymp-body .question{
+
+}
+
+article .olymp-body .question span{    
+    display: block;
+    font-size: 25px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    background-color: blueviolet;
+    color: white;
+}
+
+article .olymp-body .question span .answ_types{    
+    display: inline;
+    float: right;
+}
+
+article .olymp-body .question span .answ_types input{    
+    display: none;
+}
+
+article .olymp-body .question span .answ_types input + label{    
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+article .olymp-body .question span .answ_types input + label::before,article .olymp-body .question span .answ_types input:checked + label::before{    
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: lightgray;
+    background-size: 80%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+article .olymp-body .question span .answ_types input:checked + label::before{    
+    background-color: dodgerblue;
+}
+
+article .olymp-body .question span .answ_types input[value = radio] + label::before,article .olymp-body .question span .answ_types input[value = nothing]:checked + label::before{    
+    background-image: url(../images/radio.png);
+}
+
+article .olymp-body .question span .answ_types input[value = checkbox] + label::before,article .olymp-body .question span .answ_types input[value = code]:checked + label::before{    
+    background-image: url(../images/checkbox.png);
+}
+
+article .olymp-body .question span .answ_types input[value = text] + label::before,article .olymp-body .question span .answ_types input[value = image]:checked + label::before{    
+    background-image: url(../images/textbox.png);
+}
+
+article .olymp-body .question span p{    
+    display: inline-block;
+}
+
+article .olymp-body .question .delete-question{
+    display: block;
+    float: right;
+    font-size: 20px;
+    padding: 3px 13px;
+    background-color: red;
+    color: white;
+}
+
+article .olymp-body .question span::before{    
+    content: 'Вопрос №';
+    margin-bottom: 10px;
+}
+
+article .olymp-body .question .question-text{
+    font-size: 25px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+article .olymp-body .question .answers{
+
+}
+
+article .olymp-body .question .answers .answer{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+article .olymp-body .question .answers .answer input[type = text]{
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    width: calc(100% - 100px);
+}
+
+article .olymp-body .question .answers .answer input[type = radio]{
+    display: none;
+}
+
+article .olymp-body .question .answers .answer input[type = radio] + label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+article .olymp-body .question .answers .answer input[type = radio] + label::before{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: lightgray;
+    border-radius: 100%;
+}
+
+article .olymp-body .question .answers .answer input[type = radio] + label::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: none;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 100%;
+}
+
+article .olymp-body .question .answers .answer input[type = radio]:checked + label::before{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: dodgerblue;
+    border-radius: 100%;
+}
+
+article .olymp-body .question .answers .answer input[type = radio]:checked + label::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: none;
+    border: 2px solid white;
+    border-radius: 100%;
+}
+
+/**/
+
+article .olymp-body .question .answers .answer input[type = checkbox]{
+    display: none;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox] + label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox] + label::before{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: lightgray;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox] + label::after{
+    content: '';
+    position: absolute;
+    background-color: none;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox]:checked + label::before{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: dodgerblue;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox]:checked + label::after{
+    content: '✓';
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: none;
+    color: white;
+}
+
+/**/
+article .olymp-body .question .answers .answer .delete-answer{
+    font-size: 20px;
+    padding: 0 10px;
+    background-color: red;
+    color: white;
+}
+
+article .olymp-body .question .answers .answer .delete-answer::before{
+    content: '-';
+}
+
+article .olymp-body .question .create-answer{
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: blueviolet;
+    color: white;
+}
+
+article .olymp-body .question .create-answer::before{
+    content: 'Создать ответ';
+}
+
+article .olymp-body .opt-content{
+
+}
+
+article .olymp-body .opt-content .type-choose{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+article .olymp-body .opt-content .type-choose input[type = radio]{
+    display: none;
+}
+
+article .olymp-body .opt-content .type-choose input[type = radio] + label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border-radius: 100%;
+}
+
+article .olymp-body .opt-content .type-choose input[type = radio] + label::before,article .olymp-body .opt-content .type-choose input[type = radio]:checked + label::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border-radius: 100%;
+    background-color: lightgray;
+    background-size: 80%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+article .olymp-body .opt-content .type-choose input[type = radio]:checked + label::before{
+    background-color: dodgerblue;
+}
+
+article .olymp-body .opt-content .type-choose input[value = code] + label::before,article .olymp-body .opt-content .type-choose input[value = code]:checked + label::before{
+    background-image: url("../images/code.png");
+}
+
+article .olymp-body .opt-content .type-choose input[value = nothing] + label::before,article .olymp-body .opt-content .type-choose input[value = nothing]:checked + label::before{
+    background-image: url("../images/nothing.png") !important;
+}
+
+article .olymp-body .opt-content .type-choose input[value = image] + label::before, article .olymp-body .opt-content .type-choose input[value = image]:checked + label::before{
+    background-image: url("../images/picture.png");
+}
+
+article .olymp-body .opt-content .opt-content-values{
+
+}
+
+article .olymp-body .opt-content .opt-content-values input[type = file]{
+
+}
+
+article .olymp-body .opt-content .opt-content-values textarea{
+    border: 1px solid rgb(200, 200, 200);
+    border-left: 5px solid blueviolet;
+    border-radius: 5px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+article .olymp-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+article .olymp-buttons .button-create{
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: blueviolet;
+    color: white;
+}
+
+article .olymp-buttons .button-create::before{
+    content: 'Создать вопрос';
+}
+
+article .olymp-buttons .button-save{
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: blueviolet;
+    color: white;
+    justify-self: flex-end;
+    border: none;
+}
+
+article .olymp-buttons .button-save:before{
+    content: 'Сохранить олимпиаду';
+}

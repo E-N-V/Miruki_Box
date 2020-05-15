@@ -1,0 +1,17 @@
+class MyClass 
+    { 
+        static void Main() 
+        { 
+            int a = 1, b = 2; 
+            change(ref a, ref b); 
+            Console.WriteLine("a=" + a + ", b=" + b); 
+            Console.ReadLine(); 
+        } 
+ 
+        private static void change(ref int a, ref int b) 
+        { 
+            int c = a; 
+            a = b; 
+            b = c; 
+        } 
+    } 

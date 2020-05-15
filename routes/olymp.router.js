@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const route = express_1.Router();
+const olymp_controller_1 = require("../controllers/olymp.controller");
+route.get("/olympList", olymp_controller_1.OlympList);
+route.get("/olympList/create", olymp_controller_1.OlympCreate);
+route.get("/olympList/redact/:id", olymp_controller_1.OlympRedact);
+route.get("/olympList/:id", olymp_controller_1.OlympIdView);
+route.get("/walk/:id", olymp_controller_1.OlympWalk);
+route.post("/result", olymp_controller_1.OlympResult);
+route.post("/olympList/redact/:id", olymp_controller_1.OlympRedactPOST);
+route.post("/olympList/create", olymp_controller_1.OlympCreatePOST);
+exports.default = route;

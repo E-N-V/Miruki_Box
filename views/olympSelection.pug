@@ -1,0 +1,31 @@
+extends ../public/index
+
+block header
+    
+    //-link(rel='stylesheet', href='../stylesheets/olympSelection.css')
+    link(rel='stylesheet', href='../stylesheets/olympSelectionDELUXE.css')
+    link(rel='stylesheet', href='../stylesheets/bootstrap/bootstrap.min.css')
+    title #{title}
+
+block main
+    article
+        if olymp.length < 0
+            h4#nothingMassage Олимпиад не найденно
+        else
+            section(style="margin-top: 100px")
+                each val in olymp
+                    a(href="?section=" + val.section) #{val.section}
+                    //Новый вывод
+                    // \/ Рабочая зона \/
+                    // С сервера прилетает olymp - массив массивов, тоесть он похож на [[/**/],[/**/],[/**/]]
+                    // В нем есть поля section, title, except, description
+                    // Все работай, чтобы вывод был как раньше и лучше
+                    // /\ Рабочая зона /\
+            div(style="margin: 30px 5% 10px 5%; display:none;")
+            each item in olymp
+                    .card
+                        .card-header
+                            p #{item.title}
+                        .card-body
+                            p.card-text #{item.except}
+                            a.btn.btn-primary(href="/olympList/"+item.id) Участвовать!

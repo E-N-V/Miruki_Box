@@ -1,0 +1,30 @@
+extends ../public/index
+
+block header
+    link(rel='stylesheet', href='../stylesheets/olympInfo.css')
+    title Информация об олимпиаде
+
+block main
+    article
+      section
+
+        h1 #{olymp.name}
+        ul
+            li Ограничение по времени: #{Number(olymp.time) / 60} минут #{Number(olymp.time) % 60} секунд
+            li Всего вопросов: #{UsrJsonPassed.question}
+            li Всего человек прошло: #{UsrJsonPassed.usr.length}
+        if usr
+          a(href="/walk/" + olymp.id)
+            button.btn.btn-primary Приступить к прохождению!
+        else
+          button.btn.btn-primary(disabled) Приступить к прохождению!
+        .users
+          .user
+            .avatar
+            ul
+              li Иванов Иван Иванович
+              li Верных ответов: 10
+              li Время: 20 минут
+              li Дата прохождения: 01.05.2020
+            .medal
+              span.rating B

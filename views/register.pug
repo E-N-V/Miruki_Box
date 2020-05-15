@@ -1,0 +1,45 @@
+extends ../public/index
+
+block header
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <script src="scripts/main.js"></script>
+    <link rel="stylesheet" href="stylesheets/registration.css">
+    <title>#{title_page}</title>
+
+block main
+    article
+        section
+            div X
+            form(action="/register" method="post")
+                span имя
+                input(type="text" name="first_name" required)
+                span фамилия
+                input(type="text" name="second_name" required)
+                span отчество
+                input(type="text" name="third_name" required)
+                span почта
+                input(type="text" name="e_mail" required)
+                span пароль
+                input(type="password" name="password" required)
+                span повторите пароль
+                input(type="password" name="conf_password" required)
+
+                p Я даю разрешение на обработку данных 
+                    input(type="checkbox" name="confidential" required)
+
+                p Я принимаю условия 
+                    a(href="" class="userAgree") пользовательского соглашения
+                    input(type="checkbox" name="accept_conditions" required)
+
+                button(type="submit" id="sub") Регистрация
+
+                a(href="login" class="toLogin") У меня уже есть аккаунт
+                <script src="scripts/registration/main.js"></script>
+    
+    if err
+        div(style="border: solid red 1px; display: ; background: black; /*! opacity: 1; */position: absolute;width: 20%;height: auto;top: 25%;left: 20%;color: white;transform: translate(-50%, -50%);")
+            center
+                h2(center) Ошибка
+                p #{err}

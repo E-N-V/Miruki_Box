@@ -1,0 +1,16 @@
+#include <iostream> 
+ 
+void qwer(int &param) 
+{ 
+  param += 15; 
+} 
+ 
+int main(void) 
+{ 
+  int a = 14; 
+  void (*realFunction)(int &) = &qwer;   
+  realFunction(a); 
+ 
+  std::cout << a; 
+  return 0; 
+} 

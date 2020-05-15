@@ -1,0 +1,60 @@
+extends ../public/index
+
+block header
+    link(rel='stylesheet', href='/stylesheets/olympConstructor.css')
+    script(src='/scripts/olympConstructor.js')
+    title #{title}
+    
+block main
+    form(action="")
+        article
+            section(class="olymp-head")
+                input(type="text" name="olymp-name" placeholder="Название олимпиады" )
+                span(id="cat-name") Программирование
+                .olymp-cat
+                    input(type="radio", name="olymp-cat" value="prog" id="prog" onclick="catChange(0)")
+                    label(for="prog")
+                    input(type="radio", name="olymp-cat" value="office" id="office" onclick="catChange(1)")
+                    label(for="office")
+                    input(type="radio", name="olymp-cat" value="arch" id="arch" onclick="catChange(2)")
+                    label(for="arch")
+                    input(type="radio", name="olymp-cat" value="weld" id="weld" onclick="catChange(3)")
+                    label(for="weld")
+                    input(type="radio", name="olymp-cat" value="mech" id="mech" onclick="catChange(4)")
+                    label(for="mech")
+                    input(type="radio", name="olymp-cat" value="art" id="art" onclick="catChange(5)")
+                    label(for="art")
+
+            section(class="olymp-body")
+                .question
+                    span 
+                        p.p 1
+                        .delete-question(onclick="deleteQuest(0)") -
+                        .answ_types
+                            input(type="radio", name="answer-type_1" value="radio" id="answer-type_1_1" onclick="changeAnswerType(0,'radio')" checked)
+                            label(for="answer-type_1_1")
+                            input(type="radio", name="answer-type_1" value="checkbox" id="answer-type_2_1" onclick="changeAnswerType(0,'checkbox')")
+                            label(for="answer-type_2_1")
+                            input(type="radio", name="answer-type_1" value="text" id="answer-type_3_1" onclick="changeAnswerType(0,'text')")
+                            label(for="answer-type_3_1")
+                    input(type="text", name="question_1" class="question-text" placeholder="Вопрос")
+                    .answers
+                        .answer
+                            input(type="text", name="answer_1_1" placeholder="Ответ")
+                            input(type="radio", name="right-answer_1" value="1" id="answer_1_1")
+                            label(for="answer_1_1")
+                            .delete-answer(onclick="deleteAnswer(0)")
+                    .create-answer(onclick="createAnswer(0)")
+                    .opt-content
+                        .type-choose
+                            input(type="radio", name="opt-content-type_1" value="nothing" id="opt-content-type_1_1" onclick="typeChoose(0,'nothing')" checked)
+                            label(for="opt-content-type_1_1")
+                            input(type="radio", name="opt-content-type_1" value="code" id="opt-content-type_2_1" onclick="typeChoose(0,'code')")
+                            label(for="opt-content-type_2_1")
+                            input(type="radio", name="opt-content-type_1" value="image" id="opt-content-type_3_1" onclick="typeChoose(0,'image')")
+                            label(for="opt-content-type_3_1")
+                        .opt-content-values
+                    
+            section(class="olymp-buttons")
+                div.button-create(onclick="toddDuty()")
+                button.button-save

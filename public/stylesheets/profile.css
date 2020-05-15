@@ -1,0 +1,341 @@
+article{
+background:linear-gradient(50deg,#675192, #0f0b14);
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 5vh;
+}
+
+section .mainUserBlock, section .olymps{
+    box-sizing: border-box;
+    background-color: white;
+    width: calc(60% - 40px);
+    margin: 20px;
+}
+
+/*Тут основная инфа*/
+section .mainUserBlock{
+    padding: 25px;
+}
+
+section .mainUserBlock .avatarBlock{
+    margin-right: 25px;
+    float: left;
+    width: 350px;
+    height: 350px;
+    background-image: url("../images/avatar.png");
+    background-size: contain;
+}
+
+section .mainUserBlock .surName{
+    font-size: 68px;
+}
+
+section .mainUserBlock .otherNames{
+    font-size: 36px;
+    font-weight: lighter;
+}
+
+section .mainUserBlock .userInfo{
+    list-style: none;
+    font-size: 24px;
+}
+
+section .mainUserBlock button{
+    display: block;
+    font-size: 20px;
+    color: white;
+    background-color: blueviolet;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    border: none;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+/*тут олимпиады*/
+
+section .olymps{
+    padding: 25px;
+    width: 100%;
+}
+
+section .olymps h5{
+    font-size: 44px;
+    font-weight: lighter;
+    text-align: center;
+}
+
+section .olymps .olymp{
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    margin: 25px 0;
+    padding: 10px;
+}
+
+section .olymps .olymp .medal{
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-position: 50%;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.gold{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    width: 90px !important;
+    height: 90px !important;
+    background-image: url("../images/goldmedal.png");
+    color: #FFDB86;
+    text-shadow: -3px 3px 0 #CC9C2A;
+}
+
+.silver{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    width: 90px !important;
+    height: 90px !important;
+    background-image: url("../images/silvermedal.png");
+    color: #C2C2C2;
+    text-shadow: -3px 3px 0 #818181;
+}
+
+.bronze{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    width: 90px !important;
+    height: 90px !important;
+    background-image: url("../images/bronzemedal.png");
+    color: #FFA086;
+    text-shadow: -3px 3px 0 #CC4D2A;
+}
+
+.junk{
+    background-image: url("../images/junkmedal.png");
+    color: #BFCBFF;
+    text-shadow: -3px 3px 0 #7687CC;
+    margin-right: 15px !important;
+}
+
+section .olymps .olymp .olympInfo{
+    flex-grow: 1;
+}
+
+section .olymps .olymp .olympInfo h3{
+    font-size: 44px;
+    font-weight: lighter;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+section .olymps .olymp .olympInfo span{
+    font-size: 18px;
+}
+
+section .olymps .olymp h4{
+    width: 200px;
+    font-size: 41px;
+}
+
+section .olymps img{
+    margin-left: 30%;
+    width: 40%;
+}
+
+/* тут твои олимпиады*/
+
+.userOlymps{
+    display: flex;
+    box-sizing: border-box;
+    background-color: white;
+    width: calc(40% - 40px);
+    margin: 20px;
+    padding: 20px;
+}
+
+.userOlymps .olympsCreation{
+    border-right: 2px solid black;
+    width: 50%;
+}
+
+.userOlymps .olympsCreation img{
+    width: 100%;
+    margin-right: 20px;
+}
+
+.userOlymps .olympsCreation button{
+    display: block;
+    font-size: 20px;
+    color: white;
+    background-color: blueviolet;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    border: none;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.userOlymps .olympsCreation span{
+    font-size: 20px;
+}
+
+.userOlymps .olympsList{
+    width: 50%;
+    padding-right: 20px;
+}
+
+.userOlymps .olympsList p{
+    font-size: 30px;
+    border-bottom: 2px solid black;
+    padding: 5px;
+}
+
+.userOlymps .olympsList span{
+    display: block;
+    background-color: lightgray;
+    padding: 5px;
+    width: calc(100% - 20px);
+    margin: 10px;
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis;
+}
+
+/*тесты*/
+
+.tests{
+    width: 100%;
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+}
+
+.tests h5{
+    width: 100%;
+    font-size: 50px;
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tests .test{
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 10px;
+}
+
+.tests .test h3{
+    font-size: 40px;
+}
+
+.tests .test span{
+    font-size: 20px;
+}
+
+.tests .test .score{
+    font-size: 40px;
+    flex-grow: 1;
+    text-align: end;
+    height: 45px;
+    padding-right: 20px;
+}
+
+@media (max-width: 1150px){
+
+    section .mainUserBlock .avatarBlock{
+        width: 100px;
+        height: 100px;
+    }
+
+    .mainUserBlock{
+        width: 100% !important;
+    }
+
+    .userOlymps{
+        box-sizing: border-box;
+        width: calc(100% - 40px) !important;
+    }
+}
+
+@media (max-width: 860px){
+    section .olymps .olymp .olympInfo h3{
+        font-size: 20px;
+    }
+
+    section .olymps .olymp h4{
+        font-size: 30px;
+        width: 100px;
+    }
+}
+
+/*profile change*/
+
+.profileChange{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.profileChange .changeMenu{
+    background-color: white;
+    position: relative;
+    padding: 25px;
+}
+
+.profileChange .changeMenu p{
+    font-size: 30px;
+}
+
+.profileChange .changeMenu span{
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.profileChange .changeMenu span input{
+
+}
+
+
+.profileChange .changeMenu button{
+    display: block;
+    font-size: 20px;
+    color: white;
+    background-color: blueviolet;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    border: none;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.profileChange .changeMenu .close{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top:-25px;
+    font-size: 40px;
+    color: white;
+    padding: 5px 10px;
+    background-color: blueviolet;
+}

@@ -6,47 +6,188 @@
 цвет
 декорирование
 */
+
+.preLoader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+}
+
+.loadingText{
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    transform: translate(1px,1px);
+    width: 65.33px;
+}
+
+.loadingText:after{
+    content:'...';
+    animation: dots 3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes dots {
+    0% {
+        content:'';
+    }
+
+    25% {
+        content:'.';
+    }
+    
+    50% {
+        content:'..';
+    }
+
+    75% {
+        content:'...';
+    }
+}
+
+.carousel{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border-width: 5px;
+    border-style: solid;
+    outline-width: 5px;
+    outline-style: solid;
+    outline-offset: -5px;
+    animation: ceepRolling 5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes ceepRolling {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.hideLoader{
+    animation: predatorMode 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes predatorMode {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.preLoader img{
+    width: 100px;
+}
+
+@font-face {
+    font-family: Roboto; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf); /* Путь к файлу со шрифтом */
+   }
+
+   @font-face {
+    font-family: Roboto-light; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Light.ttf); /* Путь к файлу со шрифтом */
+   }
+
+   @font-face {
+    font-family: Roboto-bold; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf); /* Путь к файлу со шрифтом */
+   }
+
+   @font-face {
+    font-family: Roboto-italic; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf); /* Путь к файлу со шрифтом */
+   }
+
+   @font-face {
+    font-family: Roboto-italic; /* Имя шрифта */
+    src: url(../fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf); /* Путь к файлу со шрифтом */
+   }
+
+   @font-face {
+    font-family: Pacifico; /* Имя шрифта */
+    src: url(../fonts/Pacifico/Pacifico-Regular.ttf); /* Путь к файлу со шрифтом */
+   } 
+   
 *{
     margin: 0;
     padding: 0;
+    text-decoration: none;
+}
+
+*:focus{
+    outline: none;
+}
+
+#preLoader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    z-index: 2;
+}
+
+html{
+    font-family: Roboto ,Arial, Helvetica, sans-serif;
+    font-stretch: expanded;
 }
 
 /*__________ header __________*/
-html{
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 header{
+    z-index:1;
+    top:0;
+    position: fixed;
     box-sizing: border-box;
     width: 100%;
     height: 50px;
-    padding-left: 50px;
     background-color: blueviolet;
+    box-shadow: 0 10px 5px -10px black inset,0 -10px 5px -10px black inset;
 }
 
 .siteLogo{
-    font-family: 'Pacifico', cursive;
-    display: flex;
+    font-family: Pacifico, cursive;
     float: left;
+    margin-left: 15px;
+}
+
+.siteLogo a{
+    display: flex;
+    align-items: center;
     height: 50px;
 }
 
-.siteLogo img{
-    width: 50px;
-    height: 50px;
+.siteLogo a img{
+    width: 35px;
+    height: 35px;
 }
 
-.siteLogo span{
+.siteLogo a span{
     font-size: 30px;
     color:white;
+    margin-bottom: 5px
 }
 
 .userMenu{
     display: flex;
     float: right;
-    align-items: flex-end;
+    align-items: center;
+    height: 100%;
 }
-
+/*
 .usersNoteAmount{
     position: absolute;
     right: 0;
@@ -55,6 +196,7 @@ header{
 }
 
 .massages,.notifications{
+    margin-top: 10px;
     position: relative;
     width: 40px;
     height: 40px;
@@ -64,19 +206,18 @@ header{
 
 .massages{
     width: 50px;
-    background-image: url('../images/massages.svg');
+    background-image: url('../images/massages.png');
 }
 
 .notifications{
     width: 35px;
     background-position: 30% 0;
-    background-image: url('../images/notifications.svg');
+    background-image: url('../images/notifications.png');
 }
 
 .avatar{
     margin-left: 5px;
     box-sizing: border-box;
-    margin-top: 5px;
     margin-right: 15px;
     width: 40px;
     height: 40px;
@@ -86,7 +227,7 @@ header{
     background-size: 150% 150%;
     background-position: 50% 50%;
 }
-
+*/
 @media screen and (max-width: 400px){
     
     header .siteLogo span{
@@ -95,109 +236,221 @@ header{
 }
 
 /*__________ nav __________*/
-nav{
-    z-index: 1;
-    position: fixed;
-    transition: 1s;
-    transition-timing-function: ease-in-out;
-    overflow: hidden;
-    width: 50px;
-    height: 100vh;
-    background-color: black;
-}
+    .blickDagger{
+        position: fixed;
+        z-index: 1;
+        height: 4em; /*Ну хз EM использовать прикольно но лень рефакторить*/
+        width: 4em;
+        bottom: 20px;
+        right: 20px;
+        background-color: blueviolet;
+        border-radius: 100%;
+        display: none;
+    }
 
-nav:hover {
-    width: 300px;
-}
+    .nav-zatychka{
+        box-sizing: border-box;
+        float: left;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 5px;
+    }
+    
+    .nav-zatychka span{
+        padding: 5px 0;
+        padding-left: 20px;
+        color: white;
+        font-size: 25px;
+    }
+    
+    .nav-zatychka span:hover{
+        color: rgb(134, 134, 255);
+    }
 
-nav .siteLogo{
-    width: 250px;
-    height: 50px;
-    margin-left: 50px;
-    margin-bottom: 10px;
-}
+    .nav-main{
+        margin-right: 15px;
+        box-sizing: border-box;
+        display: none;
+        height: 40px;
+        width: 40px;
+        border: 4px solid white;
+    }
 
-nav .siteLogo img{
-    width: 50px;
-    height: 50px;
-}
+    .nav-content{
+        display: none;
+        flex-wrap: wrap;
+        z-index:1;
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        right: 0;
+        background-color: white;
+    }
 
-nav .siteLogo span{
-    font-size: 30px;
-    color: deeppink;
-}
-.siteSection{
-    white-space: nowrap;
-    display: flex;
-    float: right;
-    clear: both;
-    height: 50px;
-    color: gray;
-}
+    .nav-content a{
+        width: 100%;
+    }
 
-.siteSection .ico{
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-    background-color: gray;
-}
+    .nav-content a span{
+        box-sizing: border-box;
+        clear: both;
+        display: block;
+        padding: 10px;
+    }
+    
+    @media (max-width: 800px){
+        .blickDagger{
+            height: 3em;
+            width: 3em;
+        }
 
-.siteSection .ico .siteSection:hover{
-    background-color: deeppink;
-}
+        .nav-zatychka{
+            display: none;
+        }
 
-.siteSection:hover {
-    color:deeppink;
-}
+        .nav-main{
+            display: block;
+        }
+
+        .avatar{
+            margin-right: 10px;
+        }
+    }
+
+    .userBlock{
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        margin-right: 15px;
+    }
+
+    .userBlock .userProfile{
+        width: 36px;
+        height: 36px;
+        background-image: url("../images/avatar.png");
+        display: inline-block;
+        background-size: contain;
+        border: 2px solid white;
+    }
+
+    .userBlock .notifications{
+        width: 40px;
+        height: 40px;
+        background-image: url("../images/bell.png");
+        display: inline-block;
+        background-size: contain;
+        margin-right: 10px;
+    }
+
+    .userBlock .register{
+        width: 40px;
+        height: 40px;
+        background-image: url("../images/regLogo.png");
+        display: inline-block;
+        background-size: contain;
+        margin-right: 10px;
+    }
+
+    .userBlock .login{
+        width: 40px;
+        height: 40px;
+        background-image: url("../images/logLogo.png");
+        display: inline-block;
+        background-size: contain;
+        margin-right: 10px;
+    }
+
+    .noteWindow{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 0;
+        transition: 1s;
+        width: 300px;
+        background-color: rgb(70, 61, 98);
+        padding-top: 10px;
+        transform: translate(0,-100%);
+    }
+
+    .noteWindow .note{
+        background-color: white;
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .noteWindow .note button{
+        box-shadow: 0 0 5px black;
+        display: block;
+        color: white;
+        background-color: blueviolet;
+        padding: 5px 10px;
+        border: none;
+        margin-top: 10px;
+    }
+
+    .noteWindow::after{
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        color: white;
+        content: "оповещения";
+        text-align: center;
+        background-color: blueviolet;
+        height: 40px;
+        width: 100%;
+    }
 
 /*__________ article __________*/
 article{
+    margin-top: 50px;
     box-sizing: border-box;
     width: 100%;
-    min-height: calc(100vh - 100px);
-    padding-left: 50px;
+    min-height: calc(100vh - 224px);
     background-color: #FFF;
 }
 /*__________ footer __________*/
 footer{
+
+    display: flex;
     box-sizing: border-box;
+    justify-content: flex-start;
     width: 100%;
-    height: 50px;
-    padding-left: 50px;
-    background-color: blueviolet;
+    padding: 20px 10%;
+    background-color: black;
+    color: white;
 }
 
-@media screen and (max-width: 450px){
-    nav{
-        position: fixed;
-        height: 50px;
-        width: 100%;
-        bottom: 0;
-    }
+footer a{
+    color: white;
+}
 
-    nav .siteLogo{
-        display: none;
-    }
+footer a:hover{
+    color: rgb(223, 155, 255);
+}
 
-    nav{
-        display: flex;
-        justify-content: center ;
-    }
+footer a:focus{
+    color: rgb(223, 155, 255);
+    text-shadow: 0 0 5px white;
+}
 
-    article,footer,header{
-        margin: 0px;
-        padding: 0px;
-    }
+footer ul{
+    list-style: none;
+    padding: 20px 5%;
+}
 
-    footer{
-        height:100px;
-    }
+footer ul li{
+    font-size: 15px;
+}
 
-    nav .siteSection span{
-        display: none;
-    }
-
-    nav .siteSection .ico{
-        margin: 0 20px;
-    }
+footer ul li:first-child{
+    font-size: 18px;
+    font-weight: bolder;
+    letter-spacing: 1px;
 }

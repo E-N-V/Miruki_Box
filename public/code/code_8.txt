@@ -1,0 +1,14 @@
+class Test  
+{ 
+    static void f(ref int a, out int b) 
+    { 
+        a = 10 + b;  
+    } 
+ 
+    static void Main(string[] args) 
+    { 
+        int a; 
+        int b = 5.0;  
+        f(ref a, out b); 
+    } 
+} 

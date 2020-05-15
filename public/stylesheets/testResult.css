@@ -1,0 +1,169 @@
+article{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(50deg,#675192, #0f0b14);
+}
+
+section{
+    position: relative;
+    padding: 20px;
+    width: 300px;
+    background-color: white;
+    text-align: center;
+}
+
+section *{
+    text-align: left;
+}
+
+section H1{
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+
+section p{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+
+
+
+
+section .moreInfo{
+    margin-top: 40px;
+    margin-bottom: 120px;
+}
+
+section .moreInfo .train, section .moreInfo .rail{
+    stroke-width: 8 !important;
+}
+
+section .moreInfo .train{
+    stroke-dasharray: 190;
+    stroke-dashoffset: calc(190 - (190*70) / 100);
+}
+
+section .moreInfo .time .train{
+    stroke: rgb(0, 68, 255);
+}
+
+section .moreInfo .time .vagon{
+    fill: none;
+    stroke-width: 8;
+    stroke: rgb(235, 235, 235);
+    stroke-dasharray: 190;
+    stroke-dashoffset: calc(190 - (190*1) / 100);
+    stroke-linecap: initial;
+    stroke: red;
+}
+
+section .moreInfo .answers .train{
+    stroke: orange;
+}
+
+
+section .moreInfo .answers{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+}
+
+section .moreInfo .answersTitle{
+    position: absolute;
+    transform: translate(2px,75px);
+}
+
+section .moreInfo .answersP{
+    text-align: center;
+    position: absolute;
+    transform: translate(7px,25px);
+    width: 60px;
+}
+
+section .moreInfo .timeP{
+    text-align: center;
+    position: absolute;
+    right: 20px;
+    transform: translate(-3px,25px);
+    width: 60px;
+}
+
+section .moreInfo .time{
+    position: absolute;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+}
+
+section .moreInfo .timeTitle{
+    transform: translate(2px,75px);
+    position: absolute;
+    right: 20px;
+}
+
+
+
+
+
+
+
+
+section .final{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .final p{
+    position: absolute;
+    transform: translateY(100px);
+}
+
+section .final svg{
+    width: 150px;
+}
+
+section .train,.rail{
+    fill: none;
+    stroke-width: 10;
+    stroke: rgb(235, 235, 235);
+}
+
+section .final .train{
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440*70) / 100);
+    stroke: blueviolet;
+}
+
+section .final .procent{
+    position: absolute;
+    font-size: 40px;
+}
+
+section .final .medal{
+    position: absolute;
+    transform: translate(60px,40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-image: url("../images/userCoin.png");
+    background-size: contain;
+    color: #8557A7;
+    font-size: 40px;
+    text-shadow: -2px 0 0 rgb(64, 33, 87);
+}
+
+section button{
+    padding: 10px 20px;
+    font-size: 30px;
+    background-color: blueviolet;
+    color: white;
+    box-shadow: 0 0 10px black;
+    border: none;
+    margin-top: 60px;
+}

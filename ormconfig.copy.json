@@ -1,0 +1,15 @@
+{
+   "type": "mysql",
+   "host": "eu-cdbr-west-03.cleardb.net",
+   "port": 3306,
+   "username": "b01cfdb5e3a176",
+   "password": "24a06c38",
+   "database": "heroku_b94048dff065425",
+   "synchronize": true,
+   "entities": [
+      "./database/entity/**/*.js"
+   ],
+   "cli": {
+      "entitiesDir": "./database/entity/"
+   }
+}

@@ -1,0 +1,98 @@
+doctype
+html(lang="en")
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet', href='/stylesheets/main.css')
+        script(src='/scripts/main.js')
+        block header
+    body
+        .preLoader
+            .carousel
+            p.loadingText Loading
+        header#header
+            .siteLogo
+                a(href='/')
+                    img(src='/images/logover2.png', alt='')
+                    span MirukiBox
+            nav.nav-zatychka
+                a(href='/olympList')
+                    span
+                        | Олимпиады
+                a(href='/certificate')
+                    span
+                        | Сертификаты
+                a(href='/about')
+                    span
+                        | О нас
+            .userMenu
+                //
+                    <div class="massages">
+                    <span class="usersNoteAmount"> 0 </span>
+                    </div>
+                    <div class="notifications">
+                    <span class="usersNoteAmount"> 0 </span>
+                    </div>
+                    <div class="avatar">
+                    </div>
+                .nav-main(onclick='navOpen()')
+                .nav-content
+                    a(href='/')
+                        span
+                            | Главная
+                    a(href='/olympList')
+                        span
+                            | Олимпиады
+                    a(href='/certificate')
+                        span
+                            | Сертификаты
+                    a(href='/about')
+                        span
+                            | О нас
+            div(class="userBlock")
+                if usr
+                    a(href="/profile")
+                        div(class="userProfile")
+                    div(class="notifications" onclick="openNote()")
+                    div(class="noteWindow")
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                            button Перейти
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                            button Перейти
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                            button Перейти
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                            button Перейти
+                        div(class="note")
+                            span Вы заняли N-е место в олимиаде "название олимпиады"
+                             button Перейти
+                else
+                    a(href="/login")
+                        div(class="login")
+                    a(href="/register")
+                        div(class="register")
+        block main
+    footer
+        ul
+            li Навигация
+            li
+                a(href="/") Главная
+            li
+                a(href="/olympList") Олимпиады
+            li
+                a(href="/certificate") Сертификаты
+            li
+                a(href="/about") О нас
+        ul
+            li Контакты
+            li Почта: standart@mail.gomo
+            li Адресс: тупо БАСК
+        .container
+            p
+            | &copy; 2020 |
+            i.fa.fa-value(aria-hidden='true') &nbsp;
+            a(href='#') View Source
