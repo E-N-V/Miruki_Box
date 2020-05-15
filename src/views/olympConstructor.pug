@@ -3,91 +3,90 @@ extends ../public/index
 block header
     link(rel='stylesheet', href='/stylesheets/olympConstructor.css')
     script(src='/scripts/olympConstructor.js')
-    link#catStyle(rel='stylesheet', href='/stylesheets/cats/arch.css')
     title #{title}
     
 block main
-    form#form(action='./checked/', method='post', onsubmit='return formPass()')
-        input#counter(type='hidden', name='counter', value='0')
-        article
-            .preparation
-                .main-input
-                    // ТУТ ИМЯ И СЕКЦИЯ ОЛИМПИАДЫ
-                    span#olympCatH1 Архитектура
-                    ul
-                        li
-                            input#arch(type='radio', name='olympCat', onclick='catSwap(0)', value='arch', checked='')
-                            label(for='arch')
-                        li
-                            input#prog(type='radio', name='olympCat', onclick='catSwap(1)', value='prog')
-                            label(for='prog')
-                        li
-                            input#weld(type='radio', name='olympCat', onclick='catSwap(2)', value='weld')
-                            label(for='weld')
-                        li
-                            input#mech(type='radio', name='olympCat', onclick='catSwap(3)', value='mech')
-                            label(for='mech')
-                        li
-                            input#office(type='radio', name='olympCat', onclick='catSwap(4)', value='office')
-                            label(for='office')
-                        li
-                            input#art(type='radio', name='olympCat', onclick='catSwap(5)', value='art')
-                            label(for='art')
-                    input#olympName(type='text', name='', value='Название олимпиады', placeholder='Название олимпиады')
-                    .buttonSub.nextMI(onclick='MainIN(0)') Далее
-            section.redactor
-                .redactorHead
-                    img#olympICO(src='/images/arch.png', alt='')
-                    h1#olympH1 Название олимпиады
-                #redactorArea.redactorArea
-                    .help(onclick='helpInst(1)') ?
-                    .instruction
-                        .help(style='margin-right: calc(5% - 10px);', onclick='helpInst(0)') X
-                        h2 Инструкция
-                        .instSection
-                            h3 Предисловие
-                            p
-                                | Данная инструкция поможет вам понять интерфейс сайта и его рабочую оболочку, а также общее представление об определенных объектах сайта.
-                        .instSection
-                            h3 Типы вопросов
-                            p
-                                | Всего есть 3 типа вопросов, с одним ответом, с несколькими ответами, и письменным ответом.
-                            p
-                                | Первые два типа отличаются только количеством правильных ответов. Т.Е. У первого типа может быть любое кол-во ответов но только один правельный, а у второго любое кол-во ответов и любое кол-во правильных ответов
-                            p
-                                | В вопросе с письменным ответом нужно дать точный ответ. Т.Е. нету вариантов ответа. Его лучше применять когда требуется дать численный ответ или когда нужно дать точное название, по типу оператора в программировании
-                        .instSection
-                            h3 Опциональный контент
-                            p
-                                | В вопросе помимо, самого собственно вопроса и ответа могут быть картинки или код.
-                            p Выбор осуществляется посредством этого меню:
-                            img(src='/images/instr-side-type.png', alt='')
-                            p
-                                | При выборе 1-го варианта, опционального контента не будет. Т.Е. будет только вопрос и ответ.
-                            p
-                                | При выборе 2-го варианта, в вопросе будет картинка которую вы загружаете в форматах (тут перечесление).
-                            p При выборе 3-го варианта, в вопросе будет блок с кодом.
-                    #q_1.question.current
-                        h2 Выбирете тип вопроса:
-                        #radio.questMode(onclick="reDraw(document.getElementById('q_1'),  this)")
-                            img(src='/images/radio.svg', alt='')
-                            span Вопрос имеющий один ответ
-                        #checkbox.questMode(onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)")
-                            img(src='/images/checkbox.svg', alt='')
-                            span Вопрос имеющий несколько ответов
-                        #textbox.questMode(onclick="reDraw(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1], this)")
-                            img(src='/images/textbox.svg', alt='')
-                            span Вопрос на который нужно дать письменный ответ (точное число или слово)
-                .redactorButtons
-                    button(type='reset') Cancel
-                    button(type='submit') Submit
-                .backButton
-                    .buttonSub(onclick='MainIN(1)') Back
-            section.questContainer
-                #q.questions
-                    .questionsScroll
-                    #QList_1.questBlock.choosenOne(onclick='SwitchQuestion(this)')
-                        span ВОПРОС НОМЕР
-                        span.JOPA 1
-                #questCreate(onclick="AddQuestion(document.getElementsByClassName('question')[document.getElementsByClassName('question').length - 1])")
-                    span +
+    article
+        section(class="olymp-head")
+            input(type="text" name="olymp-name" placeholder="Название олимпиады" )
+            span(id="cat-name") Программирование
+            .olymp-cat
+                input(type="radio", name="olymp-cat" value="prog" id="prog" onclick="catChange(0)")
+                label(for="prog")
+                input(type="radio", name="olymp-cat" value="office" id="office" onclick="catChange(1)")
+                label(for="office")
+                input(type="radio", name="olymp-cat" value="arch" id="arch" onclick="catChange(2)")
+                label(for="arch")
+                input(type="radio", name="olymp-cat" value="weld" id="weld" onclick="catChange(3)")
+                label(for="weld")
+                input(type="radio", name="olymp-cat" value="mech" id="mech" onclick="catChange(4)")
+                label(for="mech")
+                input(type="radio", name="olymp-cat" value="art" id="art" onclick="catChange(5)")
+                label(for="art")
+
+        section(class="olymp-body")
+            .question
+                span 1
+                    .delete-question(onclick="deleteQuest(0)") -
+                input(type="text", name="question_1" class="question-text" placeholder="Вопрос")
+                .answers
+                    .answer
+                        input(type="text", name="answer_1_1" placeholder="Ответ")
+                        input(type="radio", name="right-answer_1" value="1" id="answer_1_1")
+                        label(for="answer_1_1")
+                        .delete-answer(onclick="deleteAnswer(0)")
+                    .answer
+                        input(type="text", name="answer_2_1" placeholder="Ответ")
+                        input(type="radio", name="right-answer_1" value="2" id="answer_2_1")
+                        label(for="answer_2_1")
+                        .delete-answer(onclick="deleteAnswer(1)")
+                    .answer
+                        input(type="text", name="answer_3_1" placeholder="Ответ")
+                        input(type="radio", name="right-answer_1" value="3" id="answer_3_1")
+                        label(for="answer_3_1")
+                        .delete-answer(onclick="deleteAnswer(2)")
+                    .create-answer(onclick="createAnswer(0)")
+                .opt-content
+                    .type-choose
+                        input(type="radio", name="opt-content-type_1" value="nothing" id="opt-content-type_1_1" checked)
+                        label(for="opt-content-type_1_1")
+                        input(type="radio", name="opt-content-type_1" value="code" id="opt-content-type_2_1")
+                        label(for="opt-content-type_2_1")
+                        input(type="radio", name="opt-content-type_1" value="image" id="opt-content-type_3_1")
+                        label(for="opt-content-type_3_1")
+                    .opt-content-values
+                        input(type="file", name="opt-content_1")
+                
+            .question
+                span #
+                input(type="text", name="question_1" class="question-text" placeholder="Вопрос")
+                .answers
+                    .answer
+                        input(type="text", name="answer_1_1" placeholder="Ответ")
+                        input(type="radio", name="right-answer_1" value="1" id="answer_1_1")
+                        label(for="answer_1_1")
+                        .delete-answer
+                    .answer
+                        input(type="text", name="answer_2_1" placeholder="Ответ")
+                        input(type="radio", name="right-answer_1" value="2" id="answer_2_1")
+                        label(for="answer_2_1")
+                        .delete-answer
+                    .answer
+                        input(type="text", name="answer_3_1" placeholder="Ответ")
+                        input(type="radio", name="right-answer_1" value="3" id="answer_3_1")
+                        label(for="answer_3_1")
+                        .delete-answer
+                    .create-answer
+                .opt-content
+                    .type-choose
+                        input(type="radio", name="opt-content-type_1" value="nothing" id="opt-content-type_1_1" checked)
+                        label(for="opt-content-type_1_1")
+                        input(type="radio", name="opt-content-type_1" value="code" id="opt-content-type_2_1")
+                        label(for="opt-content-type_2_1")
+                        input(type="radio", name="opt-content-type_1" value="image" id="opt-content-type_3_1")
+                        label(for="opt-content-type_3_1")
+                    .opt-content-values
+                        textarea(name="opt-content_2", cols="30", rows="10" placeholder="Код")
+        section(class="olymp-buttons")
+            button.button-create
+            button.button-save
