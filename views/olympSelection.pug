@@ -29,3 +29,6 @@ block main
                         .card-body
                             p.card-text #{item.except}
                             a.btn.btn-primary(href="/olympList/"+item.id) Участвовать!
+                            if usr
+                                a(href="/olympList/redact/"+item.id)
+                                    button.btn.btn-primary Редактировать
