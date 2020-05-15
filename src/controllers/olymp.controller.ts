@@ -94,8 +94,7 @@ export const OlympResult = async (req: Request, res: Response): Promise<any> => 
 		encoding: "utf-8",
 	});
 	await InProgressOlymp.delete(ipo);
-	res.cookie("oid", 0, { path: "/result/validate/trueUser/validateUser" });
-	return res.render("testResult", { title: "Результат", usr, dataParse, correct, time, time_pass });
+	return res.clearCookie("oid").status(200).render("testResult", { title: "Результат", usr, dataParse, correct, time, time_pass });
 };
 
 export const OlympIdView = async (req: Request, res: Response): Promise<any> => {

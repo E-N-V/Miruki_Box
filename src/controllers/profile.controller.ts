@@ -14,6 +14,6 @@ export const ProfileView = async (req: Request, res: Response): Promise<any> => 
 
 export const ProfilePOST = async (req: Request, res: Response): Promise<any> => {
 	if(req.body.exit_profile== "exit")
-		res.clearCookie("usr").status(200).redirect("/")
-	res.redirect("/profile")
+		return res.clearCookie("usr").status(200).redirect("/")
+	return res.redirect("/profile")
 }
