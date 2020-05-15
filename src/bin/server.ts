@@ -25,7 +25,7 @@ const arrRoutes: any = [HomeRouter, LoginRouter, RegisterRouter, OlympRouter, Pr
  * Init Web-site
  */
 const app = new App({
-	port: 5000,
+	port: Number(process.env.PORT) || 3000,
 	routes: arrRoutes,
 	middleWares: arrMiddlewares,
 });
