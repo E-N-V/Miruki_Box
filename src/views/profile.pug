@@ -21,7 +21,9 @@ block main
                         li Email: #{iUser.email}
                         li Роль: ###
                         li 
-                            a(href="") Выход
+                            form(action="", method="post")
+                                input(type="hidden", name="exit_profile" value="exit")
+                                button Выход
                         li 
                             button(onclick="chpok()") Изменить
                             //- TODO: сделать тут выход
@@ -54,11 +56,7 @@ block main
 
                     //-createReward(текст медали (лучше не больше 3 символов), имя олимпиады, время, место)
 
-                    createReward( 'php', 'PHP для самых маленьких', '32.16.2077', 3 )
-
-                    createReward('JS','JS для самых здоровых','11.05.1945',1)
-
-                    createReward('H5','HTML 5 для альфа самцов','19.04.2006',4)
+                    createReward( 'С#', 'С# 1.0', '15.05.2020', 3 )
             div(class="tests")
                 h5 Пройденные тесты
                 div(class="test")
