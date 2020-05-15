@@ -109,7 +109,7 @@ export default class app {
 				olympInfo.title = item.title;
 				olympInfo.except = item.except;
 				olympInfo.description = item.description;
-				await OlympInfo.insert(olympInfo);
+				await OlympInfo.save(olympInfo);
 			}
 
 			/**

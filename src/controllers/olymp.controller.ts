@@ -22,14 +22,16 @@ export const OlympWalk = async (req: Request, res: Response): Promise<any> => {
 	let olympId = Number(req.params.id);
 	let olympInfo = await OlympInfo.findOne((new OlympInfo().id = olympId));
 	let olympInfoParse = ParseFile(olympInfo!.path);
-	let question: any[] = [];
-	let dataParse: any[] = [];
-	for (let i = 0; i < 20; i++) {
-		for (const item of question) if (i == item) return;
-		let num = olympInfoParse[Math.random() * (olympInfoParse.length - 1) + 1];
-		dataParse.push(num);
-		question.push(num);
-	}
+	let dataParse: any[] = olympInfoParse;
+	/* let num = Math.floor(Math.random() * (olympInfoParse.length - 1) + 1);
+	dataParse.push(olympInfoParse[num]);
+	for (let i = 0; i < (olympInfoParse.length > 20 ? 20 : olympInfoParse.length); i++) {
+		for (const item of dataParse)
+			if (num != item.id) {
+				dataParse.push(olympInfoParse[num]);
+			}
+		num = Math.floor(Math.random() * (olympInfoParse.length - 1) + 1);
+	} */
 	res.cookie("oid", olympId, {
 		path: "/result",
 		httpOnly: true,
@@ -122,13 +124,13 @@ export const OlympRedact = async (req: Request, res: Response): Promise<any> => 
 
 export const OlympRedactPOST = async (req: Request, res: Response): Promise<any> => {
 	if (!/^([0-9])\d*$/gim.test(req.params.id)) return res.redirect("/olympList");
-    let olympInfoData = new OlympInfo();
+	let olympInfoData = new OlympInfo();
 	olympInfoData!.title = req.body.title;
 	olympInfoData!.except = req.body.except;
 	olympInfoData!.description = req.body.description;
 	olympInfoData!.time = Number(req.body.time);
 	await OlympInfo.save(olympInfoData!);
-	let count = fs.readdirSync(join(__dirname, "..", "database", "tests")).length
+	let count = fs.readdirSync(join(__dirname, "..", "database", "tests")).length;
 	fs.writeFileSync(
 		join(__dirname, "database", "json", count + ".json"),
 		JSON.stringify({
@@ -138,156 +140,167 @@ export const OlympRedactPOST = async (req: Request, res: Response): Promise<any>
 		{ encoding: "utf-8" }
 	);
 
-let olympInfo = await OlympInfo.findOne((new OlympInfo().id = count));
-olympInfo!.path_json = join(__dirname, "database", "json", count + ".json");
-olympInfo!.path = join(__dirname, "database", "tests", count.toString());
-await OlympInfo.update({ id: Number(count) }, olympInfo!);
-    let data: any[]=[];
-    if (req.body.query){
-	for (var i = 0; i < req.body.query.length; i++) {
-		data.push({
-			id: i,
-			type: "",
-			query: "",
-			answer: "",
-			right_: "",
-			f: ""
-		})
-    }}
-    if (req.body.query){
-	for (var i = 0; i < req.body.query.length; i++) {
-		data[i].query = req.body.query[i];
-    }}
-    if (req.body.radios){
-	for (
-		var i = Number(req.body.radios[0]);
-		i < Number(req.body.radios[Number(req.body.radios.length) - 1]);
-		i = Number(req.body.radios[0])
-	) {
-		data[i].type = "radio";
-		let str: string = "";
-		let ii = i;
-		for (var i = 0; i < Number(req.body.answers[0]); i++) {
-			str += req.body.answertext_r[0] + ";";
-			req.body.answertext_r.shift();
-			if (req.body.radio[0] == "+") data[ii].right_ = req.body.radio[i];
-			req.body.radio.shift();
+	let olympInfo = await OlympInfo.findOne((new OlympInfo().id = count));
+	olympInfo!.path_json = join(__dirname, "database", "json", count + ".json");
+	olympInfo!.path = join(__dirname, "database", "tests", count.toString());
+	await OlympInfo.update({ id: Number(count) }, olympInfo!);
+	let data: any[] = [];
+	if (req.body.query) {
+		for (var i = 0; i < req.body.query.length; i++) {
+			data.push({
+				id: i,
+				type: "",
+				query: "",
+				answer: "",
+				right_: "",
+				f: "",
+			});
 		}
-		data[i].answer = str;
-		req.body.radios.shift();
-    }}
-    if (req.body.textboxs){
-	for (
-		var i = Number(req.body.textbox[0]);
-		i < Number(req.body.textbox[Number(req.body.textbox.length) - 1]);
-		i = Number(req.body.textbox[0])
-	) {
-		data[i].query = "textbox";
-		let str: string = "";
-		for (var i = 0; i < req.body.textboxs.length; i++) {
-			str += req.body.textbox[0];
-			req.body.textbox.shift();
+	}
+	if (req.body.query) {
+		for (var i = 0; i < req.body.query.length; i++) {
+			data[i].query = req.body.query[i];
 		}
-		data[i].right_ = str;
-    }}
-    if (req.body.checkboxs){
-	for (
-		var i = Number(req.body.checkboxs[0]);
-		i < Number(req.body.checkboxs[Number(req.body.checkbox.length) - 1]);
-		i = Number(req.body.checkboxs[0])
-	) {
-		data[i].query = "checkbox";
-		let str: string = "";
-		let ii = i;
-		data[i].right_ = "";
-		for (var i = 0; i < Number(req.body.answers[0]); i++) {
-			str += req.body.answertext_c[0] + ";";
-			req.body.answertext_c.shift();
-			if (req.body.radio[0] == "+") data[ii].right_ += req.body.radio[i] + ";";
-			req.body.radio.shift();
+	}
+	if (req.body.radios) {
+		for (
+			var i = Number(req.body.radios[0]);
+			i < Number(req.body.radios[Number(req.body.radios.length) - 1]);
+			i = Number(req.body.radios[0])
+		) {
+			data[i].type = "radio";
+			let str: string = "";
+			let ii = i;
+			for (var i = 0; i < Number(req.body.answers[0]); i++) {
+				str += req.body.answertext_r[0] + ";";
+				req.body.answertext_r.shift();
+				if (req.body.radio[0] == "+") data[ii].right_ = req.body.radio[i];
+				req.body.radio.shift();
+			}
+			data[i].answer = str;
+			req.body.radios.shift();
 		}
-		data[i].answer = str;
-		req.body.checkboxs.shift();
-    }}
-    if (req.body.files){
-	for (var i = 0; i < Number(req.body.files[Number(req.body.files.length) - 1]); i++) {
-		let d = Number(req.body.files[i]);
-		data[d].f = req.body.file[i];
-	}}
+	}
+	if (req.body.textboxs) {
+		for (
+			var i = Number(req.body.textbox[0]);
+			i < Number(req.body.textbox[Number(req.body.textbox.length) - 1]);
+			i = Number(req.body.textbox[0])
+		) {
+			data[i].query = "textbox";
+			let str: string = "";
+			for (var i = 0; i < req.body.textboxs.length; i++) {
+				str += req.body.textbox[0];
+				req.body.textbox.shift();
+			}
+			data[i].right_ = str;
+		}
+	}
+	if (req.body.checkboxs) {
+		for (
+			var i = Number(req.body.checkboxs[0]);
+			i < Number(req.body.checkboxs[Number(req.body.checkbox.length) - 1]);
+			i = Number(req.body.checkboxs[0])
+		) {
+			data[i].query = "checkbox";
+			let str: string = "";
+			let ii = i;
+			data[i].right_ = "";
+			for (var i = 0; i < Number(req.body.answers[0]); i++) {
+				str += req.body.answertext_c[0] + ";";
+				req.body.answertext_c.shift();
+				if (req.body.radio[0] == "+") data[ii].right_ += req.body.radio[i] + ";";
+				req.body.radio.shift();
+			}
+			data[i].answer = str;
+			req.body.checkboxs.shift();
+		}
+	}
+	if (req.body.files) {
+		for (var i = 0; i < Number(req.body.files[Number(req.body.files.length) - 1]); i++) {
+			let d = Number(req.body.files[i]);
+			data[d].f = req.body.file[i];
+		}
+	}
 	ImportJson2Ods(Number(req.params.id), data);
 	return res.redirect("/olympList");
 };
 
 export const OlympCreatePOST = async (req: Request, res: Response): Promise<any> => {
 	if (!/^([0-9])\d*$/gim.test(req.params.id)) return res.redirect("/olympList");
-    let olympInfoData = await OlympInfo.findOne(new OlympInfo().id = Number(req.params.id));
-    await OlympInfo.delete(olympInfoData!)
+	let olympInfoData = await OlympInfo.findOne((new OlympInfo().id = Number(req.params.id)));
+	await OlympInfo.delete(olympInfoData!);
 	olympInfoData!.title = req.body.title;
 	olympInfoData!.except = req.body.except;
 	olympInfoData!.description = req.body.description;
 	olympInfoData!.time = Number(req.body.time);
 	await OlympInfo.save(olympInfoData!);
-    let data: any = ParseFile(join(__dirname, "..", "database", "tests", req.params.id + ".ods"));
-    if (req.body.query){
-	for (var i = 0; i < req.body.query.length; i++) {
-		data[i].query = req.body.query[i];
-    }}
-    if (req.body.radios){
-	for (
-		var i = Number(req.body.radios[0]);
-		i < Number(req.body.radios[Number(req.body.radios.length) - 1]);
-		i = Number(req.body.radios[0])
-	) {
-		data[i].type = "radio";
-		let str: string = "";
-		let ii = i;
-		for (var i = 0; i < Number(req.body.answers[0]); i++) {
-			str += req.body.answertext_r[0] + ";";
-			req.body.answertext_r.shift();
-			if (req.body.radio[0] == "+") data[ii].right_ = req.body.radio[i];
-			req.body.radio.shift();
+	let data: any = ParseFile(join(__dirname, "..", "database", "tests", req.params.id + ".ods"));
+	if (req.body.query) {
+		for (var i = 0; i < req.body.query.length; i++) {
+			data[i].query = req.body.query[i];
 		}
-		data[i].answer = str;
-		req.body.radios.shift();
-    }}
-    if (req.body.textboxs){
-	for (
-		var i = Number(req.body.textbox[0]);
-		i < Number(req.body.textbox[Number(req.body.textbox.length) - 1]);
-		i = Number(req.body.textbox[0])
-	) {
-		data[i].query = "textbox";
-		let str: string = "";
-		for (var i = 0; i < req.body.textboxs.length; i++) {
-			str += req.body.textbox[0];
-			req.body.textbox.shift();
+	}
+	if (req.body.radios) {
+		for (
+			var i = Number(req.body.radios[0]);
+			i < Number(req.body.radios[Number(req.body.radios.length) - 1]);
+			i = Number(req.body.radios[0])
+		) {
+			data[i].type = "radio";
+			let str: string = "";
+			let ii = i;
+			for (var i = 0; i < Number(req.body.answers[0]); i++) {
+				str += req.body.answertext_r[0] + ";";
+				req.body.answertext_r.shift();
+				if (req.body.radio[0] == "+") data[ii].right_ = req.body.radio[i];
+				req.body.radio.shift();
+			}
+			data[i].answer = str;
+			req.body.radios.shift();
 		}
-		data[i].right_ = str;
-    }}
-    if (req.body.checkboxs){
-	for (
-		var i = Number(req.body.checkboxs[0]);
-		i < Number(req.body.checkboxs[Number(req.body.checkbox.length) - 1]);
-		i = Number(req.body.checkboxs[0])
-	) {
-		data[i].query = "checkbox";
-		let str: string = "";
-		let ii = i;
-		data[i].right_ = "";
-		for (var i = 0; i < Number(req.body.answers[0]); i++) {
-			str += req.body.answertext_c[0] + ";";
-			req.body.answertext_c.shift();
-			if (req.body.radio[0] == "+") data[ii].right_ += req.body.radio[i] + ";";
-			req.body.radio.shift();
+	}
+	if (req.body.textboxs) {
+		for (
+			var i = Number(req.body.textbox[0]);
+			i < Number(req.body.textbox[Number(req.body.textbox.length) - 1]);
+			i = Number(req.body.textbox[0])
+		) {
+			data[i].query = "textbox";
+			let str: string = "";
+			for (var i = 0; i < req.body.textboxs.length; i++) {
+				str += req.body.textbox[0];
+				req.body.textbox.shift();
+			}
+			data[i].right_ = str;
 		}
-		data[i].answer = str;
-		req.body.checkboxs.shift();
-    }}
-    if (req.body.files){
-	for (var i = 0; i < Number(req.body.files[Number(req.body.files.length) - 1]); i++) {
-		let d = Number(req.body.files[i]);
-		data[d].f = req.body.file[i];
-	}}
+	}
+	if (req.body.checkboxs) {
+		for (
+			var i = Number(req.body.checkboxs[0]);
+			i < Number(req.body.checkboxs[Number(req.body.checkbox.length) - 1]);
+			i = Number(req.body.checkboxs[0])
+		) {
+			data[i].query = "checkbox";
+			let str: string = "";
+			let ii = i;
+			data[i].right_ = "";
+			for (var i = 0; i < Number(req.body.answers[0]); i++) {
+				str += req.body.answertext_c[0] + ";";
+				req.body.answertext_c.shift();
+				if (req.body.radio[0] == "+") data[ii].right_ += req.body.radio[i] + ";";
+				req.body.radio.shift();
+			}
+			data[i].answer = str;
+			req.body.checkboxs.shift();
+		}
+	}
+	if (req.body.files) {
+		for (var i = 0; i < Number(req.body.files[Number(req.body.files.length) - 1]); i++) {
+			let d = Number(req.body.files[i]);
+			data[d].f = req.body.file[i];
+		}
+	}
 	ImportJson2Ods(Number(req.params.id), data);
 	return res.redirect("/olympList");
 };
@@ -295,4 +308,4 @@ export const OlympCreatePOST = async (req: Request, res: Response): Promise<any>
 export const OlympCreate = async (req: Request, res: Response): Promise<any> => {
 	let usr = req.cookies.usr;
 	return res.render("olympConstructor", { title: "Выбор олимпиад", usr });
-}
+};
