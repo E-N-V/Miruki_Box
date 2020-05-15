@@ -3,7 +3,7 @@ import { type } from "os";
 function refresh(){
     const qd:any = document.getElementsByClassName('delete-question')
     for (let i = 0; i < qd.length; i++) {
-        qd[i].onclick = 'deleteQuest(' + i + ')';
+        qd[i].setAttribute('onclick', 'deleteQuest(' + i + ')');
     }
     const da:any = document.getElementsByClassName('delete-answer')
     for (let i = 0; i < da.length; i++) {
@@ -44,7 +44,6 @@ function deleteQuest(num:any){
 function deleteAnswer(num:any){
     const answers:any = document.getElementsByClassName('answer')
     answers[num].remove()
-    const da:any = document.getElementsByClassName('delete-answer')
     refresh()
 }
 
@@ -131,7 +130,7 @@ function toddDuty(){
         <p class="p">1</p>
         <div class="delete-question" onclick="deleteQuest(`+num+`)">-</div>
         <div class="answ_types"><input type="radio" name="answer-type_`+hiNum+`" value="radio" id="answer-type_1_`+hiNum+`"
-                onclick="changeAnswerType(`+num+`,'radio')"><label for="answer-type_1_`+hiNum+`"></label><input type="radio"
+                onclick="changeAnswerType(`+num+`,'radio')" checked><label for="answer-type_1_`+hiNum+`"></label><input type="radio"
                 name="answer-type_`+hiNum+`" value="checkbox" id="answer-type_2_`+hiNum+`"
                 onclick="changeAnswerType(`+num+`,'checkbox')"><label for="answer-type_2_`+hiNum+`"></label><input type="radio"
                 name="answer-type_`+hiNum+`" value="text" id="answer-type_3_`+hiNum+`" onclick="changeAnswerType(`+num+`,'text')"><label

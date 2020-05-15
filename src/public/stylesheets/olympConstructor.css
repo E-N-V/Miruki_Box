@@ -98,6 +98,51 @@ article .olymp-body .question span{
     color: white;
 }
 
+article .olymp-body .question span .answ_types{    
+    display: inline;
+    float: right;
+}
+
+article .olymp-body .question span .answ_types input{    
+    display: none;
+}
+
+article .olymp-body .question span .answ_types input + label{    
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+article .olymp-body .question span .answ_types input + label::before,article .olymp-body .question span .answ_types input:checked + label::before{    
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: lightgray;
+    background-size: 80%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+article .olymp-body .question span .answ_types input:checked + label::before{    
+    background-color: dodgerblue;
+}
+
+article .olymp-body .question span .answ_types input[value = radio] + label::before,article .olymp-body .question span .answ_types input[value = nothing]:checked + label::before{    
+    background-image: url(../images/radio.png);
+}
+
+article .olymp-body .question span .answ_types input[value = checkbox] + label::before,article .olymp-body .question span .answ_types input[value = code]:checked + label::before{    
+    background-image: url(../images/checkbox.png);
+}
+
+article .olymp-body .question span .answ_types input[value = text] + label::before,article .olymp-body .question span .answ_types input[value = image]:checked + label::before{    
+    background-image: url(../images/textbox.png);
+}
+
 article .olymp-body .question span p{    
     display: inline-block;
 }
@@ -106,7 +151,7 @@ article .olymp-body .question .delete-question{
     display: block;
     float: right;
     font-size: 20px;
-    padding: 0 10px;
+    padding: 3px 13px;
     background-color: red;
     color: white;
 }
@@ -194,6 +239,54 @@ article .olymp-body .question .answers .answer input[type = radio]:checked + lab
     border-radius: 100%;
 }
 
+/**/
+
+article .olymp-body .question .answers .answer input[type = checkbox]{
+    display: none;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox] + label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox] + label::before{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: lightgray;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox] + label::after{
+    content: '';
+    position: absolute;
+    background-color: none;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox]:checked + label::before{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: dodgerblue;
+}
+
+article .olymp-body .question .answers .answer input[type = checkbox]:checked + label::after{
+    content: '✓';
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: none;
+    color: white;
+}
+
+/**/
 article .olymp-body .question .answers .answer .delete-answer{
     font-size: 20px;
     padding: 0 10px;
@@ -291,11 +384,36 @@ article .olymp-body .opt-content .opt-content-values textarea{
 }
 
 article .olymp-buttons{
+    display: flex;
+    justify-content: space-between;
+}
 
+article .olymp-buttons .button-create{
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: blueviolet;
+    color: white;
 }
 
 article .olymp-buttons .button-create::before{
     content: 'Создать вопрос';
+}
+
+article .olymp-buttons .button-save{
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: blueviolet;
+    color: white;
+    justify-self: flex-end;
+    border: none;
 }
 
 article .olymp-buttons .button-save:before{
