@@ -11,3 +11,9 @@ export const ProfileView = async (req: Request, res: Response): Promise<any> => 
 	const found = await getConnection().getRepository(Founder).findOne(usr.email)
 	return res.render("profile", { title: "Профиль", iUser: arr, founder: found, usr: usr.email });
 };
+
+export const ProfilePOST = async (req: Request, res: Response): Promise<any> => {
+	if(req.body.exit_profile== "exit")
+		res.clearCookie("usr").status(200).redirect("/")
+	res.redirect("/profile")
+}
