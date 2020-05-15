@@ -21,7 +21,7 @@ block main
                         li Email: #{iUser.email}
                         li Роль: ###
                         li 
-                            form(action="", method="post")
+                            form(action="/profile", method="post")
                                 input(type="hidden", name="exit_profile" value="exit")
                                 button Выход
                         li 
