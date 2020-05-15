@@ -8,3 +8,6 @@ exports.About = async (req, res) => {
     let usr = req.cookies.usr;
     return res.render("about", { title: "О нас", usr: usr });
 };
+exports.Certificate_ = async (req, res) => {
+    return res.render("certificate", { usr: req.cookies.usr });
+};

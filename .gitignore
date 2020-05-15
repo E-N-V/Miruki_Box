@@ -5,6 +5,7 @@ build/
 tmp/
 temp/
 dist/
+ormconfig.copy.json
 yarn.lock
 ~*.*
 package-lock.json
