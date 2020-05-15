@@ -44,14 +44,14 @@ block main
                                 br
                                 .row
                                     input(type="text", value=val[i].trim(), name="answertext_r", required)
-                                    input(type="text", name="radio", id="answer_"+item.id, value="+", checked)
+                                    input(type="text", name="radio", id="answer_"+item.id, value="+", required)
                                     | + правильно, - не правильно
                             else
                                 label(for="answer_"+item.id) Ответ
                                 br
                                 .row
                                     input(type="text", value=val[i].trim(), name="answertext_r", required)
-                                    input(type="text", name="radio", id="answer_"+item.id,value="-")
+                                    input(type="text", name="radio", id="answer_"+item.id,value="-", required)
                                     | + правильно, - не правильно
                     if item.type == "checkbox"
                         input(type="hidden", name="checkboxs", value=item.id)
@@ -69,14 +69,14 @@ block main
                                     br
                                     .row
                                         input(type="text", value=val[i].trim(), name="answertext_c", required)
-                                        input(type="text", name="checkbox", id="answer_"+item.id, value="+", checked)
+                                        input(type="text", name="checkbox", id="answer_"+item.id, value="+", required)
                                         | + правильно, - не правильно
                                 else
                                     label(for="answer_"+item.id) Ответ
                                     br
                                     .row
                                         input(type="text", value=val[i].trim(), name="answertext_c", required)
-                                        input(type="text", name="checkbox", id="answer_"+item.id, value="-")
+                                        input(type="text", name="checkbox", id="answer_"+item.id, value="-", required)
                                         | + правильно, - не правильно
                     if item.type == "textbox"
                         input(type="hidden", name="textboxs", value=item.id)
