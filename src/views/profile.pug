@@ -31,7 +31,8 @@ block main
             div(class="userOlymps")
                 div(class="olympsCreation")
                     img(src="/images/gear.png", alt="")
-                    button(class="createOlymp") Создать олимпиаду
+                    a(href="/olympList/create")
+                        button(class="createOlymp") Создать олимпиаду
                     span(id="testsAmount") Всего тестов:#####
                 div(class="olympsList" id="testList")
                     p Ваши тесты
