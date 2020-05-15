@@ -87,8 +87,7 @@ exports.OlympResult = async (req, res) => {
         encoding: "utf-8",
     });
     await InProgressOlymp_1.default.delete(ipo);
-    res.cookie("oid", 0, { path: "/result/validate/trueUser/validateUser" });
-    return res.render("testResult", { title: "Результат", usr, dataParse, correct, time, time_pass });
+    return res.clearCookie("oid").status(200).render("testResult", { title: "Результат", usr, dataParse, correct, time, time_pass });
 };
 exports.OlympIdView = async (req, res) => {
     let olympId = new OlympInfo_1.default();

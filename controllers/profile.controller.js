@@ -15,3 +15,8 @@ exports.ProfileView = async (req, res) => {
     const found = await typeorm_1.getConnection().getRepository(Privilege_1.Founder).findOne(usr.email);
     return res.render("profile", { title: "Профиль", iUser: arr, founder: found, usr: usr.email });
 };
+exports.ProfilePOST = async (req, res) => {
+    if (req.body.exit_profile == "exit")
+        return res.clearCookie("usr").status(200).redirect("/");
+    return res.redirect("/profile");
+};

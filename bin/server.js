@@ -32,7 +32,7 @@ const arrRoutes = [home_router_1.default, login_router_1.default, register_route
  * Init Web-site
  */
 const app = new app_1.default({
-    port: process.env.PORT || 3000,
+    port: 5000,
     routes: arrRoutes,
     middleWares: arrMiddlewares,
 });

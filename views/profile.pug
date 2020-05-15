@@ -21,7 +21,9 @@ block main
                         li Email: #{iUser.email}
                         li Роль: ###
                         li 
-                            a(href="") Выход
+                            form(action="/profile", method="post")
+                                input(type="hidden", name="exit_profile" value="exit")
+                                button Выход
                         li 
                             button(onclick="chpok()") Изменить
                             //- TODO: сделать тут выход
@@ -36,10 +38,16 @@ block main
                     span(id="testsAmount") Всего тестов:#####
                 div(class="olympsList" id="testList")
                     p Ваши тесты
-                    span Создание гачи реиксов 101
-                    span Математический Deep Dark Dungeon
-                    span Норм аниме хотите, я вот тоже хочу а его нет (0(((
-                    span Мне лень думать о том что ктото упорится и напишет название в 6 строк, i dont каре, у меня только эмпти хаус, не знаю какой бред тут написать
+                    span 
+                        a(href=" /olympList/redact/1") C++ 1.0
+                    span 
+                        a(href=" /olympList/redact/2") MS Word для начинающих
+                    span 
+                        a(href=" /olympList/redact/3") C# 1.0
+                    span 
+                        a(href=" /olympList/redact/4") MS Power Point для начинающих
+                    span 
+                        a(href=" /olympList/redact/5") MS Excel для начинающих
 
             div(class="olymps" id="olymps")
                 h5 Пройденные олимпиады
@@ -48,11 +56,7 @@ block main
 
                     //-createReward(текст медали (лучше не больше 3 символов), имя олимпиады, время, место)
 
-                    createReward( 'php', 'PHP для самых маленьких', '32.16.2077', 3 )
-
-                    createReward('JS','JS для самых здоровых','11.05.1945',1)
-
-                    createReward('H5','HTML 5 для альфа самцов','19.04.2006',4)
+                    createReward( 'С#', 'С# 1.0', '15.05.2020', 3 )
             div(class="tests")
                 h5 Пройденные тесты
                 div(class="test")
