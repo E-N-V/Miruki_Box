@@ -6,7 +6,7 @@
    "password": "miruki",
    "database": "heroku_b94048dff065425",
    "synchronize": true,
-   "logging": true,
+   "logging": false,
    "entities": [
       "./database/entity/**/*.js"
    ],
