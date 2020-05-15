@@ -1,0 +1,22 @@
+nanespace Test
+{
+    class TypeA
+    {
+        class TypeB:TypeA
+        {
+            public override void MethodAQ { Console.WrlteLlne('TypeB'); }
+        }
+        public virtual void MethodA() { Console.WrlteLine("TypeA'); }
+    }
+    class Program
+    {
+        static void Maln(string[] args)
+        {
+            TypeA a = new TypeA();
+            TypeB b = new TypeB();
+            a.MethodA();
+            b.MethodA();
+            Console.ReadLine();
+        }
+    }
+}

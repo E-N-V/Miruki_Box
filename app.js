@@ -92,7 +92,7 @@ class app {
             /**
              * Init OlympInfo table
              */
-            let file = ParseOlympFile_1.ParseFile(path_1.join(__dirname, "..", "test", "olymp_info.ods"));
+            let file = ParseOlympFile_1.ParseFile(path_1.join(__dirname, "test", "olymp_info.ods"));
             let olympInfo = new OlympInfo_1.default();
             for (const item of file) {
                 olympInfo.id = item.id;

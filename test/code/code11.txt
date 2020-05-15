@@ -1,0 +1,26 @@
+#include <iostream> 
+#include <memory> 
+ 
+class A 
+{ 
+public:     
+    A() { func(); } 
+     
+    virtual void func() { std::cout << "A" ; }     
+}; 
+ 
+class B : public A 
+{ 
+public: 
+    B() { func(); } 
+     
+    void func() { std::cout << "B" ;  } 
+}; 
+ 
+int main() 
+{ 
+    std::auto_ptr< A > obj( new B );     
+    obj->func(); 
+ 
+    return 0; 
+} 
